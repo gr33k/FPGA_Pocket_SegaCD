@@ -1,0 +1,20 @@
+{
+  "slot_name": "genesis_rom_slot",
+  "interface": {
+    "address_bits": 24,
+    "address_lsb": 1,
+    "data_bits": 16,
+    "read_request": "rom_slot_req",
+    "read_address": "rom_slot_addr",
+    "read_data": "rom_slot_data",
+    "read_valid": "rom_slot_valid",
+    "ready": "rom_slot_ready"
+  },
+  "loading_model": "streaming_per_request",
+  "constraints": {
+    "no_preload_buffer_required": true,
+    "host_must_service_requests": true,
+    "byte_addressed": true
+  },
+  "notes": "No on-core cartridge file system, no save state restore, no SRAM export path."
+}

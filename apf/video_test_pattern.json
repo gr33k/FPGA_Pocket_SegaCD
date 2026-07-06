@@ -1,0 +1,38 @@
+{
+  "name": "pocket_feasibility_test_pattern",
+  "type": "generator",
+  "active": true,
+  "description": "Placeholder deterministic test card for APF video bring-up.",
+  "frame_rate_hz": 60,
+  "resolution": {
+    "width": 320,
+    "height": 240
+  },
+  "pattern": {
+    "kind": "rgb_curtain",
+    "sections": [
+      {
+        "name": "top_bar",
+        "start_row": 0,
+        "end_row": 59,
+        "pixel": { "r": 255, "g": 0, "b": 0 }
+      },
+      {
+        "name": "middle_bar",
+        "start_row": 60,
+        "end_row": 179,
+        "pixel": { "r": 0, "g": 0, "b": 0 },
+        "overlay": "checker_8x8"
+      },
+      {
+        "name": "bottom_bar",
+        "start_row": 180,
+        "end_row": 239,
+        "pixel": { "r": 0, "g": 0, "b": 255 }
+      }
+    ]
+  },
+  "fallback": {
+    "solid_color": { "r": 0, "g": 0, "b": 0 }
+  }
+}

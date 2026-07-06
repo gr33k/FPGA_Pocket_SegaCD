@@ -1,0 +1,15 @@
+{
+  "name": "silent_output_staged_path",
+  "mode": "placeholder",
+  "channels": 2,
+  "sample_format": "s16",
+  "sample_rate_hz": 48000,
+  "runtime_default": "silent",
+  "buffer_frames": 1024,
+  "signature": {
+    "left_amp": 0,
+    "right_amp": 0,
+    "dc_offset": 0
+  },
+  "notes": "No audio synthesis logic is wired in this skeleton. This is a mute/no-op audio contract for APF bring-up."
+}

@@ -1,0 +1,51 @@
+{
+  "project": "Pocket_MegaCD_Feasibility",
+  "revision": "v0.2.0",
+  "target": "Analogue Pocket / OpenFPGA",
+  "core_name": "genesis_megacd_feasibility_base",
+  "entry_top": "apf_genesis_base",
+  "version": {
+    "major": 0,
+    "minor": 2,
+    "patch": 0
+  },
+  "notes": {
+    "status": "skeleton_with_base_wrapper",
+    "sega_cd_logic_instantiated": false,
+    "x32x_logic_instantiated": false,
+    "genesis_base_modifications": false,
+    "rom_load_path": "apf_data_slot"
+  },
+  "ports": {
+    "rom_slot": {
+      "address_width": 24,
+      "addr_lsb": 1,
+      "ready_signal": "rom_slot_ready",
+      "valid_signal": "rom_slot_valid"
+    },
+    "video": {
+      "r": "video_r",
+      "g": "video_g",
+      "b": "video_b",
+      "hsync": "video_hsync",
+      "vsync": "video_vsync",
+      "de": "video_de",
+      "format": "rgb888"
+    },
+    "audio": {
+      "left": "audio_left",
+      "right": "audio_right",
+      "channels": 2,
+      "format": "s16"
+    },
+    "controllers": {
+      "pad_count": 1,
+      "pad_width": 12,
+      "signal": "pad1"
+    }
+  },
+  "compatibility": {
+    "base": "Genesis_MiSTer",
+    "safety": "No behavior changes to existing core files in this milestone"
+  }
+}

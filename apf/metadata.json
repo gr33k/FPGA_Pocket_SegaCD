@@ -1,0 +1,20 @@
+{
+  "type": "pocket_apf_skeleton",
+  "generated_for": "Genesis_MiSTer",
+  "creation_date_utc": "2026-07-06",
+  "milestone": 3,
+  "constraints": {
+    "no_scd_logic": true,
+    "no_32x_logic": true,
+    "no_save_states": true,
+    "no_fancy_menu": true,
+    "no_core_file_changes": true,
+    "apf_dir_only": true,
+    "new_files_only": true
+  },
+  "required_next": [
+    "Wire APF ROM slot to physical host firmware contract",
+    "Implement clock tree and reset policy for Pocket fabric",
+    "Replace placeholder field values with validated toolchain JSON schema"
+  ]
+}
