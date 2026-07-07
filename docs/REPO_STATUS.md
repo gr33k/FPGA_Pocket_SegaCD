@@ -39,11 +39,11 @@
 - Task 6I added local Quartus toolchain validation workflow and docs.
 - Task 6J re-ran validation and confirmed local `quartus_map` remains undiscovered (`QUARTUS_MAP`/`QUARTUS_ROOTDIR` unset), so blocker remains **TOOLCHAIN_UNAVAILABLE**.
 - Task 6M added no-Quartus static runtime dependency prep:
-  - created `docs/TASK6M_NO_QUARTUS_STATIC_RUNTIME_PREP.md`,
-  - created `docs/NO_QUARTUS_FALLBACK_PLAN.md`,
-  - created `docs/GENESIS_RUNTIME_STATIC_DEPENDENCY_REPORT.md`,
-  - created `docs/GENESIS_RUNTIME_CANDIDATE_SOURCE_LIST.md`,
+  - added `docs/TASK6M_NO_QUARTUS_GENESIS_RUNTIME_INTEGRATION_SPRINT.md`,
+  - added `docs/NO_QUARTUS_GENESIS_RUNTIME_STATIC_REPORT.md`,
+  - added `docs/GENESIS_RUNTIME_CANDIDATE_SOURCES.md`,
   - added `quartus/files_genesis_runtime.candidate.qsf` (candidate/source planning only).
+- Task 6M also added `docs/APF_TO_GENESIS_INTERFACE_REVIEW.md`, `docs/NO_QUARTUS_LINT_PROBE_RESULT.md`, and `tools/run_no_quartus_runtime_lint_probe.sh`.
 - `docs/TASK5W_QUARTUS_PLACEHOLDER_PROJECT_FILES.md` now records Task 5W scope and constraints.
 - Imported runtime RTL remains unmodified and is treated as read-only in this phase.
 - `docs/GENESIS_RUNTIME_FIRST_COMPILE_ERRORS.md` records advisory probe output and tool constraints.
@@ -59,6 +59,7 @@
   - Smoke-test configuration and build wiring checklist documents for task 5E.
   - Real-runtime compile-probe planning docs and source-list tightening notes.
   - Mixed-language and Quartus planning docs for Tasks 5Q/5R/5S/5T/5U/5W/5X and 6A-6B-6C/6D.
+  - Task 6M static runtime prep docs and candidate artifacts.
 - Kept in `quartus/`:
   - `README.md` and `notes_mixed_language.md`.
   - Active/placeholder mixed project structure files:
@@ -72,6 +73,7 @@
   - `check_quartus_placeholder_hygiene.sh` (Task 5X verification helper).
   - `preflight_quartus_analysis_only.sh` (Task 6C-6D preflight, no tool execution).
   - `run_quartus_analysis_only_if_available.sh` (Task 6C-6E analysis-only attempt wrapper).
+  - `run_no_quartus_runtime_lint_probe.sh` (Task 6M no-Quartus lint probe; no Quartus required).
   - `run_quartus_analysis_only_if_available.sh` (Task 6F toolchain discovery upgrade).
 - No other runtime behavior was modified outside APF scaffold files during this milestone.
 
@@ -81,6 +83,7 @@
 - Imported `third_party/Genesis_MiSTer` is present and tracked as read-only runtime input for this phase.
 - APF packaging output generation is still deferred.
 - No CD hardware path and no memory-controller implementation.
+- No Quartus lint runtime integration tools are available in this environment for Task 6M (`verilator` / `iverilog` missing).
 
 ## Planned next steps
 
@@ -91,6 +94,7 @@
 - Task 6I now requires local toolchain validation before any source-activation attempt.
 - Task 6J should be completed before any runtime source-activation attempt; toolchain is still unresolved on this host.
 - Runtime source activation is explicitly paused under Task 6M Branch A2 (no-Quartus static lane).
+- Task 6M lane remains active for static planning: no runtime activation, no mixed-language enablement, no compile until Quartus is discoverable.
 - If validation passes, next task should rerun analysis-only before changing runtime activation.
 - Task 6E/6F execution context is documented via [docs/TASK6C_6E_QUARTUS_ANALYSIS_ONLY_ATTEMPT.md](docs/TASK6C_6E_QUARTUS_ANALYSIS_ONLY_ATTEMPT.md), [docs/TASK6F_QUARTUS_TOOLCHAIN_DISCOVERY.md](docs/TASK6F_QUARTUS_TOOLCHAIN_DISCOVERY.md), [docs/QUARTUS_ANALYSIS_ONLY_RESULT.md](docs/QUARTUS_ANALYSIS_ONLY_RESULT.md).
 - Real project conversion remains deferred to preserve safe incremental scope.

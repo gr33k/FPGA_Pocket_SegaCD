@@ -33,3 +33,8 @@
   - Task 6M now continues static-prep lane planning only (Branch A2) with no runtime activation.
   - If validation fails: remain on `TOOLCHAIN_UNAVAILABLE` (current state).
   - If validation passes: mark as ready for analysis-only re-test.
+
+## 6M no-Quartus lane note
+- Task 6M expanded static planning by adding candidate manifests and an interface review.
+- This lane remains source-agnostic and non-activating until toolchain is available.
+- Keep `files_genesis_runtime.candidate.qsf` as a planning artifact and out of active Quartus lists.

@@ -59,9 +59,9 @@ For `quartus/files_apf_scaffold.qsf`, confirm:
 
 ## 5a) Confirm Task 6M static-prep artifacts
 
-- Review [docs/GENESIS_RUNTIME_STATIC_DEPENDENCY_REPORT.md](docs/GENESIS_RUNTIME_STATIC_DEPENDENCY_REPORT.md).
-- Review [docs/GENESIS_RUNTIME_CANDIDATE_SOURCE_LIST.md](docs/GENESIS_RUNTIME_CANDIDATE_SOURCE_LIST.md) for ordered advisory entries.
-- Review [docs/NO_QUARTUS_FALLBACK_PLAN.md](docs/NO_QUARTUS_FALLBACK_PLAN.md) for static-lane rules.
+- Review [docs/NO_QUARTUS_GENESIS_RUNTIME_STATIC_REPORT.md](docs/NO_QUARTUS_GENESIS_RUNTIME_STATIC_REPORT.md).
+- Review [docs/GENESIS_RUNTIME_CANDIDATE_SOURCES.md](docs/GENESIS_RUNTIME_CANDIDATE_SOURCES.md) for ordered advisory entries.
+- Review [docs/TASK6M_NO_QUARTUS_GENESIS_RUNTIME_INTEGRATION_SPRINT.md](docs/TASK6M_NO_QUARTUS_GENESIS_RUNTIME_INTEGRATION_SPRINT.md) for static-lane rules.
 - Confirm `python3 tools/scan_verilog_deps.py --root . --entry third_party/Genesis_MiSTer/rtl/system.sv` is captured as static-only and succeeds.
 
 ## 6) Confirm constraint placeholder status
@@ -135,6 +135,26 @@ Expected: no prohibited features in active regions.
 ## 12) Confirm blocker classification before source activation
 
 - Read [docs/QUARTUS_ANALYSIS_BLOCKER_CLASSIFICATION.md](docs/QUARTUS_ANALYSIS_BLOCKER_CLASSIFICATION.md) before deciding any runtime activation branch.
+
+## 14) No-Quartus static integration checks
+
+- Confirm static prep docs before any source activation:
+  - [docs/NO_QUARTUS_GENESIS_RUNTIME_STATIC_REPORT.md](docs/NO_QUARTUS_GENESIS_RUNTIME_STATIC_REPORT.md)
+  - [docs/APF_TO_GENESIS_INTERFACE_REVIEW.md](docs/APF_TO_GENESIS_INTERFACE_REVIEW.md)
+  - [docs/NO_QUARTUS_LINT_PROBE_RESULT.md](docs/NO_QUARTUS_LINT_PROBE_RESULT.md)
+- Confirm candidate-only files stay planning-only:
+  - `apf/src/fpga/filelists/genesis_runtime_candidate.f`
+  - `docs/GENESIS_RUNTIME_CANDIDATE_SOURCES.md`
+  - `quartus/files_genesis_runtime.candidate.qsf`
+- Confirm candidate source list is not active in Quartus skeleton files:
+  - `grep -R "files_genesis_runtime.candidate.qsf" quartus/*.qsf quartus/*.qpf`
+- Confirm no generated outputs are committed by this lane:
+  - `find quartus -maxdepth 2 -type f \( -name '*.sof' -o -name '*.pof' -o -name '*.jic' -o -name '*.rpd' -o -name '*.rbf' -o -name '*.rbf_r' \) -print`
+  - `test ! -e quartus/output_files`
+  - `test ! -e quartus/db`
+  - `test ! -e quartus/incremental_db`
+  - `test ! -e quartus/greybox_tmp`
+  - `test ! -e quartus/simulation`
 
 ## 13) Confirm selected next branch
 
