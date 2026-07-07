@@ -16,7 +16,6 @@ Related checklist docs added in Task 5S:
 - [Quartus source-group mapping](docs/QUARTUS_SOURCE_GROUP_MAPPING_DRY_RUN.md)
 - [OpenFPGA packaging deferred plan](docs/OPENFPGA_PACKAGING_DEFERRED_PLAN.md)
 - [Task 5V quartus docs directory](docs/TASK5V_QUARTUS_DOCS_DIRECTORY.md)
-- [Quartus directory README](quartus/README.md)
 - [Quartus mixed-language notes](quartus/notes_mixed_language.md)
 - [Task 5X placeholder hygiene validation](docs/TASK5X_QUARTUS_PLACEHOLDER_HYGIENE_VALIDATION.md)
 - [Task 5X hygiene report](docs/QUARTUS_PLACEHOLDER_HYGIENE_REPORT.md)
@@ -27,8 +26,10 @@ Current status:
 - Runtime compile remains inactive until real project + manifest + mixed-language flow are implemented.
 - Task 5W created the documentation-only `quartus/README.md`, `quartus/notes_mixed_language.md` and placeholder project files.
 - Task 5X adds `tools/check_quartus_placeholder_hygiene.sh` to document non-buildable placeholder safety.
-- Task 5Y adds the controlled activation gate checklist and conversion plan before any placeholder becomes active.
+- Task 5Y added the controlled activation gate checklist and conversion plan before any placeholder becomes active.
 - Task 5Z converted the top-level `FPGA_Pocket_SegaCD.qpf`/`.qsf` into active skeleton form.
+- Task 6A updated hygiene validation for mixed active-skeleton and placeholder states.
+- Task 6B activated the APF-owned `files_apf_scaffold.qsf` source list only.
 
 ## Real runtime boundary rules
 
@@ -37,12 +38,13 @@ Current status:
 - Do not use imported MiSTer top-level `Genesis.sv` as the APF top.
 - Keep `sys/sys_top.v` and HPS/IOCTL framework files excluded unless explicitly planned and required later.
 
-## Activation status after 5Z
+## Activation status after 6B
 
 - `docs/QUARTUS_ACTIVATION_GATE_CHECKLIST.md` defines all pre-activation gates.
-- Placeholder-to-active conversion has completed top-level shell conversion (Task 5Z) only.
-- Source include activation remains deferred (`*.qsf` includes and constraints).
-- `tools/check_quartus_placeholder_hygiene.sh` must be updated in Task 6A to distinguish active skeleton from non-buildable placeholders.
+- Top-level shell conversion was completed in Task 5Z.
+- APF source include activation completed in Task 6B.
+- Source include for Genesis runtime remains deferred in `quartus/files_genesis_runtime.qsf`.
+- `tools/check_quartus_placeholder_hygiene.sh` now handles active-skeleton and placeholder categories separately.
 - `apf/src/fpga/sim/apf_genesis_base_stub.sv` remains excluded from active synthesis paths.
 - Synthesis remains disabled and no Quartus run output is expected in this milestone.
 
@@ -50,6 +52,7 @@ Current status:
 
 - Task 5X placeholder hygiene validation does not equal successful Quartus synthesis.
 - This is an advisory pass only and must not be interpreted as build-readiness.
+- Task 6A+6B updates are still scaffold-level and non-run.
 
 ## Exclusions and deferrals
 
@@ -64,7 +67,6 @@ Current status:
 - Mixed-language support must be handled by the future project configuration, not by editing upstream runtime modules.
 - VHDL-backed dependencies found in runtime planning are blockers for pure Verilog-only local probe flows.
 
-## Task 5S follow-up
+## Task 6C follow-up
 
-- Task 5S should define a future skeleton checklist for Quartus/openFPGA files and validation steps without creating any files.
-- Task 5U added the dry-run plan and future file mapping for Quartus skeleton creation (documentation-only).
+- Task 6C should define a controlled Quartus analysis-only verification plan (command sequence only, no run yet), and keep this milestone non-run.

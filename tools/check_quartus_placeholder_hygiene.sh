@@ -6,18 +6,25 @@ REPORT_PATH="$ROOT_DIR/docs/QUARTUS_PLACEHOLDER_HYGIENE_REPORT.md"
 TEMP_REPORT="${REPORT_PATH}.tmp"
 RUN_TIMESTAMP="$(date -u '+%Y-%m-%d %H:%M:%S UTC')"
 
-PLACEHOLDER_FILES=(
+ACTIVE_SKELETON_FILES=(
   "quartus/FPGA_Pocket_SegaCD.qpf"
   "quartus/FPGA_Pocket_SegaCD.qsf"
+)
+
+NON_BUILDABLE_PLACEHOLDER_FILES=(
   "quartus/FPGA_Pocket_SegaCD.sdc"
-  "quartus/files_apf_scaffold.qsf"
   "quartus/files_genesis_runtime.qsf"
   "quartus/files_constraints.qsf"
 )
 
-REQUIRED_MARKERS=(
-  "NON-BUILDABLE PLACEHOLDER"
-  "DO NOT RUN SYNTHESIS FROM THIS FILE YET"
+APF_SCAFFOLD_FILES=(
+  "quartus/files_apf_scaffold.qsf"
+)
+
+ALL_CHECK_FILES=(
+  "${ACTIVE_SKELETON_FILES[@]}"
+  "${NON_BUILDABLE_PLACEHOLDER_FILES[@]}"
+  "${APF_SCAFFOLD_FILES[@]}"
 )
 
 FORBIDDEN_PATTERNS=(
@@ -66,14 +73,14 @@ This report is advisory and does not claim synthesis success.
 
 ## Files checked
 REPORT
-for file in "${PLACEHOLDER_FILES[@]}"; do
+for file in "${ALL_CHECK_FILES[@]}"; do
     printf "%s\n" "- $file" >> "$TEMP_REPORT"
 done
 printf "\n" >> "$TEMP_REPORT"
 } > "$TEMP_REPORT"
 
-section "1) Placeholder file existence"
-for file in "${PLACEHOLDER_FILES[@]}"; do
+section "1) Quartus control file existence"
+for file in "${ALL_CHECK_FILES[@]}"; do
   if [[ -f "$ROOT_DIR/$file" ]]; then
     log PASS "Exists: $file"
   else
@@ -81,9 +88,43 @@ for file in "${PLACEHOLDER_FILES[@]}"; do
   fi
 done
 
-section "2) Required marker presence"
-for file in "${PLACEHOLDER_FILES[@]}"; do
-  for marker in "${REQUIRED_MARKERS[@]}"; do
+section "2) Active skeleton markers"
+for file in "${ACTIVE_SKELETON_FILES[@]}"; do
+  if grep -Fq "ACTIVE SKELETON" "$ROOT_DIR/$file"; then
+    log PASS "Marker 'ACTIVE SKELETON' in $file"
+  else
+    log FAIL "Marker 'ACTIVE SKELETON' in $file"
+  fi
+
+  if grep -Fq "DO NOT RUN SYNTHESIS YET" "$ROOT_DIR/$file"; then
+    log PASS "Marker 'DO NOT RUN SYNTHESIS YET' in $file"
+  else
+    log FAIL "Marker 'DO NOT RUN SYNTHESIS YET' in $file"
+  fi
+done
+
+section "3) Placeholder marker presence"
+for file in "${NON_BUILDABLE_PLACEHOLDER_FILES[@]}"; do
+  if grep -Fq "NON-BUILDABLE PLACEHOLDER" "$ROOT_DIR/$file"; then
+    log PASS "Marker 'NON-BUILDABLE PLACEHOLDER' in $file"
+  else
+    log FAIL "Marker 'NON-BUILDABLE PLACEHOLDER' in $file"
+  fi
+
+  if grep -Fq "DO NOT RUN SYNTHESIS FROM THIS FILE YET" "$ROOT_DIR/$file"; then
+    log PASS "Marker 'DO NOT RUN SYNTHESIS FROM THIS FILE YET' in $file"
+  else
+    log FAIL "Marker 'DO NOT RUN SYNTHESIS FROM THIS FILE YET' in $file"
+  fi
+done
+
+section "4) APF scaffold source include markers"
+for file in "${APF_SCAFFOLD_FILES[@]}"; do
+  for marker in \
+    "ACTIVE SCAFFOLD SOURCE LIST" \
+    "DO NOT RUN SYNTHESIS YET" \
+    "APF SCAFFOLD ONLY" \
+    "GENESIS RUNTIME NOT ACTIVE YET"; do
     if grep -Fq "$marker" "$ROOT_DIR/$file"; then
       log PASS "Marker '$marker' in $file"
     else
@@ -92,8 +133,8 @@ for file in "${PLACEHOLDER_FILES[@]}"; do
   done
 done
 
-section "3) Forbidden source reference check"
-for file in "${PLACEHOLDER_FILES[@]}"; do
+section "5) Forbidden source reference check"
+for file in "${ALL_CHECK_FILES[@]}"; do
   local_failed=0
   for pattern in "${FORBIDDEN_PATTERNS[@]}"; do
     if grep -Fq "$pattern" "$ROOT_DIR/$file"; then
@@ -106,7 +147,7 @@ for file in "${PLACEHOLDER_FILES[@]}"; do
   fi
 done
 
-section "4) Generated output files"
+section "6) Generated output files"
 BAD_EXT_FOUND=0
 BAD_EXTENSIONS=("*.sof" "*.pof" "*.jic" "*.rpd" "*.rbf" "*.rbf_r")
 for ext in "${BAD_EXTENSIONS[@]}"; do
@@ -122,7 +163,7 @@ if [[ "$BAD_EXT_FOUND" -eq 0 ]]; then
   log PASS "No generated output files matched known binary markers"
 fi
 
-section "5) Generated output directories"
+section "7) Generated output directories"
 OUTPUT_DIRS=("build" "output_files" "db" "incremental_db" "simulation" "greybox_tmp")
 for dir in "${OUTPUT_DIRS[@]}"; do
   if [[ -d "$ROOT_DIR/$dir" ]]; then
@@ -132,7 +173,7 @@ for dir in "${OUTPUT_DIRS[@]}"; do
   fi
 done
 
-section "6) Imported runtime cleanliness"
+section "8) Imported runtime cleanliness"
 if [[ -d "$ROOT_DIR/third_party/Genesis_MiSTer" ]]; then
   if submodule_status="$(git -C "$ROOT_DIR" submodule status third_party/Genesis_MiSTer 2>/dev/null || true)"; then
     if [[ -n "$submodule_status" ]]; then
@@ -159,7 +200,7 @@ else
   log FAIL "third_party/Genesis_MiSTer path not found"
 fi
 
-section "7) .gitignore generated-output rules"
+section "9) .gitignore generated-output rules"
 if [[ -f "$ROOT_DIR/.gitignore" ]]; then
   for token in "build/" "output_files/" "db/" "incremental_db/" "*.sof" "*.rbf" "*.rbf_r"; do
     if grep -Fq -- "$token" "$ROOT_DIR/.gitignore"; then

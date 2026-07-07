@@ -1,26 +1,34 @@
-# Quartus Active Skeleton Status (Task 5Z)
+# Quartus Active Skeleton Status (Task 6A-6B)
 
 ## Active skeleton files
 
 - `quartus/FPGA_Pocket_SegaCD.qpf`
 - `quartus/FPGA_Pocket_SegaCD.qsf`
 
-These two files are now first active skeletons and remain non-run.
+These two files are active skeletons and remain non-run.
 
-## Still-placeholder files
+## APF-only scaffold source include
+
+- `quartus/files_apf_scaffold.qsf`
+
+This file is now active as an APF scaffold source list and includes only:
+- `apf/src/fpga/core/core_top.v`
+- `apf/src/fpga/core/rom_preload_ingress_stub.v`
+- `apf/src/fpga/core/rom_local_service_stub.v`
+- `apf/src/fpga/core/rom_tiny_local_ram_stub.v`
+- `apf/apf_genesis_base.sv`
+
+## Placeholder files still inactive
 
 - `quartus/FPGA_Pocket_SegaCD.sdc`
-- `quartus/files_apf_scaffold.qsf`
 - `quartus/files_genesis_runtime.qsf`
 - `quartus/files_constraints.qsf`
 
-These files still contain non-buildable placeholder constraints/include structure and are intentionally not activated yet.
+These still carry non-buildable placeholder intent only.
 
 ## Not created yet
 
 - `quartus/openfpga_build.tcl`
-
-No automation script has been created or required in this milestone.
 
 ## Not generated
 
@@ -40,5 +48,6 @@ This is not synthesis-ready.
 No games are expected to boot from this stage.
 
 Validation note:
-- Running the current hygiene script after this conversion will show an expected placeholder-marker mismatch for the two active skeleton files.
-- Task 6A is expected to update the validator to separate active skeleton handling from placeholder-only policy.
+- Task 6A updated the validator for active-skeleton/placeholder distinction.
+- Runtime and constraints source includes remain inactive as expected.
+- `apf_genesis_base.sv` still depends on runtime entry points not yet active.

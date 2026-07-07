@@ -1,20 +1,14 @@
-# NON-BUILDABLE PLACEHOLDER
-# DO NOT RUN SYNTHESIS FROM THIS FILE YET
-# SOURCE LISTS ARE PROVISIONAL
-# MIXED-LANGUAGE FLOW IS NOT FINAL
-# IMPORTED GENESIS_MISTER RTL MUST REMAIN READ-ONLY
+# ACTIVE SCAFFOLD SOURCE LIST
+# DO NOT RUN SYNTHESIS YET
+# APF SCAFFOLD ONLY
+# GENESIS RUNTIME NOT ACTIVE YET
+#
+# Relative paths in this file are from quartus/
+#
+# Task 6A-6B: activate APF-owned scaffold source entries only.
 
-# APF scaffold source placeholder include list (Task 5W)
-#
-# Planned source group (non-buildable skeleton):
-# set_global_assignment -name VERILOG_FILE apf/src/fpga/core/core_top.v
-# set_global_assignment -name VERILOG_FILE apf/src/fpga/core/rom_preload_ingress_stub.v
-# set_global_assignment -name VERILOG_FILE apf/src/fpga/core/rom_local_service_stub.v
-# set_global_assignment -name VERILOG_FILE apf/src/fpga/core/rom_tiny_local_ram_stub.v
-# set_global_assignment -name SYSTEMVERILOG_FILE apf/apf_genesis_base.sv
-#
-# Exclusions (provisional):
-# - apf/src/fpga/sim/
-#
-# NOTE: active compile-order, compile libs, and include directives are pending
-# dependency confirmation.
+set_global_assignment -name VERILOG_FILE ../apf/src/fpga/core/core_top.v
+set_global_assignment -name VERILOG_FILE ../apf/src/fpga/core/rom_preload_ingress_stub.v
+set_global_assignment -name VERILOG_FILE ../apf/src/fpga/core/rom_local_service_stub.v
+set_global_assignment -name VERILOG_FILE ../apf/src/fpga/core/rom_tiny_local_ram_stub.v
+set_global_assignment -name SYSTEMVERILOG_FILE ../apf/apf_genesis_base.sv

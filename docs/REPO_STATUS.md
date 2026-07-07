@@ -30,6 +30,8 @@
 - Task 5X added Quartus placeholder hygiene validation docs and a non-invasive script.
 - Task 5Y added controlled Quartus activation planning and removed `rg` dependency from hygiene checks.
 - Task 5Z converted `quartus/FPGA_Pocket_SegaCD.qpf` and `quartus/FPGA_Pocket_SegaCD.qsf` to active-but-not-run skeletons.
+- Task 6A updated Quartus hygiene validation to separate active-skeleton files, non-buildable placeholders, and scaffold-source active list state.
+- Task 6B activated `quartus/files_apf_scaffold.qsf` as APF-only scaffold source list (no runtime, no constraints, no build automation).
 - `docs/TASK5W_QUARTUS_PLACEHOLDER_PROJECT_FILES.md` now records Task 5W scope and constraints.
 - Imported runtime RTL remains unmodified and is treated as read-only in this phase.
 - `docs/GENESIS_RUNTIME_FIRST_COMPILE_ERRORS.md` records advisory probe output and tool constraints.
@@ -67,8 +69,9 @@
 
 ## Planned next steps
 
-- Continue 5Z documentation state updates where needed.
-- Task 6A should update `tools/check_quartus_placeholder_hygiene.sh` to support mixed active-skeleton/placeholder states.
+- Continue 6B and 6C documentation/state updates where needed.
+- Task 6A has completed the hygiene validator split; `docs/QUARTUS_PLACEHOLDER_HYGIENE_REPORT.md` should be regenerated after edits.
+- Task 6C should document controlled analysis-only Quartus verification commands.
 - Real project conversion remains deferred to preserve safe incremental scope.
 - Synthesis is still not run.
 - Runtime source integration and constraints are still deferred.
