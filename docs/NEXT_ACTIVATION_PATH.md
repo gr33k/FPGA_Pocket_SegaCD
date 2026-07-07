@@ -27,6 +27,19 @@ Task 7A confirmed the repository is now blocked by Quartus availability, not run
   2. Re-run staged install and validate `quartus_map`.
   3. Re-run `tools/run_openfpga_genesis_analysis_only.sh` and classify first real Quartus analysis errors.
 
+## Task 7D status (same hard-stop)
+
+- Hard-stop remains: no staged Quartus installer was found, so analysis-only run did not start.
+- Installer check used:
+  - `/root/fpga/installers`
+  - patterns `*quartus*.run`, `*Quartus*.run`, `*quartus*.sh`, `*Quartus*.sh`, `*Quartus*.tar`, `*Quartus*.tar.gz`
+- `quartus_map` not available.
+- No fitter/assembler/timing/bitstream run.
+- Next action remains unchanged:
+  1. Stage a valid Quartus Prime Lite installer in `/root/fpga/installers` (preferably 21.1.1 Lite).
+  2. Install outside the repo.
+  3. Rerun Task 7D installer+analysis flow.
+
 ## Task 6Z status (historical)
 
 Task 6Z added a Quartus-gated analysis-only runner for the `openFPGA-Genesis` lane.

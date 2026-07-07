@@ -1,9 +1,9 @@
-# Task 7C: openFPGA Genesis first-analysis errors
+# Task 7D: openFPGA Genesis first-analysis errors
 
 ## Status
 
 - Analysis-elaboration did not run.
-- Blocker: no staged Quartus Lite installer and no `quartus_map` available on NAS (Task 7C hard stop).
+- Blocker: no staged Quartus Lite installer and no `quartus_map` available on NAS (Task 7D hard stop).
 
 ## Local status
 
@@ -25,7 +25,7 @@
   - `/root/fpga/installers` (maxdepth 2)
   - No installer package found for Quartus Lite.
 
-## Task 7C execution summary
+## Task 7D execution summary
 
 - `find /root/fpga/installers -maxdepth 2 ...` did not return an installer filename.
 - No Quartus installation could be attempted from a staged package.
