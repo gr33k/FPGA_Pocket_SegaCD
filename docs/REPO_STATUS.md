@@ -55,6 +55,15 @@ Date: 2026-07-07
   - `docs/TASK7B_QUARTUS_INSTALL_STATUS.md`
   - `docs/OPENFPGA_GENESIS_FIRST_ANALYSIS_ERRORS.md`
 
+## Task 7C status
+
+- Task attempted per staged-installer flow; no Quartus package was found in `/root/fpga/installers`.
+- Hard-stop: Task 7C did not install Quartus because no installer could be discovered.
+- `quartus_map` remains unavailable on NAS.
+- Analysis-only runner was not executed due this hard-stop.
+- `docs/TASK7C_QUARTUS_INSTALL_AND_ANALYSIS_STATUS.md` added with full blocker evidence.
+- `docs/OPENFPGA_GENESIS_FIRST_ANALYSIS_ERRORS.md` updated to reflect Task 7C blocked state.
+
 ## Task 6S status
 
 - Added Docker-based Quartus build-host preparation scaffold under `docker/`.

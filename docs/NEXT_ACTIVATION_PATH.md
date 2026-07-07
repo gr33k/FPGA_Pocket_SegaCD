@@ -16,6 +16,17 @@ Task 7A confirmed the repository is now blocked by Quartus availability, not run
   2. Validate `quartus_map` and rerun analysis-only gating.
   3. If analysis runs, classify the first real errors; if not, keep this task active and do not progress implementation.
 
+## Task 7C status (attempted install/analysis hard-stop)
+
+- Attempted NAS install workflow check using staged-installer path requirements.
+- No installer package was found in `/root/fpga/installers` (searched common installer patterns), so Task 7C could not install Quartus.
+- `quartus_map` remains unavailable on the NAS build host.
+- Analysis-only runner was not executed; no fitter/assembler/timing/bitstream step run.
+- Next action remains:
+  1. Stage a valid Quartus Prime Lite installer under `/root/fpga/installers`.
+  2. Re-run staged install and validate `quartus_map`.
+  3. Re-run `tools/run_openfpga_genesis_analysis_only.sh` and classify first real Quartus analysis errors.
+
 ## Task 6Z status (historical)
 
 Task 6Z added a Quartus-gated analysis-only runner for the `openFPGA-Genesis` lane.
