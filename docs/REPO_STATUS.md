@@ -1,6 +1,25 @@
 # FPGA_Pocket_SegaCD repository status
 
-Date: 2026-07-06
+Date: 2026-07-07
+
+## Task 6Z status
+
+- Added `openFPGA-Genesis` analysis-only Quartus runner and check:
+  - `tools/run_openfpga_genesis_analysis_only.sh`
+  - `tools/check_openfpga_genesis_analysis_runner.sh`
+- Added status/check outputs:
+  - `docs/OPENFPGA_GENESIS_ANALYSIS_ONLY_STATUS.md`
+  - `docs/OPENFPGA_GENESIS_ANALYSIS_RUNNER_CHECK.md`
+  - `docs/OPENFPGA_GENESIS_ANALYSIS_ONLY_LOG.txt`
+- Confirmed openFPGA lane assumptions:
+  - `PROJECT_REVISION = ap_core`
+  - `TOP_LEVEL_ENTITY = apf_top`
+  - `DEVICE = 5CEBA4F23C8`
+- Runner is gated on Quartus availability and currently reports:
+  - `BLOCKED: quartus_map not found`
+- `Genesis_MiSTer` remains reference-only.
+- `openFPGA-Genesis` remains the active implementation lane for this milestone.
+- Sega CD and 32X remain excluded.
 
 ## Task 6S status
 

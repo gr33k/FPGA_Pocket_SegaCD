@@ -1,5 +1,30 @@
 # Next activation path after Task 6Q
 
+## Task 6Z status (current lane blocker)
+
+Task 6Z added a safe, Quartus-gated analysis-only runner for the `openFPGA-Genesis` lane:
+
+- `tools/run_openfpga_genesis_analysis_only.sh` (only `quartus_map --analysis_and_elaboration`)
+- `tools/check_openfpga_genesis_analysis_runner.sh` (advisory, no Quartus required)
+
+Current behavior:
+
+- `ap_core` / `apf_top` assumptions are still sourced from `third_party/openFPGA-Genesis/src/fpga/ap_core.qsf`.
+- Runner status is tracked in `docs/OPENFPGA_GENESIS_ANALYSIS_ONLY_STATUS.md`.
+- Runner check report is tracked in `docs/OPENFPGA_GENESIS_ANALYSIS_RUNNER_CHECK.md`.
+- `docs/OPENFPGA_GENESIS_ANALYSIS_ONLY_LOG.txt` is generated if Quartus runs.
+
+Blocking condition remains:
+
+- `quartus_map` is still not available on this local host.
+- The next run should stay analysis-only and must not run fitter/assembler/timing/bitstream generation.
+
+Next:
+
+1. Restore Quartus availability and rerun `./tools/run_openfpga_genesis_analysis_only.sh`.
+2. Keep this task at analysis/elaboration only until source closure is clear.
+3. Continue existing staged package/SD host workflow once first analysis output is available.
+
 Current milestone target remains blocked by missing local Quartus execution, so we
 keep this stage as package/layout scaffolding with an explicit host handoff.
 
