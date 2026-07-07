@@ -5,6 +5,7 @@
 - Probe source manifest used for compile dependency capture: `apf/src/fpga/core/genesis_runtime_compile_probe.draft.f`
 - Task 5P tightened this list from static inspection only (no local compile confirmation).
 - Task 5Q adds: mixed-language compile strategy is required for complete runtime dependency proof.
+- Task 5R adds: eventual order and inclusion must be moved into a proper Quartus/openFPGA project flow.
 - Compile order is provisional and not final.
 
 ## Intended runtime chain
@@ -77,3 +78,4 @@
 - No runtime game-boot milestone is implied by this list.
 - This list remains a planning manifest and must be validated by supported compile tooling.
 - Real mixed-language compile integration remains pending until a mixed-language-capable flow is used.
+- Current draft is inactive and not directly consumable as a Quartus source list.

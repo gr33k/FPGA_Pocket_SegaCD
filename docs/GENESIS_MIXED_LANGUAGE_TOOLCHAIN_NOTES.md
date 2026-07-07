@@ -1,5 +1,10 @@
 # Genesis Mixed-Language Toolchain Notes
 
+## Task 5R update
+
+- Task 5R establishes Quartus/openFPGA project planning as the preferred future mixed-language integration path.
+- Verilator and iverilog remain limited, advisory probes only.
+
 ## Option 1: Quartus project flow (recommended long-term)
 
 - Most likely required eventually for Analogue Pocket/openFPGA build.

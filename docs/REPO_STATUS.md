@@ -21,6 +21,7 @@
 - Task 5O added a compile-probe workflow for the real runtime boundary and recorded first-error capture scaffolding.
 - Task 5P tightened the compile-probe source list by static inspection to confirmed files only.
 - Task 5Q documented mixed-language compile strategy and flow constraints.
+- Task 5R documented APF Quartus/openFPGA project planning and structure approach.
 - Imported runtime RTL remains unmodified and is treated as read-only in this phase.
 - `docs/GENESIS_RUNTIME_FIRST_COMPILE_ERRORS.md` records advisory probe output and tool constraints.
 
@@ -34,7 +35,7 @@
   - Repository status summary.
   - Smoke-test configuration and build wiring checklist documents for task 5E.
   - Real-runtime compile-probe planning docs and source-list tightening notes.
-  - Mixed-language strategy/docs for Task 5Q.
+  - Mixed-language and Quartus planning docs for Tasks 5Q and 5R.
 - No other runtime behavior was modified outside APF scaffold files during this milestone.
 
 - Runtime source-list planning is still inactive and not compile-ready.
@@ -57,7 +58,7 @@
 ## Planned runtime import tasks
 
 - Task 5M: completed submodule add for `third_party/Genesis_MiSTer`.
-- Task 5R: prepare an APF Quartus/openFPGA project planning document.
+- Task 5S: create a future Quartus/openFPGA skeleton checklist (documentation only).
 - Remaining runtime integration remains planning/verification work (compile-oriented dependency pass, manifest completion, and filelist updates).
 - Current docs:
   - [docs/TASK5L_GENESIS_IMPORT_STRATEGY.md](docs/TASK5L_GENESIS_IMPORT_STRATEGY.md)
@@ -69,6 +70,9 @@
   - [docs/TASK5Q_MIXED_LANGUAGE_COMPILE_STRATEGY.md](docs/TASK5Q_MIXED_LANGUAGE_COMPILE_STRATEGY.md)
   - [docs/GENESIS_MIXED_LANGUAGE_TOOLCHAIN_NOTES.md](docs/GENESIS_MIXED_LANGUAGE_TOOLCHAIN_NOTES.md)
   - [docs/GENESIS_COMPILE_FLOW_OPTIONS.md](docs/GENESIS_COMPILE_FLOW_OPTIONS.md)
+  - [docs/TASK5R_APF_QUARTUS_PROJECT_PLAN.md](docs/TASK5R_APF_QUARTUS_PROJECT_PLAN.md)
+  - [docs/APF_PROJECT_STRUCTURE_PLAN.md](docs/APF_PROJECT_STRUCTURE_PLAN.md)
+  - [docs/QUARTUS_OPENFPGA_INTEGRATION_NOTES.md](docs/QUARTUS_OPENFPGA_INTEGRATION_NOTES.md)
 
 ## Repo-path hygiene
 - Keep project links repo-relative.

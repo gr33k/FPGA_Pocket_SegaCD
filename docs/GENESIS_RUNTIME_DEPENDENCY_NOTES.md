@@ -1,10 +1,10 @@
-# Genesis Runtime Dependency Notes (Task 5Q updates)
+# Genesis Runtime Dependency Notes (Task 5R updates)
 
-## Task 5Q status
+## Task 5R status
 
-- Mixed-language compile strategy planning has been added.
-- `Task5Q` documents why the current probe cannot complete VHDL-backed dependencies.
-- Static inspection is still advisory and did not change any runtime source.
+- APF Quartus/openFPGA project planning is now documented as the eventual integration route.
+- This is still a planning milestone and does not imply build success.
+- `Task5R` preserves imported runtime read-only handling and does not add synthesis files.
 
 ## Confirmed active (static) dependency set by subsystem
 
