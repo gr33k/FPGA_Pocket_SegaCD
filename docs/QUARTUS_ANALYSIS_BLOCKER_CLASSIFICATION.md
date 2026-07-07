@@ -1,7 +1,7 @@
 # Quartus Analysis Blocker Classification
 
 ## Date/time
-- 2026-07-07 03:09:04 UTC
+- 2026-07-07 03:20:21 UTC
 
 ## Path inspected
 - [docs/QUARTUS_ANALYSIS_ONLY_RESULT.md](docs/QUARTUS_ANALYSIS_ONLY_RESULT.md)
@@ -28,6 +28,7 @@
 - Document/verify local Quartus install/path and stop runtime activation for now.
 - Keep `files_genesis_runtime.qsf` inactive.
 - Keep analysis-only classification as advisory until a local Quartus toolchain can be discovered.
-- Task 6I added local toolchain validation; rerun this classification after validation:
-  - if validation fails: remain on `TOOLCHAIN_UNAVAILABLE`
-  - if validation passes: mark as ready for analysis-only re-test (not yet resolved)
+- Task 6I/6J added local toolchain validation reruns; this check was re-run and still failed.
+  - 6J verification outcome: `QUARTUS_MAP` and `QUARTUS_ROOTDIR` are unset and no executable `quartus_map` was discovered.
+  - If validation fails: remain on `TOOLCHAIN_UNAVAILABLE` (current state).
+  - If validation passes: mark as ready for analysis-only re-test.

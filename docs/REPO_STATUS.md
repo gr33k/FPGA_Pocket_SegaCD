@@ -37,6 +37,7 @@
 - Task 6F added Quartus toolchain discovery (QUARTUS_MAP/QUARTUS_ROOTDIR/common-path probing) to the analysis-only runner.
 - Task 6G-6H classified the blocker from the latest analysis result as **TOOLCHAIN_UNAVAILABLE** and added activation-path docs.
 - Task 6I added local Quartus toolchain validation workflow and docs.
+- Task 6J re-ran validation and confirmed local `quartus_map` remains undiscovered (`QUARTUS_MAP`/`QUARTUS_ROOTDIR` unset), so blocker remains **TOOLCHAIN_UNAVAILABLE**.
 - `docs/TASK5W_QUARTUS_PLACEHOLDER_PROJECT_FILES.md` now records Task 5W scope and constraints.
 - Imported runtime RTL remains unmodified and is treated as read-only in this phase.
 - `docs/GENESIS_RUNTIME_FIRST_COMPILE_ERRORS.md` records advisory probe output and tool constraints.
@@ -82,7 +83,7 @@
 - If discovery finds quartus_map, analysis-only is attempted and any errors/warnings are captured in result docs.
 - Task 6G classified the result as TOOLCHAIN_UNAVAILABLE and selected Branch A.
 - Task 6I now requires local toolchain validation before any source-activation attempt.
-- Task 6I should document local Quartus toolchain setup and validation before any runtime activation branch.
+- Task 6J should be completed before any runtime source-activation attempt; toolchain is still unresolved on this host.
 - If validation passes, next task should rerun analysis-only before changing runtime activation.
 - Task 6E/6F execution context is documented via [docs/TASK6C_6E_QUARTUS_ANALYSIS_ONLY_ATTEMPT.md](docs/TASK6C_6E_QUARTUS_ANALYSIS_ONLY_ATTEMPT.md), [docs/TASK6F_QUARTUS_TOOLCHAIN_DISCOVERY.md](docs/TASK6F_QUARTUS_TOOLCHAIN_DISCOVERY.md), [docs/QUARTUS_ANALYSIS_ONLY_RESULT.md](docs/QUARTUS_ANALYSIS_ONLY_RESULT.md).
 - Real project conversion remains deferred to preserve safe incremental scope.

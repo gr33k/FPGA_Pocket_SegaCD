@@ -9,7 +9,8 @@ This document defines the safe next-step branch after the current analysis block
 - **Condition:** `quartus_map` not discoverable; analysis-only not run.
 - **Decision:** Do not activate runtime source lists yet. Do not claim synthesis readiness.
 - **Why this branch:** The latest result file shows no `quartus_map` command execution; only advisory preflight reporting is available.
-- **Next action:** run local Quartus toolchain validation via `tools/validate_local_quartus_toolchain.sh` and keep project activation paused at current skeleton state while blocked.
+- **Current action:** Task 6J re-ran local Quartus validation and still did not discover `quartus_map`; keep project activation paused at current skeleton state.
+- **Next action:** run local Quartus toolchain validation via `tools/validate_local_quartus_toolchain.sh` after installing/updating Quartus and keep project activation paused while blocked.
 
 ### Validation gate for Branch A
 
