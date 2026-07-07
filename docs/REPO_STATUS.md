@@ -26,6 +26,23 @@ Date: 2026-07-07
 - `openFPGA-Genesis` remains the active implementation lane for this milestone.
 - Sega CD and 32X remain excluded.
 
+## Task 7A status
+
+- Attempted Quartus restoration/run task from both local host and NAS.
+- Local Quartus:
+  - `command -v quartus_map`: not found.
+- NAS (`root@192.168.10.144`) Quartus:
+  - `command -v quartus_map`: not found.
+- No Quartus installer artifacts found in the checked installer/installer-script locations.
+- `tools/run_openfpga_genesis_analysis_only.sh` remained blocked on both hosts due unavailable `quartus_map`.
+- No fitter/assembler/timing/bitstream steps were run.
+- `third_party/openFPGA-Genesis` remained clean/read-only in this flow.
+- `third_party/Genesis_MiSTer` remains reference-only.
+- Sega CD/32X remain excluded.
+- Added blocker documentation:
+  - `docs/TASK7A_QUARTUS_ANALYSIS_RUN_STATUS.md`
+  - `docs/OPENFPGA_GENESIS_FIRST_ANALYSIS_ERRORS.md`
+
 ## Task 6S status
 
 - Added Docker-based Quartus build-host preparation scaffold under `docker/`.
