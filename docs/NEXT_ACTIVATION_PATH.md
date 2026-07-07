@@ -4,6 +4,18 @@
 
 Task 7A confirmed the repository is now blocked by Quartus availability, not runner safety.
 
+## Task 7B status (current blocker refinement)
+
+- NAS validation confirmed that no Quartus installer package is currently staged in checked installer directories and no `quartus_map` executable is present.
+- First 7B result is intentionally hard-stop: no analysis pass can run until toolchain binary exists on NAS.
+- 7B blocker outputs:
+  - `docs/TASK7B_QUARTUS_INSTALL_STATUS.md`
+  - `docs/OPENFPGA_GENESIS_FIRST_ANALYSIS_ERRORS.md` (no analyses yet; explicit no-run reason captured)
+- Next action:
+  1. Install or copy a Quartus Lite installer to the NAS workflow path and complete the documented install path.
+  2. Validate `quartus_map` and rerun analysis-only gating.
+  3. If analysis runs, classify the first real errors; if not, keep this task active and do not progress implementation.
+
 ## Task 6Z status (historical)
 
 Task 6Z added a Quartus-gated analysis-only runner for the `openFPGA-Genesis` lane.

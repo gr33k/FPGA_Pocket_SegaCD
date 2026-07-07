@@ -1,28 +1,35 @@
-# Task 7A: openFPGA Genesis first-analysis errors
+# Task 7B: openFPGA Genesis first-analysis errors
 
 ## Status
 
 - Analysis-elaboration did not run.
-- Blocker: Quartus tool unavailable (`quartus_map` not found).
+- Blocker: no Quartus Lite installer and no `quartus_map` available on NAS.
 
-## Local path checks
+## Local status
 
 - `command -v quartus_map`: no output.
-- Search for local Quartus install paths returned no binary.
+- Local install search found no `quartus_map` binary in checked paths.
 
-## NAS path checks
+## NAS status
 
-- `command -v quartus_map` on NAS: no output.
-- Search for NAS Quartus install and installer artifacts returned only repo scripts, no installer bundle.
+- `command -v quartus_map`: no output.
+- `find /opt /root/fpga /Data /mnt /srv -path "*quartus/bin/quartus_map"` returned no hits.
+- Installer search under:
+  - `/root/fpga/installers`
+  - `/Data`
+  - `/mnt`
+  - `/srv`
+  - `/opt`
+  found no installer (`*.run`, `*.sh`, `*.tar`, `*.tar.gz`).
 
 ## Error evidence
 
-No Quartus compile was executed, so no Quartus compile errors are available yet.
+No Quartus compile was executed, so there are no Quartus diagnostics to classify yet.
 
-## Suggested next action
+## Recommended next action
 
-1. Install or make available a local Quartus toolchain and ensure `quartus_map` is runnable.
-2. Re-run:
+1. Place Quartus Prime Lite installer into `/root/fpga/installers`.
+2. Re-run documented install flow, then:
    - `tools/run_openfpga_genesis_analysis_only.sh`
    - `tools/check_openfpga_genesis_analysis_runner.sh`
-3. If still blocked by missing symbols/modules, classify the first real errors in this same format.
+3. If Quartus runs and fails, capture first meaningful errors into this file and classify the primary root cause.

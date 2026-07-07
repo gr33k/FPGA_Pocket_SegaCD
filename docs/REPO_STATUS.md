@@ -43,6 +43,18 @@ Date: 2026-07-07
   - `docs/TASK7A_QUARTUS_ANALYSIS_RUN_STATUS.md`
   - `docs/OPENFPGA_GENESIS_FIRST_ANALYSIS_ERRORS.md`
 
+## Task 7B status
+
+- Escalation moved to NAS-only validation for Quartus install availability and path gating.
+- Checked NAS and searched installer locations; no Quartus installer package found.
+- Checked for `quartus_map` on NAS; none available in PATH or searched common install locations.
+- `tools/run_openfpga_genesis_analysis_only.sh` remains blocked by missing `quartus_map`.
+- `tools/run_quartus_analysis_only_if_available.sh` not executed.
+- Exact blocker remains unchanged: no Quartus executable exists on the NAS build host yet.
+- Created/updated 7B blocker report:
+  - `docs/TASK7B_QUARTUS_INSTALL_STATUS.md`
+  - `docs/OPENFPGA_GENESIS_FIRST_ANALYSIS_ERRORS.md`
+
 ## Task 6S status
 
 - Added Docker-based Quartus build-host preparation scaffold under `docker/`.
