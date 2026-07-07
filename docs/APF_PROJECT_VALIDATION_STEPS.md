@@ -58,7 +58,14 @@ Expected: clean for this workspace.
 - No host-per-read ROM loading runtime behavior is introduced in these files.
 - No memory-controller integration is activated yet.
 
-## 9) Confirm Task 5X expectation
+## 9) Confirm Task 5X requirement
+
+- Run: `tools/check_quartus_placeholder_hygiene.sh`
+- Confirm the generated report: `docs/QUARTUS_PLACEHOLDER_HYGIENE_REPORT.md`
+- Use this validation before any conversion from placeholder files to real project files.
+- Task 5X validates hygiene only; it does not claim synthesis readiness.
+
+## 10) Confirm Task 5X expectation
 
 Task 5X should only validate hygiene and placeholder scope, not claim synthesis,
 build success, or playable boot behavior.

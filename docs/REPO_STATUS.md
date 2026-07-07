@@ -22,11 +22,12 @@
 - Task 5P tightened the compile-probe source list by static inspection to confirmed files only.
 - Task 5Q documented mixed-language compile strategy and flow constraints.
 - Task 5R documented APF Quartus/openFPGA project planning and structure approach.
-- Task 5S documented future Quartus/openFPGA project skeleton, file checklist, and validation checks.
+- Task 5S documented future Quartus/openFPGA project skeleton, validation checks, and checklist.
 - Task 5T implemented generated-output ignore rules in `.gitignore`.
 - Task 5U added Quartus project dry-run planning documentation.
 - Task 5V created `quartus/` documentation-only directory entries.
 - Task 5W added non-buildable Quartus placeholder project files under `quartus/`.
+- Task 5X added Quartus placeholder hygiene validation docs and a non-invasive script.
 - `docs/TASK5W_QUARTUS_PLACEHOLDER_PROJECT_FILES.md` now records Task 5W scope and constraints.
 - Imported runtime RTL remains unmodified and is treated as read-only in this phase.
 - `docs/GENESIS_RUNTIME_FIRST_COMPILE_ERRORS.md` records advisory probe output and tool constraints.
@@ -41,7 +42,7 @@
   - Repository status summary.
   - Smoke-test configuration and build wiring checklist documents for task 5E.
   - Real-runtime compile-probe planning docs and source-list tightening notes.
-  - Mixed-language and Quartus planning docs for Tasks 5Q/5R/5S/5T/5U/5W.
+  - Mixed-language and Quartus planning docs for Tasks 5Q/5R/5S/5T/5U/5W/5X.
 - Kept in `quartus/`:
   - `README.md` and `notes_mixed_language.md`.
   - Non-buildable placeholder project structure files for Task 5W:
@@ -51,6 +52,8 @@
     - `files_apf_scaffold.qsf`
     - `files_genesis_runtime.qsf`
     - `files_constraints.qsf`
+- Kept in `tools/`:
+  - `check_quartus_placeholder_hygiene.sh` (Task 5X verification helper).
 - No other runtime behavior was modified outside APF scaffold files during this milestone.
 
 ## Scope state this milestone
@@ -67,3 +70,4 @@
   - exclusion list compliance
   - no outputs committed
   - no forbidden runtime/system path activation
+- Task 5Y should define a controlled activation plan for moving from placeholder to a first real Quartus project skeleton.

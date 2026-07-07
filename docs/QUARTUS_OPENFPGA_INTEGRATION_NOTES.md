@@ -18,12 +18,15 @@ Related checklist docs added in Task 5S:
 - [Task 5V quartus docs directory](docs/TASK5V_QUARTUS_DOCS_DIRECTORY.md)
 - [Quartus directory README](quartus/README.md)
 - [Quartus mixed-language notes](quartus/notes_mixed_language.md)
+- [Task 5X placeholder hygiene validation](docs/TASK5X_QUARTUS_PLACEHOLDER_HYGIENE_VALIDATION.md)
+- [Task 5X hygiene report](docs/QUARTUS_PLACEHOLDER_HYGIENE_REPORT.md)
 
 Current status:
 - Actual project creation and file emission remain fully deferred.
 - Real synthesis remains disabled in this milestone.
 - Runtime compile remains inactive until real project + manifest + mixed-language flow are implemented.
-- Task 5V created the documentation-only `quartus/README.md` and `quartus/notes_mixed_language.md`.
+- Task 5W created the documentation-only `quartus/README.md`, `quartus/notes_mixed_language.md` and placeholder project files.
+- Task 5X adds `tools/check_quartus_placeholder_hygiene.sh` to document non-buildable placeholder safety.
 
 ## Real runtime boundary rules
 
@@ -31,6 +34,11 @@ Current status:
 - Do not use `apf/src/fpga/sim/apf_genesis_base_stub.sv` in real synthesis.
 - Do not use imported MiSTer top-level `Genesis.sv` as the APF top.
 - Keep `sys/sys_top.v` and HPS/IOCTL framework files excluded unless explicitly planned and required later.
+
+## Hygiene validation note
+
+- Task 5X placeholder hygiene validation does not equal successful Quartus synthesis.
+- This is an advisory pass only and must not be interpreted as build-readiness.
 
 ## Exclusions and deferrals
 

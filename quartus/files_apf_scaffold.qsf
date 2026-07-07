@@ -3,7 +3,7 @@
 # SOURCE LISTS ARE PROVISIONAL
 # MIXED-LANGUAGE FLOW IS NOT FINAL
 # IMPORTED GENESIS_MISTER RTL MUST REMAIN READ-ONLY
-#
+
 # APF scaffold source placeholder include list (Task 5W)
 #
 # Planned source group (non-buildable skeleton):
@@ -14,8 +14,7 @@
 # set_global_assignment -name SYSTEMVERILOG_FILE apf/apf_genesis_base.sv
 #
 # Exclusions (provisional):
-# - apf/src/fpga/sim/apf_genesis_base_stub.sv
-# - apf/src/fpga/sim/*
+# - apf/src/fpga/sim/
 #
 # NOTE: active compile-order, compile libs, and include directives are pending
 # dependency confirmation.

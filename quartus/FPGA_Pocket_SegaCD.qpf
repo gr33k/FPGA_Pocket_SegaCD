@@ -12,7 +12,7 @@
 # Do not run Quartus build commands against this file.
 #
 # Project name (informational only).
-# PROJECT_NAME FPGA_Pocket_SegaCD
+# PROJECT_NAME FPGA_Pocket_Genesis_APF
 #
 # When a real build pipeline exists, this file should point to:
 # - a known APF-safe openFPGA top-level

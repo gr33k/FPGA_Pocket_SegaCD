@@ -20,6 +20,7 @@ Task 5W added the following files as non-buildable placeholders:
 - [x] Runtime outputs and simulation stubs remain excluded.
 - [x] No active output settings are included.
 - [x] Synthesis/build remains disabled.
+- [x] Task 5X hygiene validation now exists via `tools/check_quartus_placeholder_hygiene.sh`.
 
 ## Not done yet
 
@@ -27,3 +28,4 @@ Task 5W added the following files as non-buildable placeholders:
 - APF package build target flow
 - Final clock/pin/timing constraints
 - Confirmed runtime compile integration manifest
+- Task 5Y activation plan for converting placeholders into first real project skeleton (still deferred)
