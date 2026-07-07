@@ -162,7 +162,7 @@ fi
 section "7) .gitignore generated-output rules"
 if [[ -f "$ROOT_DIR/.gitignore" ]]; then
   for token in "build/" "output_files/" "db/" "incremental_db/" "*.sof" "*.rbf" "*.rbf_r"; do
-    if rg -qF "$token" "$ROOT_DIR/.gitignore"; then
+    if grep -Fq -- "$token" "$ROOT_DIR/.gitignore"; then
       log PASS ".gitignore contains: $token"
     else
       log FAIL ".gitignore missing: $token"

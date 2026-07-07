@@ -21,6 +21,7 @@ Task 5W added the following files as non-buildable placeholders:
 - [x] No active output settings are included.
 - [x] Synthesis/build remains disabled.
 - [x] Task 5X hygiene validation now exists via `tools/check_quartus_placeholder_hygiene.sh`.
+- [x] Task 5Y activation gate plan added and gates defined for controlled placeholder activation.
 
 ## Not done yet
 
@@ -28,4 +29,5 @@ Task 5W added the following files as non-buildable placeholders:
 - APF package build target flow
 - Final clock/pin/timing constraints
 - Confirmed runtime compile integration manifest
-- Task 5Y activation plan for converting placeholders into first real project skeleton (still deferred)
+- Task 5Y activation plan for converting placeholders into first real project skeleton (added now; conversion still deferred to Task 5Z)
+- Active Quartus conversion should not occur until all gate checklist items pass.

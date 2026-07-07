@@ -27,6 +27,7 @@ Current status:
 - Runtime compile remains inactive until real project + manifest + mixed-language flow are implemented.
 - Task 5W created the documentation-only `quartus/README.md`, `quartus/notes_mixed_language.md` and placeholder project files.
 - Task 5X adds `tools/check_quartus_placeholder_hygiene.sh` to document non-buildable placeholder safety.
+- Task 5Y adds the controlled activation gate checklist and conversion plan before any placeholder becomes active.
 
 ## Real runtime boundary rules
 
@@ -34,6 +35,14 @@ Current status:
 - Do not use `apf/src/fpga/sim/apf_genesis_base_stub.sv` in real synthesis.
 - Do not use imported MiSTer top-level `Genesis.sv` as the APF top.
 - Keep `sys/sys_top.v` and HPS/IOCTL framework files excluded unless explicitly planned and required later.
+
+## Activation status after 5Y
+
+- `docs/QUARTUS_ACTIVATION_GATE_CHECKLIST.md` defines all pre-activation gates.
+- Placeholder-to-active conversion is still deferred to Task 5Z.
+- `tools/check_quartus_placeholder_hygiene.sh` must pass before and after any future placeholder conversion.
+- `apf/src/fpga/sim/apf_genesis_base_stub.sv` remains excluded from active synthesis paths.
+- Synthesis remains disabled and no Quartus run output is expected in this milestone.
 
 ## Hygiene validation note
 

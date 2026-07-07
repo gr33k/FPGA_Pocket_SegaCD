@@ -28,6 +28,7 @@
 - Task 5V created `quartus/` documentation-only directory entries.
 - Task 5W added non-buildable Quartus placeholder project files under `quartus/`.
 - Task 5X added Quartus placeholder hygiene validation docs and a non-invasive script.
+- Task 5Y added controlled Quartus activation planning and removed `rg` dependency from hygiene checks.
 - `docs/TASK5W_QUARTUS_PLACEHOLDER_PROJECT_FILES.md` now records Task 5W scope and constraints.
 - Imported runtime RTL remains unmodified and is treated as read-only in this phase.
 - `docs/GENESIS_RUNTIME_FIRST_COMPILE_ERRORS.md` records advisory probe output and tool constraints.
@@ -65,9 +66,11 @@
 
 ## Planned next steps
 
-- Task 5X should perform placeholder-hygiene validation:
+- Task 5X performed placeholder-hygiene validation:
   - marker presence
   - exclusion list compliance
   - no outputs committed
   - no forbidden runtime/system path activation
-- Task 5Y should define a controlled activation plan for moving from placeholder to a first real Quartus project skeleton.
+- Task 5Y defined a controlled activation plan for moving from placeholder to a first real Quartus project skeleton.
+- Task 5Z should convert only top-level Quartus placeholder files to the first active shell skeleton.
+- Real project conversion remains deferred to preserve safe incremental scope.

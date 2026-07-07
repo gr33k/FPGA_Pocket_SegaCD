@@ -23,9 +23,18 @@ Each file above must include:
 
 ## 3) Confirm no forbidden synthesis sources are present
 
-- `rg -n "Genesis.sv|sys/sys_top.v|ioctl|CD|32X|save|psram|sdram|sram" quartus/*.qsf quartus/*.qpf quartus/*.sdc`
+- `grep -nE "Genesis.sv|sys/sys_top.v|ioctl|CD|32X|save|psram|sdram|sram" quartus/*.qsf quartus/*.qpf quartus/*.sdc || true`
 
 Expected: only placeholder notes and scaffold intent references.
+
+### Task 5Y: activation gate hygiene workflow
+
+- Confirm `tools/check_quartus_placeholder_hygiene.sh` does not require `rg`:
+  - `grep -n "rg" tools/check_quartus_placeholder_hygiene.sh || true`
+  - This should return no active `rg` dependency.
+- Add Task 5Y gate checks before any placeholder-to-active conversion.
+- Run `tools/check_quartus_placeholder_hygiene.sh` again after any placeholder conversion step.
+- Keep the check as an advisory pre/post-step for each conversion phase.
 
 ## 4) Confirm no generated outputs now
 
@@ -64,6 +73,11 @@ Expected: clean for this workspace.
 - Confirm the generated report: `docs/QUARTUS_PLACEHOLDER_HYGIENE_REPORT.md`
 - Use this validation before any conversion from placeholder files to real project files.
 - Task 5X validates hygiene only; it does not claim synthesis readiness.
+
+## 10) Confirm Task 5Y gate checks
+
+- Confirm `docs/QUARTUS_ACTIVATION_GATE_CHECKLIST.md` is complete and reviewed.
+- Re-run the Task 5X hygiene check after any placeholder conversion edits.
 
 ## 10) Confirm Task 5X expectation
 
