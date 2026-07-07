@@ -95,7 +95,7 @@ PRIMITIVE_MODULES = {
     "tranif1",
 }
 
-MODULE_DECL_RE = re.compile(r"^\s*module\s+([A-Za-z_][A-Za-z0-9_]*)\\b", re.MULTILINE)
+MODULE_DECL_RE = re.compile(r"^\s*module\s+([A-Za-z_][A-Za-z0-9_]*\b)", re.MULTILINE)
 SUSPECT_INSTANT_RE = re.compile(
     r"^\s*([A-Za-z_][A-Za-z0-9_]*)\s+([A-Za-z_][A-Za-z0-9_]*)\s*(#\s*\()?\s*\(",
     re.MULTILINE,
