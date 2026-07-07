@@ -192,7 +192,19 @@ Deferred:
 - Sega CD until Genesis boots
 - 32X until Genesis boots and resource/timing cost is evaluated
 
-Quartus remains blocked until a Quartus Lite Linux installer is placed on the NAS.
+
+## Task 7G status
+
+- Added URL-based Quartus installer staging helper support without repo/runtime changes:
+  - `tools/stage_quartus_installer_from_url.sh`
+  - `tools/check_quartus_installer_staging_helper.sh`
+- Added staging/check reporting docs:
+  - `docs/QUARTUS_INSTALLER_STAGING_STATUS.md`
+  - `docs/QUARTUS_INSTALLER_STAGING_HELPER_CHECK.md`
+- Updated `docs/DOCKER_QUARTUS_INSTALL_WORKFLOW.md` with Option B (`QUARTUS_INSTALLER_URL`) usage.
+- No installer, Docker image layers, or installed Quartus directories were committed.
+- No fitter/assembler/timing commands were added or run in this task.
+- Toolchain remains blocked until a signed installer is available and staged under `/root/fpga/installers`.
 
 ## Task 7F status (blocked by missing installer)
 

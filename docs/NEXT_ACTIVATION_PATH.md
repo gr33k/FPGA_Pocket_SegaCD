@@ -172,6 +172,22 @@ After this strategy lock:
 - No save state support yet.
 - No host-per-read ROM streaming.
 
+## Task 7G status
+
+- Added URL staging helper for Quartus installer flow:
+  - `tools/stage_quartus_installer_from_url.sh`
+  - `tools/check_quartus_installer_staging_helper.sh`
+- Added helper status/check docs:
+  - `docs/QUARTUS_INSTALLER_STAGING_STATUS.md`
+  - `docs/QUARTUS_INSTALLER_STAGING_HELPER_CHECK.md`
+- Next path now supports two installer staging options:
+  1. Manually copy installer with `scp` into `/root/fpga/installers`, then run existing Docker install + analysis flow.
+  2. Export `QUARTUS_INSTALLER_URL` (optionally `QUARTUS_INSTALLER_NAME`, `QUARTUS_INSTALLER_SHA256`) and run `tools/stage_quartus_installer_from_url.sh`.
+- After staging is complete (via scp or URL helper): run
+  - `tools/docker_install_quartus_lite.sh`
+  - `tools/docker_run_openfpga_genesis_analysis_only.sh`
+- No Quartus compile or analysis has run yet because staging/install is still pending.
+
 ## Task 7F blocker snapshot
 
 ### Result

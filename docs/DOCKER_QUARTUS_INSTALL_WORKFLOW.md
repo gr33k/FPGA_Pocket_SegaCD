@@ -37,6 +37,35 @@ chmod +x tools/docker_install_quartus_lite.sh
 tools/docker_install_quartus_lite.sh
 ```
 
+## Option B: stage installer from a signed URL
+
+Use this flow when you already have a browser-authenticated Quartus installer URL.
+
+```sh
+export QUARTUS_INSTALLER_URL='PASTE_SIGNED_DOWNLOAD_URL_HERE'
+export QUARTUS_INSTALLER_NAME='QuartusLiteSetup.run'
+tools/stage_quartus_installer_from_url.sh
+```
+
+Then continue with the existing Docker flow:
+
+```sh
+tools/docker_install_quartus_lite.sh
+tools/docker_run_openfpga_genesis_analysis_only.sh
+```
+
+Notes:
+
+- Signed URLs may expire. If one fails with expired token errors, obtain a fresh URL.
+- The helper does **not** bypass Intel/Altera authentication.
+- Do not commit the installer file or the full URL to git.
+- This helper only stages the installer into `/root/fpga/installers`; it does not start an install by itself.
+- If authentication is required, fetch the URL with your browser first.
+
+Stage helper status output:
+
+- `docs/QUARTUS_INSTALLER_STAGING_STATUS.md`
+
 Optional override for installer arguments:
 
 ```sh
