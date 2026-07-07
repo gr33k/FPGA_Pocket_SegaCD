@@ -1,21 +1,29 @@
-# ACTIVE SKELETON - DO NOT RUN SYNTHESIS YET
-# PROJECT STRUCTURE ONLY
-# SOURCE LISTS ARE NOT ACTIVE YET
+# GENESIS-ONLY PROJECT SHELL
+# APF SCAFFOLD SOURCE LIST EXISTS
+# GENESIS RUNTIME SOURCE LIST EXISTS
+# CONSTRAINTS STILL PLACEHOLDER
+# SEGA CD EXCLUDED
+# 32X EXCLUDED
+# DO NOT RUN FULL SYNTHESIS YET
+# FIRST QUARTUS ACTION SHOULD BE ANALYSIS/ELABORATION ONLY
 # NO BUILD OUTPUTS SHOULD BE GENERATED
 #
-# Task 5Z top-level active skeleton conversion (safe, non-run milestone).
+# Task 6P: top-level shell alignment for Genesis-only project flow.
 #
-# This file is an early project shell. It does not enable real synthesis yet.
-# Source includes and constraints remain deferred in placeholder files.
+# This top-level shell remains a safe, non-running scaffold and does not execute
+# synthesis, fitter, timing, or packaging.
+#
+# Project activation is handled by this sequencing on a Quartus-capable host:
+# 1) Apply this shell/project.
+# 2) Apply quartus/files_apf_scaffold.qsf.
+# 3) Apply quartus/files_genesis_runtime.qsf.
+# 4) Apply quartus/files_constraints.qsf.
+#
+# Candidate/source planning files remain out of active assignment paths.
 
-# Planned future top-level target (documented intent only):
+# Planned top-level target (applied during Quartus flow):
 # set_global_assignment -name TOP_LEVEL_ENTITY core_top
 
-# Runtime list activation path (Task 6O):
-# The runtime list is maintained in files_genesis_runtime.qsf.
-# This project shell is currently not run; when moving to a Quartus-capable host:
-#   1) load quartus_sh with this project
-#   2) source files_genesis_runtime.qsf as directed by Quartus CLI flow
-# Do not include files_genesis_runtime.candidate.qsf in active project paths.
-#
-# No device/package/pin/timing settings are enabled in this skeleton stage.
+## SAFE FLIGHT NOTE:
+## Direct include syntax is intentionally documented in
+## docs/GENESIS_ONLY_QUARTUS_PROJECT_FLOW.md for host execution.

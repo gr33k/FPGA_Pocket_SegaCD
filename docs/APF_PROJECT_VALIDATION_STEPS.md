@@ -15,11 +15,15 @@ Before any real Quartus/openFPGA synthesis or packaging, run these checks.
 
 For `quartus/FPGA_Pocket_SegaCD.qpf` and `quartus/FPGA_Pocket_SegaCD.qsf`, confirm they include:
 
-- `ACTIVE SKELETON`
-- `DO NOT RUN SYNTHESIS YET`
-- `PROJECT STRUCTURE ONLY`
-- `SOURCE LISTS ARE NOT ACTIVE YET`
+- `GENESIS-ONLY PROJECT SHELL`
+- `APF SCAFFOLD SOURCE LIST EXISTS`
+- `GENESIS RUNTIME SOURCE LIST EXISTS`
+- `CONSTRAINTS STILL PLACEHOLDER`
+- `DO NOT RUN FULL SYNTHESIS YET`
+- `FIRST QUARTUS ACTION SHOULD BE ANALYSIS/ELABORATION ONLY`
 - `NO BUILD OUTPUTS SHOULD BE GENERATED`
+
+Run: `tools/check_genesis_only_project_flow.sh`.
 
 ## 3) Confirm APF scaffold source list activation
 
@@ -32,11 +36,13 @@ For `quartus/files_apf_scaffold.qsf`, confirm:
   - `../apf/src/fpga/core/rom_tiny_local_ram_stub.v`
   - `../apf/apf_genesis_base.sv`
 - It includes the markers:
-  - `ACTIVE SCAFFOLD SOURCE LIST`
+  - `GENESIS-ONLY APF SCAFFOLD SOURCE LIST`
   - `DO NOT RUN SYNTHESIS YET`
-  - `APF SCAFFOLD ONLY`
-  - `GENESIS RUNTIME NOT ACTIVE YET`
+  - `APF SCAFFOLD SOURCE LIST`
+  - `GENESIS RUNTIME LIST SUPPLIED BY FILES_GENESIS_RUNTIME.QSF`
 - It does **not** include any third_party Genesis runtime files, simulation-only test files, or packaging targets.
+
+Run: `python3 tools/scan_verilog_deps.py --root . --entry third_party/Genesis_MiSTer/rtl/system.sv` and confirm no forbidden active third-party modules are newly introduced by path convention.
 
 ## 4) Run preflight script before any future analysis attempt
 
@@ -54,8 +60,10 @@ For `quartus/files_apf_scaffold.qsf`, confirm:
 
 ## 5) Confirm runtime source lists are controlled
 
-- `quartus/files_genesis_runtime.qsf` now contains a controlled Genesis-only active-start source list with clear include/defer markers.
+- `quartus/files_genesis_runtime.qsf` contains the controlled Genesis-only active-start source list with clear include/defer markers.
 - It includes `SEGA CD EXCLUDED`, `32X EXCLUDED`, and mixed-language dependencies as comments.
+
+Run: `tools/check_genesis_only_project_flow.sh` (advisory).
 
 ## 5a) Confirm Task 6M static-prep artifacts
 

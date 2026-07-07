@@ -1,17 +1,15 @@
-# NON-BUILDABLE PLACEHOLDER
-# DO NOT RUN SYNTHESIS FROM THIS FILE YET
-# SOURCE LISTS ARE PROVISIONAL
-# MIXED-LANGUAGE FLOW IS NOT FINAL
-# IMPORTED GENESIS_MISTER RTL MUST REMAIN READ-ONLY
+# GENESIS-ONLY CONSTRAINT SHELL
+# CONSTRAINTS REMAIN PLACEHOLDER
+# CONSTRAINTS STILL PLACEHOLDER
+# DO NOT RUN SYNTHESIS/TIMING/FITTER FROM THIS FILE YET
 #
-# Placeholder constraint include file for APF scaffold (Task 5W)
+# Placeholder constraint include file for APF scaffold (Task 6P).
 #
 # Real APF pin, bank, timing, and clock mapping assignments are intentionally
-# deferred.
+# deferred for a future Quartus-capable host.
 #
-# Example future linkage (non-authoritative):
-# # source Quartus placeholders for constraints
-# # include_file quartus/files_constraints.qsf
+# First Quartus host action should be analysis/elaboration only.
+# This file is intentionally not active for runtime proof yet.
 #
-# TODO: map openFPGA pin constraints after scaffold and timing ownership are
-# finalized.
+# TODO: apply deterministic pin/clock/timing constraint assignments once flow
+# moves from smoke-path analysis to pre-package checks.

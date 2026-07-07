@@ -28,7 +28,8 @@ This document defines the safe next-step branch after the current analysis block
 ## Branch A2 execution rules
 - `quartus/files_genesis_runtime.qsf` remains non-authoritative until Quartus validation, but now contains a first active-style Genesis-only source start set.
 - `quartus/files_genesis_runtime.candidate.qsf` is allowed as planning-only artifact.
-- `Task 6O`: promote only high-confidence Genesis-only sources, keep VHDL/mixed-language and excluded stacks deferred.
+- `Task 6P`: shell flow alignment complete with no-Quartus pre-check and placeholder constraints.
+- `Task 6O`: promoted only high-confidence Genesis-only sources, keep VHDL/mixed-language and excluded stacks deferred.
 
 ## Alternative branches (deferred until preconditions change)
 
@@ -50,9 +51,14 @@ This document defines the safe next-step branch after the current analysis block
 - Genesis_MiSTer remains imported/read-only for now.
 - No Sega-CD / no 32X / no memory-controller / no APF packaging generation is introduced.
 
-## Task 6P should be
+## Task 6P completed status
 
-- Toolchain-local setup and validation documentation, plus a re-run strategy for `tools/run_quartus_analysis_only_if_available.sh` once `quartus_map` is discoverable.
-- Branch A documents that this is a local toolchain setup and validation task; runtime activation is still paused until the validation and a rerun are completed.
-- Task 6O added the controlled Genesis-only runtime source promotion and created `GENESIS_ONLY` tracking docs.
-- On PASS of local toolchain+analysis, Task 6P should classify first errors and promote only by evidence.
+Completed in Task 6P:
+
+- Shell coherence between top-level qsf, scaffold/runtime list files, and constraint placeholder status.
+- Added `tools/check_genesis_only_project_flow.sh` and `docs/GENESIS_ONLY_PRE_QUARTUS_CHECK_REPORT.md`.
+
+## Task 6Q should be
+
+- Prepare openFPGA package skeleton and Pocket file layout for Genesis-only testing, without requiring a Quartus bitstream yet.
+- Keep runtime behavior edits constrained to existing APF/Genesis integration and no Sega CD / 32X.

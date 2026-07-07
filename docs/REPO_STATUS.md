@@ -50,6 +50,7 @@
     `docs/TASK6O_GENESIS_ONLY_BUILD_PATH_PROMOTION.md`,
     `docs/POCKET_BOOT_FAST_PATH.md`,
     and the candidate tracking docs.
+- Task 6P aligned the Quartus top-level shell and made it coherent for future Genesis-only analysis/elaboration by documenting scaffold/runtime/constraints sequencing and adding advisory flow checks.
 - `docs/TASK5W_QUARTUS_PLACEHOLDER_PROJECT_FILES.md` now records Task 5W scope and constraints.
 - Imported runtime RTL remains unmodified and is treated as read-only in this phase.
 - `docs/GENESIS_RUNTIME_FIRST_COMPILE_ERRORS.md` records advisory probe output and tool constraints.
@@ -81,6 +82,7 @@
   - `run_quartus_analysis_only_if_available.sh` (Task 6C-6E analysis-only attempt wrapper).
   - `run_no_quartus_runtime_lint_probe.sh` (Task 6M no-Quartus lint probe; no Quartus required).
   - `run_quartus_analysis_only_if_available.sh` (Task 6F toolchain discovery upgrade).
+  - `check_genesis_only_project_flow.sh` (Task 6P, pre-Quartus shell coherence check).
 - No other runtime behavior was modified outside APF scaffold files during this milestone.
 
 ## Scope state this milestone
@@ -106,6 +108,7 @@
 - Real project conversion remains deferred to preserve safe incremental scope.
 - Synthesis is still not run.
 - Runtime source integration and constraints are still deferred.
+- Constraint file remains placeholder in this milestone; no production APF mapping is active yet.
 - Sega CD remains unimplemented.
 - Memory-controller integration remains deferred.
 - APF packaging remains deferred.

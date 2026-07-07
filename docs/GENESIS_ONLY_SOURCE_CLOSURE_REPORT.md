@@ -1,6 +1,6 @@
 # Genesis-only Source Closure Report
 
-## Task 6O active source closure snapshot
+## Task 6O / 6P active source closure snapshot
 - Active runtime filelist source: `quartus/files_genesis_runtime.qsf`
 - Candidate/reference list: `quartus/files_genesis_runtime.candidate.qsf`
 - Planning filelist: `apf/src/fpga/filelists/genesis_runtime_candidate.f`
@@ -45,5 +45,6 @@
 - Static dependency visibility is still being used as the decision basis for closure growth.
 
 ## Next compile validation action
+- Task 6P makes the shell coherent for analysis/elaboration by aligning project files and adding a no-Quartus pre-check.
 - On Quartus host: run `tools/run_quartus_analysis_only_if_available.sh` with `quartus_map` available.
 - Capture first missing-module / ordering errors and promote from this report only by evidence.

@@ -1,11 +1,11 @@
-# ACTIVE SCAFFOLD SOURCE LIST
+# GENESIS-ONLY APF SCAFFOLD SOURCE LIST
 # DO NOT RUN SYNTHESIS YET
-# APF SCAFFOLD ONLY
-# GENESIS RUNTIME NOT ACTIVE YET
+# APF SCAFFOLD SOURCE LIST
+# GENESIS RUNTIME LIST SUPPLIED BY FILES_GENESIS_RUNTIME.QSF
 #
 # Relative paths in this file are from quartus/
 #
-# Task 6A-6B: activate APF-owned scaffold source entries only.
+# Task 6P: APF-owned scaffold remains separate from runtime list.
 
 set_global_assignment -name VERILOG_FILE ../apf/src/fpga/core/core_top.v
 set_global_assignment -name VERILOG_FILE ../apf/src/fpga/core/rom_preload_ingress_stub.v
