@@ -2,6 +2,7 @@
 
 # Build/simulation/generated output directories
 build/
+build/openfpga_genesis_analysis_work/
 output_files/
 db/
 incremental_db/

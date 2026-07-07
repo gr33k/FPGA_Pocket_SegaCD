@@ -11,6 +11,11 @@ Date: 2026-07-07
   - `docs/OPENFPGA_GENESIS_ANALYSIS_ONLY_STATUS.md`
   - `docs/OPENFPGA_GENESIS_ANALYSIS_RUNNER_CHECK.md`
   - `docs/OPENFPGA_GENESIS_ANALYSIS_ONLY_LOG.txt`
+- Task 6ZA made the analysis runner submodule-safe:
+  - Runner executes in `build/openfpga_genesis_analysis_work/src/fpga`.
+  - Source project is copied from `third_party/openFPGA-Genesis/src/fpga` to avoid mutating submodule checkout.
+  - No fitter/assembler/timing/bitstream runs are configured.
+- Blocker after 6ZA remains Quartus availability.
 - Confirmed openFPGA lane assumptions:
   - `PROJECT_REVISION = ap_core`
   - `TOP_LEVEL_ENTITY = apf_top`

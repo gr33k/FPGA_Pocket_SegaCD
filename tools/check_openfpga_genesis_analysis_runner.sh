@@ -41,6 +41,30 @@ else
   log FAIL "Runner does not contain --analysis_and_elaboration"
 fi
 
+if grep -q "build/openfpga_genesis_analysis_work" "$RUNNER"; then
+  log PASS "Runner uses build/openfpga_genesis_analysis_work"
+else
+  log FAIL "Runner does not use build/openfpga_genesis_analysis_work"
+fi
+
+if grep -q 'rm -rf "$UPSTREAM_DIR"' "$RUNNER" || grep -q 'rm -rf "$WORK_FPGA_DIR"' "$RUNNER" || grep -q "rm -rf \$UPSTREAM_DIR" "$RUNNER"; then
+  log FAIL "Runner still contains rm -rf UPSTREAM_DIR"
+else
+  log PASS "Runner does not rm -rf UPSTREAM_DIR"
+fi
+
+if grep -q 'cd "$UPSTREAM_DIR"' "$RUNNER"; then
+  log FAIL "Runner still cds into UPSTREAM_DIR"
+else
+  log PASS "Runner does not cd into UPSTREAM_DIR"
+fi
+
+if grep -q "third_party/openFPGA-Genesis/src/fpga" "$RUNNER"; then
+  log PASS "Runner references upstream project path third_party/openFPGA-Genesis/src/fpga as source input"
+else
+  log FAIL "Runner does not reference third_party/openFPGA-Genesis/src/fpga"
+fi
+
 for forbidden in quartus_fit quartus_asm quartus_sta quartus_cpf; do
   forbidden_hits=""
   while IFS= read -r forbidden_line; do

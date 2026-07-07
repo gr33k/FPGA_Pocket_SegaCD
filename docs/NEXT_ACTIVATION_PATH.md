@@ -2,10 +2,17 @@
 
 ## Task 6Z status (current lane blocker)
 
-Task 6Z added a safe, Quartus-gated analysis-only runner for the `openFPGA-Genesis` lane:
+Task 6Z added a Quartus-gated analysis-only runner for the `openFPGA-Genesis` lane.
 
-- `tools/run_openfpga_genesis_analysis_only.sh` (only `quartus_map --analysis_and_elaboration`)
-- `tools/check_openfpga_genesis_analysis_runner.sh` (advisory, no Quartus required)
+Task 6ZA finished that runner safety cleanup:
+
+- `tools/run_openfpga_genesis_analysis_only.sh` now treats `third_party/openFPGA-Genesis` as read-only input and always runs Quartus in:
+  - `build/openfpga_genesis_analysis_work/src/fpga`
+- `tools/check_openfpga_genesis_analysis_runner.sh` verifies:
+  - no `rm -rf` against `UPSTREAM_DIR`
+  - no `cd` into `UPSTREAM_DIR` for Quartus execution
+  - no forbidden Quartus invocations (`quartus_fit/asm/sta/cpf`)
+  - use of `build/openfpga_genesis_analysis_work`
 
 Current behavior:
 
@@ -13,6 +20,7 @@ Current behavior:
 - Runner status is tracked in `docs/OPENFPGA_GENESIS_ANALYSIS_ONLY_STATUS.md`.
 - Runner check report is tracked in `docs/OPENFPGA_GENESIS_ANALYSIS_RUNNER_CHECK.md`.
 - `docs/OPENFPGA_GENESIS_ANALYSIS_ONLY_LOG.txt` is generated if Quartus runs.
+- `third_party/openFPGA-Genesis` remains read-only.
 
 Blocking condition remains:
 
