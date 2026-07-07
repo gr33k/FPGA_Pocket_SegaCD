@@ -1,7 +1,9 @@
 # Quartus/openFPGA project file checklist (documentation only)
 
 The following files are part of the future Quartus/openFPGA scaffolding plan.
-They are **not created in Task 5S**.
+They are **not created in Task 5U**.
+
+Task 5U clarifies the full future file set and keeps all of these as dry-run planning targets.
 
 ## Planned Quartus/openFPGA files
 
@@ -13,7 +15,9 @@ They are **not created in Task 5S**.
 | `quartus/files_apf_scaffold.qsf` | APF scaffold source include list | Human | Yes | `apf/src/fpga/core/*`, `apf/apf_genesis_base.sv` | Any simulation sources |
 | `quartus/files_genesis_runtime.qsf` | Imported runtime include list | Human | Yes | `third_party/Genesis_MiSTer` confirmed runtime files | `Genesis.sv`, `sys/sys_top.v`, HPS/IOCTL |
 | `quartus/openfpga_build.tcl` | Build helper for scripted Quartus/openFPGA flow | Human / generated helper | Yes | Source include flow and compile targets | real runtime internals |
+| `quartus/files_constraints.qsf` | Constraint include list and assignment grouping | Human | Yes | Clock/reset and APF timing constraints | runtime source definitions |
 | `quartus/README.md` | Local Quartus/openFPGA setup and launch notes | Human | Yes | Toolchain assumptions and workflow notes | build outputs |
+| `quartus/notes_mixed_language.md` | Mixed-language implementation notes and VHDL integration caveats | Human | Yes | VHDL dependency assumptions | binary outputs |
 
 ## Expected source groups
 

@@ -91,3 +91,39 @@ git ls-files | rg -E '(^|/)build/|(^|/)output_files/|(^|/)db/|(^|/)incremental_d
 ```
 
 Expected result: neither tracked files nor uncommitted generated outputs from Quartus/openFPGA should appear.
+
+## 14) Confirm future project items are documentation-only
+
+```bash
+test ! -e quartus/FPGA_Pocket_SegaCD.qpf
+test ! -e quartus/FPGA_Pocket_SegaCD.qsf
+test ! -e quartus/FPGA_Pocket_SegaCD.sdc
+test ! -e quartus/openfpga_build.tcl
+```
+
+Expected result: files listed for future Quartus setup are still absent unless a later milestone creates them.
+
+## 15) Confirm no new Quartus/apf packaging artifacts were introduced
+
+```bash
+test ! -e quartus/README.md
+test ! -e quartus/FPGA_Pocket_SegaCD.qpf
+test ! -e quartus/FPGA_Pocket_SegaCD.qsf
+test ! -e quartus/FPGA_Pocket_SegaCD.sdc
+test ! -e quartus/openfpga_build.tcl
+test ! -e quartus/files_apf_scaffold.qsf
+test ! -e quartus/files_genesis_runtime.qsf
+test ! -e quartus/files_constraints.qsf
+test ! -e quartus/notes_mixed_language.md
+```
+
+Expected result: no Quartus project files are added by Task 5U.
+
+## 16) Confirm no Quartus output artifacts are added
+
+```bash
+test "$(git ls-files | rg -E '(^|/)quartus/.*\\.(qpf|qsf|sdc|tcl)$' | wc -l)" = "0"
+test "$(git ls-files | rg -E '\\.(rbf|rbf_r|sof)$' | wc -l)" = "0"
+```
+
+Expected result: `.qpf/.qsf/.sdc/.tcl/.sof/.rbf/.rbf_r` files are not added in Task 5U.

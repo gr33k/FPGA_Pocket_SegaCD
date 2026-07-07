@@ -11,6 +11,15 @@ Related checklist docs added in Task 5S:
 - [Quartus project file checklist](docs/QUARTUS_PROJECT_FILE_CHECKLIST.md)
 - [APF build output ignore plan](docs/APF_BUILD_OUTPUT_IGNORE_PLAN.md)
 - [APF project validation steps](docs/APF_PROJECT_VALIDATION_STEPS.md)
+- [Task 5U dry-run plan](docs/TASK5U_QUARTUS_PROJECT_DRY_RUN_PLAN.md)
+- [Quartus files to create later](docs/QUARTUS_PROJECT_FILES_TO_CREATE_LATER.md)
+- [Quartus source-group mapping](docs/QUARTUS_SOURCE_GROUP_MAPPING_DRY_RUN.md)
+- [OpenFPGA packaging deferred plan](docs/OPENFPGA_PACKAGING_DEFERRED_PLAN.md)
+
+Current status:
+- Actual project creation and file emission remain fully deferred.
+- Real synthesis remains disabled in this milestone.
+- Runtime compile remains inactive until real project + manifest + mixed-language flow are implemented.
 
 ## Real runtime boundary rules
 
@@ -35,3 +44,4 @@ Related checklist docs added in Task 5S:
 ## Task 5S follow-up
 
 - Task 5S should define a future skeleton checklist for Quartus/openFPGA files and validation steps without creating any files.
+- Task 5U added the dry-run plan and future file mapping for Quartus skeleton creation (documentation-only).
