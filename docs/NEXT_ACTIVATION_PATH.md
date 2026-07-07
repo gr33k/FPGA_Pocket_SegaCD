@@ -25,6 +25,15 @@ keep this stage as package/layout scaffolding with an explicit host handoff.
    until green-lit).
 7. Restore/extend source-closure docs with exact manifest after real compile pass.
 
+## Task 6S to 6T handoff
+
+1. Use Docker workflow on Fedora NAS:
+   - `tools/check_quartus_docker_workflow.sh`
+   - `tools/run_quartus_docker_dryrun.sh`
+   - `docs/FEDORA_NAS_DOCKER_QUARTUS_WORKFLOW.md`
+2. Validate toolchain path and run analysis/elaboration only from that host.
+3. Capture first Quartus analysis errors and resume according to Task 6T/6L guidance.
+
 ## Hard constraints
 
 - No Sega-CD/32X at this stage.

@@ -32,3 +32,15 @@ greybox_tmp/
 *.sdc.bak
 *.tcl.bak
 
+# Task 6S: Docker/Quartus installer + build output ignores
+installers/
+intelFPGA*/
+intelFPGA_lite*/
+*.run
+*.tar
+*.tar.gz
+*.zip
+*.deb
+*.rpm
+license*
+*.dat
