@@ -1,45 +1,32 @@
 # Clock & Reset Plan
 
 ## Scope
-Conservative reset-order definition for the Genesis-only APF feasibility phase. This plan does not alter Genesis runtime behavior and does not implement clock manager logic beyond explicit ordering expectations.
+Conservative reset-order definition for this feasibility milestone. No imported-runtime behavior changes and no ROM preload controller yet.
 
-## Reset order (required)
+## Required reset order
 
 1. APF reset asserted
 2. PLL lock
 3. ROM preload complete
 4. Genesis reset released
 
-## Signal-level expectation
+## Current scaffold behavior
 
-- `pll_lock` must be observed before entering ROM-load complete wait state exit.
-- `rom_preload_done` is the gating condition for releasing core reset.
-- Genesis `reset_n` (or equivalent active-low release) must not assert to runtime until all three conditions are true:
-  - APF reset deasserted
-  - PLL lock achieved
-  - ROM preload complete
+- This milestone keeps reset behavior explicit and conservative in the APF shell.
+- `reset_n` is passed through to the internal Genesis base wrapper.
+- `rom_slot_*` and preload arbitration are still stubs; this means runtime remains in deterministic startup-safe behavior until preload architecture is implemented.
 
-## Conservative implementation notes
+## Stubbed / deferred in this task
 
-- Maintain a synchronous reset synchronizer in the APF-facing top logic for all clocks in use.
-- Keep reset generation explicit, with named intermediate states for safety/debug:
-  - `WAIT_APF_RESET_RELEASE`
-  - `WAIT_PLL_LOCK`
-  - `WAIT_ROM_PRELOAD`
-  - `RUN`
-- During non-`RUN` states, keep ROM fetch paths quiescent to avoid invalid ROM transactions.
-- If this conservative state machine stalls in `WAIT_ROM_PRELOAD` past expected timeout, keep output channels inert and expose deterministic defaults.
+- No on-demand ROM streaming from host bridge on every read.
+- No memory controller implementation.
+- No ROM preloading state machine in top-level logic yet.
+- No save-state restore timing.
+- No additional clock domains beyond existing `clk_74a`/`clk_74b` baseline.
 
-## Do not do in this milestone
+## Next milestone transition (Task 5)
 
-- Do not stream ROM from APF host on demand.
-- Do not add memory controller arbitration yet.
-- Do not add save-state restore timing or CD reset coordination.
-- Do not change non-APF runtime reset behavior of imported Genesis modules.
-
-## Future handoff for Task 4F+
-
-When implementing preloader/controller memory plumbing:
-- Replace the current stub reset release logic with the above state sequencing.
-- Assert/deassert all dependent output enables only after entering `RUN`.
-- Keep this order stable unless explicitly superseded by later architecture decisions.
+- Add explicit ROM preload complete handshake.
+- Gate core reset release on: APF reset deassertion, PLL lock, and preload complete.
+- Keep deterministic behavior when preload stalls or fails.
+- Keep Genesis base behavior unchanged while layering the state machine outside it.
