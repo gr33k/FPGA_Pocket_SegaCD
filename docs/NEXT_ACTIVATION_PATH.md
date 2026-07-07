@@ -56,6 +56,17 @@ After this strategy lock:
 3. Rebuild the runtime-active source manifest from openFPGA core paths.
 4. Run Quartus analysis/elaboration against the new active lane only once toolchain is available.
 
+## Task 6W immediate follow-on
+
+1. Keep `third_party/openFPGA-Genesis` as the active implementation lane.
+2. Keep `third_party/Genesis_MiSTer` reference-only.
+3. Build the source activation plan using:
+   - `docs/OPENFPGA_GENESIS_SOURCE_MANIFEST.md`
+   - `docs/OPENFPGA_GENESIS_INTEGRATION_DELTA.md`
+4. Do not activate Sega CD or 32X in this lane.
+5. After Quartus installer is staged on NAS, run analysis/elaboration only on the
+   openFPGA-Genesis path and classify first-pass failures.
+
 ## Hard constraints
 
 - No Sega-CD/32X at this stage.

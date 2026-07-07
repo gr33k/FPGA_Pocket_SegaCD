@@ -25,10 +25,17 @@
 - Chosen source integration strategy is **C: submodule-based `openFPGA-Genesis`.**
 - `third_party/Genesis_MiSTer` remains in planning/reference state and is no longer the active implementation lane.
 - Active implementation direction now points to the Pocket/openFPGA-Genesis submodule integration path.
-- No submodule checkout for `third_party/openFPGA-Genesis` is enforced in this host session yet.
+- `third_party/openFPGA-Genesis` is now added and pinned in this task.
+
+## Milestone 6W status
+
+- Active runtime source lane is now `third_party/openFPGA-Genesis`.
+- Current APF scaffold remains supporting/research scaffolding until formal source activation.
+- Source manifest and policy are now centered on openFPGA-Genesis areas.
+- No synthesis, analysis, or boot claim is made in this task.
 
 ## Remaining blockers
 
-- Quartus toolchain still absent for real synthesis/elaboration automation.
+- Quartus installer still unavailable on NAS, so no real synthesis/elaboration automation.
 - No active package copy step from repo APF sources into package payload.
-- No imported Genesis_MiSTer runtime source set activated yet.
+- Source activation for runtime compile remains planning-only.

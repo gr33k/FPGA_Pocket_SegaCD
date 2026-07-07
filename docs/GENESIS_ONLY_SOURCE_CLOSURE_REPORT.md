@@ -13,6 +13,8 @@ Report date: 2026-07-06
 - Package and docs:
   - `openfpga/FPGA_Pocket_SegaCD/`
   - docs/*6Q task files
+- Runtime integration focus:
+  - `third_party/openFPGA-Genesis`
 
 ## Scope constraints kept
 
@@ -22,11 +24,14 @@ Report date: 2026-07-06
 - No real APF data-slot host streaming at runtime
 - No generated Quartus bitstreams in source closure
 
-## Runtime source direction (Task 6V)
+## OpenFPGA-Genesis source focus
 
-- Active runtime source direction is now `third_party/openFPGA-Genesis` as a submodule target.
-- `third_party/Genesis_MiSTer` is retained only as an historical reference in docs/manifests.
-- Runtime build activation remains deferred until the openFPGA submodule is available.
+- Primary runtime source direction is `third_party/openFPGA-Genesis` and this is now the active focus for the next activation pass.
+- `third_party/Genesis_MiSTer` is retained as historical/reference material only.
+- Runtime build activation remains deferred until full Quartus-capable lane activation is executed.
+- Closure tasks now begin with:
+  - module/path confirmation in `docs/OPENFPGA_GENESIS_SOURCE_MANIFEST.md`
+  - submodule status in `docs/OPENFPGA_GENESIS_SUBMODULE_STATUS.md`
 
 ## Task 6Q additions (non-breaking)
 
@@ -36,5 +41,5 @@ Report date: 2026-07-06
 
 ## Closure note
 
-The closure remains APF-runtime scaffold only and does not include imported
-Genesis_MiSTer runtime files yet.
+The closure remains APF-runtime scaffold-only with a new primary source-lane focus:
+`third_party/openFPGA-Genesis` for future compile-driven activation.

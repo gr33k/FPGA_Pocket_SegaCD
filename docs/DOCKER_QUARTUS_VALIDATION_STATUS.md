@@ -1,6 +1,6 @@
 # Quartus Docker workflow validation status
 
-Generated: 2026-07-07T05:56:57Z
+Generated: 2026-07-07T06:21:28Z
 Advisory check; exits 0 by design.
 
 PASS: Docker command check started
@@ -63,28 +63,3 @@ PASS: root .gitignore includes *.sta.*
 - WARN-like checks: 0
 - Status: CHECKED
 
-## Installer status
-- Quartus installer found: **NO**
-- Installer path searched: /root /home /mnt /srv /opt
-- Recommended next action: place a Linux Quartus installer into `/root/fpga/installers`
-- Hard stop reason: no local Quartus install available on NAS
-
-## Notes
-- No Quartus installer is required by this helper.
-- No Quartus execution is performed by this script.
-- Status file is informational only; no source files are modified.
-
-# Quartus Docker dry-run status
-
-Generated: 2026-07-07T05:56:57Z
-Image: pocket-quartus-base
-Dockerfile: /Data/dockerprojects/FPGA_Pocket_SegaCD/docker/quartus/Dockerfile.ubuntu-quartus-base
-docker build -t pocket-quartus-base -f /Data/dockerprojects/FPGA_Pocket_SegaCD/docker/quartus/Dockerfile.ubuntu-quartus-base /Data/dockerprojects/FPGA_Pocket_SegaCD/docker/quartus
-docker run --rm -it -v /Data/dockerprojects/FPGA_Pocket_SegaCD:/work -v /root/fpga/installers:/installers pocket-quartus-base bash -lc cd /work && git submodule update --init --recursive && find /opt -iname quartus_map -type f 2>/dev/null || true
-RUN_DOCKER_BUILD != 1; skipped docker build.
-RUN_DOCKER_CONTAINER != 1; skipped docker run.
-
-## Notes
-- No Quartus installer is required by this helper.
-- No Quartus execution is performed by this helper.
-- Status file is informational only; no source files are modified.

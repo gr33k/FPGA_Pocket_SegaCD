@@ -48,6 +48,19 @@ Date: 2026-07-06
 - The new active runtime direction is documented in
   `docs/TASK6V_SOURCE_INTEGRATION_STRATEGY.md`.
 
+## Task 6W status
+
+- Added and pinned third-party submodule: `third_party/openFPGA-Genesis`.
+- `third_party/openFPGA-Genesis` is now the primary Genesis-only implementation lane.
+- `third_party/Genesis_MiSTer` remains reference-only and non-active.
+- OpenFPGA submodule status and required file audit are tracked in:
+  - `docs/OPENFPGA_GENESIS_SUBMODULE_STATUS.md`
+- Source direction and manifest are tracked in:
+  - `docs/OPENFPGA_GENESIS_SOURCE_MANIFEST.md`
+  - `docs/OPENFPGA_GENESIS_INTEGRATION_DELTA.md`
+- Quartus remains blocked on NAS until installer is staged in `/root/fpga/installers`.
+- No Quartus, synthesis, fitter, or timing run happened in Task 6W.
+
 ## Safety constraints still in effect
 
 - Genesis-only APF behavior only.
