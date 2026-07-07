@@ -1,0 +1,29 @@
+# CANDIDATE ONLY - NOT ACTIVE
+# NO QUARTUS RUN REQUIRED
+# GENESIS RUNTIME STATIC PREP ONLY
+# DO NOT INCLUDE FROM ACTIVE PROJECT YET
+# Task 6M (No-Quartus static lane) planning artifact.
+# This file must remain non-active until Quartus validation and analysis pass are available.
+
+set_global_assignment -name ORIGINAL_QUARTUS_VERSION 20.1.1
+set_global_assignment -name TOP_LEVEL_ENTITY "core_top"
+set_global_assignment -name DEVICE 10M50DAF484C7G
+
+# Core APF scaffold modules
+set_global_assignment -name SYSTEMVERILOG_FILE apf/src/fpga/core/core_top.v
+set_global_assignment -name SYSTEMVERILOG_FILE apf/src/fpga/core/apf_genesis_base.sv
+set_global_assignment -name SYSTEMVERILOG_FILE apf/src/fpga/core/rom_preload_ingress_stub.v
+set_global_assignment -name SYSTEMVERILOG_FILE apf/src/fpga/core/rom_local_service_stub.v
+set_global_assignment -name SYSTEMVERILOG_FILE apf/src/fpga/core/rom_tiny_local_ram_stub.v
+
+# Candidate source: expected imported runtime RTL entry (do not include until Task 6N+ activation)
+set_global_assignment -name SYSTEMVERILOG_FILE third_party/Genesis_MiSTer/rtl/system.sv
+
+# Candidate runtime dependency groups (commented until real compile verification)
+# TODO(confidence=medium): confirmed by static dependency grouping, verify on compile
+# set_global_assignment -name SYSTEMVERILOG_FILE third_party/Genesis_MiSTer/rtl/FX68K/fx68k.sv
+# set_global_assignment -name SYSTEMVERILOG_FILE third_party/Genesis_MiSTer/rtl/FX68K/fx68kAlu.sv
+# set_global_assignment -name SYSTEMVERILOG_FILE third_party/Genesis_MiSTer/rtl/FX68K/uaddrPla.sv
+# set_global_assignment -name SYSTEMVERILOG_FILE third_party/Genesis_MiSTer/rtl/jt10.v
+# set_global_assignment -name SYSTEMVERILOG_FILE third_party/Genesis_MiSTer/rtl/jt03.v
+# set_global_assignment -name SYSTEMVERILOG_FILE third_party/Genesis_MiSTer/rtl/ddram.sv

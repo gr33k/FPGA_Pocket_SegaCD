@@ -20,6 +20,7 @@ These are the only files currently activated via `quartus/files_apf_scaffold.qsf
 
 - `quartus/files_genesis_runtime.qsf` remains a non-buildable placeholder.
 - No `third_party/Genesis_MiSTer/rtl/system.sv` or other Genesis runtime files are active.
+- `quartus/files_genesis_runtime.candidate.qsf` exists as planning-only (candidate/static lane).
 
 ## Inactive runtime dependencies
 
@@ -44,6 +45,7 @@ These are the only files currently activated via `quartus/files_apf_scaffold.qsf
 - `quartus/files_apf_scaffold.qsf` remains active for APF-owned sources.
 - `quartus/files_genesis_runtime.qsf` remains inactive placeholder only.
 - `docs/QUARTUS_ANALYSIS_ONLY_RESULT.md` is advisory and does not imply runtime build success.
+- Task 6M added static no-Quartus dependency prep with candidate source-list planning only.
 
 ## Inactive APF packaging
 

@@ -1,10 +1,10 @@
-# Next Activation Path (Task 6G-6H)
+# Next Activation Path (Task 6M onwards)
 
 This document defines the safe next-step branch after the current analysis blocker classification.
 
 ## Selected branch
 
-### Branch A: TOOLCHAIN_UNAVAILABLE
+### Branch A: TOOLCHAIN_UNAVAILABLE (Quartus lane)
 
 - **Condition:** `quartus_map` not discoverable; analysis-only not run.
 - **Decision:** Do not activate runtime source lists yet. Do not claim synthesis readiness.
@@ -16,6 +16,19 @@ This document defines the safe next-step branch after the current analysis block
 
 - If validation returns **PASS**, the safe next step is to rerun `tools/run_quartus_analysis_only_if_available.sh`.
 - If validation returns **FAIL**, keep Branch A and document the exact path/install fix.
+
+### Branch A2: NO_QUARTUS_STATIC_PREP
+
+- **Condition:** `quartus_map` unavailable and no local path available for analysis runs.
+- **Purpose:** continue static preparation with dependency reports/candidate lists only.
+- **Decision:** keep runtime source activation paused.
+- **Allowed:** manifest drafts, source scans, status updates, and static gating notes.
+- **Disallowed:** adding `files_genesis_runtime.candidate.qsf` to active project paths; no runtime compile or synthesis attempts.
+
+## Branch A2 execution rules
+- `quartus/files_genesis_runtime.qsf` remains inactive.
+- `quartus/files_genesis_runtime.candidate.qsf` is allowed as planning-only artifact.
+- `Task 6N`: refine candidate source ordering and confidence labels in docs without Quartus.
 
 ## Alternative branches (deferred until preconditions change)
 

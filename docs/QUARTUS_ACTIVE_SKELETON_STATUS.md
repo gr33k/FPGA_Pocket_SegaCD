@@ -35,6 +35,7 @@ This file is active as an APF scaffold source list and includes only:
 - `quartus/files_constraints.qsf`
 
 These still carry non-buildable placeholder intent only.
+- `quartus/files_genesis_runtime.candidate.qsf` exists for static planning and is intentionally not active.
 
 ## Not created yet
 
@@ -61,6 +62,7 @@ Validation note:
 - Task 6C-6D added analysis preflight + command plan for future-only Quartus analysis.
 - Analysis commands are not run in this milestone.
 - Runtime and constraints remain inactive as expected.
+- Task 6M adds no-Quartus static prep lane; active source files are unchanged.
 
 ## 6G-6H blocker snapshot
 

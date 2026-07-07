@@ -57,6 +57,13 @@ For `quartus/files_apf_scaffold.qsf`, confirm:
 - `quartus/files_genesis_runtime.qsf` remains placeholder-only and contains no active runtime source list.
 - It includes `NON-BUILDABLE PLACEHOLDER` and `DO NOT RUN SYNTHESIS FROM THIS FILE YET`.
 
+## 5a) Confirm Task 6M static-prep artifacts
+
+- Review [docs/GENESIS_RUNTIME_STATIC_DEPENDENCY_REPORT.md](docs/GENESIS_RUNTIME_STATIC_DEPENDENCY_REPORT.md).
+- Review [docs/GENESIS_RUNTIME_CANDIDATE_SOURCE_LIST.md](docs/GENESIS_RUNTIME_CANDIDATE_SOURCE_LIST.md) for ordered advisory entries.
+- Review [docs/NO_QUARTUS_FALLBACK_PLAN.md](docs/NO_QUARTUS_FALLBACK_PLAN.md) for static-lane rules.
+- Confirm `python3 tools/scan_verilog_deps.py --root . --entry third_party/Genesis_MiSTer/rtl/system.sv` is captured as static-only and succeeds.
+
 ## 6) Confirm constraint placeholder status
 
 - `quartus/files_constraints.qsf` and `quartus/FPGA_Pocket_SegaCD.sdc` remain placeholders.
@@ -77,6 +84,18 @@ Expected: no prohibited features in active regions.
 - `test ! -e quartus/simulation`
 - `test ! -e quartus/build`
 - `test "$(find quartus -maxdepth 2 -type f \( -name '*.sof' -o -name '*.pof' -o -name '*.jic' -o -name '*.rpd' -o -name '*.rbf' -o -name '*.rbf_r' \) | wc -l)" = "0"`
+
+## 8a) Confirm candidate file is not active
+
+- Confirm `quartus/files_genesis_runtime.candidate.qsf` exists as static artifact:
+  - `test -f quartus/files_genesis_runtime.candidate.qsf`
+- Confirm active project files do not include it:
+  - `grep -n "files_genesis_runtime.candidate.qsf" quartus/files_apf_scaffold.qsf quartus/FPGA_Pocket_SegaCD.qsf quartus/FPGA_Pocket_SegaCD.qpf || true`
+- Confirm planning header in candidate file:
+  - `CANDIDATE ONLY - NOT ACTIVE`
+  - `NO QUARTUS RUN REQUIRED`
+  - `GENESIS RUNTIME STATIC PREP ONLY`
+  - `DO NOT INCLUDE FROM ACTIVE PROJECT YET`
 
 ## 9) Confirm imported runtime remains read-only
 

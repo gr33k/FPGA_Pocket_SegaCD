@@ -28,7 +28,8 @@
 - Document/verify local Quartus install/path and stop runtime activation for now.
 - Keep `files_genesis_runtime.qsf` inactive.
 - Keep analysis-only classification as advisory until a local Quartus toolchain can be discovered.
-- Task 6I/6J added local toolchain validation reruns; this check was re-run and still failed.
-  - 6J verification outcome: `QUARTUS_MAP` and `QUARTUS_ROOTDIR` are unset and no executable `quartus_map` was discovered.
+- Task 6I/6J/6K added local toolchain validation reruns; this check was re-run and still failed.
+  - 6J-6K verification outcome: `QUARTUS_MAP` and `QUARTUS_ROOTDIR` were unset and no executable `quartus_map` was discovered.
+  - Task 6M now continues static-prep lane planning only (Branch A2) with no runtime activation.
   - If validation fails: remain on `TOOLCHAIN_UNAVAILABLE` (current state).
   - If validation passes: mark as ready for analysis-only re-test.
