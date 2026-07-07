@@ -25,6 +25,9 @@
 - Task 5S documented future Quartus/openFPGA project skeleton, file checklist, output-ignore plan, and validation checklist (docs only).
 - Task 5T implemented generated-output ignore rules in `.gitignore`.
 - Task 5U added Quartus project dry-run planning documentation.
+- Task 5V created a documentation-only `quartus/` directory with:
+  - `quartus/README.md`
+  - `quartus/notes_mixed_language.md`
 - Imported runtime RTL remains unmodified and is treated as read-only in this phase.
 - `docs/GENESIS_RUNTIME_FIRST_COMPILE_ERRORS.md` records advisory probe output and tool constraints.
 
@@ -45,6 +48,7 @@
 - No actual Quartus/openFPGA project files were created in Task 5S.
 - No actual Quartus/openFPGA project files were created in Task 5T.
 - No actual Quartus/openFPGA project files were created in Task 5U.
+- No real Quartus project files were created in Task 5V.
 - Runtime compile remains inactive; `.gitignore` contains future generated-output hygiene only.
 - APF runtime compile remains inactive; no synthesis claims are made.
 
@@ -90,6 +94,7 @@
   - [docs/OPENFPGA_PACKAGING_DEFERRED_PLAN.md](docs/OPENFPGA_PACKAGING_DEFERRED_PLAN.md)
   - [docs/APF_PROJECT_STRUCTURE_PLAN.md](docs/APF_PROJECT_STRUCTURE_PLAN.md)
   - [docs/QUARTUS_OPENFPGA_INTEGRATION_NOTES.md](docs/QUARTUS_OPENFPGA_INTEGRATION_NOTES.md)
+  - [docs/TASK5V_QUARTUS_DOCS_DIRECTORY.md](docs/TASK5V_QUARTUS_DOCS_DIRECTORY.md)
 
 ## Repo-path hygiene
 - Keep project links repo-relative.

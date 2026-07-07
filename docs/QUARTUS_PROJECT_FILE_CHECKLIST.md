@@ -1,9 +1,9 @@
 # Quartus/openFPGA project file checklist (documentation only)
 
 The following files are part of the future Quartus/openFPGA scaffolding plan.
-They are **not created in Task 5U**.
+They are not yet created in `quartus/` except for documentation entries made in Task 5V.
 
-Task 5U clarifies the full future file set and keeps all of these as dry-run planning targets.
+Task 5U clarified the full future file set, and Task 5V created `quartus/README.md` and `quartus/notes_mixed_language.md` as docs-only placeholders.
 
 ## Planned Quartus/openFPGA files
 

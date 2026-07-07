@@ -15,11 +15,15 @@ Related checklist docs added in Task 5S:
 - [Quartus files to create later](docs/QUARTUS_PROJECT_FILES_TO_CREATE_LATER.md)
 - [Quartus source-group mapping](docs/QUARTUS_SOURCE_GROUP_MAPPING_DRY_RUN.md)
 - [OpenFPGA packaging deferred plan](docs/OPENFPGA_PACKAGING_DEFERRED_PLAN.md)
+- [Task 5V quartus docs directory](docs/TASK5V_QUARTUS_DOCS_DIRECTORY.md)
+- [Quartus directory README](quartus/README.md)
+- [Quartus mixed-language notes](quartus/notes_mixed_language.md)
 
 Current status:
 - Actual project creation and file emission remain fully deferred.
 - Real synthesis remains disabled in this milestone.
 - Runtime compile remains inactive until real project + manifest + mixed-language flow are implemented.
+- Task 5V created the documentation-only `quartus/README.md` and `quartus/notes_mixed_language.md`.
 
 ## Real runtime boundary rules
 

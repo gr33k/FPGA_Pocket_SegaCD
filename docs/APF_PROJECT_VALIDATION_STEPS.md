@@ -95,35 +95,47 @@ Expected result: neither tracked files nor uncommitted generated outputs from Qu
 ## 14) Confirm future project items are documentation-only
 
 ```bash
+test -f quartus/README.md
+test -f quartus/notes_mixed_language.md
 test ! -e quartus/FPGA_Pocket_SegaCD.qpf
 test ! -e quartus/FPGA_Pocket_SegaCD.qsf
 test ! -e quartus/FPGA_Pocket_SegaCD.sdc
+test ! -e quartus/FPGA_Pocket_SegaCD.qip
 test ! -e quartus/openfpga_build.tcl
 ```
 
-Expected result: files listed for future Quartus setup are still absent unless a later milestone creates them.
+Expected result: docs are present while future Quartus setup files are still absent unless a later milestone creates them.
 
 ## 15) Confirm no new Quartus/apf packaging artifacts were introduced
 
 ```bash
-test ! -e quartus/README.md
 test ! -e quartus/FPGA_Pocket_SegaCD.qpf
 test ! -e quartus/FPGA_Pocket_SegaCD.qsf
 test ! -e quartus/FPGA_Pocket_SegaCD.sdc
+test ! -e quartus/FPGA_Pocket_SegaCD.qip
 test ! -e quartus/openfpga_build.tcl
 test ! -e quartus/files_apf_scaffold.qsf
 test ! -e quartus/files_genesis_runtime.qsf
 test ! -e quartus/files_constraints.qsf
-test ! -e quartus/notes_mixed_language.md
 ```
 
-Expected result: no Quartus project files are added by Task 5U.
+Expected result: no Quartus project files are added by Task 5V.
 
-## 16) Confirm no Quartus output artifacts are added
+## 16) Confirm no Quartus project files or outputs were added by Task 5V
 
 ```bash
-test "$(git ls-files | rg -E '(^|/)quartus/.*\\.(qpf|qsf|sdc|tcl)$' | wc -l)" = "0"
-test "$(git ls-files | rg -E '\\.(rbf|rbf_r|sof)$' | wc -l)" = "0"
+test "$(git ls-files | rg -E '(^|/)quartus/.*\\.(qpf|qsf|sdc|tcl|qip)$' | wc -l)" = "0"
+test "$(git ls-files | rg -E '\\.(sof|rbf|rbf_r)$' | wc -l)" = "0"
+test ! -d quartus/output_files
+test ! -d quartus/db
 ```
 
-Expected result: `.qpf/.qsf/.sdc/.tcl/.sof/.rbf/.rbf_r` files are not added in Task 5U.
+Expected result: no Quartus/APF outputs are present and only docs were added in `quartus/`.
+
+## 17) Confirm imported runtime is unchanged
+
+```bash
+git status --short third_party/Genesis_MiSTer | cat
+```
+
+Expected result: no local edits from this docs milestone.
