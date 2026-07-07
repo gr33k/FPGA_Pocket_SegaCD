@@ -1,6 +1,6 @@
 # openFPGA package skeleton check (non-blocking)
 
-Generated: 2026-07-07T06:48:27Z
+Generated: 2026-07-07T07:09:34Z
 
 Rule: advisory check only; does not mutate files.
 
