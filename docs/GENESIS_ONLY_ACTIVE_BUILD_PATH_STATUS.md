@@ -1,52 +1,27 @@
-# Genesis-only Active Build Path Status
+# Genesis-only active build-path status
 
-## Active (Task 6O / 6P) files
-- `quartus/files_genesis_runtime.qsf`
-  - Includes explicit `SYSTEMVERILOG_FILE` / `VERILOG_FILE` assignments for `apf/apf_genesis_base.sv` and high-confidence Genesis runtime files.
-  - Excludes Sega CD, 32X, sys/top wrapper, and HPS/IOCTL framework files.
-- `quartus/FPGA_Pocket_SegaCD.qsf`
-  - Updated in Task 6P as a coherent Genesis-only shell that points to a future 6P flow and documents scaffold/runtime list split.
-- `quartus/files_apf_scaffold.qsf`
-  - Active APF-only file list used only for scaffold-only shell activation.
-- `quartus/files_constraints.qsf`
-  - Constraint file exists but remains placeholder in this milestone.
-- `apf/apf_genesis_base.sv`
-  - Existing APF boundary scaffold for Genesis-only milestone.
+## Current status
 
-## Deferred runtime files
-- `fourway.v`
-- `ddram.sv`
-- `miracle.sv`
-- `lightgun.sv`
-- `teamplayer.v`
-- `vdp.vhd`
-- `vdp_common.vhd`
-- `T80/T80s.vhd`
-- `SVP/SVP.vhd`
-- `jt*` and other unresolved audio/mixed-language groups
+- APF runtime wrapper and ROM preload scaffold remain active boundaries.
+- No Sega-CD and no 32X integration.
+- No real memory controller or runtime host-per-read ROM streaming.
+- No package build outputs or Quartus synthesis artifacts are committed.
 
-## VHDL / mixed-language blockers
-- `vdp.vhd`, `vdp_common.vhd`, and `T80/T80s.vhd` remain commented in active runtime file list.
-- `SVP/SVP` and jt audio family VHDL/Verilog modules remain documented as blockers until Quartus confirms exact activation requirements.
+## Milestone 6Q status
 
-## Explicitly excluded
-- `third_party/Genesis_MiSTer/Genesis.sv`
-- `third_party/Genesis_MiSTer/sys/sys_top.v`
-- HPS/IOCTL framework files
-- Sega CD / Mega CD files
-- 32X files
-- simulation-only scaffold/test artifacts in runtime active lists
+- Added Genesis-only openFPGA package skeleton at:
+  - `openfpga/FPGA_Pocket_SegaCD/`
+- Added package layout status/check tooling:
+  - `tools/check_openfpga_package_skeleton.sh`
+  - `docs/OPENFPGA_PACKAGE_SKELETON_STATUS.md`
+- Added layout/docs:
+  - `docs/TASK6Q_OPENFPGA_PACKAGE_SKELETON.md`
+  - `docs/POCKET_FILE_LAYOUT_GENESIS_ONLY.md`
+  - `docs/GENESIS_ONLY_SMOKE_TEST_PLAN.md`
 
-## Active / inactive project state
-- `quartus/files_genesis_runtime.qsf` is now a controlled active-leaning runtime source list.
-- `quartus/files_genesis_runtime.candidate.qsf` and `apf/src/fpga/filelists/genesis_runtime_candidate.f` remain planning references.
-- `quartus/FPGA_Pocket_SegaCD.qsf` is now a coherent Genesis-only shell with explicit scaffold/runtime/constraints split.
+## Remaining blockers
 
-## Synthesis outcome
-- No synthesis/build is claimed in-tree for this task.
-- No real Quartus analysis has been used to validate compile success in this environment.
-- `tools/check_genesis_only_project_flow.sh` runs an advisory pre-check only and exits non-blocking.
+- Quartus toolchain still absent for real synthesis/elaboration automation.
+- No active package copy step from repo APF sources into package payload.
+- No imported Genesis_MiSTer runtime source set activated yet.
 
-## Runtime claims
-- No successful Genesis boot claim is made in this task.
-- No Sega CD/32X functionality is enabled.

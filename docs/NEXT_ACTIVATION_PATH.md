@@ -1,64 +1,22 @@
-# Next Activation Path (Task 6M onwards)
+# Next activation path after Task 6Q
 
-This document defines the safe next-step branch after the current analysis blocker classification.
+Current milestone target remains blocked by missing local Quartus execution, so we
+keep this stage as package/layout scaffolding.
 
-## Selected branch
+## Immediate next steps (once Quartus-capable host is available)
 
-### Branch A: TOOLCHAIN_UNAVAILABLE (Quartus lane)
+1. Validate skeleton check remains PASS:
+   - `tools/check_openfpga_package_skeleton.sh`
+2. Add deterministic package copy step from `apf/` sources into
+   `openfpga/FPGA_Pocket_SegaCD/apf/` for release packaging.
+3. Add Quartus build/project hook to emit expected outputs into
+   `openfpga/FPGA_Pocket_SegaCD/build/` (still no generated outputs committed
+   until green-lit).
+4. Restore/extend source-closure docs with exact manifest after real compile pass.
 
-- **Condition:** `quartus_map` not discoverable; analysis-only not run.
-- **Decision:** Do not activate runtime source lists yet. Do not claim synthesis readiness.
-- **Why this branch:** The latest result file shows no `quartus_map` command execution; only advisory preflight reporting is available.
-- **Current action:** Task 6J re-ran local Quartus validation and still did not discover `quartus_map`; keep project activation paused at current skeleton state.
-- **Next action:** run local Quartus toolchain validation via `tools/validate_local_quartus_toolchain.sh` after installing/updating Quartus and keep project activation paused while blocked.
+## Hard constraints
 
-### Validation gate for Branch A
+- No Sega-CD/32X at this stage.
+- No save state support yet.
+- No host-per-read ROM streaming.
 
-- If validation returns **PASS**, the safe next step is to rerun `tools/run_quartus_analysis_only_if_available.sh`.
-- If validation returns **FAIL**, keep Branch A and document the exact path/install fix.
-
-### Branch A2: NO_QUARTUS_STATIC_PREP
-
-- **Condition:** `quartus_map` unavailable and no local path available for analysis runs.
-- **Purpose:** continue static preparation with dependency reports/candidate lists only.
-- **Decision:** keep compile-unsafe runtime expansion paused, while allowing controlled source-pool promotion and status tracking.
-- **Allowed:** manifest drafts, source scans, status updates, and static gating notes.
-- **Disallowed:** adding `files_genesis_runtime.candidate.qsf` to active project paths; no runtime compile or synthesis attempts.
-
-## Branch A2 execution rules
-- `quartus/files_genesis_runtime.qsf` remains non-authoritative until Quartus validation, but now contains a first active-style Genesis-only source start set.
-- `quartus/files_genesis_runtime.candidate.qsf` is allowed as planning-only artifact.
-- `Task 6P`: shell flow alignment complete with no-Quartus pre-check and placeholder constraints.
-- `Task 6O`: promoted only high-confidence Genesis-only sources, keep VHDL/mixed-language and excluded stacks deferred.
-
-## Alternative branches (deferred until preconditions change)
-
-### Branch B: EXPECTED_NOT_YET_ACTIVE_RUNTIME_ERROR
-- Activate only `third_party/Genesis_MiSTer/rtl/system.sv` in runtime source list, then rerun analysis-only later.
-
-### Branch C: MISSING_GENESIS_RUNTIME_DEPENDENCY
-- Add only confirmed first-pass dependency files to `files_genesis_runtime.qsf`.
-
-### Branch D: CONSTRAINT_OR_PROJECT_SETUP_ERROR
-- Add minimal project/device/constraint planning only, without synthesis.
-
-### Branch E: MIXED_LANGUAGE_OR_VHDL_FLOW_ERROR
-- Plan required mixed-language/VHDL handling before runtime activation expansion.
-
-## Safe milestone rule
-
-- This branch is **documentation and status only** and does not modify runtime behavior.
-- Genesis_MiSTer remains imported/read-only for now.
-- No Sega-CD / no 32X / no memory-controller / no APF packaging generation is introduced.
-
-## Task 6P completed status
-
-Completed in Task 6P:
-
-- Shell coherence between top-level qsf, scaffold/runtime list files, and constraint placeholder status.
-- Added `tools/check_genesis_only_project_flow.sh` and `docs/GENESIS_ONLY_PRE_QUARTUS_CHECK_REPORT.md`.
-
-## Task 6Q should be
-
-- Prepare openFPGA package skeleton and Pocket file layout for Genesis-only testing, without requiring a Quartus bitstream yet.
-- Keep runtime behavior edits constrained to existing APF/Genesis integration and no Sega CD / 32X.

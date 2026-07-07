@@ -1,24 +1,24 @@
-# Pocket Boot Fast Path (ASAFP)
+# Pocket boot fast path (Genesis-only APF scaffold)
 
-## Step 1: No-Quartus project-flow check
-- Run `tools/check_genesis_only_project_flow.sh`.
-- Confirm shell/listing coherence and forbidden references are clean before host moves.
+This document tracks the shortest deterministic path for local verification in the
+current scaffold-only state.
 
-## Step 2: Genesis-only Quartus host
-- Use `docs/GENESIS_ONLY_QUARTUS_PROJECT_FLOW.md` as the host command map.
+Current fast path:
+1. Keep to APF/Genesis-only compile-time scaffold path.
+2. Verify APF package skeleton hygiene:
+   - run `tools/check_openfpga_package_skeleton.sh`
+3. Validate source-level gatekeeping docs:
+   - `docs/OPENFPGA_PACKAGING_DEFERRED_PLAN.md`
+   - `docs/OPENFPGA_PACKAGE_SKELETON_STATUS.md`
+   - `docs/GENESIS_ONLY_ACTIVE_BUILD_PATH_STATUS.md`
+4. No Quartus/APF final packaging run until Quartus toolchain is available.
 
-## Step 3: Run analysis/elaboration
-- Run analysis/elaboration only on host (no fitter/assembler/timing).
-- Capture first-error output and class blocker source.
+Task 6Q changes:
+- Added a package skeleton under `openfpga/FPGA_Pocket_SegaCD/`.
+- Added non-blocking package skeleton checker with explicit hygiene report.
+- No binaries/ROMs/BIOS/CD payloads added.
 
-## Step 4: Compile blocker fixes
-- Address one blocker at a time: missing dependency, mixed-language order, or constraints/project setup.
+Next activation remains:
+- Quartus toolchain path resolution
+- Real APF build artifact packaging and release prep
 
-## Step 5: OpenFPGA package skeleton
-- Keep packaging as a skeleton-only pass until stable analysis success is observed.
-
-## Step 6: Pocket smoke boot
-- After compile-path stabilization, execute minimal smoke boot with known-good ROM path and report only structural progression.
-
-## Step 7: Expand scope only after smoke
-- Gate future scope (deeper parity, optional ROM tooling, then Sega CD/32X) after stable Genesis smoke path.

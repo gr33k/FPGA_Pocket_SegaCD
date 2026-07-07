@@ -1,50 +1,35 @@
-# Genesis-only Source Closure Report
+# Genesis-only source-closure report
 
-## Task 6O / 6P active source closure snapshot
-- Active runtime filelist source: `quartus/files_genesis_runtime.qsf`
-- Candidate/reference list: `quartus/files_genesis_runtime.candidate.qsf`
-- Planning filelist: `apf/src/fpga/filelists/genesis_runtime_candidate.f`
+Report date: 2026-07-06
 
-## Active source list
-### Active in runtime list
-- `third_party/Genesis_MiSTer/rtl/system.sv`
-- `third_party/Genesis_MiSTer/rtl/cheatcodes.sv`
-- `third_party/Genesis_MiSTer/rtl/FX68K/fx68k.sv`
-- `third_party/Genesis_MiSTer/rtl/FX68K/fx68kAlu.sv`
-- `third_party/Genesis_MiSTer/rtl/FX68K/uaddrPla.sv`
-- `third_party/Genesis_MiSTer/rtl/EEPROM_STM95.sv`
-- `third_party/Genesis_MiSTer/rtl/multitap.sv`
-- `third_party/Genesis_MiSTer/rtl/gen_io.sv`
-- `third_party/Genesis_MiSTer/rtl/genesis_lpf.v`
-- `apf/apf_genesis_base.sv`
+## Source modules in scope
 
-## Deferred or unresolved (from scan + source-structure risk)
-- `third_party/Genesis_MiSTer/rtl/fourway.v`
-- `third_party/Genesis_MiSTer/rtl/ddram.sv`
-- `third_party/Genesis_MiSTer/rtl/miracle.sv`
-- `third_party/Genesis_MiSTer/rtl/lightgun.sv`
-- `third_party/Genesis_MiSTer/rtl/teamplayer.sv`
-- `third_party/Genesis_MiSTer/rtl/vdp.vhd`
-- `third_party/Genesis_MiSTer/rtl/vdp_common.vhd`
-- `third_party/Genesis_MiSTer/rtl/T80/T80s.vhd`
-- `third_party/Genesis_MiSTer/rtl/SVP/SVP.vhd`
-- `third_party/Genesis_MiSTer/rtl/jt*` families
+- APF wrapper scaffolding:
+  - `apf/src/fpga/core/core_top.v`
+  - `apf/src/fpga/core/rom_local_service_stub.v`
+  - `apf/src/fpga/core/rom_preload_ingress_stub.v`
+  - `apf/src/fpga/core/rom_tiny_local_ram_stub.v`
+  - `apf/src/fpga/core/apf_scaffold_sources.f`
+- Package and docs:
+  - `openfpga/FPGA_Pocket_SegaCD/`
+  - docs/*6Q task files
 
-## Likely missing modules (pending first Quartus compile)
-- VHDL runtime units that typically participate in Genesis color/audio paths
-- Z80, VDP, and PSG/FM boundary wiring modules not yet forced into active list
-- Exact file ordering once Quartus emits first-pass errors
+## Scope constraints kept
 
-## Mixed-language risks
-- Mixed-language files are intentionally commented out.
-- No Quartus mixed-language final ordering is claimed here.
-- This remains a pre-elaboration, compile-probe-ready milestone.
+- No Sega-CD/Mega-CD runtime paths
+- No save-state implementation
+- No VGM/CDDA/PCM sub-systems
+- No real APF data-slot host streaming at runtime
+- No generated Quartus bitstreams in source closure
 
-## Probe status
-- `NO_QUARTUS_LINT_PROBE` currently reports no supported local parser (`tool available: none`) in this environment.
-- Static dependency visibility is still being used as the decision basis for closure growth.
+## Task 6Q additions (non-breaking)
 
-## Next compile validation action
-- Task 6P makes the shell coherent for analysis/elaboration by aligning project files and adding a no-Quartus pre-check.
-- On Quartus host: run `tools/run_quartus_analysis_only_if_available.sh` with `quartus_map` available.
-- Capture first missing-module / ordering errors and promote from this report only by evidence.
+- Package skeleton directory and readmes added as inactive placeholders.
+- New non-blocking skeleton checker added.
+- Status/docs updated to capture the package layout as a hard boundary.
+
+## Closure note
+
+The closure remains APF-runtime scaffold only and does not include imported
+Genesis_MiSTer runtime files yet.
+

@@ -1,114 +1,33 @@
-# Repository Status
+# FPGA_Pocket_SegaCD repository status
 
-## Branch policy
-- Default branch: `main`
-- Working branch for this milestone: `main`
+Date: 2026-07-06
 
-## Current milestone
-- Genesis-only feasibility scaffold for Analogue Pocket APF.
-- No Sega CD / Mega-CD logic is implemented.
-- No 32X logic is instantiated.
-- No save-state support is implemented.
-- No memory-controller feature work is implemented yet.
-- No real CD hardware behavior is implemented.
-- Task 5E added scaffold build wiring manifest and smoke-test parameter docs.
-- Task 5G added a documented smoke configuration override flow for scaffold modes and made `ENABLE_FAKE_ROM_FOR_SMOKE_TEST` independently overrideable through `core_top`.
-- Task 5H added compile/elaboration sanity scaffolding for `core_top` with simulation-only `apf_genesis_base_stub` and a dedicated core-top smoke testbench.
-- Task 5I added a non-invasive Genesis_MiSTer runtime integration plan, manifest draft, and runtime source TODO draft.
-- Task 5L selected the future import strategy as a pinned git submodule at `third_party/Genesis_MiSTer`.
-- Task 5M added the submodule and recorded pinned revision `adc0c42cfb1fa5d484cc8566767f7d68982bc44a`.
-- Task 5N inspected the imported submodule tree and created runtime source-list draft V1.
-- Task 5O added a compile-probe workflow for the real runtime boundary and recorded first-error capture scaffolding.
-- Task 5P tightened the compile-probe source list by static inspection to confirmed files only.
-- Task 5Q documented mixed-language compile strategy and flow constraints.
-- Task 5R documented APF Quartus/openFPGA project planning and structure approach.
-- Task 5S documented future Quartus/openFPGA project skeleton, validation checks, and checklist.
-- Task 5T implemented generated-output ignore rules in `.gitignore`.
-- Task 5U added Quartus project dry-run planning documentation.
-- Task 5V created `quartus/` documentation-only directory entries.
-- Task 5W added non-buildable Quartus placeholder project files under `quartus/`.
-- Task 5X added Quartus placeholder hygiene validation docs and a non-invasive script.
-- Task 5Y added controlled Quartus activation planning and removed `rg` dependency from hygiene checks.
-- Task 5Z converted `quartus/FPGA_Pocket_SegaCD.qpf` and `quartus/FPGA_Pocket_SegaCD.qsf` to active-but-not-run skeletons.
-- Task 6A updated Quartus hygiene validation to separate active-skeleton files, non-buildable placeholders, and scaffold-source active list state.
-- Task 6B activated `quartus/files_apf_scaffold.qsf` as APF-only scaffold source list (no runtime, no constraints, no build automation).
-- Task 6C-6D added Quartus analysis-only command planning and preflight script/report artifacts.
-- Task 6C-6E added guarded `quartus_map --analysis_and_elaboration` execution documentation and reporting.
-- Task 6F added Quartus toolchain discovery (QUARTUS_MAP/QUARTUS_ROOTDIR/common-path probing) to the analysis-only runner.
-- Task 6G-6H classified the blocker from the latest analysis result as **TOOLCHAIN_UNAVAILABLE** and added activation-path docs.
-- Task 6I added local Quartus toolchain validation workflow and docs.
-- Task 6J re-ran validation and confirmed local `quartus_map` remains undiscovered (`QUARTUS_MAP`/`QUARTUS_ROOTDIR` unset), so blocker remains **TOOLCHAIN_UNAVAILABLE**.
-- Task 6M added no-Quartus static runtime dependency prep:
-  - added `docs/TASK6M_NO_QUARTUS_GENESIS_RUNTIME_INTEGRATION_SPRINT.md`,
-  - added `docs/NO_QUARTUS_GENESIS_RUNTIME_STATIC_REPORT.md`,
-  - added `docs/GENESIS_RUNTIME_CANDIDATE_SOURCES.md`,
-  - added `quartus/files_genesis_runtime.candidate.qsf` (candidate/source planning only).
-- Task 6M also added `docs/APF_TO_GENESIS_INTERFACE_REVIEW.md`, `docs/NO_QUARTUS_LINT_PROBE_RESULT.md`, and `tools/run_no_quartus_runtime_lint_probe.sh`.
-- Task 6O promoted a first Genesis-only active runtime source list to `quartus/files_genesis_runtime.qsf` (while keeping mixed-language modules and Sega-CD/32X deferred).
-  - High-confidence sources moved into active-style assignments are now mirrored in `docs/GENESIS_ONLY_ACTIVE_BUILD_PATH_STATUS.md`,
-    `docs/GENESIS_ONLY_SOURCE_CLOSURE_REPORT.md`,
-    `docs/TASK6O_GENESIS_ONLY_BUILD_PATH_PROMOTION.md`,
-    `docs/POCKET_BOOT_FAST_PATH.md`,
-    and the candidate tracking docs.
-- Task 6P aligned the Quartus top-level shell and made it coherent for future Genesis-only analysis/elaboration by documenting scaffold/runtime/constraints sequencing and adding advisory flow checks.
-- `docs/TASK5W_QUARTUS_PLACEHOLDER_PROJECT_FILES.md` now records Task 5W scope and constraints.
-- Imported runtime RTL remains unmodified and is treated as read-only in this phase.
-- `docs/GENESIS_RUNTIME_FIRST_COMPILE_ERRORS.md` records advisory probe output and tool constraints.
+## Task 6Q status
 
-## Scope currently in-tree
-- Kept in `apf/`:
-  - APF wrapper scaffold for Genesis base runtime.
-  - APF contract JSON set for genesis-only scaffold.
-  - APF scaffold source manifest for the current build set (`apf_scaffold_sources.f`).
-- Kept in `docs/`:
-  - Baseline inventory map.
-  - Repository status summary.
-  - Smoke-test configuration and build wiring checklist documents for task 5E.
-  - Real-runtime compile-probe planning docs and source-list tightening notes.
-  - Mixed-language and Quartus planning docs for Tasks 5Q/5R/5S/5T/5U/5W/5X and 6A-6B-6C/6D.
-  - Task 6M static runtime prep docs and candidate artifacts.
-- Kept in `quartus/`:
-  - `README.md` and `notes_mixed_language.md`.
-  - Active/placeholder mixed project structure files:
-    - `FPGA_Pocket_SegaCD.qpf`
-    - `FPGA_Pocket_SegaCD.qsf`
-    - `FPGA_Pocket_SegaCD.sdc`
-    - `files_apf_scaffold.qsf`
-    - `files_genesis_runtime.qsf`
-    - `files_constraints.qsf`
-- Kept in `tools/`:
-  - `check_quartus_placeholder_hygiene.sh` (Task 5X verification helper).
-  - `preflight_quartus_analysis_only.sh` (Task 6C-6D preflight, no tool execution).
-  - `run_quartus_analysis_only_if_available.sh` (Task 6C-6E analysis-only attempt wrapper).
-  - `run_no_quartus_runtime_lint_probe.sh` (Task 6M no-Quartus lint probe; no Quartus required).
-  - `run_quartus_analysis_only_if_available.sh` (Task 6F toolchain discovery upgrade).
-  - `check_genesis_only_project_flow.sh` (Task 6P, pre-Quartus shell coherence check).
-- No other runtime behavior was modified outside APF scaffold files during this milestone.
+- Added Genesis-only openFPGA package skeleton under:
+  - `openfpga/FPGA_Pocket_SegaCD/`
+- Added package skeleton checker script:
+  - `tools/check_openfpga_package_skeleton.sh`
+- Added supporting layout/test planning docs:
+  - `docs/TASK6Q_OPENFPGA_PACKAGE_SKELETON.md`
+  - `docs/POCKET_FILE_LAYOUT_GENESIS_ONLY.md`
+  - `docs/OPENFPGA_PACKAGE_SKELETON_STATUS.md`
+  - `docs/GENESIS_ONLY_SMOKE_TEST_PLAN.md`
 
-## Scope state this milestone
-- Runtime source-list planning is now split: active-style Genesis-only list exists as `quartus/files_genesis_runtime.qsf`; candidate/reference lists remain static.
-- No actual Quartus/openFPGA synthesis/build is enabled.
-- Imported `third_party/Genesis_MiSTer` is present and tracked as read-only runtime input for this phase.
-- APF packaging output generation is still deferred.
-- No CD hardware path and no memory-controller implementation.
-- No Quartus lint runtime integration tools are available in this environment for Task 6M (`verilator` / `iverilog` missing).
+## Global blockers
 
-## Planned next steps
+- Quartus toolchain still not available in local build host path.
+- No third_party runtime import is activated for real synthesis in this milestone.
+- No binary payload files committed.
 
-- Task 6F added robust Quartus toolchain discovery and still does not commit generated outputs.
-- If quartus_map is still unavailable, analysis is not run.
-- If discovery finds quartus_map, analysis-only is attempted and any errors/warnings are captured in result docs.
-- Task 6G classified the result as TOOLCHAIN_UNAVAILABLE and selected Branch A.
-- Task 6I now requires local toolchain validation before any source-activation attempt.
-- Task 6J should be completed before any runtime source-activation attempt; toolchain is still unresolved on this host.
-- Runtime source activation is explicitly paused under Task 6M Branch A2 (no-Quartus static lane).
-- Task 6M lane remains active for static planning where Quartus is unavailable; Task 6O started controlled source promotion into the active-style runtime qsf.
-- If validation passes, next task should rerun analysis-only before changing runtime activation further.
-- Task 6E/6F execution context is documented via [docs/TASK6C_6E_QUARTUS_ANALYSIS_ONLY_ATTEMPT.md](docs/TASK6C_6E_QUARTUS_ANALYSIS_ONLY_ATTEMPT.md), [docs/TASK6F_QUARTUS_TOOLCHAIN_DISCOVERY.md](docs/TASK6F_QUARTUS_TOOLCHAIN_DISCOVERY.md), [docs/QUARTUS_ANALYSIS_ONLY_RESULT.md](docs/QUARTUS_ANALYSIS_ONLY_RESULT.md).
-- Real project conversion remains deferred to preserve safe incremental scope.
-- Synthesis is still not run.
-- Runtime source integration and constraints are still deferred.
-- Constraint file remains placeholder in this milestone; no production APF mapping is active yet.
-- Sega CD remains unimplemented.
-- Memory-controller integration remains deferred.
-- APF packaging remains deferred.
+## Safety constraints still in effect
+
+- Genesis-only APF behavior only.
+- No Sega-CD, 32X, save states, BIOS/CD image slots.
+- No real ROM host-per-read runtime streaming.
+
+## Next milestones
+
+- Task 6R and beyond should wire packaging output and/or Quartus handoff once
+  toolchain is available.
+
