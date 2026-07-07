@@ -1,7 +1,11 @@
-# Genesis_MiSTer Runtime Source Manifest Draft (Task 5I + Task 5J update)
+# Genesis_MiSTer Runtime Source Manifest Draft (Task 5I+5J+5N update)
 
 > Draft status: incomplete and compile-confirmation pending.  
 > This file is a planning draft only, not an active build manifest.
+
+See also:
+
+- [docs/GENESIS_RUNTIME_SOURCE_LIST_DRAFT_V1.md](docs/GENESIS_RUNTIME_SOURCE_LIST_DRAFT_V1.md)
 
 ## Required chain for this APF scaffold phase
 
@@ -54,6 +58,12 @@
 - 32X modules
 - external board/memory-controller wrappers unless the compile pass explicitly requires them
 - `apf/src/fpga/sim/apf_genesis_base_stub.sv`
+
+## Task 5N update
+
+- Task 5N completed a concrete submodule-tree inspection.
+- `third_party/Genesis_MiSTer/rtl/system.sv` has been confirmed as present and containing `module system`.
+- `docs/GENESIS_RUNTIME_SOURCE_LIST_DRAFT_V1.md` is now the detailed category-draft file for the next compile-oriented pass.
 
 ## How this draft should be used
 

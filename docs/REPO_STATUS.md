@@ -17,6 +17,7 @@
 - Task 5I added a non-invasive Genesis_MiSTer runtime integration plan, manifest draft, and runtime source TODO draft.
 - Task 5L selected the future import strategy as a pinned git submodule at `third_party/Genesis_MiSTer`.
 - Task 5M added the submodule and recorded pinned revision `adc0c42cfb1fa5d484cc8566767f7d68982bc44a`.
+- Task 5N inspected the imported submodule tree and created runtime source-list draft V1.
 
 ## Scope currently in-tree
 - Kept in `apf/`:
@@ -28,6 +29,8 @@
   - Repository status summary.
   - Smoke-test configuration and build wiring checklist documents for task 5E.
 - No other runtime behavior was modified outside APF scaffold files during this milestone.
+
+- Runtime source-list planning is still inactive and not compile-ready.
 
 ## Status checks to keep conservative
 - Build target for this stage remains APF compile-verification only.
@@ -50,6 +53,8 @@
   - [docs/TASK5L_GENESIS_IMPORT_STRATEGY.md](docs/TASK5L_GENESIS_IMPORT_STRATEGY.md)
   - [docs/THIRD_PARTY_IMPORT_POLICY.md](docs/THIRD_PARTY_IMPORT_POLICY.md)
   - [docs/GENESIS_MISTER_SUBMODULE_PLAN.md](docs/GENESIS_MISTER_SUBMODULE_PLAN.md)
+  - [docs/TASK5N_IMPORTED_RUNTIME_TREE_INSPECTION.md](docs/TASK5N_IMPORTED_RUNTIME_TREE_INSPECTION.md)
+  - [docs/GENESIS_RUNTIME_SOURCE_LIST_DRAFT_V1.md](docs/GENESIS_RUNTIME_SOURCE_LIST_DRAFT_V1.md)
 
 ## Repo-path hygiene
 - Replace absolute local paths with repo-relative links in docs.

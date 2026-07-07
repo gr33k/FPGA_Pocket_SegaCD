@@ -23,7 +23,6 @@
 
 ### Missing from repo (expected external/imported runtime)
 
-- `third_party/Genesis_MiSTer/rtl/system.sv` (source defining `system`, now present via submodule)
 - 68000 CPU core group (expected under `third_party/Genesis_MiSTer`, e.g. `rtl/FX68K/fx68k.sv`)
 - Z80/T80 group (`third_party/Genesis_MiSTer/rtl/T80/*` family)
 - VDP/video group (`third_party/Genesis_MiSTer/rtl/vdp*` family)
@@ -35,6 +34,7 @@
 ### Unknown, compile-time resolution required
 
 - Any exact include/dep-chain beyond the listed high-level modules must be confirmed by a future dependency-oriented compile pass against the imported runtime sources.
+- The scanner output is advisory only and must be validated by a compile/elaboration attempt.
 - Exact file set is expected to expand as compilation proceeds.
 
 ## Exclusions for this milestone
