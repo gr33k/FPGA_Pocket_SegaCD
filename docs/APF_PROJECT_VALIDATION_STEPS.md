@@ -74,3 +74,20 @@ Expect no local edits from this APF scaffold worktree for runtime RTL.
 - No new `.qpf/.qsf/.sdc/.tcl` (or similar) project files are created in this milestone.
 - No synthesis claim is made until a real project skeleton and dependency order are implemented.
 
+## 12) Confirm generated-output ignore rules are present
+
+```bash
+git grep -n "Quartus/OpenFPGA generated outputs" .gitignore
+test -f .gitignore
+```
+
+Expect `.gitignore` to contain the Task 5T generated-output section and ignore patterns.
+
+## 13) Confirm generated outputs are not committed
+
+```bash
+git status --short | head
+git ls-files | rg -E '(^|/)build/|(^|/)output_files/|(^|/)db/|(^|/)incremental_db/|(^|/)simulation/|(^|/)greybox_tmp/|\.sof$|\.pof$|\.rbf$|\.rbf_r$|\.jic$|\.rpd$|\.qdf$'
+```
+
+Expected result: neither tracked files nor uncommitted generated outputs from Quartus/openFPGA should appear.

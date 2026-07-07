@@ -1,7 +1,9 @@
 # APF build output ignore plan (documentation only)
 
 This document captures generated artifacts that should be ignored once Quartus/openFPGA project files are introduced.
-It is a planning document only for Task 5S and does **not** modify `.gitignore`.
+
+Task 5S introduced this planning list.
+Task 5T implemented the ignore rules in `.gitignore`.
 
 ## Future generated directories
 
@@ -34,9 +36,12 @@ It is a planning document only for Task 5S and does **not** modify `.gitignore`.
 - `*.done`
 - `*.pin`
 - `*.qdf`
+- `*.qpf.bak`
+- `*.qsf.bak`
+- `*.sdc.bak`
+- `*.tcl.bak`
 
 ## Why this is deferred
 
 - The repo currently has no active Quartus project to validate generated-file locations.
-- These patterns become actionable in Task 5T when `.gitignore` hygiene is added.
-- This document should be revisited after project skeleton files are introduced and output paths are confirmed.
+- `.gitignore` now contains these patterns and backup variants; they will be revisited once the project skeleton files are created.

@@ -23,6 +23,7 @@
 - Task 5Q documented mixed-language compile strategy and flow constraints.
 - Task 5R documented APF Quartus/openFPGA project planning and structure approach.
 - Task 5S documented future Quartus/openFPGA project skeleton, file checklist, output-ignore plan, and validation checklist (docs only).
+- Task 5T implemented generated-output ignore rules in `.gitignore`.
 - Imported runtime RTL remains unmodified and is treated as read-only in this phase.
 - `docs/GENESIS_RUNTIME_FIRST_COMPILE_ERRORS.md` records advisory probe output and tool constraints.
 
@@ -41,6 +42,8 @@
 
 - Runtime source-list planning is still inactive and not compile-ready.
 - No actual Quartus/openFPGA project files were created in Task 5S.
+- No actual Quartus/openFPGA project files were created in Task 5T.
+- Runtime compile remains inactive; `.gitignore` contains future generated-output hygiene only.
 - APF runtime compile remains inactive; no synthesis claims are made.
 
 ## Status checks to keep conservative
@@ -78,6 +81,7 @@
   - [docs/QUARTUS_PROJECT_FILE_CHECKLIST.md](docs/QUARTUS_PROJECT_FILE_CHECKLIST.md)
   - [docs/APF_BUILD_OUTPUT_IGNORE_PLAN.md](docs/APF_BUILD_OUTPUT_IGNORE_PLAN.md)
   - [docs/APF_PROJECT_VALIDATION_STEPS.md](docs/APF_PROJECT_VALIDATION_STEPS.md)
+  - [docs/TASK5T_REPOSITORY_HYGIENE_IGNORE_RULES.md](docs/TASK5T_REPOSITORY_HYGIENE_IGNORE_RULES.md)
   - [docs/APF_PROJECT_STRUCTURE_PLAN.md](docs/APF_PROJECT_STRUCTURE_PLAN.md)
   - [docs/QUARTUS_OPENFPGA_INTEGRATION_NOTES.md](docs/QUARTUS_OPENFPGA_INTEGRATION_NOTES.md)
 

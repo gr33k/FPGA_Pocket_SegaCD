@@ -1,0 +1,34 @@
+# Quartus/OpenFPGA generated outputs (Task 5T)
+
+# Build/simulation/generated output directories
+build/
+output_files/
+db/
+incremental_db/
+simulation/
+greybox_tmp/
+
+# Quartus/OpenFPGA generated binaries and reports
+*.sof
+*.pof
+*.jic
+*.rpd
+*.rbf
+*.rbf_r
+*.fit.*
+*.sta.*
+*.map.*
+*.asm.*
+*.flow.*
+*.qws
+*.bak
+*.smsg
+*.summary
+*.done
+*.pin
+*.qdf
+*.qpf.bak
+*.qsf.bak
+*.sdc.bak
+*.tcl.bak
+
