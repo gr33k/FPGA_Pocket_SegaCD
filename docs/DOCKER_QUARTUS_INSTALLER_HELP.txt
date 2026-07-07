@@ -1,0 +1,2 @@
+No installer has been found or executed in this Task 7E snapshot.
+Populate this file by running tools/docker_install_quartus_lite.sh after staging Quartus installer.

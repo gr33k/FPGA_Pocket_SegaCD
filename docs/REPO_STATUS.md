@@ -76,6 +76,24 @@ Date: 2026-07-07
   - `docs/OPENFPGA_GENESIS_ANALYSIS_ONLY_STATUS.md`
   - `docs/OPENFPGA_GENESIS_ANALYSIS_RUNNER_CHECK.md` (no runner execution change; still PASS as static safety check)
 
+## Task 7E status
+
+- Added Dockerized Quartus install/run workflow scaffolding for installer staging + analysis-only execution.
+- New scripts added (docs and flow checks pending first installer run):
+  - `tools/docker_install_quartus_lite.sh`
+  - `tools/docker_run_openfpga_genesis_analysis_only.sh`
+  - `tools/check_docker_quartus_install_flow.sh`
+- New workflow/docs created:
+  - `docs/DOCKER_QUARTUS_INSTALL_WORKFLOW.md`
+  - `docs/DOCKER_QUARTUS_INSTALL_STATUS.md`
+  - `docs/DOCKER_OPENFPGA_GENESIS_ANALYSIS_STATUS.md`
+  - `docs/DOCKER_QUARTUS_INSTALLER_HELP.txt`
+  - `docs/DOCKER_QUARTUS_INSTALL_FLOW_CHECK.md`
+- No installer was committed in this task.
+- No installed Quartus tree was committed.
+- No fitter/assembler/timing/bitstream step was run.
+- `third_party/openFPGA-Genesis` and `third_party/Genesis_MiSTer` remain unchanged and clean.
+
 ## Task 6S status
 
 - Added Docker-based Quartus build-host preparation scaffold under `docker/`.

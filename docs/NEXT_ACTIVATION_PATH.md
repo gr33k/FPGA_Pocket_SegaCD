@@ -37,8 +37,22 @@ Task 7A confirmed the repository is now blocked by Quartus availability, not run
 - No fitter/assembler/timing/bitstream run.
 - Next action remains unchanged:
   1. Stage a valid Quartus Prime Lite installer in `/root/fpga/installers` (preferably 21.1.1 Lite).
-  2. Install outside the repo.
+ 2. Install outside the repo.
   3. Rerun Task 7D installer+analysis flow.
+
+## Task 7E status (Dockerized install/run flow)
+
+- New Dockerized path introduced:
+  1. `tools/docker_install_quartus_lite.sh`
+  2. `tools/docker_run_openfpga_genesis_analysis_only.sh`
+  3. `tools/check_docker_quartus_install_flow.sh`
+- Hard stop still applies: no installer staged in `/root/fpga/installers`.
+- Installer is still required (Docker does not provide Intel binary payloads).
+- When staged, run:
+  - `tools/docker_install_quartus_lite.sh`
+  - `tools/docker_run_openfpga_genesis_analysis_only.sh`
+- Keep scope at analysis/elaboration only.
+- No fitter/assembler/timing/bitstream actions are part of this task.
 
 ## Task 6Z status (historical)
 
