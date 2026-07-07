@@ -1,0 +1,20 @@
+# NON-BUILDABLE PLACEHOLDER
+# DO NOT RUN SYNTHESIS FROM THIS FILE YET
+# SOURCE LISTS ARE PROVISIONAL
+# MIXED-LANGUAGE FLOW IS NOT FINAL
+# IMPORTED GENESIS_MISTER RTL MUST REMAIN READ-ONLY
+#
+# Quartus project placeholder (Task 5W)
+#
+# This is a structural planning file only. It does not describe a ready-to-build
+# project.
+#
+# Do not run Quartus build commands against this file.
+#
+# Project name (informational only).
+# PROJECT_NAME FPGA_Pocket_SegaCD
+#
+# When a real build pipeline exists, this file should point to:
+# - a known APF-safe openFPGA top-level
+# - checked-in scaffold include files
+# - confirmed Genesis_MiSTer runtime source lists

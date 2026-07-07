@@ -1,141 +1,64 @@
-# APF project validation steps (pre-project checklist)
+# APF project validation steps (Task 5W, placeholder-only)
 
-Before any real Quartus/openFPGA project file is added, complete the following checks.
+Before any real Quartus synthesis or packaging, run these hygiene checks.
 
-## 1) Confirm submodule readiness
+## 1) Confirm placeholder files exist
 
-```bash
-git submodule update --init --recursive
-```
+- `test -f quartus/FPGA_Pocket_SegaCD.qpf`
+- `test -f quartus/FPGA_Pocket_SegaCD.qsf`
+- `test -f quartus/FPGA_Pocket_SegaCD.sdc`
+- `test -f quartus/files_apf_scaffold.qsf`
+- `test -f quartus/files_genesis_runtime.qsf`
+- `test -f quartus/files_constraints.qsf`
 
-Expect success and a present `third_party/Genesis_MiSTer` directory.
+## 2) Confirm non-build markers in each placeholder
 
-## 2) Confirm pinned runtime commit
+Each file above must include:
 
-```bash
-git -C third_party/Genesis_MiSTer rev-parse HEAD
-```
+- NON-BUILDABLE PLACEHOLDER
+- DO NOT RUN SYNTHESIS FROM THIS FILE YET
+- SOURCE LISTS ARE PROVISIONAL
+- MIXED-LANGUAGE FLOW IS NOT FINAL
+- IMPORTED GENESIS_MISTER RTL MUST REMAIN READ-ONLY
 
-Expect the pinned baseline expected by milestone docs for this phase.
+## 3) Confirm no forbidden synthesis sources are present
 
-## 3) Confirm APF top exists
+- `rg -n "Genesis.sv|sys/sys_top.v|ioctl|CD|32X|save|psram|sdram|sram" quartus/*.qsf quartus/*.qpf quartus/*.sdc`
 
-```bash
-test -f apf/src/fpga/core/core_top.v
-```
+Expected: only placeholder notes and scaffold intent references.
 
-## 4) Confirm APF wrapper boundary exists
+## 4) Confirm no generated outputs now
 
-```bash
-test -f apf/apf_genesis_base.sv
-```
+- `test ! -e quartus/output_files`
+- `test ! -e quartus/db`
+- `test ! -e quartus/incremental_db`
+- `test ! -e quartus/greybox_tmp`
+- `test "$(find quartus -maxdepth 2 -type f \( -name '*.sof' -o -name '*.rbf' -o -name '*.rbf_r' \) | wc -l)" = "0"`
 
-## 5) Confirm runtime root exists
+## 5) Confirm imported runtime is not modified
 
-```bash
-test -f third_party/Genesis_MiSTer/rtl/system.sv
-```
+- `git status --short third_party/Genesis_MiSTer`
 
-## 6) Confirm simulation-only stub is excluded from real build
+Expected: clean for this workspace.
 
-```bash
-test -f apf/src/fpga/sim/apf_genesis_base_stub.sv
-```
+## 6) Confirm synthesis remains disabled
 
-Keep this file out of real runtime source manifests.
+- No active project flow is enabled in placeholder files.
+- No real generation settings or tool-run directives are present in the Task 5W files.
+- `test ! -e quartus/openfpga_build.tcl` (still deferred)
 
-## 7) Confirm excluded CD/32X paths are not active
+## 7) Confirm APF/SDK constraints are still deferred
 
-- `third_party/Genesis_MiSTer`:
-  - no Sega-CD / Mega-CD files
-  - no 32X files
-- `apf/`:
-  - no CD/32X integration files
+- No final pin, clock, timing, or packaging assignments are authoritative.
+- `quartus/FPGA_Pocket_SegaCD.sdc` and `quartus/files_constraints.qsf` remain TODO/provisional.
 
-## 8) Confirm VHDL handling is still deferred to future mixed-language flow
+## 8) Confirm forbidden feature families remain inactive
 
-- No active runtime compile flow is enabled in this milestone.
-- VHDL-backed dependencies are treated as future Quartus flow requirements.
+- Sega CD and 32X not included in project placeholders.
+- No host-per-read ROM loading runtime behavior is introduced in these files.
+- No memory-controller integration is activated yet.
 
-## 9) Confirm imported runtime is not modified
+## 9) Confirm Task 5X expectation
 
-```bash
-git status --short third_party/Genesis_MiSTer | cat
-```
-
-Expect no local edits from this APF scaffold worktree for runtime RTL.
-
-## 10) Confirm no generated outputs are committed in-tree
-
-- No `*.sof`, `*.rbf`, `*.rbf_r`, `output_files/`, `db/`, `incremental_db/` entries from real Quartus output should be tracked now.
-
-## 11) Confirm synthesis/build remains disabled
-
-- No new `.qpf/.qsf/.sdc/.tcl` (or similar) project files are created in this milestone.
-- No synthesis claim is made until a real project skeleton and dependency order are implemented.
-
-## 12) Confirm generated-output ignore rules are present
-
-```bash
-git grep -n "Quartus/OpenFPGA generated outputs" .gitignore
-test -f .gitignore
-```
-
-Expect `.gitignore` to contain the Task 5T generated-output section and ignore patterns.
-
-## 13) Confirm generated outputs are not committed
-
-```bash
-git status --short | head
-git ls-files | rg -E '(^|/)build/|(^|/)output_files/|(^|/)db/|(^|/)incremental_db/|(^|/)simulation/|(^|/)greybox_tmp/|\.sof$|\.pof$|\.rbf$|\.rbf_r$|\.jic$|\.rpd$|\.qdf$'
-```
-
-Expected result: neither tracked files nor uncommitted generated outputs from Quartus/openFPGA should appear.
-
-## 14) Confirm future project items are documentation-only
-
-```bash
-test -f quartus/README.md
-test -f quartus/notes_mixed_language.md
-test ! -e quartus/FPGA_Pocket_SegaCD.qpf
-test ! -e quartus/FPGA_Pocket_SegaCD.qsf
-test ! -e quartus/FPGA_Pocket_SegaCD.sdc
-test ! -e quartus/FPGA_Pocket_SegaCD.qip
-test ! -e quartus/openfpga_build.tcl
-```
-
-Expected result: docs are present while future Quartus setup files are still absent unless a later milestone creates them.
-
-## 15) Confirm no new Quartus/apf packaging artifacts were introduced
-
-```bash
-test ! -e quartus/FPGA_Pocket_SegaCD.qpf
-test ! -e quartus/FPGA_Pocket_SegaCD.qsf
-test ! -e quartus/FPGA_Pocket_SegaCD.sdc
-test ! -e quartus/FPGA_Pocket_SegaCD.qip
-test ! -e quartus/openfpga_build.tcl
-test ! -e quartus/files_apf_scaffold.qsf
-test ! -e quartus/files_genesis_runtime.qsf
-test ! -e quartus/files_constraints.qsf
-```
-
-Expected result: no Quartus project files are added by Task 5V.
-
-## 16) Confirm no Quartus project files or outputs were added by Task 5V
-
-```bash
-test "$(git ls-files | rg -E '(^|/)quartus/.*\\.(qpf|qsf|sdc|tcl|qip)$' | wc -l)" = "0"
-test "$(git ls-files | rg -E '\\.(sof|rbf|rbf_r)$' | wc -l)" = "0"
-test ! -d quartus/output_files
-test ! -d quartus/db
-```
-
-Expected result: no Quartus/APF outputs are present and only docs were added in `quartus/`.
-
-## 17) Confirm imported runtime is unchanged
-
-```bash
-git status --short third_party/Genesis_MiSTer | cat
-```
-
-Expected result: no local edits from this docs milestone.
+Task 5X should only validate hygiene and placeholder scope, not claim synthesis,
+build success, or playable boot behavior.

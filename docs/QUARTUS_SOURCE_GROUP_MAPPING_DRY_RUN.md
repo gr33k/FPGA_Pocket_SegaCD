@@ -1,53 +1,41 @@
 # Quartus source group mapping for dry-run planning
 
-This document captures the intended future source partitioning for the real Quartus/openFPGA project.
+This document is aligned with Task 5W placeholder project files.
 
 ## Source Group 1 — APF top and scaffold
 
-- `apf/src/fpga/core/core_top.v`
-- `apf/src/fpga/core/rom_preload_ingress_stub.v`
-- `apf/src/fpga/core/rom_local_service_stub.v`
-- `apf/src/fpga/core/rom_tiny_local_ram_stub.v`
+Planned scaffold files are listed in the placeholder file:
 
-## Source Group 2 — APF runtime boundary
+- `quartus/files_apf_scaffold.qsf`
+  - `apf/src/fpga/core/core_top.v`
+  - `apf/src/fpga/core/rom_preload_ingress_stub.v`
+  - `apf/src/fpga/core/rom_local_service_stub.v`
+  - `apf/src/fpga/core/rom_tiny_local_ram_stub.v`
+  - `apf/apf_genesis_base.sv`
 
-- `apf/apf_genesis_base.sv`
+## Source Group 2 — Imported Genesis_MiSTer runtime root (placeholder)
 
-## Source Group 3 — Imported Genesis_MiSTer runtime root
+- `third_party/Genesis_MiSTer/rtl/system.sv` (provisional include list via
+  `quartus/files_genesis_runtime.qsf`)
 
-- `third_party/Genesis_MiSTer/rtl/system.sv`
+## Source Group 3 — Constraints
 
-## Source Group 4 — Imported runtime dependencies
+- `quartus/FPGA_Pocket_SegaCD.sdc`
+- `quartus/files_constraints.qsf`
 
-Compile-confirmation pending until real compile pass:
+## Compile confirmation status
 
-- 68000 CPU group
-- Z80 / T80 group
-- VDP/video group
-- YM/FM audio group
-- PSG/audio group
-- memory/helper/support group
-- VHDL dependencies
+- This remains a dry-run mapping plan only.
+- Source order and exact compile list are still pending a confirmed dependency pass.
+- VHDL-backed runtime dependencies are still pending and remain outside this file as real compile-ready source.
 
-No concrete file list is finalized here because exact runtime compile confirmation is still pending.
+## Exclusions (still enforced)
 
-## Source Group 5 — Constraints and clocks
-
-- `quartus/FPGA_Pocket_SegaCD.sdc` (future)
-- future clock definitions
-- future reset assumptions
-- future APF timing constraints
-
-## Source Group 6 — Excluded from real synthesis
-
-These must remain excluded in this scaffold phase:
-
-- `apf/src/fpga/sim/`
+- `apf/src/fpga/sim/*`
 - `apf/src/fpga/sim/apf_genesis_base_stub.sv`
 - `third_party/Genesis_MiSTer/Genesis.sv`
 - `third_party/Genesis_MiSTer/sys/sys_top.v`
 - MiSTer HPS/IOCTL framework
-- Sega CD / Mega-CD files
-- 32X files
-- generated build outputs
-
+- Sega-CD / Mega-CD
+- 32X
+- generated outputs

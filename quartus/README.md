@@ -1,30 +1,11 @@
-# Quartus/openFPGA Documentation Directory (Task 5V)
+# Quartus/openFPGA Documentation & Placeholder Skeletons (Task 5W)
 
-This directory currently contains documentation only.
+Task 5V created Quartus project planning documentation.
+Task 5W now adds non-buildable placeholder Quartus project files under `quartus/`.
 
-No actual Quartus project files are created in this task.
+## Current state
 
-- No `.qpf/.qsf/.sdc/.tcl/.qip` are added.
-- No generated outputs (`.sof/.rbf/.rbf_r`) are added.
-- No real synthesis build is enabled.
-- No runtime compilation success is claimed.
-- No game booting is expected at this milestone.
-
-## Why this is documentation-only
-
-Task 5V intentionally creates the directory and planning notes only.
-The real Quartus/openFPGA project files remain deferred until a later task creates them in a controlled follow-up.
-
-## Active project plan constraints
-
-- `third_party/Genesis_MiSTer` remains read-only runtime input.
-- APF glue / wrappers stay in `apf/` and are not mixed into `third_party`.
-- Simulation-only files are excluded from real synthesis.
-- Sega CD / Mega-CD and 32X are excluded.
-- Memory-controller integration (SDRAM/PSRAM/SRAM controller paths) is deferred.
-- APF packaging output generation is deferred.
-
-## Future project files intentionally absent right now
+The following files now exist as **human-maintained placeholders only**:
 
 - `quartus/FPGA_Pocket_SegaCD.qpf`
 - `quartus/FPGA_Pocket_SegaCD.qsf`
@@ -32,13 +13,33 @@ The real Quartus/openFPGA project files remain deferred until a later task creat
 - `quartus/files_apf_scaffold.qsf`
 - `quartus/files_genesis_runtime.qsf`
 - `quartus/files_constraints.qsf`
-- `quartus/openfpga_build.tcl`
 
-## Related planning docs
+These files:
 
-- [Task 5S skeleton checklist](../docs/TASK5S_QUARTUS_OPENFPGA_PROJECT_SKELETON_CHECKLIST.md)
-- [Task 5U dry-run plan](../docs/TASK5U_QUARTUS_PROJECT_DRY_RUN_PLAN.md)
-- [Task 5V docs directory plan](../docs/TASK5V_QUARTUS_DOCS_DIRECTORY.md)
-- [Quartus project file checklist](../docs/QUARTUS_PROJECT_FILE_CHECKLIST.md)
-- [OpenFPGA packaging deferred plan](../docs/OPENFPGA_PACKAGING_DEFERRED_PLAN.md)
+- Contain explicit header markers:
+  - `NON-BUILDABLE PLACEHOLDER`
+  - `DO NOT RUN SYNTHESIS FROM THIS FILE YET`
+  - `SOURCE LISTS ARE PROVISIONAL`
+  - `MIXED-LANGUAGE FLOW IS NOT FINAL`
+  - `IMPORTED GENESIS_MISTER RTL MUST REMAIN READ-ONLY`
+- Are for planning and scaffold hygiene only.
+- Do not include executable build settings or output generation.
 
+## What is still disabled
+
+- No real synthesis/build flow is enabled in-tree.
+- No APF package output is generated in this milestone.
+- No real timing closure/clock strategy is finalized in `*.sdc`.
+- No `*.sof`, `*.rbf`, `*.rbf_r`, `output_files/`, `db/`, or `incremental_db/` outputs are expected from this scaffold stage.
+
+## Exclusions still enforced
+
+- `third_party/Genesis_MiSTer` is treated as read-only runtime input for now.
+- Sega-CD / Mega-CD and 32X remain excluded.
+- Memory-controller integration (SDRAM/PSRAM/SRAM) remains deferred.
+- Simulation-only artifacts (including APF core-top stub testbench paths) remain excluded from real build scaffolds.
+
+## Future work
+
+- Task 5X should perform placeholder-hygiene validation only.
+- A later task will introduce non-build automation and a real project-file wiring pass.

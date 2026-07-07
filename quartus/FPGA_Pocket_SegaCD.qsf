@@ -1,0 +1,20 @@
+# NON-BUILDABLE PLACEHOLDER
+# DO NOT RUN SYNTHESIS FROM THIS FILE YET
+# SOURCE LISTS ARE PROVISIONAL
+# MIXED-LANGUAGE FLOW IS NOT FINAL
+# IMPORTED GENESIS_MISTER RTL MUST REMAIN READ-ONLY
+#
+# Quartus placeholder settings file for APF scaffold (Task 5W)
+#
+# This file is documentation/skeleton only and is not a production or buildable
+# configuration.
+#
+# - No generated output settings are present.
+# - No final device/pin assignments are present.
+# - No third_party runtime wrappers or HPS/IOCTL modules are included.
+#
+# Planned top (informational):
+# set_global_assignment -name TOP_LEVEL_ENTITY core_top
+#
+# Include-file linkage remains provisional and will be activated with a real
+# Quartus/openFPGA build script later.

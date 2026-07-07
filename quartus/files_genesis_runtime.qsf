@@ -1,0 +1,25 @@
+# NON-BUILDABLE PLACEHOLDER
+# DO NOT RUN SYNTHESIS FROM THIS FILE YET
+# SOURCE LISTS ARE PROVISIONAL
+# MIXED-LANGUAGE FLOW IS NOT FINAL
+# IMPORTED GENESIS_MISTER RTL MUST REMAIN READ-ONLY
+#
+# Imported runtime source placeholder include list (Task 5W)
+#
+# Runtime root from submodule (confirmed present):
+# third_party/Genesis_MiSTer/rtl/system.sv
+# set_global_assignment -name SYSTEMVERILOG_FILE third_party/Genesis_MiSTer/rtl/system.sv
+#
+# Downstream entries remain compile-order pending until a real dependency-verified
+# compile pass confirms the exact list and required ordering.
+# set_global_assignment -name SYSTEMVERILOG_FILE <runtime_dependency_file>
+#
+# Exclusions (mandatory):
+# - third_party/Genesis_MiSTer/Genesis.sv
+# - third_party/Genesis_MiSTer/sys/sys_top.v
+# - MiSTer HPS/IOCTL and platform framework files
+# - Sega CD / Mega-CD modules
+# - 32X modules
+#
+# This file is mixed-language aware placeholder only; VHDL dependencies remain
+# pending and are intentionally not finalized.

@@ -1,24 +1,29 @@
 # Mixed-language notes (documentation only)
 
-Genesis_MiSTer runtime integration is expected to require mixed-language support:
+Genesis_MiSTer runtime integration is expected to require mixed-language support.
 
 - Verilog/SystemVerilog for core logic and many imported modules.
 - VHDL dependencies for part of the runtime toolchain.
 
-What this means for this milestone:
+What this means now:
 
 - `iverilog` / `Verilator` are useful for constrained, local probe work.
 - They are not sufficient for validating the final mixed-language compile path.
-- The final mixed-language setup belongs to the future Quartus/openFPGA project configuration.
+- The placeholder `.qpf/.qsf/.sdc` files do not solve mixed-language file ordering yet.
+- VHDL handling is still deferred to a future real Quartus/openFPGA flow.
 - We do **not** modify or convert imported runtime RTL to make a local probe pass.
-- We do **not** stub/replace missing mixed-language dependencies only to pass a probe.
-- Imported `third_party/Genesis_MiSTer` remains read-only for this phase.
+- We do **not** add fake/semi-real mixed-language adapters in this phase.
+- Imported `third_party/Genesis_MiSTer` remains read-only for now.
 - APF compatibility/wrapper logic remains outside `third_party`.
 
 Current constraints:
 
-- No real Quartus project exists yet.
-- No `.qpf/.qsf/.sdc/.tcl` project files are added now.
-- No synthesis is attempted in this task.
-- No build/runtime claims are made from this step.
+- The file set created in Task 5W is non-buildable placeholder structure only.
+- No real Quartus build exists in this milestone.
+- No runtime compilation success is claimed.
+- No game booting is claimed.
 
+## Explicit blockers carried forward
+
+- VHDL file ordering and dependency inclusion are not finalized.
+- APF package, pinmap finalization, and timing closure remain pending.
