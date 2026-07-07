@@ -1,23 +1,22 @@
-# Genesis_MiSTer runtime source manifest draft (Task 5J)
-# ------------------------------------------------------
-# This file is planning/discovery only; do not use as-is in synthesis.
+# Genesis runtime dependency probe manifest (Task 5J)
+#
+# Probe file only: do not use as an active synthesis source list.
+# Purpose: record first-pass expected dependencies from the apf_genesis_base boundary.
+#
+# Status legend:
+# - [present] : file exists in this repo today.
+# - [missing] : file does not exist in this repo, expected from imported runtime.
+# - [excluded]: must not be included in this milestone.
+# - [unknown] : not present here and not yet confirmed in compile scan.
 
-# Real runtime dependency path (future):
-# core_top -> apf/apf_genesis_base.sv -> imported Genesis_MiSTer runtime files
-
-# STATUS legend:
-# [present]   confirmed existing in this repo
-# [missing]   expected external/imported runtime path (not in repo)
-# [excluded]  intentionally omitted in this milestone
-# [unknown]   not verified by compile pass yet
-
-# confirmed present
+# Boundary (confirmed present, currently scaffold-only APF layer)
 # [present] apf/apf_genesis_base.sv
 
-# direct boundary dependency found in apf_genesis_base.sv
-# [missing] third_party/Genesis_MiSTer/rtl/system.sv
+# apf_genesis_base direct dependency discovered by inspection:
+# system module instantiation: system u_genesis(...).
+# [missing] third_party/Genesis_MiSTer/rtl/system.sv  // expected external
 
-# first-pass dependency groups (missing until imported runtime is added)
+# Core and bus dependencies likely referenced by system (all missing from this repo; compile confirmation pending):
 # [missing] third_party/Genesis_MiSTer/rtl/FX68K/fx68k.sv
 # [missing] third_party/Genesis_MiSTer/rtl/T80/T80s.vhd
 # [missing] third_party/Genesis_MiSTer/rtl/T80/T80.vhd
@@ -41,11 +40,11 @@
 # [missing] third_party/Genesis_MiSTer/rtl/codes.sv
 # [missing] third_party/Genesis_MiSTer/rtl/mcu.sv
 
-# explicitly excluded now
+# Explicitly excluded this milestone:
 # [excluded] third_party/Genesis_MiSTer/Genesis.sv
 # [excluded] third_party/Genesis_MiSTer/sys/sys_top.v
 # [excluded] third_party/Genesis_MiSTer/sys/hps_io.sv
 # [excluded] third_party/Genesis_MiSTer/rtl/SegaCD*
 # [excluded] third_party/Genesis_MiSTer/rtl/32x*
 # [excluded] third_party/Genesis_MiSTer/rtl/*sdram_controller*
-# [excluded] apf/src/fpga/sim/apf_genesis_base_stub.sv
+

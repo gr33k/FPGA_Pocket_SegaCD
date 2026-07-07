@@ -1,37 +1,47 @@
-# Genesis_MiSTer Runtime Source Manifest Draft (Task 5I)
+# Genesis_MiSTer Runtime Source Manifest Draft (Task 5I + Task 5J update)
 
-> Draft status: incomplete and compile-confirmation pending.
+> Draft status: incomplete and compile-confirmation pending.  
+> This file is a planning draft only, not an active build manifest.
 
-This is a **planning draft** for the real runtime integration path:
+## Required chain for this APF scaffold phase
 
-- `apf/apf_genesis_base.sv`
-- `rtl/system.sv`
-- supporting runtime modules required by `system.sv`
+- `apf/apf_genesis_base.sv` (confirmed present in repo)
+- `third_party/Genesis_MiSTer/rtl/system.sv` (planned; not present yet)
 
-The list below is intentionally incomplete and will be completed after a real compile dependency pass.
+## Dependency status (first-pass)
 
-## Core runtime chain (starting point)
+### confirmed present
 
-- `apf/apf_genesis_base.sv` (boundary)
-- `rtl/system.sv`
-- 68000 core: `rtl/FX68K/fx68k.sv`
-- Z80 core: `rtl/T80/T80s.vhd` (plus related T80 files used by system)
-- Video: `rtl/vdp.vhd`, `rtl/vdp_common.vhd`
-- FM/OPL synthesis: `rtl/jt12/*` (jt12 top and dependencies)
-- PSG/audio support: `rtl/jt89/jt89.v`
-- Audio/post-processing: `rtl/genesis_lpf.v`, `rtl/audio_iir_filter.v`
+- `apf/apf_genesis_base.sv` (APF boundary wrapper)
 
-## ROM/memory-related support used by `system.sv`
+### missing from repo / external/imported expected
 
-- `rtl/ddram.sv` (if needed by active system path)
-- `rtl/sdram.sv` (if required by compile and local memory mode)
-- Any address/data helper modules referenced directly by `system.sv` after dependency scan
+- `third_party/Genesis_MiSTer/rtl/system.sv`
+- 68000 CPU core group (e.g. `third_party/Genesis_MiSTer/rtl/FX68K/fx68k.sv`)
+- Z80/T80 group (`third_party/Genesis_MiSTer/rtl/T80/*` + dependent files)
+- VDP/video group (`third_party/Genesis_MiSTer/rtl/vdp.vhd`, `third_party/Genesis_MiSTer/rtl/vdp_common.vhd`, and helpers)
+- YM/FM audio group (`third_party/Genesis_MiSTer/rtl/jt12/*`)
+- PSG/audio support group (`third_party/Genesis_MiSTer/rtl/jt89/jt89.v`, etc.)
+- Memory/helper modules used by `system.sv`
+- Game Genie / helper / quirk support modules if instantiated by `system.sv`
+- ROM/memory bridge/helper modules (e.g. `third_party/Genesis_MiSTer/rtl/ddram.sv`, `third_party/Genesis_MiSTer/rtl/sdram.sv`, `third_party/Genesis_MiSTer/rtl/genesis_bus.sv`, `third_party/Genesis_MiSTer/rtl/rommap.sv`, `third_party/Genesis_MiSTer/rtl/misc.sv`, `third_party/Genesis_MiSTer/rtl/codes.sv`, `third_party/Genesis_MiSTer/rtl/mcu.sv`) — exact list pending compile pass.
 
-## Game Genie/helper/quirk modules
+### intentionally excluded for this milestone
 
-- `rtl/genesis_quick*` / helper modules used for edge-case quirks in `system.sv`
-- `rtl/*quirk*` modules that are instantiated from `system.sv` or attached submodules
-- `rtl/codes.sv`, input/decode helpers if imported by dependency pass
+- MiSTer wrapper and framework files:
+-   `third_party/Genesis_MiSTer/Genesis.sv`
+-   `third_party/Genesis_MiSTer/sys/sys_top.v`
+-   `third_party/Genesis_MiSTer/hps_io` / IOCTL framework files
+- Sega-CD / Mega-CD files
+- 32X modules
+- Real memory-controller files unless a compile dependency requires one of them later
+- `apf/src/fpga/sim/apf_genesis_base_stub.sv` (for real runtime manifest path)
+
+## Notes for next passes
+
+- Task 5L selected `git submodule` as the future runtime import strategy.
+- Task 5J performed a source-inspection pass only (no compile). Next step is a real dependency compile scan after runtime import.
+- `apf/src/fpga/core/genesis_runtime_dependency_probe.todo.f` now carries a Task-5J probe manifest with explicit status tags.
 
 ## Exclusions (do not include yet)
 
