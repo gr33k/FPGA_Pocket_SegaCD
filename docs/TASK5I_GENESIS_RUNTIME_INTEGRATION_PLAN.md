@@ -59,3 +59,12 @@ This is the 5H-only path and **must not** be combined with real runtime files in
 ## 5J target
 
 Task 5J is to run the real dependency-oriented compile pass against the `apf_genesis_base` boundary, discover the first missing runtime modules from Genesis_MiSTer, and update the draft manifest accordingly.
+
+## 5J result (actual)
+
+Task 5J is now completed as a source-inspection-first pass:
+
+- `apf_genesis_base.sv` instantiates one direct runtime module: `system`.
+- `system` is not present in this repository.
+- No `system` declaration or other Genesis_MiSTer runtime RTL files were found locally.
+- Runtime manifests now carry explicit status (`present / missing / excluded`) and a new dependency probe manifest was added.
