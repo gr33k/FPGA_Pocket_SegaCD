@@ -20,6 +20,7 @@
 - Task 5N inspected the imported submodule tree and created runtime source-list draft V1.
 - Task 5O added a compile-probe workflow for the real runtime boundary and recorded first-error capture scaffolding.
 - Task 5P tightened the compile-probe source list by static inspection to confirmed files only.
+- Task 5Q documented mixed-language compile strategy and flow constraints.
 - Imported runtime RTL remains unmodified and is treated as read-only in this phase.
 - `docs/GENESIS_RUNTIME_FIRST_COMPILE_ERRORS.md` records advisory probe output and tool constraints.
 
@@ -33,6 +34,7 @@
   - Repository status summary.
   - Smoke-test configuration and build wiring checklist documents for task 5E.
   - Real-runtime compile-probe planning docs and source-list tightening notes.
+  - Mixed-language strategy/docs for Task 5Q.
 - No other runtime behavior was modified outside APF scaffold files during this milestone.
 
 - Runtime source-list planning is still inactive and not compile-ready.
@@ -50,12 +52,12 @@
 - `apf_genesis_base_stub` is simulation-only and does not replace runtime boundary behavior.
 - Runtime compile planning remains constrained to compile-probe and dependency discovery; full runtime build is still pending.
 - No Sega-CD hardware path is present and no memory-controller feature is implemented yet.
-- VHDL or mixed-language runtime dependencies remain pending if encountered in compile probe.
+- VHDL or mixed-language runtime dependencies remain pending in the current probe tooling.
 
 ## Planned runtime import tasks
 
 - Task 5M: completed submodule add for `third_party/Genesis_MiSTer`.
-- Task 5Q: prepare mixed-language compile strategy.
+- Task 5R: prepare an APF Quartus/openFPGA project planning document.
 - Remaining runtime integration remains planning/verification work (compile-oriented dependency pass, manifest completion, and filelist updates).
 - Current docs:
   - [docs/TASK5L_GENESIS_IMPORT_STRATEGY.md](docs/TASK5L_GENESIS_IMPORT_STRATEGY.md)
@@ -64,6 +66,9 @@
   - [docs/TASK5N_IMPORTED_RUNTIME_TREE_INSPECTION.md](docs/TASK5N_IMPORTED_RUNTIME_TREE_INSPECTION.md)
   - [docs/GENESIS_RUNTIME_SOURCE_LIST_DRAFT_V1.md](docs/GENESIS_RUNTIME_SOURCE_LIST_DRAFT_V1.md)
   - [docs/TASK5P_RUNTIME_SOURCE_LIST_TIGHTENING.md](docs/TASK5P_RUNTIME_SOURCE_LIST_TIGHTENING.md)
+  - [docs/TASK5Q_MIXED_LANGUAGE_COMPILE_STRATEGY.md](docs/TASK5Q_MIXED_LANGUAGE_COMPILE_STRATEGY.md)
+  - [docs/GENESIS_MIXED_LANGUAGE_TOOLCHAIN_NOTES.md](docs/GENESIS_MIXED_LANGUAGE_TOOLCHAIN_NOTES.md)
+  - [docs/GENESIS_COMPILE_FLOW_OPTIONS.md](docs/GENESIS_COMPILE_FLOW_OPTIONS.md)
 
 ## Repo-path hygiene
 - Keep project links repo-relative.

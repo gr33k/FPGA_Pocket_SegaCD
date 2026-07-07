@@ -4,6 +4,7 @@
 
 - Probe source manifest used for compile dependency capture: `apf/src/fpga/core/genesis_runtime_compile_probe.draft.f`
 - Task 5P tightened this list from static inspection only (no local compile confirmation).
+- Task 5Q adds: mixed-language compile strategy is required for complete runtime dependency proof.
 - Compile order is provisional and not final.
 
 ## Intended runtime chain
@@ -24,12 +25,12 @@
 
 ### Z80/T80 core
 
-- `third_party/Genesis_MiSTer/rtl/T80/T80s.vhd` *(VHDL candidate, compile-flow pending)*
+- `third_party/Genesis_MiSTer/rtl/T80/T80s.vhd` *(VHDL candidate, mixed-language flow pending)*
 
 ### VDP / video
 
-- `third_party/Genesis_MiSTer/rtl/vdp.vhd` *(VHDL candidate, compile-flow pending)*
-- `third_party/Genesis_MiSTer/rtl/vdp_common.vhd` *(VHDL candidate, compile-flow pending)*
+- `third_party/Genesis_MiSTer/rtl/vdp.vhd` *(VHDL candidate, mixed-language flow pending)*
+- `third_party/Genesis_MiSTer/rtl/vdp_common.vhd` *(VHDL candidate, mixed-language flow pending)*
 
 ### YM / FM audio
 
@@ -54,7 +55,7 @@
 - `third_party/Genesis_MiSTer/rtl/teamplayer.sv`
 - `third_party/Genesis_MiSTer/rtl/EEPROM_STM95.sv`
 - `third_party/Genesis_MiSTer/rtl/genesis_lpf.v`
-- `third_party/Genesis_MiSTer/rtl/bram.vhd` *(VHDL candidate for dpram/dpram_dif support, compile-flow pending)*
+- `third_party/Genesis_MiSTer/rtl/bram.vhd` *(VHDL candidate for dpram/dpram_dif support, mixed-language flow pending)*
 
 ## Pending/uncertain items
 
@@ -75,4 +76,4 @@
 
 - No runtime game-boot milestone is implied by this list.
 - This list remains a planning manifest and must be validated by supported compile tooling.
-- Real mixed-language build integration is pending.
+- Real mixed-language compile integration remains pending until a mixed-language-capable flow is used.

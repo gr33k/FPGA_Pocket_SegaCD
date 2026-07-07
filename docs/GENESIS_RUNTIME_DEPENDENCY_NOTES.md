@@ -1,10 +1,10 @@
-# Genesis Runtime Dependency Notes (Task 5P updates)
+# Genesis Runtime Dependency Notes (Task 5Q updates)
 
-## Task 5P status
+## Task 5Q status
 
-- Static inspection tightened `apf/src/fpga/core/genesis_runtime_compile_probe.draft.f`.
-- No local compile was run in this task.
-- Imported runtime RTL remains read-only.
+- Mixed-language compile strategy planning has been added.
+- `Task5Q` documents why the current probe cannot complete VHDL-backed dependencies.
+- Static inspection is still advisory and did not change any runtime source.
 
 ## Confirmed active (static) dependency set by subsystem
 
@@ -36,15 +36,15 @@
 - `third_party/Genesis_MiSTer/rtl/cheatcodes.sv`
 - `third_party/Genesis_MiSTer/rtl/EEPROM_STM95.sv`
 
-### Pending / flow-blocked
+## Pending / mixed-language flow blockers
 
 - VHDL-backed dependencies not yet included in active probe source list:
-  - `third_party/Genesis_MiSTer/rtl/T80/T80s.vhd`
+  - `third_party/Genesis_MiSTer/rtl/T80/T80s.vhd` (and related T80 modules)
   - `third_party/Genesis_MiSTer/rtl/vdp.vhd`
   - `third_party/Genesis_MiSTer/rtl/vdp_common.vhd`
   - `third_party/Genesis_MiSTer/rtl/SVP/SVP.vhd`
   - `third_party/Genesis_MiSTer/rtl/bram.vhd`
-- JT12 helper helpers and deep helper files are still expected to be added in compile-confirmation iterations.
+- JT12 helper helper files and deep helper dependencies remain compile-confirmation pending.
 
 ## Exclusions retained
 
@@ -55,6 +55,7 @@
 
 ## Advisory status
 
-- All items remain planning only.
-- Probe docs are advisory, not validated by local compile.
-- Do not assume runtime boots from this list.
+- All items remain planning-only.
+- Mixed-language flow is required to validate VHDL-backed dependencies.
+- Probe/docs remain advisory, not compile-success proof.
+- No assumptions should be made about bootability at this stage.

@@ -16,6 +16,10 @@ TIMESTAMP="$(date -u +"%Y-%m-%d %H:%M:%S UTC")"
   echo ""
 } > "$DOC"
 
+echo "This probe only covers Verilog/SystemVerilog-capable tools. VHDL dependencies require a mixed-language flow." | tee -a "$DOC"
+
+echo ""
+echo ""
 if [[ ! -f "$FILELIST" ]]; then
   {
     echo "Probe status: filelist missing"
@@ -50,6 +54,7 @@ if command -v verilator >/dev/null 2>&1; then
     echo "Status: probe captured (non-fatal)" >> "$DOC"
     echo "First meaningful failures are captured above for compile dependency triage." >> "$DOC"
     echo "Note: no imported Genesis_MiSTer RTL was modified for this probe." >> "$DOC"
+    echo "Note: mixed-language flow is still required for VHDL-backed dependencies." >> "$DOC"
   else
     echo "Status: command completed with no reported errors" >> "$DOC"
     echo "Note: this is uncommon at this stage; still treat as advisory only." >> "$DOC"
@@ -69,6 +74,7 @@ if command -v iverilog >/dev/null 2>&1; then
     echo "First meaningful failures are captured above for compile dependency triage." >> "$DOC"
     echo "VHDL/Verilog mixed-flow limitations may apply with this tool." >> "$DOC"
     echo "Note: no imported Genesis_MiSTer RTL was modified for this probe." >> "$DOC"
+    echo "Note: mixed-language flow is still required for VHDL-backed dependencies." >> "$DOC"
   else
     echo "Status: command completed with no reported errors" >> "$DOC"
     echo "Note: this is uncommon at this stage; still treat as advisory only." >> "$DOC"
@@ -87,6 +93,7 @@ echo "No supported compile/lint tool found (verilator or iverilog). Skipping com
 echo "" >> "$DOC"
 echo "Note: imported Genesis_MiSTer RTL was not modified for this probe." >> "$DOC"
 echo "Note: runtime module list remains draft and first-error output is advisory only." >> "$DOC"
+echo "Note: Verilog/SystemVerilog tools are not sufficient for VHDL dependencies." >> "$DOC"
 echo "" >> "$DOC"
-echo "Non-fatal: compile probe requires supported local tools." >> "$DOC"
+echo "Non-fatal: compile probe requires supported local tools and mixed-language flow for full runtime." >> "$DOC"
 exit 0
