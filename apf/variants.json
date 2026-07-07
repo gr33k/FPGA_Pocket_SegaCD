@@ -1,0 +1,14 @@
+{
+  "variants": {
+    "magic": "APF_VER_1",
+    "variant_list": [
+      {
+        "name": "Genesis-only",
+        "id": 0,
+        "core_select": {
+          "core_id": 0
+        }
+      }
+    ]
+  }
+}

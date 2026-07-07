@@ -1,0 +1,18 @@
+{
+  "data": {
+    "magic": "APF_VER_1",
+    "data_slots": [
+      {
+        "name": "Genesis ROM",
+        "id": 0,
+        "required": true,
+        "extensions": [
+          "bin",
+          "smd",
+          "md"
+        ],
+        "size_maximum": 33554432
+      }
+    ]
+  }
+}

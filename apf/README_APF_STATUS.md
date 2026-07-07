@@ -7,15 +7,16 @@
 
 ## What was added (Task 3)
 - Added a dedicated Genesis-only APF wrapper:
-  - [apf_genesis_base.sv](/Users/phassold/Documents/FPGA/Genesis_MiSTer/apf/apf_genesis_base.sv)
-- Added an explicit APF ROM-slot contract:
-  - [apf_data_slot.json](/Users/phassold/Documents/FPGA/Genesis_MiSTer/apf/apf_data_slot.json)
+  - [apf_genesis_base.sv](apf_genesis_base.sv)
 - Updated status metadata:
-  - [core.json](/Users/phassold/Documents/FPGA/Genesis_MiSTer/apf/core.json)
-  - [metadata.json](/Users/phassold/Documents/FPGA/Genesis_MiSTer/apf/metadata.json)
-- Kept existing Task 2 placeholder artifacts for non-Rom smoke checks:
-  - [video_test_pattern.json](/Users/phassold/Documents/FPGA/Genesis_MiSTer/apf/video_test_pattern.json)
-  - [silent_audio.json](/Users/phassold/Documents/FPGA/Genesis_MiSTer/apf/silent_audio.json)
+  - [core.json](core.json)
+- Added APF scaffold JSON set:
+  - [data.json](data.json)
+  - [input.json](input.json)
+  - [video.json](video.json)
+  - [audio.json](audio.json)
+  - [interact.json](interact.json)
+  - [variants.json](variants.json)
 
 ## Task 3 constraints implemented in wrapper
 - No Sega CD logic instantiated.

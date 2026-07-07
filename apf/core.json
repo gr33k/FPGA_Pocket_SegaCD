@@ -1,51 +1,35 @@
 {
-  "project": "Pocket_MegaCD_Feasibility",
-  "revision": "v0.2.0",
-  "target": "Analogue Pocket / OpenFPGA",
-  "core_name": "genesis_megacd_feasibility_base",
-  "entry_top": "apf_genesis_base",
-  "version": {
-    "major": 0,
-    "minor": 2,
-    "patch": 0
-  },
-  "notes": {
-    "status": "skeleton_with_base_wrapper",
-    "sega_cd_logic_instantiated": false,
-    "x32x_logic_instantiated": false,
-    "genesis_base_modifications": false,
-    "rom_load_path": "apf_data_slot"
-  },
-  "ports": {
-    "rom_slot": {
-      "address_width": 24,
-      "addr_lsb": 1,
-      "ready_signal": "rom_slot_ready",
-      "valid_signal": "rom_slot_valid"
+  "core": {
+    "magic": "APF_VER_1",
+    "metadata": {
+      "platform_ids": [
+        "genesis"
+      ],
+      "shortname": "Genesis_Mega_CD_Feasibility",
+      "description": "Sega Genesis feasibility core",
+      "author": "gr33k",
+      "url": "https://github.com/gr33k/FPGA_Pocket_SegaCD",
+      "version": "0.1.0"
     },
-    "video": {
-      "r": "video_r",
-      "g": "video_g",
-      "b": "video_b",
-      "hsync": "video_hsync",
-      "vsync": "video_vsync",
-      "de": "video_de",
-      "format": "rgb888"
+    "framework": {
+      "target_product": "Analogue Pocket",
+      "version_required": "1.1",
+      "sleep_supported": false,
+      "dock": {
+        "supported": true,
+        "analog_output": false
+      },
+      "hardware": {
+        "link_port": false,
+        "cartridge_adapter": 0
+      }
     },
-    "audio": {
-      "left": "audio_left",
-      "right": "audio_right",
-      "channels": 2,
-      "format": "s16"
-    },
-    "controllers": {
-      "pad_count": 1,
-      "pad_width": 12,
-      "signal": "pad1"
-    }
-  },
-  "compatibility": {
-    "base": "Genesis_MiSTer",
-    "safety": "No behavior changes to existing core files in this milestone"
+    "cores": [
+      {
+        "name": "default",
+        "id": 0,
+        "filename": "core.rbf_r"
+      }
+    ]
   }
 }
