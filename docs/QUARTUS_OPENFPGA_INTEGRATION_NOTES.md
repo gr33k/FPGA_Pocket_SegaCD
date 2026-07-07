@@ -33,6 +33,7 @@ Current status:
 - Task 6A updated hygiene validation for mixed active-skeleton and placeholder states.
 - Task 6B activated the APF-owned `files_apf_scaffold.qsf` source list only.
 - Task 6C-6D added an analysis-only preflight script/report and documented the future `quartus_map` command.
+- Task 6F added toolchain discovery for Quartus lookup and override behavior.
 
 ## Real runtime boundary rules
 
@@ -85,3 +86,11 @@ Task 6F should classify the first Quartus findings into:
 - missing Genesis runtime dependency issues
 - constraint/project setup issues
 - expected-not-yet-active issues
+
+## Task 6F status
+
+Task 6F added deterministic Quartus toolchain discovery to the analysis-only runner.
+
+- Discovery checks `QUARTUS_MAP`, then `QUARTUS_ROOTDIR`, PATH, then common IntelFPGA install locations.
+- Multiple matches are sorted and first candidate is used; all discovered candidates are recorded.
+- Analysis-only discovery/runs remain advisory and do not imply synthesis readiness.

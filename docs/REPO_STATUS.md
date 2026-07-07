@@ -34,6 +34,7 @@
 - Task 6B activated `quartus/files_apf_scaffold.qsf` as APF-only scaffold source list (no runtime, no constraints, no build automation).
 - Task 6C-6D added Quartus analysis-only command planning and preflight script/report artifacts.
 - Task 6C-6E added guarded `quartus_map --analysis_and_elaboration` execution documentation and reporting.
+- Task 6F added Quartus toolchain discovery (QUARTUS_MAP/QUARTUS_ROOTDIR/common-path probing) to the analysis-only runner.
 - `docs/TASK5W_QUARTUS_PLACEHOLDER_PROJECT_FILES.md` now records Task 5W scope and constraints.
 - Imported runtime RTL remains unmodified and is treated as read-only in this phase.
 - `docs/GENESIS_RUNTIME_FIRST_COMPILE_ERRORS.md` records advisory probe output and tool constraints.
@@ -62,6 +63,7 @@
   - `check_quartus_placeholder_hygiene.sh` (Task 5X verification helper).
   - `preflight_quartus_analysis_only.sh` (Task 6C-6D preflight, no tool execution).
   - `run_quartus_analysis_only_if_available.sh` (Task 6C-6E analysis-only attempt wrapper).
+  - `run_quartus_analysis_only_if_available.sh` (Task 6F toolchain discovery upgrade).
 - No other runtime behavior was modified outside APF scaffold files during this milestone.
 
 ## Scope state this milestone
@@ -73,8 +75,11 @@
 
 ## Planned next steps
 
-- Task 6F should classify first Quartus analysis errors into scaffold/dependency/constraints/inactive-source buckets.
-- Task 6E analysis execution is now documented and scoped via [docs/TASK6C_6E_QUARTUS_ANALYSIS_ONLY_ATTEMPT.md](docs/TASK6C_6E_QUARTUS_ANALYSIS_ONLY_ATTEMPT.md) and [docs/QUARTUS_ANALYSIS_ONLY_RESULT.md](docs/QUARTUS_ANALYSIS_ONLY_RESULT.md).
+- Task 6F added robust Quartus toolchain discovery and still does not commit generated outputs.
+- If quartus_map is still unavailable, analysis is not run.
+- If discovery finds quartus_map, analysis-only is attempted and any errors/warnings are captured in result docs.
+- Task 6G should classify the first Quartus findings into scaffold/dependency/constraints/inactive-source buckets.
+- Task 6E/6F execution context is documented via [docs/TASK6C_6E_QUARTUS_ANALYSIS_ONLY_ATTEMPT.md](docs/TASK6C_6E_QUARTUS_ANALYSIS_ONLY_ATTEMPT.md), [docs/TASK6F_QUARTUS_TOOLCHAIN_DISCOVERY.md](docs/TASK6F_QUARTUS_TOOLCHAIN_DISCOVERY.md), [docs/QUARTUS_ANALYSIS_ONLY_RESULT.md](docs/QUARTUS_ANALYSIS_ONLY_RESULT.md).
 - Real project conversion remains deferred to preserve safe incremental scope.
 - Synthesis is still not run.
 - Runtime source integration and constraints are still deferred.

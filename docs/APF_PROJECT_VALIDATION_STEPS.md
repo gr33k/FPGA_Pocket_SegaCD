@@ -95,3 +95,12 @@ Expected: no prohibited features in active regions.
   - `test ! -e quartus/simulation`
   - `test ! -e quartus/build`
   - `test ! -e quartus/output_files` (post-run)
+
+- If `quartus_map` is not in PATH, set one of:
+  - `export QUARTUS_MAP=/path/to/quartus_map`
+  - `export QUARTUS_ROOTDIR=/path/to/quartus`
+  - then run: `tools/run_quartus_analysis_only_if_available.sh`
+
+- Review [docs/QUARTUS_ANALYSIS_ONLY_RESULT.md](docs/QUARTUS_ANALYSIS_ONLY_RESULT.md) after the run.
+
+- Confirm generated outputs were not committed.

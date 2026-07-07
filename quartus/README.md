@@ -1,4 +1,4 @@
-# Quartus/openFPGA Documentation & Placeholder Skeletons (Task 6C-6E)
+# Quartus/openFPGA Documentation & Placeholder Skeletons (Task 6F)
 
 Task 5V created Quartus project planning documentation.
 Task 5W added non-buildable placeholder Quartus project files under `quartus/`.
@@ -7,6 +7,7 @@ Task 6A updated hygiene validation for mixed active-skeleton and placeholder sta
 Task 6B activated `quartus/files_apf_scaffold.qsf` as an APF-owned scaffold source include list only.
 Task 6C-6D added a Quartus analysis-only command plan and preflight script.
 Task 6C-6E added a guarded analysis-only Quartus execution script and result capture.
+Task 6F added Quartus toolchain discovery and override documentation.
 
 ## Current state
 
@@ -43,14 +44,18 @@ Neither file set includes executable build steps or output generation.
 - `quartus/openfpga_build.tcl` is still not created.
 - `quartus/files_genesis_runtime.qsf` is not active yet.
 - Quartus analysis was attempted only under guarded conditions in Task 6C-6E.
+- Quartus toolchain discovery is now documented in Task 6F.
 - Review:
   - [docs/QUARTUS_ANALYSIS_ONLY_COMMAND_PLAN.md](docs/QUARTUS_ANALYSIS_ONLY_COMMAND_PLAN.md)
   - [docs/QUARTUS_ANALYSIS_ONLY_RESULT.md](docs/QUARTUS_ANALYSIS_ONLY_RESULT.md)
   - [docs/TASK6C_6E_QUARTUS_ANALYSIS_ONLY_ATTEMPT.md](docs/TASK6C_6E_QUARTUS_ANALYSIS_ONLY_ATTEMPT.md)
+  - [docs/TASK6F_QUARTUS_TOOLCHAIN_DISCOVERY.md](docs/TASK6F_QUARTUS_TOOLCHAIN_DISCOVERY.md)
+  - [docs/QUARTUS_TOOLCHAIN_DISCOVERY_NOTES.md](docs/QUARTUS_TOOLCHAIN_DISCOVERY_NOTES.md)
   - `tools/preflight_quartus_analysis_only.sh`
   - `tools/run_quartus_analysis_only_if_available.sh`
 - Quartus analysis/synthesis/APF packaging remain deferred.
   - The analysis-only path is advisory, does not prove runtime compile readiness, and may fail while runtime and constraints are inactive.
+  - Use `QUARTUS_MAP` or `QUARTUS_ROOTDIR` overrides before running analysis if needed.
 
 ## Exclusions still enforced
 
