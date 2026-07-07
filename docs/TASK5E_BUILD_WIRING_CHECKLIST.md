@@ -60,3 +60,16 @@ Related configuration references:
 5. Confirm no unexpected Sega-CD-era or save-state-related files were added to the scaffold source list.
 6. Confirm bridge read/write data remains deterministic for this milestone.
 7. Confirm ROM path stays local (no host-per-read streaming behavior).
+
+## Elaboration smoke check (Task 5H)
+
+1. Use `apf/src/fpga/sim/apf_core_top_elab_sources.f` for compile sanity without imported Genesis runtime.
+2. Confirm the source list compiles:
+   - `apf/src/fpga/core/core_top.v`
+   - `apf/src/fpga/core/rom_preload_ingress_stub.v`
+   - `apf/src/fpga/core/rom_local_service_stub.v`
+   - `apf/src/fpga/core/rom_tiny_local_rom_ram_stub.v`
+   - `apf/src/fpga/sim/apf_genesis_base_stub.sv`
+   - `apf/src/fpga/sim/tb_core_top_elaboration.v`
+3. Confirm `core_top` is instantiated with default inert parameters in the TB.
+4. Confirm deterministic outputs are checked (bridge/read/video path) for stub-mode sanity.

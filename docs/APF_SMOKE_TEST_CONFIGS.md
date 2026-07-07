@@ -53,5 +53,6 @@ Expected behavior:
 
 ## Next milestone
 
-Task 5F should add a minimal simulation/sanity testbench for
-`rom_preload_ingress_stub` -> `rom_local_service_stub` -> tiny local RAM runtime read path.
+Task 5H added compile/elaboration sanity for `core_top` using a simulation-only wrapper stub.
+
+Task 5I should add a real build-plan document for integrating imported Genesis_MiSTer runtime RTL into APF source manifests without modifying runtime files.
