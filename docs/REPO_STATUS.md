@@ -18,6 +18,10 @@
 - Task 5L selected the future import strategy as a pinned git submodule at `third_party/Genesis_MiSTer`.
 - Task 5M added the submodule and recorded pinned revision `adc0c42cfb1fa5d484cc8566767f7d68982bc44a`.
 - Task 5N inspected the imported submodule tree and created runtime source-list draft V1.
+- Task 5O added a compile-probe workflow for the real runtime boundary and recorded first-error capture scaffolding.
+- Task 5O status: compile probe artifacts are present, but no runtime build is active yet.
+- Imported runtime RTL remains unmodified and must remain read-only for this phase.
+- `docs/GENESIS_RUNTIME_FIRST_COMPILE_ERRORS.md` records advisory probe output and tool availability notes.
 
 ## Scope currently in-tree
 - Kept in `apf/`:
@@ -44,6 +48,8 @@
 - No checked-in default parameter changes were introduced for smoke behavior.
 - `apf_genesis_base_stub` is simulation-only and does not replace runtime boundary behavior.
 - Runtime manifest work is planning-only and does not alter imported MiSTer files.
+- Runtime compile planning remains constrained to compile-probe and dependency discovery; full runtime build is still pending.
+- No Sega-CD hardware path is present and no memory-controller feature is implemented yet.
 
 ## Planned runtime import tasks
 

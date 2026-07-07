@@ -7,6 +7,20 @@
 - Planned upstream: `https://github.com/MiSTer-devel/Genesis_MiSTer`
 - Task 5M performed the actual submodule addition and pinned the first known runtime commit.
 
+## Task 5O status
+
+- Added compile-probe plan and helper workflow for first-pass runtime dependency capture.
+- Created the following artifacts for Task 5O:
+  - `docs/TASK5O_REAL_RUNTIME_COMPILE_PROBE_PLAN.md`
+  - `tools/run_genesis_runtime_compile_probe.sh`
+  - `apf/src/fpga/core/genesis_runtime_compile_probe.draft.f`
+  - `docs/GENESIS_RUNTIME_FIRST_COMPILE_ERRORS.md`
+- Task 5O output remains advisory only and does not imply runtime readiness.
+- Confirmed runtime root in this phase remains:
+  - `third_party/Genesis_MiSTer/rtl/system.sv`
+- Downstream Genesis_MiSTer modules are still compile-confirmation pending.
+- Runtime build is still not active; no real runtime behavior change is being introduced here.
+
 ## Direct dependency chain found so far
 
 - `core_top`

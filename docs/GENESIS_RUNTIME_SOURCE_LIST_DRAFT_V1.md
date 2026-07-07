@@ -2,6 +2,9 @@
 
 > Draft status: inactive / planning-only / not used for synthesis yet
 
+- Probe source manifest used for compile dependency capture: `apf/src/fpga/core/genesis_runtime_compile_probe.draft.f`
+- Compile order is provisional and not final.
+
 ## Intended runtime chain
 
 - `apf/src/fpga/core/core_top.v`
