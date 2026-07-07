@@ -19,7 +19,7 @@ Conservative reset-order definition for this feasibility milestone. No imported-
   3. `WAIT_ROM_PRELOAD`
   4. `RUN`
 - In normal scaffold mode (`ENABLE_GENESIS_STUB_RUN = 0`), `rom_preload_done` remains false and the core remains held in reset.
-- In smoke-test mode (`ENABLE_GENESIS_STUB_RUN = 1`), the FSM allows transition into `RUN` without the stubbed preload gate.
+- In smoke-test mode (`ENABLE_GENESIS_STUB_RUN = 1`), the FSM allows transition into `RUN` with `rom_preload_done` forced by `rom_local_service_stub`.
 - `rom_slot_*` signals and preload arbitration remain stubs; runtime remains deterministic until preload architecture is implemented.
 
 ## Stubbed / deferred in this task

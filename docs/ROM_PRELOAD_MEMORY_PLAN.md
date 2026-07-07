@@ -27,12 +27,26 @@ The top-level now implements a conservative reset FSM with these states:
 
 For Task 5A, these are currently wired as stubs:
 - `pll_locked_stub = 1'b1`
-- `rom_preload_done_stub = 1'b0`
+- `rom_preload_done` from local service stub = `1'b0` unless smoke mode is enabled.
 - `ENABLE_GENESIS_STUB_RUN` parameter controls whether reset can be force-released for smoke testing.
 
 Behavior:
-- `ENABLE_GENESIS_STUB_RUN = 0` (default): FSM stays off in preload wait because `rom_preload_done_stub` is false, so `core_reset_n` remains asserted.
+- `ENABLE_GENESIS_STUB_RUN = 0` (default): FSM stays in preload wait because `rom_preload_done` is false, so `core_reset_n` remains asserted.
 - `ENABLE_GENESIS_STUB_RUN = 1`: FSM allows progression to `RUN` after stubbed lock and preload states for compile/build smoke checks.
+
+## Task 5B local ROM service stub
+
+- `core_top` now instantiates `rom_local_service_stub` and routes:
+  - runtime `rom_slot_addr` / `rom_slot_req` → service request interface
+  - service `rom_slot_ready` / `rom_slot_data` / `rom_slot_valid` → `apf_genesis_base`
+  - service `rom_preload_done` → reset FSM gate.
+- The stub keeps preload write ports present as inert placeholders:
+  - `preload_wr`
+  - `preload_addr`
+  - `preload_data`
+  - `preload_commit`
+- Default behavior is intentionally inert (`preload_done=0`, `ready=0`, `valid=0`, `data=16'hFFFF`).
+- Smoke mode inherits `ENABLE_GENESIS_STUB_RUN` so `rom_preload_done` can be forced high for structural tests.
 
 ## Interface contract to implement in a future milestone
 

@@ -161,10 +161,8 @@ module core_top #(
     wire apf_reset_released = 1'b1;
     // TODO(Task 5A): replace with real PLL lock input when integrated.
     wire pll_locked_stub    = 1'b1;
-    // TODO(Task 5A): replace with real ROM preload completion once implemented.
-    wire rom_preload_done_stub = 1'b0;
-
-    wire rom_preload_done = ENABLE_GENESIS_STUB_RUN ? 1'b1 : rom_preload_done_stub;
+    // TODO(Task 5B): replace with rom_local_service_stub preload completion once real preload path is implemented.
+    wire rom_preload_done;
     reg [1:0] core_reset_state;
 
     // Conservative local-state default for deterministic boot scaffolding.
@@ -239,9 +237,31 @@ module core_top #(
     // ROM preload and memory arbitration are deferred (safety stub only).
     wire [24:1] rom_slot_addr;
     wire        rom_slot_req;
-    wire        rom_slot_ready = 1'b0;
-    wire [15:0] rom_slot_data  = 16'h0000;
-    wire        rom_slot_valid = 1'b0;
+    wire        rom_slot_ready;
+    wire [15:0] rom_slot_data;
+    wire        rom_slot_valid;
+
+    // ROM local service interface placeholders for future APF preload-path writes.
+    // TODO(Task 5B): connect preload_* ports to real APF data-slot copy engine.
+    wire        preload_wr      = 1'b0;
+    wire [24:1] preload_addr    = rom_slot_addr;
+    wire [15:0] preload_data    = 16'hFFFF;
+    wire        preload_commit  = 1'b0;
+
+    rom_local_service_stub #(
+        .ENABLE_FAKE_ROM_FOR_SMOKE_TEST(ENABLE_GENESIS_STUB_RUN)
+    ) u_rom_local_service_stub(
+        .rom_addr         (rom_slot_addr),
+        .rom_req          (rom_slot_req),
+        .rom_ready        (rom_slot_ready),
+        .rom_data         (rom_slot_data),
+        .rom_valid        (rom_slot_valid),
+        .rom_preload_done  (rom_preload_done),
+        .preload_wr       (preload_wr),
+        .preload_addr     (preload_addr),
+        .preload_data     (preload_data),
+        .preload_commit   (preload_commit)
+    );
 
     apf_genesis_base u_apf_genesis_base(
         .clk_50        (clk_74a),
@@ -308,7 +328,7 @@ module core_top #(
     assign cart_tran_bank1    = 8'hzz;
     assign cart_tran_bank1_dir = 1'b0;
     assign cart_tran_bank0    = 4'hf;
-    assign cart_tran_bank0_dir = 1'b0;
+    assign cart_tran_bank0_dir = 1'b1;
     assign cart_tran_pin30    = 1'b0;
     assign cart_tran_pin30_dir = 1'bz;
     assign cart_pin30_pwroff_reset = 1'b0;

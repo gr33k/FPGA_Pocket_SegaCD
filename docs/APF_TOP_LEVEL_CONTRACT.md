@@ -46,6 +46,10 @@
 - Final APF reset sequencing is deferred to later tasks.
 
 ## Explicit stubs
+- `rom_local_service_stub` sits between `core_top` and `apf_genesis_base`:
+  - no real ROM preload storage is implemented yet,
+  - ROM data/ready/valid are inert until preload is available,
+  - `ENABLE_GENESIS_STUB_RUN=1` enables conservative smoke-mode fake responses.
 - Bridge transactions are stubbed and return deterministic defaults.
 - ROM preload and memory arbitration are deferred.
 - Cartridge/link/IR behavior is stubbed with template-safe defaults.
