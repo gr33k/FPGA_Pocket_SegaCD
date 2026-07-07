@@ -32,6 +32,8 @@
 - Task 5Z converted `quartus/FPGA_Pocket_SegaCD.qpf` and `quartus/FPGA_Pocket_SegaCD.qsf` to active-but-not-run skeletons.
 - Task 6A updated Quartus hygiene validation to separate active-skeleton files, non-buildable placeholders, and scaffold-source active list state.
 - Task 6B activated `quartus/files_apf_scaffold.qsf` as APF-only scaffold source list (no runtime, no constraints, no build automation).
+- Task 6C-6D added Quartus analysis-only command planning and preflight script/report artifacts.
+- Task 6C-6E added guarded `quartus_map --analysis_and_elaboration` execution documentation and reporting.
 - `docs/TASK5W_QUARTUS_PLACEHOLDER_PROJECT_FILES.md` now records Task 5W scope and constraints.
 - Imported runtime RTL remains unmodified and is treated as read-only in this phase.
 - `docs/GENESIS_RUNTIME_FIRST_COMPILE_ERRORS.md` records advisory probe output and tool constraints.
@@ -46,7 +48,7 @@
   - Repository status summary.
   - Smoke-test configuration and build wiring checklist documents for task 5E.
   - Real-runtime compile-probe planning docs and source-list tightening notes.
-  - Mixed-language and Quartus planning docs for Tasks 5Q/5R/5S/5T/5U/5W/5X.
+  - Mixed-language and Quartus planning docs for Tasks 5Q/5R/5S/5T/5U/5W/5X and 6A-6B-6C/6D.
 - Kept in `quartus/`:
   - `README.md` and `notes_mixed_language.md`.
   - Active/placeholder mixed project structure files:
@@ -58,6 +60,8 @@
     - `files_constraints.qsf`
 - Kept in `tools/`:
   - `check_quartus_placeholder_hygiene.sh` (Task 5X verification helper).
+  - `preflight_quartus_analysis_only.sh` (Task 6C-6D preflight, no tool execution).
+  - `run_quartus_analysis_only_if_available.sh` (Task 6C-6E analysis-only attempt wrapper).
 - No other runtime behavior was modified outside APF scaffold files during this milestone.
 
 ## Scope state this milestone
@@ -69,9 +73,8 @@
 
 ## Planned next steps
 
-- Continue 6B and 6C documentation/state updates where needed.
-- Task 6A has completed the hygiene validator split; `docs/QUARTUS_PLACEHOLDER_HYGIENE_REPORT.md` should be regenerated after edits.
-- Task 6C should document controlled analysis-only Quartus verification commands.
+- Task 6F should classify first Quartus analysis errors into scaffold/dependency/constraints/inactive-source buckets.
+- Task 6E analysis execution is now documented and scoped via [docs/TASK6C_6E_QUARTUS_ANALYSIS_ONLY_ATTEMPT.md](docs/TASK6C_6E_QUARTUS_ANALYSIS_ONLY_ATTEMPT.md) and [docs/QUARTUS_ANALYSIS_ONLY_RESULT.md](docs/QUARTUS_ANALYSIS_ONLY_RESULT.md).
 - Real project conversion remains deferred to preserve safe incremental scope.
 - Synthesis is still not run.
 - Runtime source integration and constraints are still deferred.

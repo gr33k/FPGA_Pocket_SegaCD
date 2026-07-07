@@ -19,6 +19,8 @@ Related checklist docs added in Task 5S:
 - [Quartus mixed-language notes](quartus/notes_mixed_language.md)
 - [Task 5X placeholder hygiene validation](docs/TASK5X_QUARTUS_PLACEHOLDER_HYGIENE_VALIDATION.md)
 - [Task 5X hygiene report](docs/QUARTUS_PLACEHOLDER_HYGIENE_REPORT.md)
+- [Task 6C-6D analysis preflight plan](docs/TASK6C_6D_QUARTUS_ANALYSIS_PREFLIGHT_PLAN.md)
+- [Quartus analysis-only command plan](docs/QUARTUS_ANALYSIS_ONLY_COMMAND_PLAN.md)
 
 Current status:
 - Actual project creation and file emission remain fully deferred.
@@ -30,6 +32,7 @@ Current status:
 - Task 5Z converted the top-level `FPGA_Pocket_SegaCD.qpf`/`.qsf` into active skeleton form.
 - Task 6A updated hygiene validation for mixed active-skeleton and placeholder states.
 - Task 6B activated the APF-owned `files_apf_scaffold.qsf` source list only.
+- Task 6C-6D added an analysis-only preflight script/report and documented the future `quartus_map` command.
 
 ## Real runtime boundary rules
 
@@ -37,6 +40,15 @@ Current status:
 - Do not use `apf/src/fpga/sim/apf_genesis_base_stub.sv` in real synthesis.
 - Do not use imported MiSTer top-level `Genesis.sv` as the APF top.
 - Keep `sys/sys_top.v` and HPS/IOCTL framework files excluded unless explicitly planned and required later.
+
+## Analysis-only vs. build status
+
+- Task 6C-6E added a guarded execution path:
+  - `tools/run_quartus_analysis_only_if_available.sh`
+- The command used is `quartus_map --analysis_and_elaboration FPGA_Pocket_SegaCD`.
+- This remains an analysis/elaboration-only check, not synthesis, fitter, assembler, or timing analysis.
+- Runtime and constraints remain inactive, so failures are expected and advisory.
+- Captured outputs are now stored in [docs/QUARTUS_ANALYSIS_ONLY_RESULT.md](docs/QUARTUS_ANALYSIS_ONLY_RESULT.md).
 
 ## Activation status after 6B
 
@@ -47,12 +59,6 @@ Current status:
 - `tools/check_quartus_placeholder_hygiene.sh` now handles active-skeleton and placeholder categories separately.
 - `apf/src/fpga/sim/apf_genesis_base_stub.sv` remains excluded from active synthesis paths.
 - Synthesis remains disabled and no Quartus run output is expected in this milestone.
-
-## Hygiene validation note
-
-- Task 5X placeholder hygiene validation does not equal successful Quartus synthesis.
-- This is an advisory pass only and must not be interpreted as build-readiness.
-- Task 6A+6B updates are still scaffold-level and non-run.
 
 ## Exclusions and deferrals
 
@@ -67,6 +73,15 @@ Current status:
 - Mixed-language support must be handled by the future project configuration, not by editing upstream runtime modules.
 - VHDL-backed dependencies found in runtime planning are blockers for pure Verilog-only local probe flows.
 
-## Task 6C follow-up
+## Task 6E status
 
-- Task 6C should define a controlled Quartus analysis-only verification plan (command sequence only, no run yet), and keep this milestone non-run.
+Task 6E is complete as the guarded analysis-only attempt and reporting step.
+
+## Task 6F expectation
+
+Task 6F should classify the first Quartus findings into:
+
+- APF scaffold issues
+- missing Genesis runtime dependency issues
+- constraint/project setup issues
+- expected-not-yet-active issues
