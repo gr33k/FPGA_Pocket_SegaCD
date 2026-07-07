@@ -50,6 +50,10 @@
   - no real ROM preload storage is implemented yet,
   - ROM data/ready/valid are inert until preload is available,
   - `ENABLE_GENESIS_STUB_RUN=1` enables conservative smoke-mode fake responses.
+- Task 5C adds `rom_preload_ingress_stub` as a conservative bridge debug ingress:
+  - accepts `bridge_addr`, `bridge_wr`, `bridge_wr_data`, `bridge_rd`
+  - outputs temporary preload controls (`preload_wr`, `preload_addr`, `preload_data`, `preload_commit`)
+  - does not implement real APF data-slot loading.
 - Bridge transactions are stubbed and return deterministic defaults.
 - ROM preload and memory arbitration are deferred.
 - Cartridge/link/IR behavior is stubbed with template-safe defaults.

@@ -1,5 +1,6 @@
 module core_top #(
-    parameter ENABLE_GENESIS_STUB_RUN = 1'b0
+    parameter ENABLE_GENESIS_STUB_RUN = 1'b0,
+    parameter ENABLE_PRELOAD_INGRESS_STUB = 1'b0
 )(
     // physical connections
     input   wire            clk_74a,
@@ -241,12 +242,29 @@ module core_top #(
     wire [15:0] rom_slot_data;
     wire        rom_slot_valid;
 
-    // ROM local service interface placeholders for future APF preload-path writes.
-    // TODO(Task 5B): connect preload_* ports to real APF data-slot copy engine.
-    wire        preload_wr      = 1'b0;
-    wire [24:1] preload_addr    = rom_slot_addr;
-    wire [15:0] preload_data    = 16'hFFFF;
-    wire        preload_commit  = 1'b0;
+    // Task 5C:
+    // bridge-side ingress (debug-only) feeding future ROM preload writes into local service stub.
+    wire        preload_wr;
+    wire [24:1] preload_addr;
+    wire [15:0] preload_data;
+    wire        preload_commit;
+    wire        preload_active;
+
+    rom_preload_ingress_stub #(
+        .ENABLE_PRELOAD_INGRESS_STUB(ENABLE_PRELOAD_INGRESS_STUB)
+    ) u_rom_preload_ingress_stub(
+        .clk            (clk_74a),
+        .bridge_addr    (bridge_addr),
+        .bridge_wr      (bridge_wr),
+        .bridge_wr_data (bridge_wr_data),
+        .bridge_rd      (bridge_rd),
+        .preload_wr     (preload_wr),
+        .preload_addr   (preload_addr),
+        .preload_data   (preload_data),
+        .preload_commit (preload_commit),
+        .preload_active (preload_active)
+    );
+    (* keep *) wire _unused_preload_active = preload_active;
 
     rom_local_service_stub #(
         .ENABLE_FAKE_ROM_FOR_SMOKE_TEST(ENABLE_GENESIS_STUB_RUN)

@@ -48,6 +48,28 @@ Behavior:
 - Default behavior is intentionally inert (`preload_done=0`, `ready=0`, `valid=0`, `data=16'hFFFF`).
 - Smoke mode inherits `ENABLE_GENESIS_STUB_RUN` so `rom_preload_done` can be forced high for structural tests.
 
+## Task 5C bridge preload ingress stub
+
+- A new bridge-side ingress stub module (`rom_preload_ingress_stub`) now accepts:
+  - `clk`
+  - `bridge_addr`
+  - `bridge_wr`
+  - `bridge_wr_data`
+  - `bridge_rd`
+- The ingress stub outputs preload write tokens to the local ROM service stub:
+  - `preload_wr`
+  - `preload_addr`
+  - `preload_data`
+  - `preload_commit`
+  - `preload_active`
+- In Task 5C mode (`ENABLE_PRELOAD_INGRESS_STUB = 1`), the bridge writes use a private debug register map:
+  - `0x00000000`: set `preload_addr` from `bridge_wr_data[24:1]`
+  - `0x00000004`: set `preload_data` from `bridge_wr_data[15:0]` and pulse `preload_wr`
+  - `0x00000008`: pulse `preload_commit`
+  - `0x0000000C`: set `preload_active = bridge_wr_data[0]`
+- This is intentionally not final APF loading behavior; real APF data-slot/preload transport remains a future milestone.
+- Runtime contract is unchanged: ROM reads remain serviced from preloaded local memory once implemented; per-read host streaming remains forbidden.
+
 ## Interface contract to implement in a future milestone
 
 - Add a local-memory-backed ROM service layer that:
