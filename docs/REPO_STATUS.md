@@ -193,3 +193,24 @@ Deferred:
 - 32X until Genesis boots and resource/timing cost is evaluated
 
 Quartus remains blocked until a Quartus Lite Linux installer is placed on the NAS.
+
+## Task 7F status (blocked by missing installer)
+
+- Step 1 sync completed on NAS (`main` fast-forwarded to `c2486a8`).
+- Installer discovery for NAS workflow returned no files under `/root/fpga/installers`.
+- Ran `tools/docker_install_quartus_lite.sh`.
+- `docs/DOCKER_QUARTUS_INSTALL_STATUS.md` now shows:
+  - installer found: no
+  - install attempted: no
+  - blocker: no installer found
+- `docs/DOCKER_QUARTUS_INSTALLER_HELP.txt` shows no installer path.
+- `quartus_map` discovery not run past missing-installer stop.
+- `tools/docker_run_openfpga_genesis_analysis_only.sh` was not run.
+- No fitter/assembler/timing/bitstream commands were executed.
+- Hard stop remains until a valid Quartus Lite installer is staged in `/root/fpga/installers`.
+
+## Task 7F notes
+
+- No `third_party` runtime changes were made in this task.
+- No source files were compiled or modified.
+- No forbidden Quartus output artifacts were produced.

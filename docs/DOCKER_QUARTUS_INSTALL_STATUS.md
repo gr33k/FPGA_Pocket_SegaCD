@@ -1,21 +1,13 @@
-# Docker Quartus install status
+# Docker Quartus Lite install status
+Generated: 2026-07-07 21:09:07 UTC
 
-Date: 2026-07-07
+Host: gr33knas.thec0de.com
+Install host dirs: installer=/root/fpga/installers, target=/root/fpga/intelFPGA_lite
+Image: pocket-quartus-base
+Dockerfile: /Data/dockerprojects/FPGA_Pocket_SegaCD/docker/quartus/Dockerfile.ubuntu-quartus-base
 
-## Current run
-
-- installer search dir: `/root/fpga/installers`
-- quartus target host dir: `/root/fpga/intelFPGA_lite`
-- image: `pocket-quartus-base` (build if missing)
-- installer search: not executed yet in this Task 7E snapshot
-- installer found: no
-- install attempted: no
-- install exit code: n/a
-- quartus_map found: no
-- blocker: no installer was staged yet
-
-## Notes
-
-- Docker remains prepared to install Quartus into a persistent host path.
-- No Quartus runtime execution was performed from this task state.
-- No fitter/assembler/timing/bitstream was run.
+installer found: no
+installer search path: /root/fpga/installers
+patterns: *quartus*.run, *quartus*.sh, *Quartus*.run, *Quartus*.sh, *Quartus*.tar, *Quartus*.tar.gz
+BLOCKED: no installer found under /root/fpga/installers
+install attempted: no

@@ -171,3 +171,22 @@ After this strategy lock:
 - No Sega-CD/32X at this stage.
 - No save state support yet.
 - No host-per-read ROM streaming.
+
+## Task 7F blocker snapshot
+
+### Result
+- NAS run date: 2026-07-07
+- Installer found in `/root/fpga/installers`: **No**
+- Installer path pattern checks: **No matches**
+- `docs/DOCKER_QUARTUS_INSTALL_STATUS.md`: installer not found / install not attempted
+- `quartus_map`: not checked (installer stage hard-stop)
+- Docker analysis attempted: **No**
+- Failsafe: hold on hard-stop; no fitter/assembler/timing/bitstream run
+
+### Next action
+1. Stage a valid Quartus Lite installer in `/root/fpga/installers` (Linux host package).
+2. Re-run:
+   - `tools/docker_install_quartus_lite.sh`
+   - `tools/docker_run_openfpga_genesis_analysis_only.sh`
+3. Classify first Quartus analysis error only if analysis executes.
+4. Keep `third_party/openFPGA-Genesis` and `third_party/Genesis_MiSTer` clean/read-only unless a later integration task requires edits.
