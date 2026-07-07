@@ -34,11 +34,18 @@ keep this stage as package/layout scaffolding with an explicit host handoff.
 2. Validate toolchain path and run analysis/elaboration only from that host.
 3. Capture first Quartus analysis errors and resume according to Task 6T/6L guidance.
 
-## Hard constraints
+## Task 6U next activation path
 
-- No Sega-CD/32X at this stage.
-- No save state support yet.
-- No host-per-read ROM streaming.
+Main implementation path pivots to Pocket-native Genesis.
+
+Next task after 6U:
+- decide whether to fork `opengateware/openFPGA-Genesis` directly, vendor a source snapshot with attribution, or wrap it as a submodule build source
+- preserve attribution and license notices
+- avoid editing upstream submodule files directly
+- get Genesis-only building as close to upstream Pocket Genesis as possible
+- no Sega CD or 32X until Genesis boots
+
+The NAS Docker/Quartus path remains hard-stopped until a Quartus Lite Linux installer is available.
 
 ## Task 6V target follow-on
 
@@ -48,3 +55,9 @@ After this strategy lock:
 2. Keep `third_party/Genesis_MiSTer` as reference-only and non-active.
 3. Rebuild the runtime-active source manifest from openFPGA core paths.
 4. Run Quartus analysis/elaboration against the new active lane only once toolchain is available.
+
+## Hard constraints
+
+- No Sega-CD/32X at this stage.
+- No save state support yet.
+- No host-per-read ROM streaming.

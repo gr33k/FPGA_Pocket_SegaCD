@@ -1,3 +1,9 @@
 [submodule "third_party/Genesis_MiSTer"]
 	path = third_party/Genesis_MiSTer
 	url = https://github.com/MiSTer-devel/Genesis_MiSTer.git
+[submodule "third_party/openFPGA-Genesis"]
+	path = third_party/openFPGA-Genesis
+	url = https://github.com/opengateware/openFPGA-Genesis.git
+[submodule "third_party/Analogizer_openFPGA-Genesis"]
+	path = third_party/Analogizer_openFPGA-Genesis
+	url = https://github.com/RndMnkIII/Analogizer_openFPGA-Genesis.git

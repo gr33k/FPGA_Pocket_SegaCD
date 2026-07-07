@@ -58,3 +58,26 @@ Date: 2026-07-06
 
 - Task 6R and beyond should wire packaging output and/or Quartus handoff once
   toolchain is available.
+
+## Task 6U pivot status
+
+The project is pivoting to a Pocket-native Genesis base.
+
+Primary upstream reference:
+- `third_party/openFPGA-Genesis`
+- https://github.com/opengateware/openFPGA-Genesis
+
+Secondary reference:
+- `third_party/Analogizer_openFPGA-Genesis`
+- https://github.com/RndMnkIII/Analogizer_openFPGA-Genesis
+
+The old MiSTer-first APF scaffold remains as research/supporting material but is no longer the main implementation direction.
+
+Immediate target:
+- Genesis-only Pocket boot
+
+Deferred:
+- Sega CD until Genesis boots
+- 32X until Genesis boots and resource/timing cost is evaluated
+
+Quartus remains blocked until a Quartus Lite Linux installer is placed on the NAS.
