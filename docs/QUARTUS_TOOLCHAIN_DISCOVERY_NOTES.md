@@ -17,6 +17,14 @@ To help the analysis runner locate `quartus_map`, set one of:
 1. `chmod +x tools/preflight_quartus_analysis_only.sh tools/run_quartus_analysis_only_if_available.sh`
 2. `tools/run_quartus_analysis_only_if_available.sh`
 
+## Local validation workflow (Task 6I)
+
+- Validate local toolchain visibility with `tools/validate_local_quartus_toolchain.sh`.
+- Use `docs/LOCAL_QUARTUS_SETUP.md` for environment setup.
+- This validation step is separate from analysis-only execution:
+  - discovery validation writes `docs/QUARTUS_TOOLCHAIN_VALIDATION_RESULT.md`
+  - analysis-only remains advisory and is only run when discovery is confirmed.
+
 ## Report expectations
 `docs/QUARTUS_ANALYSIS_ONLY_RESULT.md` should show:
 - whether preflight ran,

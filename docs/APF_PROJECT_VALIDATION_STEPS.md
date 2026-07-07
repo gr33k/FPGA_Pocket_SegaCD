@@ -45,6 +45,13 @@ For `quartus/files_apf_scaffold.qsf`, confirm:
 - Review [docs/QUARTUS_PREFLIGHT_CHECK_REPORT.md](docs/QUARTUS_PREFLIGHT_CHECK_REPORT.md).
 - This preflight is advisory and does not run Quartus.
 
+## 4a) Validate local Quartus toolchain
+
+- `chmod +x tools/validate_local_quartus_toolchain.sh`
+- `tools/validate_local_quartus_toolchain.sh`
+- Review [docs/QUARTUS_TOOLCHAIN_VALIDATION_RESULT.md](docs/QUARTUS_TOOLCHAIN_VALIDATION_RESULT.md).
+- Continue only if status is PASS.
+
 ## 5) Confirm runtime source include is still inactive
 
 - `quartus/files_genesis_runtime.qsf` remains placeholder-only and contains no active runtime source list.
@@ -100,6 +107,7 @@ Expected: no prohibited features in active regions.
   - `export QUARTUS_MAP=/path/to/quartus_map`
   - `export QUARTUS_ROOTDIR=/path/to/quartus`
   - then run: `tools/run_quartus_analysis_only_if_available.sh`
+- If validation and setup were completed, then rerun `tools/run_quartus_analysis_only_if_available.sh`.
 
 - Review [docs/QUARTUS_ANALYSIS_ONLY_RESULT.md](docs/QUARTUS_ANALYSIS_ONLY_RESULT.md) after the run.
 
