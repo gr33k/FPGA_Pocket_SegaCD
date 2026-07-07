@@ -1,6 +1,7 @@
 module core_top #(
     parameter ENABLE_GENESIS_STUB_RUN = 1'b0,
-    parameter ENABLE_PRELOAD_INGRESS_STUB = 1'b0
+    parameter ENABLE_PRELOAD_INGRESS_STUB = 1'b0,
+    parameter ENABLE_TINY_LOCAL_ROM_RAM = 1'b0
 )(
     // physical connections
     input   wire            clk_74a,
@@ -267,8 +268,10 @@ module core_top #(
     (* keep *) wire _unused_preload_active = preload_active;
 
     rom_local_service_stub #(
-        .ENABLE_FAKE_ROM_FOR_SMOKE_TEST(ENABLE_GENESIS_STUB_RUN)
+        .ENABLE_FAKE_ROM_FOR_SMOKE_TEST(ENABLE_GENESIS_STUB_RUN),
+        .ENABLE_TINY_LOCAL_ROM_RAM(ENABLE_TINY_LOCAL_ROM_RAM)
     ) u_rom_local_service_stub(
+        .clk             (clk_74a),
         .rom_addr         (rom_slot_addr),
         .rom_req          (rom_slot_req),
         .rom_ready        (rom_slot_ready),

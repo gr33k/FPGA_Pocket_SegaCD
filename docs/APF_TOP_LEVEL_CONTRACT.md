@@ -54,6 +54,10 @@
   - accepts `bridge_addr`, `bridge_wr`, `bridge_wr_data`, `bridge_rd`
   - outputs temporary preload controls (`preload_wr`, `preload_addr`, `preload_data`, `preload_commit`)
   - does not implement real APF data-slot loading.
+- Task 5D adds an optional tiny local ROM RAM test stub behind `rom_local_service_stub`:
+  - `rom_local_service_stub` exposes `ENABLE_TINY_LOCAL_ROM_RAM`.
+  - when enabled, runtime ROM requests are serviced from a tiny 16-bit local memory using preload writes.
+  - when disabled, ROM service remains inert unless smoke-mode fake is enabled.
 - Bridge transactions are stubbed and return deterministic defaults.
 - ROM preload and memory arbitration are deferred.
 - Cartridge/link/IR behavior is stubbed with template-safe defaults.

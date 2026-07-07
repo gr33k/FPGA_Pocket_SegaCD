@@ -70,6 +70,22 @@ Behavior:
 - This is intentionally not final APF loading behavior; real APF data-slot/preload transport remains a future milestone.
 - Runtime contract is unchanged: ROM reads remain serviced from preloaded local memory once implemented; per-read host streaming remains forbidden.
 
+## Task 5D tiny local ROM RAM stub
+
+- `rom_local_service_stub` now instantiates `rom_tiny_local_ram_stub` to add an optional tiny fabric RAM path for structural smoke testing.
+- Parameters:
+  - `ENABLE_TINY_LOCAL_ROM_RAM` (default `0`) enables/disables this path.
+  - `ADDR_WORDS` is `1024` for this scaffold.
+- Tiny RAM behavior:
+  - defaults to inert (`rom_preload_done=0`, `rom_ready=0`, `rom_valid=0`, `rom_data=16'hFFFF`) when disabled.
+  - when enabled, accepts `preload_wr` / `preload_addr` / `preload_data` writes and raises `rom_preload_done` on `preload_commit`.
+  - runtime reads return local tiny-memory data from `rom_addr` with deterministic `rom_valid = rom_req & rom_ready`.
+- This remains intentionally incomplete: 1024x16 is not enough for real ROM images and is used only for structural handshake verification.
+- Difference from Task 5B fake mode:
+  - fake mode still uses `ENABLE_GENESIS_STUB_RUN` and reports 16'hFFFF for every request,
+  - tiny RAM mode is enabled only by `ENABLE_TINY_LOCAL_ROM_RAM` and serves writes to local storage.
+- Host-per-read streaming from APF bridge/host remains forbidden.
+
 ## Interface contract to implement in a future milestone
 
 - Add a local-memory-backed ROM service layer that:
