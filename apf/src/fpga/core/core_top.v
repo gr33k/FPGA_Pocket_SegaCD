@@ -212,7 +212,11 @@ module core_top #(
     assign aux_scl            = 1'b0;
 
     // Deterministic one-controller Genesis pad mapping (12-bit vector):
-    // D-pad + A/B/C + Start; X/Y/Z/Mode deferred.
+    // D-pad + A/B/C + Start + Mode + X/Y/Z.
+    wire pad1_mode = cont1_key[14];
+    wire pad1_x    = cont1_trig[0];
+    wire pad1_y    = cont1_trig[1];
+    wire pad1_z    = cont1_trig[2];
     wire [11:0] pad1;
     assign pad1[0]  = cont1_key[0];  // dpad up
     assign pad1[1]  = cont1_key[1];  // dpad down
@@ -222,10 +226,10 @@ module core_top #(
     assign pad1[5]  = cont1_key[5];  // B
     assign pad1[6]  = cont1_key[6];  // C
     assign pad1[7]  = cont1_key[15]; // Start
-    assign pad1[8]  = cont1_key[14]; // Select / deferred
-    assign pad1[9]  = cont1_trig[8]; // L / deferred
-    assign pad1[10] = cont1_trig[0]; // R / deferred
-    assign pad1[11] = 1'b0;
+    assign pad1[8]  = pad1_mode;     // Mode
+    assign pad1[9]  = pad1_x;       // X
+    assign pad1[10] = pad1_y;       // Y
+    assign pad1[11] = pad1_z;       // Z
 
     // Deterministic local outputs.
     wire [7:0]  core_video_r;

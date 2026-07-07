@@ -27,11 +27,11 @@ Review of the interface between:
 ### `apf_genesis_base` -> `system`
 - `RESET_N`: directly `reset_n`
 - `MCLK`: directly `clk_50`
-- `LOADING`: `~rom_slot_ready`
+- `LOADING`: `~rom_service_ready`, where `rom_service_ready = rom_slot_ready`
 - `ROM_ADDR`: from `rom_slot_addr`
 - `ROM_DATA`: `rom_slot_data`
 - `ROM_REQ`: `rom_req`
-- `ROM_ACK`: `rom_slot_req && rom_slot_valid`
+- `ROM_ACK`: `rom_slot_req && rom_slot_ready && rom_slot_valid`
 - `ROM_ADDR2`: tied `24'h000000`
 - `ROM_REQ2`: `1'b0`
 - `ROM_ACK2`: `1'b0`
@@ -39,7 +39,7 @@ Review of the interface between:
 - `BRAM`: address/data/we/ack tied through local wires
 - `PAL`, `EXPORT`, `FAST_FIFO`: fixed 0
 - `LPF_MODE`,`ENABLE_FM`,`ENABLE_PSG`: fixed values
-- `ROMSZ` placeholder set to `24'h400000`
+- `ROMSZ` scaffold constant set to `ROM_SIZE_DEFAULT_WORDS_OR_BYTES` (`24'h400000`) until ROM metadata is piped from APF data flow
 - Joy: `JOY_1 = pad1`; JOY_2..JOY_5 fixed 0
 - `MOUSE` width mapped to 25-bit zero vector
 - `SERJOYSTICK_IN` zeroed
@@ -62,12 +62,12 @@ Review of the interface between:
 - `SERJOYSTICK_*` path is stubbed.
 - `MOUSE` input is hard-zeroed.
 - `BRAM_CHANGE` only wired from local SRAM mux, no cartridge-side BRAM manager.
-- `ROMSZ` placeholder, not true cartridge size.
+- `ROMSZ` scaffold default, not true cartridge size.
 
 ## 4) Reset behavior
 - `system` expects `RESET_N` and uses `LOADING` to drive internal reset.
-- Wrapper currently gates `loading = ~rom_slot_ready`.
-- With no ROM preload completion, wrapper-side preload logic intentionally holds core reset until active reset policy allows.
+- Wrapper now uses `rom_service_ready = rom_slot_ready` and holds `LOADING` high until ready.
+- Real gating is intentionally simple and will be replaced once preload metadata is plumbed.
 
 ## 5) ROM request/ack path review
 - `system` asserts `ROM_REQ` and expects `ROM_ACK` from runtime memory.
@@ -85,7 +85,7 @@ Review of the interface between:
 ## 7) Controller mapping review
 - One Genesis pad only (`pad1`).
 - D-pad and A/B/C/Start mapped with `cont1_key`/`cont1_trig` in `core_top`.
-- Remaining buttons (`Mode/X/Y/Z`) currently deferred.
+- Mode/X/Y/Z now wired from currently-exposed APF inputs: `Mode=cont1_key[14]`, `X=cont1_trig[0]`, `Y=cont1_trig[1]`, `Z=cont1_trig[2]`.
 
 ## 8) Interface risks and blockers
 - Mouse/GUN/serial joystick inputs are stubbed and not truly wired.
@@ -96,6 +96,5 @@ Review of the interface between:
 
 ## 9) Recommended next wrapper edits (Task 6N)
 - Keep `apf_genesis_base` behavior unless interface contract changes
-- Add explicit local comments for placeholder values (`rom_size`, ROM2 disablement, quirks)
-- Gate future real `rom_slot_ready` source from real preload-complete indicator only
+- Keep `LOADING` and `ROM_ACK` semantics tied to explicit runtime service signals (`rom_slot_ready` + `rom_slot_valid`)
 - Keep mixed-language/runtime scope decisions in Task 6N+ tasks

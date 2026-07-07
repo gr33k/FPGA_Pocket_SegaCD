@@ -14,7 +14,7 @@ This defines the conservative input contract for the current Genesis-only APF fe
 - D-pad mapped directly to APF D-pad inputs.
 - Face buttons mapped to Genesis A/B/C.
 - Start mapped to Genesis Start.
-- Mode/X/Y/Z are documented as future expansion, not enabled in the initial mapping.
+- Mode/X/Y/Z are wired in the wrapper when exposed by APF input signals (`cont1_key[14]`, `cont1_trig[0:2]`) using conservative defaults.
 
 ## Planned APF→Genesis mapping
 
@@ -27,11 +27,11 @@ Recommended default mapping:
 - `pad_btn_b` → Genesis B
 - `pad_btn_x` → Genesis C
 - `pad_btn_start` → Genesis Start
-- `pad_btn_select` reserved for future C/Mode expansion policy (not primary in this milestone)
+- `pad_btn_select` no longer reserved: Mode/X/Y/Z are now explicitly mapped in core adapter as conservative scaffold inputs.
 
 ## Implementation state
 - Keep mapping in APF JSON and wrapper adapter as a conservative skeleton.
-- Keep C, X, Y, Z/Mode behavior deferred until full input policy is validated.
+- Keep X/Y/Z/Mode adapter wiring scoped to the APF scaffold defaults; JSON-level semantic policy is still deferred until later controller policy validation.
 - No other controller types are instantiated in this milestone.
 
 ## Notes

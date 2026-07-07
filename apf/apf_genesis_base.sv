@@ -29,12 +29,12 @@ module apf_genesis_base
 	output logic [15:0]  audio_left,
 	output logic [15:0]  audio_right
 );
-	// Internal feasibility wrapper only: not the final APF top module.
+	// Internal feasibility wrapper only: Genesis-only APF boundary scaffold, not a final platform top.
 
-	// Core status and ROM path controls.
-	// TODO: Runtime ROM must come from local memory buffering, not APF host-per-read in final design.
-	// Keep loading low until host indicates ROM data slot is available.
-	wire loading = ~rom_slot_ready;
+	// ROM load signal is driven from scaffold preload readiness.
+	// This is intentionally simple: LOADING stays asserted until ROM service reports ready.
+	wire rom_service_ready = rom_slot_ready;
+	wire loading = ~rom_service_ready;
 
 	// Core timing and core glue.
 	wire [1:0] lpf_mode = 2'b00;
@@ -42,16 +42,16 @@ module apf_genesis_base
 	wire       enable_psg = 1'b1;
 
 	wire       pal = 1'b0;
-	// TODO: Sega CD integration deferred.
+	// Sega CD integration deferred in this milestone.
 	wire       export = 1'b0;
 	wire       fast_fifo = 1'b0;
-	// TODO: SRAM/save support deferred for this milestone.
+	// SRAM/save support deferred for this milestone.
 	wire       sram_quirk = 1'b0;
 	wire       sram00_quirk = 1'b0;
 	wire       eeprom_quirk = 1'b0;
 	wire       noram_quirk = 1'b0;
 	wire       pier_quirk = 1'b0;
-	// TODO: SVP disabled for Genesis-only milestone.
+	// SVP disabled for Genesis-only milestone.
 	wire       svp_quirk = 1'b0;
 	wire       fmbusy_quirk = 1'b0;
 	wire       schan_quirk = 1'b0;
@@ -69,16 +69,17 @@ module apf_genesis_base
 	wire        bram_change;
 
 	// Memory bus.
-	// TODO: ROM_SIZE is a placeholder while local ROM pipeline/memory controller is deferred.
-	wire [24:1] rom_size_placeholder = 24'h400000;
+	// ROMSZ is fixed to a conservative scaffold default until ROM metadata is wired from the data slot path.
+	localparam [24:1] ROM_SIZE_DEFAULT_WORDS_OR_BYTES = 24'h400000;
+	wire [24:1] rom_size = ROM_SIZE_DEFAULT_WORDS_OR_BYTES;
 	wire [24:1] rom_addr;
 	wire [15:0] rom_data = rom_slot_data;
 	wire [15:0] rom_wdata;
 	wire        rom_we;
 	wire  [1:0] rom_be;
 	wire        rom_req;
-	wire        rom_ack = (rom_slot_req && rom_slot_valid);
-	// TODO: ROM_ADDR2 disabled/stubbed for first milestone.
+	wire        rom_ack = (rom_slot_req && rom_slot_ready && rom_slot_valid);
+	// ROM_ADDR2 path is intentionally disabled in this milestone.
 	wire [24:1] rom_addr2 = 24'h000000;
 	wire [15:0] rom_data2 = 16'hFFFF;
 	wire        rom_req2 = 1'b0;
@@ -181,7 +182,7 @@ module apf_genesis_base
 		.SERJOYSTICK_IN (serjoy_in),
 		.SERJOYSTICK_OUT(serjoy_out),
 		.SER_OPT        (ser_opt),
-		.ROMSZ          (rom_size_placeholder),
+		.ROMSZ          (rom_size),
 		.ROM_ADDR       (rom_addr),
 		.ROM_DATA       (rom_data),
 		.ROM_WDATA      (rom_wdata),
