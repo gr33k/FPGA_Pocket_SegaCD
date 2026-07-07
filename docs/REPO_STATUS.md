@@ -19,9 +19,9 @@
 - Task 5M added the submodule and recorded pinned revision `adc0c42cfb1fa5d484cc8566767f7d68982bc44a`.
 - Task 5N inspected the imported submodule tree and created runtime source-list draft V1.
 - Task 5O added a compile-probe workflow for the real runtime boundary and recorded first-error capture scaffolding.
-- Task 5O status: compile probe artifacts are present, but no runtime build is active yet.
-- Imported runtime RTL remains unmodified and must remain read-only for this phase.
-- `docs/GENESIS_RUNTIME_FIRST_COMPILE_ERRORS.md` records advisory probe output and tool availability notes.
+- Task 5P tightened the compile-probe source list by static inspection to confirmed files only.
+- Imported runtime RTL remains unmodified and is treated as read-only in this phase.
+- `docs/GENESIS_RUNTIME_FIRST_COMPILE_ERRORS.md` records advisory probe output and tool constraints.
 
 ## Scope currently in-tree
 - Kept in `apf/`:
@@ -32,6 +32,7 @@
   - Baseline inventory map.
   - Repository status summary.
   - Smoke-test configuration and build wiring checklist documents for task 5E.
+  - Real-runtime compile-probe planning docs and source-list tightening notes.
 - No other runtime behavior was modified outside APF scaffold files during this milestone.
 
 - Runtime source-list planning is still inactive and not compile-ready.
@@ -47,21 +48,23 @@
 
 - No checked-in default parameter changes were introduced for smoke behavior.
 - `apf_genesis_base_stub` is simulation-only and does not replace runtime boundary behavior.
-- Runtime manifest work is planning-only and does not alter imported MiSTer files.
 - Runtime compile planning remains constrained to compile-probe and dependency discovery; full runtime build is still pending.
 - No Sega-CD hardware path is present and no memory-controller feature is implemented yet.
+- VHDL or mixed-language runtime dependencies remain pending if encountered in compile probe.
 
 ## Planned runtime import tasks
 
 - Task 5M: completed submodule add for `third_party/Genesis_MiSTer`.
-- Remaining runtime integration remains planning/verification work (compile-oriented dependency pass, manifest completion, and integration filelist updates).
+- Task 5Q: prepare mixed-language compile strategy.
+- Remaining runtime integration remains planning/verification work (compile-oriented dependency pass, manifest completion, and filelist updates).
 - Current docs:
   - [docs/TASK5L_GENESIS_IMPORT_STRATEGY.md](docs/TASK5L_GENESIS_IMPORT_STRATEGY.md)
   - [docs/THIRD_PARTY_IMPORT_POLICY.md](docs/THIRD_PARTY_IMPORT_POLICY.md)
   - [docs/GENESIS_MISTER_SUBMODULE_PLAN.md](docs/GENESIS_MISTER_SUBMODULE_PLAN.md)
   - [docs/TASK5N_IMPORTED_RUNTIME_TREE_INSPECTION.md](docs/TASK5N_IMPORTED_RUNTIME_TREE_INSPECTION.md)
   - [docs/GENESIS_RUNTIME_SOURCE_LIST_DRAFT_V1.md](docs/GENESIS_RUNTIME_SOURCE_LIST_DRAFT_V1.md)
+  - [docs/TASK5P_RUNTIME_SOURCE_LIST_TIGHTENING.md](docs/TASK5P_RUNTIME_SOURCE_LIST_TIGHTENING.md)
 
 ## Repo-path hygiene
-- Replace absolute local paths with repo-relative links in docs.
+- Keep project links repo-relative.
 - Prefer repo-relative references for file links.

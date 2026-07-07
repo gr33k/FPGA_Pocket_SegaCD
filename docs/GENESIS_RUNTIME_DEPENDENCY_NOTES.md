@@ -1,79 +1,60 @@
-# Genesis Runtime Dependency Notes (Task 5J, first-pass)
+# Genesis Runtime Dependency Notes (Task 5P updates)
 
-## Task 5L decision
+## Task 5P status
 
-- Runtime import strategy chosen: **git submodule** (documentation-only for now).
-- Planned import path: `third_party/Genesis_MiSTer`
-- Planned upstream: `https://github.com/MiSTer-devel/Genesis_MiSTer`
-- Task 5M performed the actual submodule addition and pinned the first known runtime commit.
+- Static inspection tightened `apf/src/fpga/core/genesis_runtime_compile_probe.draft.f`.
+- No local compile was run in this task.
+- Imported runtime RTL remains read-only.
 
-## Task 5O status
+## Confirmed active (static) dependency set by subsystem
 
-- Added compile-probe plan and helper workflow for first-pass runtime dependency capture.
-- Created the following artifacts for Task 5O:
-  - `docs/TASK5O_REAL_RUNTIME_COMPILE_PROBE_PLAN.md`
-  - `tools/run_genesis_runtime_compile_probe.sh`
-  - `apf/src/fpga/core/genesis_runtime_compile_probe.draft.f`
-  - `docs/GENESIS_RUNTIME_FIRST_COMPILE_ERRORS.md`
-- Task 5O output remains advisory only and does not imply runtime readiness.
-- Confirmed runtime root in this phase remains:
-  - `third_party/Genesis_MiSTer/rtl/system.sv`
-- Downstream Genesis_MiSTer modules are still compile-confirmation pending.
-- Runtime build is still not active; no real runtime behavior change is being introduced here.
+### root/system
 
-## Direct dependency chain found so far
+- `third_party/Genesis_MiSTer/rtl/system.sv`
 
-- `core_top`
-  - `->` `apf_genesis_base.sv`
-  - `->` `system` (instantiated as `u_genesis` in `apf_genesis_base.sv`)
-- `system` declaration is now available from the `third_party/Genesis_MiSTer` runtime import (`third_party/Genesis_MiSTer/rtl/system.sv`), while full runtime compile pass is still pending.
+### 68000
 
-## Major dependency groups identified for full runtime integration
+- `third_party/Genesis_MiSTer/rtl/FX68K/fx68k.sv`
 
-### Confirmed in this repo
+### PSG/FM support
 
-- `apf/apf_genesis_base.sv` (APF boundary wrapper)
-- `third_party/Genesis_MiSTer/rtl/system.sv` (present via submodule)
+- `third_party/Genesis_MiSTer/rtl/jt89/jt89.v`
+- `third_party/Genesis_MiSTer/rtl/jt89/jt89_mixer.v`
+- `third_party/Genesis_MiSTer/rtl/jt89/jt89_tone.v`
+- `third_party/Genesis_MiSTer/rtl/jt89/jt89_noise.v`
+- `third_party/Genesis_MiSTer/rtl/jt12/jt12.v`
+- `third_party/Genesis_MiSTer/rtl/jt12/jt12_top.v`
+- `third_party/Genesis_MiSTer/rtl/jt12/mixer/jt12_genmix.v`
+- `third_party/Genesis_MiSTer/rtl/genesis_fm_lpf.v`
 
-### Missing from repo (expected external/imported runtime)
+### Input/help support
 
-- 68000 CPU core group (expected under `third_party/Genesis_MiSTer`, e.g. `rtl/FX68K/fx68k.sv`)
-- Z80/T80 group (`third_party/Genesis_MiSTer/rtl/T80/*` family)
-- VDP/video group (`third_party/Genesis_MiSTer/rtl/vdp*` family)
-- FM/YM group (`third_party/Genesis_MiSTer/rtl/jt12/*`)
-- PSG group (`third_party/Genesis_MiSTer/rtl/jt89/*`)
-- Memory/helper groups (`third_party/Genesis_MiSTer` equivalents: `ddram`, `sdram`, `genesis_bus`, `rommap`, `misc`, `codes`, `mcu`, etc.)
-- Game Genie/helper/quirk-style modules if required by system wiring
+- `third_party/Genesis_MiSTer/rtl/multitap.sv`
+- `third_party/Genesis_MiSTer/rtl/gen_io.sv`
+- `third_party/Genesis_MiSTer/rtl/fourway.v`
+- `third_party/Genesis_MiSTer/rtl/teamplayer.sv`
+- `third_party/Genesis_MiSTer/rtl/cheatcodes.sv`
+- `third_party/Genesis_MiSTer/rtl/EEPROM_STM95.sv`
 
-### Unknown, compile-time resolution required
+### Pending / flow-blocked
 
-- Any exact include/dep-chain beyond the listed high-level modules must be confirmed by a future dependency-oriented compile pass against the imported runtime sources.
-- The scanner output is advisory only and must be validated by a compile/elaboration attempt.
-- Exact file set is expected to expand as compilation proceeds.
+- VHDL-backed dependencies not yet included in active probe source list:
+  - `third_party/Genesis_MiSTer/rtl/T80/T80s.vhd`
+  - `third_party/Genesis_MiSTer/rtl/vdp.vhd`
+  - `third_party/Genesis_MiSTer/rtl/vdp_common.vhd`
+  - `third_party/Genesis_MiSTer/rtl/SVP/SVP.vhd`
+  - `third_party/Genesis_MiSTer/rtl/bram.vhd`
+- JT12 helper helpers and deep helper files are still expected to be added in compile-confirmation iterations.
 
-## Exclusions for this milestone
+## Exclusions retained
 
-Keep excluded until explicitly planned in later milestones:
+- `Genesis.sv`, `sys/sys_top.v`, `sys/hps_io.sv`
+- `Sega CD`, `Mega-CD`, `32X`
+- `apf/src/fpga/sim/apf_genesis_base_stub.sv` remains simulation-only and is not used for real runtime manifest
+- Memory-controller and save implementations remain deferred
 
-- MiSTer top wrapper (`third_party/Genesis_MiSTer/Genesis.sv`)
-- `third_party/Genesis_MiSTer/sys/sys_top.v`
-- HPS/IOCTL and other framework-level MiSTer integration files
-- Sega CD / Mega-CD modules and BIOS/image loading path
-- 32X and expansion modules
-- Real memory controller / SDRAM / PSRAM / SRAM implementation
-- Simulation shim `apf/src/fpga/sim/apf_genesis_base_stub.sv`
+## Advisory status
 
-## Practical constraints
-
-- No files are added or edited in this pass to alter runtime behavior.
-- No active Quartus/APF project is added yet.
-- This doc intentionally remains a planning artifact until the runtime sources are present and verified.
-
-## Tooling
-
-- Task 5K added `tools/scan_verilog_deps.py` (read-only dependency scanner).
-- Use:
-  - `python3 tools/scan_verilog_deps.py`
-  - `python3 tools/scan_verilog_deps.py --root .`
-  - `python3 tools/scan_verilog_deps.py --root . --entry apf/apf_genesis_base.sv`
-- The scanner reports declarations/instantiations/missing modules from present files and is advisory; compile remains the final truth.
+- All items remain planning only.
+- Probe docs are advisory, not validated by local compile.
+- Do not assume runtime boots from this list.
