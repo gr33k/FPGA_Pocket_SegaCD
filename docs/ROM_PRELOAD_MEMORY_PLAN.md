@@ -10,12 +10,29 @@ APF data slot ROM bytes are loaded once during startup into on-device local stor
 ## Data flow
 
 1. APF firmware places ROM bytes into the APF data slot interface.
-2. Pocket-side loader path copies ROM payload into local storage (SRAM/PSRAM/other local memory).
+2. A future loader path copies ROM payload into local storage (SRAM/PSRAM/other local memory).
 3. Preload complete signal indicates local memory contains the ROM image.
 4. Runtime reset is held until preload complete.
-5. Genesis core begins operation with:
+5. Genesis runtime begins operation with:
    - `ROM_REQ` / `ROM_ACK` handled from local memory only.
    - no per-read host bus requests.
+
+## Task 5A reset/preload shell
+
+The top-level now implements a conservative reset FSM with these states:
+1. `WAIT_APF_RESET_RELEASE`
+2. `WAIT_PLL_LOCK`
+3. `WAIT_ROM_PRELOAD`
+4. `RUN`
+
+For Task 5A, these are currently wired as stubs:
+- `pll_locked_stub = 1'b1`
+- `rom_preload_done_stub = 1'b0`
+- `ENABLE_GENESIS_STUB_RUN` parameter controls whether reset can be force-released for smoke testing.
+
+Behavior:
+- `ENABLE_GENESIS_STUB_RUN = 0` (default): FSM stays off in preload wait because `rom_preload_done_stub` is false, so `core_reset_n` remains asserted.
+- `ENABLE_GENESIS_STUB_RUN = 1`: FSM allows progression to `RUN` after stubbed lock and preload states for compile/build smoke checks.
 
 ## Interface contract to implement in a future milestone
 
@@ -35,9 +52,9 @@ APF data slot ROM bytes are loaded once during startup into on-device local stor
 ## Deterministic safety policy
 
 - ROM must be treated as immutable after preload completion.
-- If preload incomplete, Genesis reset stays asserted and runtime ROM fetch remains disabled/invalid.
+- If preload is incomplete, Genesis reset stays asserted (except explicit scaffold test mode).
 - If local-memory path is unavailable, fail safe through existing stubs and keep ROM access inert.
 
 ## Notes for review
 
-This document is the source of truth for the first APF-genesis-feasibility boot contract. Any future implementation should preserve this order and the no-streaming rule unless the milestone explicitly changes. 
+This document is the source of truth for the APF genesis-feasibility boot contract. Any future implementation should preserve this order and the no-streaming rule unless the milestone explicitly changes it.

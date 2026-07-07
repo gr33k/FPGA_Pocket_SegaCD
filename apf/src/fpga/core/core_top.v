@@ -1,4 +1,6 @@
-module core_top(
+module core_top #(
+    parameter ENABLE_GENESIS_STUB_RUN = 1'b0
+)(
     // physical connections
     input   wire            clk_74a,
     input   wire            clk_74b,
@@ -148,9 +150,37 @@ module core_top(
     input   wire    [15:0]  cont4_trig
 );
 
-    // Internal reset stub for this milestone.
-    // TODO: gate this with ROM preload completion and APF bridge/runtime status.
-    wire core_reset_n = 1'b1;
+    // Conservative reset/preload state machine stub (no real APF data preload path yet).
+    localparam [1:0]
+        WAIT_APF_RESET_RELEASE = 2'd0,
+        WAIT_PLL_LOCK          = 2'd1,
+        WAIT_ROM_PRELOAD       = 2'd2,
+        RUN                    = 2'd3;
+
+    // TODO(Task 5A): connect to real APF reset source when available.
+    wire apf_reset_released = 1'b1;
+    // TODO(Task 5A): replace with real PLL lock input when integrated.
+    wire pll_locked_stub    = 1'b1;
+    // TODO(Task 5A): replace with real ROM preload completion once implemented.
+    wire rom_preload_done_stub = 1'b0;
+
+    wire rom_preload_done = ENABLE_GENESIS_STUB_RUN ? 1'b1 : rom_preload_done_stub;
+    reg [1:0] core_reset_state;
+
+    // Conservative local-state default for deterministic boot scaffolding.
+    initial core_reset_state = WAIT_APF_RESET_RELEASE;
+
+    always @(posedge clk_74a) begin
+        case (core_reset_state)
+            WAIT_APF_RESET_RELEASE: core_reset_state <= apf_reset_released ? WAIT_PLL_LOCK : WAIT_APF_RESET_RELEASE;
+            WAIT_PLL_LOCK:          core_reset_state <= pll_locked_stub ? WAIT_ROM_PRELOAD : WAIT_PLL_LOCK;
+            WAIT_ROM_PRELOAD:       core_reset_state <= rom_preload_done ? RUN : WAIT_ROM_PRELOAD;
+            RUN:                    core_reset_state <= RUN;
+            default:                core_reset_state <= WAIT_APF_RESET_RELEASE;
+        endcase
+    end
+
+    wire core_reset_n = (core_reset_state == RUN);
 
     // keep unused control words visible to avoid aggressive optimization of inputs.
     (* keep *) wire _unused_bridge_addr   = bridge_addr[0];
