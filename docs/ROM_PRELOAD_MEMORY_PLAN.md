@@ -86,6 +86,14 @@ Behavior:
   - tiny RAM mode is enabled only by `ENABLE_TINY_LOCAL_ROM_RAM` and serves writes to local storage.
 - Host-per-read streaming from APF bridge/host remains forbidden.
 
+## Task 5E compile/build wiring and smoke configs
+
+- Additive documentation-only task: add source manifest and explicit smoke-test configurations.
+- `apf/src/fpga/core/apf_scaffold_sources.f` tracks current scaffold files for build wiring.
+- `docs/APF_SMOKE_TEST_CONFIGS.md` defines conservative task-scoped parameter sets.
+- No configuration in this milestone is expected to boot real commercial Genesis ROMs.
+- Task 5F is planned for minimal simulation/testbench coverage of ingress → service → tiny RAM path.
+
 ## Interface contract to implement in a future milestone
 
 - Add a local-memory-backed ROM service layer that:

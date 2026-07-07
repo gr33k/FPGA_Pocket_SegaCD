@@ -11,14 +11,17 @@
 - No save-state support is implemented.
 - No memory-controller feature work is implemented yet.
 - No real CD hardware behavior is implemented.
+- Task 5E added scaffold build wiring manifest and smoke-test parameter docs.
 
 ## Scope currently in-tree
 - Kept in `apf/`:
   - APF wrapper scaffold for Genesis base runtime.
   - APF contract JSON set for genesis-only scaffold.
+  - APF scaffold source manifest for the current build set (`apf_scaffold_sources.f`).
 - Kept in `docs/`:
   - Baseline inventory map.
   - Repository status summary.
+  - Smoke-test configuration and build wiring checklist documents for task 5E.
 - No other runtime behavior was modified outside APF scaffold files during this milestone.
 
 ## Status checks to keep conservative

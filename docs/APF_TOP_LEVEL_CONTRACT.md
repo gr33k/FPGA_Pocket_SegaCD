@@ -64,6 +64,14 @@
 - Audio serialization to Pocket is intentionally silent/dummy.
 - No Sega CD, no 32X, no save-state behavior, no real memory controller.
 
+## Build wiring checklist (Task 5E)
+- `apf/src/fpga/core/apf_scaffold_sources.f` is the current scaffold source manifest.
+- `core_top.v` is the APF top-level entry.
+- `apf_genesis_base` remains the runtime wrapper boundary.
+- ROM ingress and service path is `rom_preload_ingress_stub` -> `rom_local_service_stub`.
+- Optional tiny local ROM RAM path is `rom_tiny_local_ram_stub` (off by default).
+- No Sega CD files, data-slot loader, or memory-controller files are included in this scaffold stage.
+
 ## Safety guardrails
 - No change to imported Genesis runtime RTL behavior.
 - No Sega CD logic introduced.
