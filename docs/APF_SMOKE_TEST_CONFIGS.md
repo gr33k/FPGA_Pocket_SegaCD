@@ -48,6 +48,9 @@ Expected behavior:
 - No real APF data-slot copy transport is implemented in this phase.
 - No Sega CD, no save support, no real memory controller are included.
 
+- Parameter overrides should be applied via top-level build/simulation options (Task 5G flow).
+- Task 5G introduces explicit `ENABLE_FAKE_ROM_FOR_SMOKE_TEST` override at `core_top` (instead of reusing `ENABLE_GENESIS_STUB_RUN`) for cleaner mode control.
+
 ## Next milestone
 
 Task 5F should add a minimal simulation/sanity testbench for

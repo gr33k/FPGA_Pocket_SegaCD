@@ -42,8 +42,14 @@ that set is external-to-this-manifest unless already part of the surrounding bui
   - `ENABLE_GENESIS_STUB_RUN`
   - `ENABLE_PRELOAD_INGRESS_STUB`
   - `ENABLE_TINY_LOCAL_ROM_RAM`
+  - `ENABLE_FAKE_ROM_FOR_SMOKE_TEST`
 - `rom_local_service_stub` also has `ENABLE_FAKE_ROM_FOR_SMOKE_TEST`.
 - Keep parameters at conservative defaults unless intentionally smoke-testing.
+
+Related configuration references:
+- [`docs/APF_PARAMETER_OVERRIDES.md`](docs/APF_PARAMETER_OVERRIDES.md) for override ownership and usage.
+- [`docs/TASK5G_SMOKE_CONFIG_FLOW.md`](docs/TASK5G_SMOKE_CONFIG_FLOW.md) for the three-task modes.
+- [`apf/src/fpga/core/apf_scaffold_config_presets.md`](apf/src/fpga/core/apf_scaffold_config_presets.md) for documentation-only presets.
 
 ## Smoke-test compile checklist
 

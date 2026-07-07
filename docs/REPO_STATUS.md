@@ -12,6 +12,7 @@
 - No memory-controller feature work is implemented yet.
 - No real CD hardware behavior is implemented.
 - Task 5E added scaffold build wiring manifest and smoke-test parameter docs.
+- Task 5G added a documented smoke configuration override flow for scaffold modes and made `ENABLE_FAKE_ROM_FOR_SMOKE_TEST` independently overrideable through `core_top`.
 
 ## Scope currently in-tree
 - Kept in `apf/`:
@@ -32,6 +33,8 @@
   - no fancy menu path
   - one controller
   - video/audio output only
+
+- No checked-in default parameter changes were introduced for smoke behavior.
 
 ## Repo-path hygiene
 - Replace absolute local paths with repo-relative links in docs.
