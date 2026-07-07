@@ -1,29 +1,49 @@
 # CANDIDATE ONLY
 # OPENFPGA-GENESIS SOURCE LANE
+# MIRRORS UPSTREAM PROJECT INTENT
 # DO NOT RUN SYNTHESIS FROM THIS FILE YET
 # DO NOT INCLUDE UNTIL QUARTUS HOST VALIDATION
+# CANDIDATE FILE mirrors upstream ap_core.qsf only for planning
 # GENESIS ONLY
 # SEGA CD EXCLUDED
 # 32X EXCLUDED
 # GENESIS_MISTER REFERENCE ONLY
 
+# Device and top-level alignment are copied from upstream openFPGA-Genesis planning
+# assumptions and remain non-active until Quartus-host validation confirms parity.
+set_global_assignment -name DEVICE 5CEBA4F23C8
+set_global_assignment -name TOP_LEVEL_ENTITY apf_top
 set_global_assignment -name ORIGINAL_QUARTUS_VERSION 21.1
-set_global_assignment -name DEVICE 10M50DAF484C7G
-set_global_assignment -name TOP_LEVEL_ENTITY core_top
 
 # Candidate active files (openFPGA-Genesis lane)
-set_global_assignment -name SYSTEMVERILOG_FILE ../third_party/openFPGA-Genesis/src/fpga/apf/apf_top.v
+set_global_assignment -name VERILOG_FILE ../third_party/openFPGA-Genesis/src/fpga/apf/apf_top.v
 set_global_assignment -name SYSTEMVERILOG_FILE ../third_party/openFPGA-Genesis/src/fpga/core/core_top.sv
 set_global_assignment -name SYSTEMVERILOG_FILE ../third_party/openFPGA-Genesis/src/fpga/core/rtl/system.sv
 
-# candidate planning references (commented until direct compile validation)
+# Planned additional assignments from upstream should come from ap_core.qsf validation,
+# not copied by hand.
 # set_global_assignment -name SYSTEMVERILOG_FILE ../third_party/openFPGA-Genesis/src/fpga/core/core_bridge_cmd.v
+# set_global_assignment -name SYSTEMVERILOG_FILE ../third_party/openFPGA-Genesis/src/fpga/core/core_bridge.sv
 # set_global_assignment -name SYSTEMVERILOG_FILE ../third_party/openFPGA-Genesis/src/fpga/core/data_loader.sv
 # set_global_assignment -name SYSTEMVERILOG_FILE ../third_party/openFPGA-Genesis/src/fpga/core/data_unloader.sv
 # set_global_assignment -name SYSTEMVERILOG_FILE ../third_party/openFPGA-Genesis/src/fpga/core/sdram.sv
 # set_global_assignment -name SYSTEMVERILOG_FILE ../third_party/openFPGA-Genesis/src/fpga/core/sound_i2s.sv
-# set_global_assignment -name SYSTEMVERILOG_FILE ../third_party/openFPGA-Genesis/src/fpga/core/mf_pllbase.v
+# set_global_assignment -name SYSTEMVERILOG_FILE ../third_party/openFPGA-Genesis/src/fpga/core/cdc_fifo.sv
+# set_global_assignment -name SYSTEMVERILOG_FILE ../third_party/openFPGA-Genesis/src/fpga/core/gen_io.sv
+# set_global_assignment -name VERILOG_FILE ../third_party/openFPGA-Genesis/src/fpga/core/rtl/genesis_lpf.v
+# set_global_assignment -name VERILOG_FILE ../third_party/openFPGA-Genesis/src/fpga/core/rtl/fourway.v
+# set_global_assignment -name VERILOG_FILE ../third_party/openFPGA-Genesis/src/fpga/core/rtl/audio_iir_filter.v
+# set_global_assignment -name QIP_FILE ../third_party/openFPGA-Genesis/src/fpga/core/rtl/T80/T80.qip
+# set_global_assignment -name QIP_FILE ../third_party/openFPGA-Genesis/src/fpga/core/rtl/SVP/SVP.qip
+# set_global_assignment -name QIP_FILE ../third_party/openFPGA-Genesis/src/fpga/core/rtl/jt89/jt89.qip
+# set_global_assignment -name QIP_FILE ../third_party/openFPGA-Genesis/src/fpga/core/rtl/jt12/jt12.qip
+# set_global_assignment -name QIP_FILE ../third_party/openFPGA-Genesis/src/fpga/core/rtl/FX68K/fx68k.qip
+# set_global_assignment -name QIP_FILE ../third_party/openFPGA-Genesis/src/fpga/core/rtl/FX68K/fx68k_4m_2m.qip
+# set_global_assignment -name QIP_FILE ../third_party/openFPGA-Genesis/src/fpga/core/rtl/psram_4m/psram.qip
+# set_global_assignment -name QIP_FILE ../third_party/openFPGA-Genesis/src/fpga/apf/apf.qip
+# set_global_assignment -name QIP_FILE ../third_party/openFPGA-Genesis/src/fpga/apf/mf_ddio_bidir_12.qip
 # set_global_assignment -name QIP_FILE ../third_party/openFPGA-Genesis/src/fpga/core/mf_pllbase.qip
 # set_global_assignment -name QIP_FILE ../third_party/openFPGA-Genesis/src/fpga/core/pin_ddio_clk.qip
 # set_global_assignment -name QIP_FILE ../third_party/openFPGA-Genesis/src/fpga/apf/mf_ddio_bidir_12.qip
+# set_global_assignment -name QIP_FILE ../third_party/openFPGA-Genesis/src/fpga/core/sdram.qip
 # set_global_assignment -name SDC_FILE ../third_party/openFPGA-Genesis/src/fpga/core/core_constraints.sdc

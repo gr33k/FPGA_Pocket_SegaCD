@@ -8,6 +8,17 @@ PASS_COUNT=0
 WARN_COUNT=0
 FAIL_COUNT=0
 
+to_rel() {
+  local input_path="$1"
+  if [[ "$input_path" == "$ROOT_DIR"* ]]; then
+    input_path="${input_path#$ROOT_DIR}"
+  fi
+  if [[ "$input_path" == /* ]]; then
+    input_path=".$input_path"
+  fi
+  echo "$input_path"
+}
+
 log_ok() {
   echo "PASS: $1" | tee -a "$REPORT_FILE"
   PASS_COUNT=$((PASS_COUNT + 1))
@@ -26,18 +37,18 @@ log_fail() {
 check_dir() {
   local path="$1"
   if [ -d "$path" ]; then
-    log_ok "directory exists: $path"
+    log_ok "directory exists: $(to_rel "$path")"
   else
-    log_fail "missing directory: $path"
+    log_fail "missing directory: $(to_rel "$path")"
   fi
 }
 
 check_file() {
   local path="$1"
   if [ -f "$path" ]; then
-    log_ok "file exists: $path"
+    log_ok "file exists: $(to_rel "$path")"
   else
-    log_fail "missing file: $path"
+    log_fail "missing file: $(to_rel "$path")"
   fi
 }
 
@@ -104,4 +115,3 @@ fi
 
 echo "Done. Report: $REPORT_FILE"
 exit 0
-

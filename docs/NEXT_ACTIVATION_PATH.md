@@ -67,6 +67,16 @@ After this strategy lock:
 5. After Quartus installer is staged on NAS, run analysis/elaboration only on the
    openFPGA-Genesis path and classify first-pass failures.
 
+## Task 6Y immediate follow-on (sanity-fixed lane only)
+
+1. Keep candidate QSF planning aligned to upstream `ap_core.qsf` assumptions:
+   - `TOP_LEVEL_ENTITY apf_top`
+   - `DEVICE 5CEBA4F23C8`
+2. Keep `files_openfpga_genesis_runtime.candidate.qsf` passive (no synthesis entry).
+3. Do not activate `Genesis_MiSTer`, Sega CD, or 32X.
+4. Re-run checkers on NAS and confirm no stale environment-specific report paths remain.
+5. Next real blocker handling once checks are green: Quartus installer availability and first real analysis/elaboration errors.
+
 ## Hard constraints
 
 - No Sega-CD/32X at this stage.

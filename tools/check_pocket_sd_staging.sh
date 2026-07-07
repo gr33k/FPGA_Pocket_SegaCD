@@ -10,6 +10,17 @@ log() {
   echo "$1" | tee -a "$REPORT_FILE"
 }
 
+to_rel() {
+  local input_path="$1"
+  if [[ "$input_path" == "$ROOT_DIR"* ]]; then
+    input_path="${input_path#$ROOT_DIR}"
+  fi
+  if [[ "$input_path" == /* ]]; then
+    input_path=".$input_path"
+  fi
+  echo "$input_path"
+}
+
 header() {
   : > "$REPORT_FILE"
   {
@@ -24,9 +35,9 @@ check_presence() {
   local path="$1"
   local label="$2"
   if [ -e "$path" ]; then
-    log "PASS: $label exists -> $path"
+    log "PASS: $label exists -> $(to_rel "$path")"
   else
-    log "WARN: $label missing -> $path"
+    log "WARN: $label missing -> $(to_rel "$path")"
   fi
 }
 
@@ -44,10 +55,10 @@ check_forbidden_payloads() {
   local label="$2"
   local expr="$3"
   if has_match "$root" "$expr"; then
-    log "WARN: forbidden payloads found in $label ($root)"
+    log "WARN: forbidden payloads found in $label ($(to_rel "$root"))"
     find "$root" -type f \( $expr \) | sed 's#^#  - #' >> "$REPORT_FILE"
   else
-    log "PASS: no forbidden payloads found in $label ($root)"
+    log "PASS: no forbidden payloads found in $label ($(to_rel "$root"))"
   fi
 }
 
@@ -61,11 +72,11 @@ check_forbidden_md_without_exemptions() {
   local matches=0
   while IFS= read -r md_file; do
     [ -z "$md_file" ] && continue
-    matches=$((matches + 1))
+  matches=$((matches + 1))
     if [ "$matches" -eq 1 ]; then
       log "WARN: non-exempt .md files found in $label:"
     fi
-    log "  - $md_file"
+    log "  - $(to_rel "$md_file")"
   done < <(find "$root" -type f -iname '*.md' \
     ! -name 'README.md' \
     ! -path "$root/docs/*" \
@@ -97,7 +108,7 @@ check_forbidden_feature_names() {
     case "$basename" in
       SegaCD|MegaCD|32X|32x|segaCD|megacd|Megacd)
         if [ "$path" != "$root" ]; then
-          log "  - $path"
+        log "  - $(to_rel "$path")"
           forbidden_found=1
         fi
         ;;
@@ -117,7 +128,7 @@ check_forbidden_feature_names() {
         case "$basename" in
           SegaCD|MegaCD|32X|32x|segaCD|megacd|Megacd)
             if [ "$path" != "$root" ]; then
-              echo "  - $path"
+              echo "  - $(to_rel "$path")"
             fi
             ;;
           *)
@@ -146,7 +157,7 @@ if [ -d "$SOURCE_ROOT" ]; then
   check_forbidden_payloads "$SOURCE_ROOT" "skeleton source" "-iname '*.sof' -o -iname '*.pof' -o -iname '*.jic' -o -iname '*.rpd' -o -iname '*.rbf' -o -iname '*.rbf_r'"
   check_forbidden_payloads "$SOURCE_ROOT" "skeleton ROM/BIOS/CD payload candidates" "-iname '*.bin' -o -iname '*.gen' -o -iname '*.smd' -o -iname '*.iso' -o -iname '*.cue' -o -iname '*.chd' -o -iname '*bios*'"
 else
-  log "WARN: source skeleton missing: $SOURCE_ROOT"
+  log "WARN: source skeleton missing: $(to_rel "$SOURCE_ROOT")"
 fi
 
 if [ "$POCKET_SD_ROOT" != "" ]; then
@@ -163,7 +174,7 @@ if [ "$POCKET_SD_ROOT" != "" ]; then
       check_forbidden_md_without_exemptions "$SD_ROOT" "staged package metadata payload policy"
       check_forbidden_feature_names "$SD_ROOT" "staged package"
     else
-      log "WARN: expected staged package directory missing: $SD_ROOT"
+      log "WARN: expected staged package directory missing: $(to_rel "$SD_ROOT")"
     fi
   fi
 else

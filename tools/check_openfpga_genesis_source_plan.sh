@@ -20,6 +20,19 @@ REQUIRED_DOCS=(
 pass_count=0
 warn_count=0
 
+to_rel() {
+  local input_path="$1"
+  if [[ "$input_path" == "$ROOT_DIR"* ]]; then
+    input_path="${input_path#$ROOT_DIR}"
+  else
+    input_path="$input_path"
+  fi
+  if [[ "$input_path" == /* ]]; then
+    input_path=".$input_path"
+  fi
+  echo "$input_path"
+}
+
 log_ok() {
   echo "PASS: $1" | tee -a "$REPORT"
   pass_count=$((pass_count + 1))
@@ -32,7 +45,7 @@ log_warn() {
 
 : > "$REPORT"
 {
-  echo "# Task 6X openFPGA source plan check"
+  echo "# Task 6Y openFPGA source plan check"
   echo
   echo "Generated: $(date -u +%Y-%m-%dT%H:%M:%SZ)"
   echo "Advisory check only; exits 0 even if WARNs exist."
@@ -40,29 +53,29 @@ log_warn() {
 } >> "$REPORT"
 
 if [ -d "$UPSTREAM_ROOT" ]; then
-  log_ok "Upstream path exists: $UPSTREAM_ROOT"
+  log_ok "Upstream path exists: $(to_rel "$UPSTREAM_ROOT")"
 else
-  log_warn "Upstream path missing: $UPSTREAM_ROOT"
+  log_warn "Upstream path missing: $(to_rel "$UPSTREAM_ROOT")"
 fi
 
 for file in "${REQUIRED_UPSTREAM[@]}"; do
   if [ -f "$file" ]; then
-    log_ok "Required upstream file exists: $file"
+    log_ok "Required upstream file exists: $(to_rel "$file")"
   else
-    log_warn "Missing required upstream file: $file"
+    log_warn "Missing required upstream file: $(to_rel "$file")"
   fi
 done
 
 for file in "${REQUIRED_DOCS[@]}"; do
   if [ -f "$file" ]; then
-    log_ok "Required planning doc exists: $file"
+    log_ok "Required planning doc exists: $(to_rel "$file")"
   else
-    log_warn "Missing required planning doc: $file"
+    log_warn "Missing required planning doc: $(to_rel "$file")"
   fi
 done
 
 if [ -f "$CANDIDATE" ]; then
-  log_ok "Candidate QSF exists: $CANDIDATE"
+  log_ok "Candidate QSF exists: $(to_rel "$CANDIDATE")"
 
   if grep -q "CANDIDATE ONLY" "$CANDIDATE" && grep -q "OPENFPGA-GENESIS SOURCE LANE" "$CANDIDATE"; then
     log_ok "Candidate QSF has required header markers"
@@ -82,7 +95,7 @@ if [ -f "$CANDIDATE" ]; then
     log_warn "Candidate QSF does not explicitly exclude 32X"
   fi
 else
-  log_warn "Candidate QSF missing: $CANDIDATE"
+  log_warn "Candidate QSF missing: $(to_rel "$CANDIDATE")"
 fi
 
 if [ -f "$TOP_QSF" ]; then
@@ -92,7 +105,7 @@ if [ -f "$TOP_QSF" ]; then
     log_ok "Top QSF does not include files_openfpga_genesis_runtime.candidate.qsf"
   fi
 else
-  log_warn "Top QSF missing: $TOP_QSF"
+  log_warn "Top QSF missing: $(to_rel "$TOP_QSF")"
 fi
 
 if grep -q "third_party/Genesis_MiSTer" "$CANDIDATE" "$TOP_QSF" 2>/dev/null; then

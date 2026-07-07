@@ -4,7 +4,7 @@
 - 2026-07-07 03:03:20 UTC
 
 ## Preflight
-- ran (/Users/phassold/Projects/FPGA_Pocket_SegaCD/tools/preflight_quartus_analysis_only.sh)
+- ran (./tools/preflight_quartus_analysis_only.sh)
 - preflight_exit_code: 0
 
 ## Quartus discovery

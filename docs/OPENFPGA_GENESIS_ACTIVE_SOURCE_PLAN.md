@@ -1,4 +1,4 @@
-# openFPGA-Genesis active-source build plan (Task 6X)
+# openFPGA-Genesis active-source build plan (Task 6X / 6Y)
 
 ## 1. Source root
 
@@ -13,7 +13,18 @@
 
 - `third_party/openFPGA-Genesis/src/fpga/core/rtl/system.sv`
 
-## 4. Required APF/Pocket support modules
+## 4. 6Y alignment notes (candidate QSF source-plan hygiene)
+
+- `quartus/files_openfpga_genesis_runtime.candidate.qsf` must follow upstream `ap_core.qsf` intent.
+- `TOP_LEVEL_ENTITY` in the candidate is `apf_top` (not `core_top`).
+- `DEVICE` in the candidate follows upstream `5CEBA4F23C8`.
+- file assignment types are planned conservatively:
+  - `VERILOG_FILE` for `.v`
+  - `SYSTEMVERILOG_FILE` for `.sv`
+- candidate remains inactive until Quartus-host validation starts.
+- old scaffold assumptions like `10M50...` are not used for this lane.
+
+## 5. Required APF/Pocket support modules
 
 - bridge command path
 - data_loader
@@ -24,7 +35,7 @@
 - video/scaler path
 - controller mapping path
 
-## 5. Excluded
+## 6. Excluded
 
 - `third_party/Genesis_MiSTer` runtime activation
 - Sega CD
@@ -32,14 +43,14 @@
 - ROM/BIOS payloads
 - generated bitstreams
 
-## 6. Open questions
+## 7. Open questions
 
 - whether to build directly from upstream Quartus project files
 - whether to wrap upstream `apf_top.v` from this repo
 - whether package metadata should be copied/adapted into this repo later
 - whether upstream generated/release files are present and should stay ignored
 
-## 7. Next compile action
+## 8. Next compile action
 
 Once Quartus installer exists:
 

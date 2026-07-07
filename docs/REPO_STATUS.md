@@ -33,10 +33,17 @@ Date: 2026-07-06
 
 ## Global blockers
 
-- Quartus toolchain still not available in local build host path.
-- No third_party runtime import is activated for real synthesis in this milestone.
-- No binary payload files committed.
-- Dockerized Quartus prep is now in place; real execution still requires Quartus-capable host.
+- Quartus toolchain remains unavailable on the NAS host build path.
+- No `Genesis_MiSTer` or Sega-CD/32X runtime activation yet.
+- No full Quartus run, fitter, assembler, or timing pass yet.
+
+## Task 6Y status
+
+- Task 6X was sanitized instead of discarded.
+- `quartus/files_openfpga_genesis_runtime.candidate.qsf` now uses upstream openFPGA assumptions (`apf_top`, `5CEBA4F23C8`) and keeps planning-only intent.
+- Candidate source-plan checks were regenerated and kept non-active.
+- OpenFPGA source lane is still planning/inactive: no Quartus run, no host-per-read ROM changes, no Genesis-MiSTer activation.
+- Remaining blocker is still toolchain availability on NAS.
 
 ## Task 6V status
 
