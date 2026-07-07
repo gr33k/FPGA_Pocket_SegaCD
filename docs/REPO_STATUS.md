@@ -14,6 +14,7 @@
 - Task 5E added scaffold build wiring manifest and smoke-test parameter docs.
 - Task 5G added a documented smoke configuration override flow for scaffold modes and made `ENABLE_FAKE_ROM_FOR_SMOKE_TEST` independently overrideable through `core_top`.
 - Task 5H added compile/elaboration sanity scaffolding for `core_top` with simulation-only `apf_genesis_base_stub` and a dedicated core-top smoke testbench.
+- Task 5I added a non-invasive Genesis_MiSTer runtime integration plan, manifest draft, and runtime source TODO draft.
 
 ## Scope currently in-tree
 - Kept in `apf/`:
@@ -37,6 +38,7 @@
 
 - No checked-in default parameter changes were introduced for smoke behavior.
 - `apf_genesis_base_stub` is simulation-only and does not replace runtime boundary behavior.
+- Runtime manifest work is planning-only and does not alter imported MiSTer files.
 
 ## Repo-path hygiene
 - Replace absolute local paths with repo-relative links in docs.

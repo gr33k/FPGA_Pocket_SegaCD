@@ -59,6 +59,9 @@
   - when enabled, runtime ROM requests are serviced from a tiny 16-bit local memory using preload writes.
   - when disabled, ROM service remains inert unless smoke-mode fake is enabled.
 - Bridge transactions are stubbed and return deterministic defaults.
+- Runtime boundary note:
+  - Simulation-only elaboration path uses `apf/src/fpga/sim/apf_genesis_base_stub.sv` with Task 5H.
+  - Real runtime boundary remains `apf/apf_genesis_base.sv` and is to be paired with imported Genesis_MiSTer runtime files in later phases.
 - ROM preload and memory arbitration are deferred.
 - Cartridge/link/IR behavior is stubbed with template-safe defaults.
 - Audio serialization to Pocket is intentionally silent/dummy.
@@ -66,6 +69,10 @@
 
 ## Build wiring checklist (Task 5E)
 - `apf/src/fpga/core/apf_scaffold_sources.f` is the current scaffold source manifest.
+- Task 5I planning artifacts now define the future real runtime integration list without changing imported runtime RTL:
+  - `docs/TASK5I_GENESIS_RUNTIME_INTEGRATION_PLAN.md`
+  - `docs/GENESIS_RUNTIME_SOURCE_MANIFEST_DRAFT.md`
+  - `apf/src/fpga/core/genesis_runtime_sources.todo.f`
 - `core_top.v` is the APF top-level entry.
 - `apf_genesis_base` remains the runtime wrapper boundary.
 - ROM ingress and service path is `rom_preload_ingress_stub` -> `rom_local_service_stub`.

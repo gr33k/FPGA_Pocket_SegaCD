@@ -68,8 +68,15 @@ Related configuration references:
    - `apf/src/fpga/core/core_top.v`
    - `apf/src/fpga/core/rom_preload_ingress_stub.v`
    - `apf/src/fpga/core/rom_local_service_stub.v`
-   - `apf/src/fpga/core/rom_tiny_local_rom_ram_stub.v`
+   - `apf/src/fpga/core/rom_tiny_local_ram_stub.v`
    - `apf/src/fpga/sim/apf_genesis_base_stub.sv`
    - `apf/src/fpga/sim/tb_core_top_elaboration.v`
 3. Confirm `core_top` is instantiated with default inert parameters in the TB.
 4. Confirm deterministic outputs are checked (bridge/read/video path) for stub-mode sanity.
+
+## Runtime integration planning (Task 5I)
+
+1. Use `docs/TASK5I_GENESIS_RUNTIME_INTEGRATION_PLAN.md` as the integration boundary map.
+2. Keep `apf_genesis_base` as the only wrapper boundary between APF shell and imported runtime.
+3. Keep `apf/src/fpga/sim/apf_genesis_base_stub.sv` for elaboration-only checks only.
+4. Treat `docs/GENESIS_RUNTIME_SOURCE_MANIFEST_DRAFT.md` and `apf/src/fpga/core/genesis_runtime_sources.todo.f` as dependency-draft inputs for the future runtime compile.
