@@ -1,7 +1,7 @@
 # No-Quartus Genesis Runtime Static Report
 
 ## Date/time
-- 2026-07-07 04:45:00 UTC
+- 2026-07-07 05:16:00 UTC
 
 ## Scope
 - Task 6M static runtime-prep lane, no Quartus execution.
@@ -15,6 +15,13 @@
 ## Scanner command
 - `python3 tools/scan_verilog_deps.py --root . --entry third_party/Genesis_MiSTer/rtl/system.sv`
 - Initial direct run with positional arg fails by design (script requires `--entry`).
+
+## Task 6O promotion summary
+- `quartus/files_genesis_runtime.qsf` now contains first-step active-style runtime assignments for:
+  - `system.sv`, `cheatcodes.sv`, `fx68k*`, `EEPROM_STM95.sv`, `multitap.sv`, `gen_io.sv`, `genesis_lpf.v`.
+- `apf/apf_genesis_base.sv` is included in the same active-style file to keep compile boundary coherent.
+- `fourway/ddram/miracle/lightgun/teamplayer` remain deferred in `files_genesis_runtime.qsf` as comments.
+- `vdp.vhd`, `vdp_common.vhd`, `T80/T80s.vhd`, `SVP/SVP.vhd` and other `jt*` modules stay deferred pending Quartus mixed-language activation.
 
 ## `system.sv` quick static observations
 - Module: `system`

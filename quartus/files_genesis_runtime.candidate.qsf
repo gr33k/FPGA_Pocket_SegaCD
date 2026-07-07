@@ -2,28 +2,44 @@
 # NO QUARTUS RUN REQUIRED
 # GENESIS RUNTIME STATIC PREP ONLY
 # DO NOT INCLUDE FROM ACTIVE PROJECT YET
-# Task 6M (No-Quartus static lane) planning artifact.
-# This file must remain non-active until Quartus validation and analysis pass are available.
+# Task 6O and 6M candidate/reference artifact.
+# This file must remain planning-only until Quartus runtime activation is formally enabled.
 
-set_global_assignment -name ORIGINAL_QUARTUS_VERSION 20.1.1
-set_global_assignment -name TOP_LEVEL_ENTITY "core_top"
-set_global_assignment -name DEVICE 10M50DAF484C7G
+# APF scaffold module references are retained for comparison only.
+# These entries are not active in any Quartus run from this file.
+# [PLANNING-KEEP] apf scaffold (for closure-only review)
+#set_global_assignment -name SYSTEMVERILOG_FILE apf/src/fpga/core/core_top.v
+#set_global_assignment -name SYSTEMVERILOG_FILE apf/src/fpga/core/apf_genesis_base.sv
+#set_global_assignment -name SYSTEMVERILOG_FILE apf/src/fpga/core/rom_preload_ingress_stub.v
+#set_global_assignment -name SYSTEMVERILOG_FILE apf/src/fpga/core/rom_local_service_stub.v
+#set_global_assignment -name SYSTEMVERILOG_FILE apf/src/fpga/core/rom_tiny_local_ram_stub.v
 
-# Core APF scaffold modules
-set_global_assignment -name SYSTEMVERILOG_FILE apf/src/fpga/core/core_top.v
-set_global_assignment -name SYSTEMVERILOG_FILE apf/src/fpga/core/apf_genesis_base.sv
-set_global_assignment -name SYSTEMVERILOG_FILE apf/src/fpga/core/rom_preload_ingress_stub.v
-set_global_assignment -name SYSTEMVERILOG_FILE apf/src/fpga/core/rom_local_service_stub.v
-set_global_assignment -name SYSTEMVERILOG_FILE apf/src/fpga/core/rom_tiny_local_ram_stub.v
-
-# Candidate source: expected imported runtime RTL entry (do not include until Task 6N+ activation)
+# Core runtime entrypoint
+# [TASK6O-PROMOTED] high-confidence first activation entry
 set_global_assignment -name SYSTEMVERILOG_FILE third_party/Genesis_MiSTer/rtl/system.sv
 
-# Candidate runtime dependency groups (commented until real compile verification)
-# TODO(confidence=medium): confirmed by static dependency grouping, verify on compile
-# set_global_assignment -name SYSTEMVERILOG_FILE third_party/Genesis_MiSTer/rtl/FX68K/fx68k.sv
-# set_global_assignment -name SYSTEMVERILOG_FILE third_party/Genesis_MiSTer/rtl/FX68K/fx68kAlu.sv
-# set_global_assignment -name SYSTEMVERILOG_FILE third_party/Genesis_MiSTer/rtl/FX68K/uaddrPla.sv
-# set_global_assignment -name SYSTEMVERILOG_FILE third_party/Genesis_MiSTer/rtl/jt10.v
-# set_global_assignment -name SYSTEMVERILOG_FILE third_party/Genesis_MiSTer/rtl/jt03.v
-# set_global_assignment -name SYSTEMVERILOG_FILE third_party/Genesis_MiSTer/rtl/ddram.sv
+# Candidate runtime dependencies (planned)
+# [TASK6O-PROMOTED] high-confidence active-start entries moved into files_genesis_runtime.qsf
+set_global_assignment -name SYSTEMVERILOG_FILE third_party/Genesis_MiSTer/rtl/cheatcodes.sv
+set_global_assignment -name SYSTEMVERILOG_FILE third_party/Genesis_MiSTer/rtl/FX68K/fx68k.sv
+set_global_assignment -name SYSTEMVERILOG_FILE third_party/Genesis_MiSTer/rtl/FX68K/fx68kAlu.sv
+set_global_assignment -name SYSTEMVERILOG_FILE third_party/Genesis_MiSTer/rtl/FX68K/uaddrPla.sv
+set_global_assignment -name SYSTEMVERILOG_FILE third_party/Genesis_MiSTer/rtl/EEPROM_STM95.sv
+set_global_assignment -name SYSTEMVERILOG_FILE third_party/Genesis_MiSTer/rtl/multitap.sv
+set_global_assignment -name SYSTEMVERILOG_FILE third_party/Genesis_MiSTer/rtl/gen_io.sv
+set_global_assignment -name VERILOG_FILE     third_party/Genesis_MiSTer/rtl/genesis_lpf.v
+
+# [TASK6O-DEFERRED] low-confidence runtime entries (still in candidate pool)
+#set_global_assignment -name VERILOG_FILE third_party/Genesis_MiSTer/rtl/fourway.v
+#set_global_assignment -name SYSTEMVERILOG_FILE third_party/Genesis_MiSTer/rtl/ddram.sv
+#set_global_assignment -name VERILOG_FILE third_party/Genesis_MiSTer/rtl/miracle.sv
+#set_global_assignment -name VERILOG_FILE third_party/Genesis_MiSTer/rtl/lightgun.sv
+#set_global_assignment -name VERILOG_FILE third_party/Genesis_MiSTer/rtl/teamplayer.sv
+
+# [TASK6O-DEFERRED] mixed-language blockers intentionally not made active here.
+# set_global_assignment -name VHDL_FILE third_party/Genesis_MiSTer/rtl/vdp.vhd
+# set_global_assignment -name VHDL_FILE third_party/Genesis_MiSTer/rtl/vdp_common.vhd
+# set_global_assignment -name VHDL_FILE third_party/Genesis_MiSTer/rtl/T80/T80s.vhd
+# set_global_assignment -name VHDL_FILE third_party/Genesis_MiSTer/rtl/SVP/SVP.vhd
+# set_global_assignment -name VHDL_FILE third_party/Genesis_MiSTer/rtl/jt12/jt12.vhd
+# set_global_assignment -name VHDL_FILE third_party/Genesis_MiSTer/rtl/jt89/jt89.vhd

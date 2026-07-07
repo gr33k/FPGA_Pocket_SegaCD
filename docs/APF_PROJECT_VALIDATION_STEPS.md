@@ -52,16 +52,17 @@ For `quartus/files_apf_scaffold.qsf`, confirm:
 - Review [docs/QUARTUS_TOOLCHAIN_VALIDATION_RESULT.md](docs/QUARTUS_TOOLCHAIN_VALIDATION_RESULT.md).
 - Continue only if status is PASS.
 
-## 5) Confirm runtime source include is still inactive
+## 5) Confirm runtime source lists are controlled
 
-- `quartus/files_genesis_runtime.qsf` remains placeholder-only and contains no active runtime source list.
-- It includes `NON-BUILDABLE PLACEHOLDER` and `DO NOT RUN SYNTHESIS FROM THIS FILE YET`.
+- `quartus/files_genesis_runtime.qsf` now contains a controlled Genesis-only active-start source list with clear include/defer markers.
+- It includes `SEGA CD EXCLUDED`, `32X EXCLUDED`, and mixed-language dependencies as comments.
 
 ## 5a) Confirm Task 6M static-prep artifacts
 
 - Review [docs/NO_QUARTUS_GENESIS_RUNTIME_STATIC_REPORT.md](docs/NO_QUARTUS_GENESIS_RUNTIME_STATIC_REPORT.md).
 - Review [docs/GENESIS_RUNTIME_CANDIDATE_SOURCES.md](docs/GENESIS_RUNTIME_CANDIDATE_SOURCES.md) for ordered advisory entries.
 - Review [docs/TASK6M_NO_QUARTUS_GENESIS_RUNTIME_INTEGRATION_SPRINT.md](docs/TASK6M_NO_QUARTUS_GENESIS_RUNTIME_INTEGRATION_SPRINT.md) for static-lane rules.
+- Review [docs/GENESIS_ONLY_ACTIVE_BUILD_PATH_STATUS.md](docs/GENESIS_ONLY_ACTIVE_BUILD_PATH_STATUS.md) and [docs/GENESIS_ONLY_SOURCE_CLOSURE_REPORT.md](docs/GENESIS_ONLY_SOURCE_CLOSURE_REPORT.md) for current source-state and deferred blockers.
 - Confirm `python3 tools/scan_verilog_deps.py --root . --entry third_party/Genesis_MiSTer/rtl/system.sv` is captured as static-only and succeeds.
 
 ## 6) Confirm constraint placeholder status
@@ -85,17 +86,18 @@ Expected: no prohibited features in active regions.
 - `test ! -e quartus/build`
 - `test "$(find quartus -maxdepth 2 -type f \( -name '*.sof' -o -name '*.pof' -o -name '*.jic' -o -name '*.rpd' -o -name '*.rbf' -o -name '*.rbf_r' \) | wc -l)" = "0"`
 
-## 8a) Confirm candidate file is not active
+## 8a) Confirm candidate vs active runtime filelist split
 
 - Confirm `quartus/files_genesis_runtime.candidate.qsf` exists as static artifact:
   - `test -f quartus/files_genesis_runtime.candidate.qsf`
-- Confirm active project files do not include it:
-  - `grep -n "files_genesis_runtime.candidate.qsf" quartus/files_apf_scaffold.qsf quartus/FPGA_Pocket_SegaCD.qsf quartus/FPGA_Pocket_SegaCD.qpf || true`
+- Confirm active/runtime promotion is not mixed with the candidate file:
+  - `grep -R "files_genesis_runtime.candidate.qsf" quartus/*.qsf quartus/*.qpf || true`
 - Confirm planning header in candidate file:
   - `CANDIDATE ONLY - NOT ACTIVE`
   - `NO QUARTUS RUN REQUIRED`
   - `GENESIS RUNTIME STATIC PREP ONLY`
   - `DO NOT INCLUDE FROM ACTIVE PROJECT YET`
+- Confirm `quartus/FPGA_Pocket_SegaCD.qsf` documents how to promote runtime list activation only from a Quartus-capable flow.
 
 ## 9) Confirm imported runtime remains read-only
 

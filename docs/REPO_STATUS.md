@@ -44,6 +44,12 @@
   - added `docs/GENESIS_RUNTIME_CANDIDATE_SOURCES.md`,
   - added `quartus/files_genesis_runtime.candidate.qsf` (candidate/source planning only).
 - Task 6M also added `docs/APF_TO_GENESIS_INTERFACE_REVIEW.md`, `docs/NO_QUARTUS_LINT_PROBE_RESULT.md`, and `tools/run_no_quartus_runtime_lint_probe.sh`.
+- Task 6O promoted a first Genesis-only active runtime source list to `quartus/files_genesis_runtime.qsf` (while keeping mixed-language modules and Sega-CD/32X deferred).
+  - High-confidence sources moved into active-style assignments are now mirrored in `docs/GENESIS_ONLY_ACTIVE_BUILD_PATH_STATUS.md`,
+    `docs/GENESIS_ONLY_SOURCE_CLOSURE_REPORT.md`,
+    `docs/TASK6O_GENESIS_ONLY_BUILD_PATH_PROMOTION.md`,
+    `docs/POCKET_BOOT_FAST_PATH.md`,
+    and the candidate tracking docs.
 - `docs/TASK5W_QUARTUS_PLACEHOLDER_PROJECT_FILES.md` now records Task 5W scope and constraints.
 - Imported runtime RTL remains unmodified and is treated as read-only in this phase.
 - `docs/GENESIS_RUNTIME_FIRST_COMPILE_ERRORS.md` records advisory probe output and tool constraints.
@@ -78,7 +84,7 @@
 - No other runtime behavior was modified outside APF scaffold files during this milestone.
 
 ## Scope state this milestone
-- Runtime source-list planning is still inactive and not compile-ready.
+- Runtime source-list planning is now split: active-style Genesis-only list exists as `quartus/files_genesis_runtime.qsf`; candidate/reference lists remain static.
 - No actual Quartus/openFPGA synthesis/build is enabled.
 - Imported `third_party/Genesis_MiSTer` is present and tracked as read-only runtime input for this phase.
 - APF packaging output generation is still deferred.
@@ -94,8 +100,8 @@
 - Task 6I now requires local toolchain validation before any source-activation attempt.
 - Task 6J should be completed before any runtime source-activation attempt; toolchain is still unresolved on this host.
 - Runtime source activation is explicitly paused under Task 6M Branch A2 (no-Quartus static lane).
-- Task 6M lane remains active for static planning: no runtime activation, no mixed-language enablement, no compile until Quartus is discoverable.
-- If validation passes, next task should rerun analysis-only before changing runtime activation.
+- Task 6M lane remains active for static planning where Quartus is unavailable; Task 6O started controlled source promotion into the active-style runtime qsf.
+- If validation passes, next task should rerun analysis-only before changing runtime activation further.
 - Task 6E/6F execution context is documented via [docs/TASK6C_6E_QUARTUS_ANALYSIS_ONLY_ATTEMPT.md](docs/TASK6C_6E_QUARTUS_ANALYSIS_ONLY_ATTEMPT.md), [docs/TASK6F_QUARTUS_TOOLCHAIN_DISCOVERY.md](docs/TASK6F_QUARTUS_TOOLCHAIN_DISCOVERY.md), [docs/QUARTUS_ANALYSIS_ONLY_RESULT.md](docs/QUARTUS_ANALYSIS_ONLY_RESULT.md).
 - Real project conversion remains deferred to preserve safe incremental scope.
 - Synthesis is still not run.

@@ -1,25 +1,45 @@
-# NON-BUILDABLE PLACEHOLDER
-# DO NOT RUN SYNTHESIS FROM THIS FILE YET
-# SOURCE LISTS ARE PROVISIONAL
-# MIXED-LANGUAGE FLOW IS NOT FINAL
-# IMPORTED GENESIS_MISTER RTL MUST REMAIN READ-ONLY
+# GENESIS-ONLY ACTIVE RUNTIME SOURCE LIST
+# SEGA CD EXCLUDED
+# 32X EXCLUDED
+# IMPORTED GENESIS_MISTER RTL READ-ONLY
+# FIRST BUILD PATH, EXPECT COMPILE ERRORS
+# DO NOT CLAIM SYNTHESIS SUCCESS
 
-# Imported runtime source placeholder include list (Task 5W)
-#
-# Runtime root from submodule (confirmed present):
-# third_party/Genesis_MiSTer/rtl/system.sv
-# set_global_assignment -name SYSTEMVERILOG_FILE third_party/Genesis_MiSTer/rtl/system.sv
-#
-# Downstream entries remain compile-order pending until a real dependency-verified
-# compile pass confirms the exact list and required ordering.
-# set_global_assignment -name SYSTEMVERILOG_FILE <runtime_dependency_file>
-#
-# Exclusions (mandatory):
-# - Imported MiSTer top wrappers are excluded
-# - Main sys_top-level platform file is excluded
-# - platform framework runtime glue files are excluded
-# - Sega-CD class modules are excluded
-# - 32-bit co-processor modules are excluded
-#
-# This file is mixed-language aware placeholder only; VHDL dependencies remain
-# pending and are intentionally not finalized.
+# Generated with Task 6O controlled runtime promotion.
+# This file is build-oriented only for Genesis-only scaffolding.
+# The list below is intentionally incomplete and will fail forward until
+# compile/ordering blockers are resolved.
+
+set_global_assignment -name ORIGINAL_QUARTUS_VERSION 20.1.1
+set_global_assignment -name TOP_LEVEL_ENTITY "core_top"
+set_global_assignment -name DEVICE 10M50DAF484C7G
+
+# Imported runtime wrapper boundary
+set_global_assignment -name SYSTEMVERILOG_FILE ../apf/apf_genesis_base.sv
+set_global_assignment -name SYSTEMVERILOG_FILE ../third_party/Genesis_MiSTer/rtl/system.sv
+set_global_assignment -name SYSTEMVERILOG_FILE ../third_party/Genesis_MiSTer/rtl/cheatcodes.sv
+set_global_assignment -name SYSTEMVERILOG_FILE ../third_party/Genesis_MiSTer/rtl/FX68K/fx68k.sv
+set_global_assignment -name SYSTEMVERILOG_FILE ../third_party/Genesis_MiSTer/rtl/FX68K/fx68kAlu.sv
+set_global_assignment -name SYSTEMVERILOG_FILE ../third_party/Genesis_MiSTer/rtl/FX68K/uaddrPla.sv
+set_global_assignment -name SYSTEMVERILOG_FILE ../third_party/Genesis_MiSTer/rtl/EEPROM_STM95.sv
+set_global_assignment -name SYSTEMVERILOG_FILE ../third_party/Genesis_MiSTer/rtl/multitap.sv
+set_global_assignment -name SYSTEMVERILOG_FILE ../third_party/Genesis_MiSTer/rtl/gen_io.sv
+set_global_assignment -name VERILOG_FILE ../third_party/Genesis_MiSTer/rtl/genesis_lpf.v
+
+# Lower-confidence Genesis-only runtime files: keep deferred until compile confirms need.
+# set_global_assignment -name VERILOG_FILE ../third_party/Genesis_MiSTer/rtl/fourway.v
+# set_global_assignment -name SYSTEMVERILOG_FILE ../third_party/Genesis_MiSTer/rtl/ddram.sv
+# set_global_assignment -name VERILOG_FILE ../third_party/Genesis_MiSTer/rtl/miracle.sv
+# set_global_assignment -name VERILOG_FILE ../third_party/Genesis_MiSTer/rtl/lightgun.sv
+# set_global_assignment -name VERILOG_FILE ../third_party/Genesis_MiSTer/rtl/teamplayer.sv
+
+# Mixed-language blockers: documented, intentionally not active in this first pass.
+# Task 6O status: not yet active without Quartus mixed-language confirmation.
+# set_global_assignment -name VHDL_FILE ../third_party/Genesis_MiSTer/rtl/vdp.vhd
+# set_global_assignment -name VHDL_FILE ../third_party/Genesis_MiSTer/rtl/vdp_common.vhd
+# set_global_assignment -name VHDL_FILE ../third_party/Genesis_MiSTer/rtl/T80/T80s.vhd
+# set_global_assignment -name VHDL_FILE ../third_party/Genesis_MiSTer/rtl/SVP/SVP.vhd
+# set_global_assignment -name VHDL_FILE ../third_party/Genesis_MiSTer/rtl/jt10/jt10.vhd
+# set_global_assignment -name VERILOG_FILE ../third_party/Genesis_MiSTer/rtl/jt10.v
+# set_global_assignment -name VHDL_FILE ../third_party/Genesis_MiSTer/rtl/jt12/jt12.vhd
+# set_global_assignment -name VERILOG_FILE ../third_party/Genesis_MiSTer/rtl/jt12/jt12.v

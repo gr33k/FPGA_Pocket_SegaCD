@@ -10,5 +10,12 @@
 
 # Planned future top-level target (documented intent only):
 # set_global_assignment -name TOP_LEVEL_ENTITY core_top
+
+# Runtime list activation path (Task 6O):
+# The runtime list is maintained in files_genesis_runtime.qsf.
+# This project shell is currently not run; when moving to a Quartus-capable host:
+#   1) load quartus_sh with this project
+#   2) source files_genesis_runtime.qsf as directed by Quartus CLI flow
+# Do not include files_genesis_runtime.candidate.qsf in active project paths.
 #
 # No device/package/pin/timing settings are enabled in this skeleton stage.

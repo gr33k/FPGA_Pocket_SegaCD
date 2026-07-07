@@ -72,7 +72,7 @@ Review of the interface between:
 ## 5) ROM request/ack path review
 - `system` asserts `ROM_REQ` and expects `ROM_ACK` from runtime memory.
 - Wrapper currently uses:
-  - `ROM_ACK = rom_slot_req && rom_slot_valid`
+  - `ROM_ACK = rom_slot_req && rom_slot_ready && rom_slot_valid`
   - `rom_slot_data` from `rom_slot_data` wire
   - No local prefetch engine in wrapper; this is handled by `rom_local_service_stub` upstream
 - Address line widths match `system` (`[24:1]`) at wrapper boundary.
@@ -92,9 +92,10 @@ Review of the interface between:
 - `ROMSZ` is a local placeholder, not ROM-image-driven.
 - `ROM_ADDR2`/SVP SRAM path is disabled in wrapper.
 - Mixed-language dependency (`vdp`, `T80`, `SVP`, BRAM memory cells) unresolved for purely Verilog lint/probe.
-- Candidate runtime files are not yet active in Quartus.
+- Runtime source closure is advancing via `quartus/files_genesis_runtime.qsf` with high-confidence Genesis-only sources active/under-evidence for the first compile pass.
+- Candidate runtime files remain split between active-start and planning/deferred lists; no mixed-language activation yet.
 
 ## 9) Recommended next wrapper edits (Task 6N)
 - Keep `apf_genesis_base` behavior unless interface contract changes
 - Keep `LOADING` and `ROM_ACK` semantics tied to explicit runtime service signals (`rom_slot_ready` + `rom_slot_valid`)
-- Keep mixed-language/runtime scope decisions in Task 6N+ tasks
+- Keep mixed-language/runtime scope decisions aligned to first-pass Quartus error evidence.

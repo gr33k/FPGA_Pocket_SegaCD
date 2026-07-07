@@ -21,14 +21,14 @@ This document defines the safe next-step branch after the current analysis block
 
 - **Condition:** `quartus_map` unavailable and no local path available for analysis runs.
 - **Purpose:** continue static preparation with dependency reports/candidate lists only.
-- **Decision:** keep runtime source activation paused.
+- **Decision:** keep compile-unsafe runtime expansion paused, while allowing controlled source-pool promotion and status tracking.
 - **Allowed:** manifest drafts, source scans, status updates, and static gating notes.
 - **Disallowed:** adding `files_genesis_runtime.candidate.qsf` to active project paths; no runtime compile or synthesis attempts.
 
 ## Branch A2 execution rules
-- `quartus/files_genesis_runtime.qsf` remains inactive.
+- `quartus/files_genesis_runtime.qsf` remains non-authoritative until Quartus validation, but now contains a first active-style Genesis-only source start set.
 - `quartus/files_genesis_runtime.candidate.qsf` is allowed as planning-only artifact.
-- `Task 6N`: refine candidate source ordering and confidence labels in docs without Quartus.
+- `Task 6O`: promote only high-confidence Genesis-only sources, keep VHDL/mixed-language and excluded stacks deferred.
 
 ## Alternative branches (deferred until preconditions change)
 
@@ -50,7 +50,9 @@ This document defines the safe next-step branch after the current analysis block
 - Genesis_MiSTer remains imported/read-only for now.
 - No Sega-CD / no 32X / no memory-controller / no APF packaging generation is introduced.
 
-## Task 6I should be
+## Task 6P should be
 
 - Toolchain-local setup and validation documentation, plus a re-run strategy for `tools/run_quartus_analysis_only_if_available.sh` once `quartus_map` is discoverable.
 - Branch A documents that this is a local toolchain setup and validation task; runtime activation is still paused until the validation and a rerun are completed.
+- Task 6O added the controlled Genesis-only runtime source promotion and created `GENESIS_ONLY` tracking docs.
+- On PASS of local toolchain+analysis, Task 6P should classify first errors and promote only by evidence.
