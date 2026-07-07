@@ -32,6 +32,14 @@ package skeleton.
 
 - Holds package-level notes and validation notes
 
+## Pocket SD staging target
+
+- Default staging target: `<POCKET_SD_ROOT>/openfpga/FPGA_Pocket_SegaCD`
+- Staging script:
+  - `tools/stage_pocket_sd_skeleton.sh`
+- Staging check:
+  - `tools/check_pocket_sd_staging.sh`
+
 ## Source-of-truth boundaries
 
 - APF source stays at repo root `/apf`.
@@ -45,4 +53,3 @@ package skeleton.
 - Keep this layout deterministic for future automation.
 - Keep build/release outputs explicit and excluded from this repo until the next
   milestone where Quartus outputs can be generated safely.
-

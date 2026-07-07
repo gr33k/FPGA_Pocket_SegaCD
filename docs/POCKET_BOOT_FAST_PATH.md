@@ -4,14 +4,18 @@ This document tracks the shortest deterministic path for local verification in t
 current scaffold-only state.
 
 Current fast path:
-1. Keep to APF/Genesis-only compile-time scaffold path.
-2. Verify APF package skeleton hygiene:
-   - run `tools/check_openfpga_package_skeleton.sh`
-3. Validate source-level gatekeeping docs:
-   - `docs/OPENFPGA_PACKAGING_DEFERRED_PLAN.md`
-   - `docs/OPENFPGA_PACKAGE_SKELETON_STATUS.md`
-   - `docs/GENESIS_ONLY_ACTIVE_BUILD_PATH_STATUS.md`
-4. No Quartus/APF final packaging run until Quartus toolchain is available.
+1. Project-flow check PASS:
+   - `tools/check_genesis_only_project_flow.sh`
+2. Package skeleton check PASS:
+   - `tools/check_openfpga_package_skeleton.sh`
+3. Pocket SD dry-run staging:
+   - `DRY_RUN=1 tools/stage_pocket_sd_skeleton.sh`
+4. Quartus host produces real bitstream (analysis/elaboration only).
+5. Insert real bitstream into package skeleton build release path.
+6. Copy package to Pocket SD:
+   - `POCKET_SD_ROOT=/Volumes/POCKET DRY_RUN=0 tools/stage_pocket_sd_skeleton.sh`
+7. Smoke boot with a real Genesis ROM on device.
+8. Only after validated Genesis smoke boot, evaluate Sega-CD or 32X.
 
 Task 6Q changes:
 - Added a package skeleton under `openfpga/FPGA_Pocket_SegaCD/`.
@@ -21,4 +25,3 @@ Task 6Q changes:
 Next activation remains:
 - Quartus toolchain path resolution
 - Real APF build artifact packaging and release prep
-

@@ -14,6 +14,16 @@ Date: 2026-07-06
   - `docs/OPENFPGA_PACKAGE_SKELETON_STATUS.md`
   - `docs/GENESIS_ONLY_SMOKE_TEST_PLAN.md`
 
+## Task 6R status
+
+- Added Pocket SD staging workflow and build-host handoff scaffolding:
+  - `tools/stage_pocket_sd_skeleton.sh`
+  - `tools/check_pocket_sd_staging.sh`
+  - `docs/TASK6R_POCKET_SD_STAGING_AND_BUILD_HANDOFF.md`
+  - `docs/POCKET_SD_STAGING_WORKFLOW.md`
+  - `docs/QUARTUS_BUILD_HOST_HANDOFF.md`
+  - `docs/GENESIS_ONLY_PACKAGE_COPY_CHECKLIST.md`
+
 ## Global blockers
 
 - Quartus toolchain still not available in local build host path.
@@ -30,4 +40,3 @@ Date: 2026-07-06
 
 - Task 6R and beyond should wire packaging output and/or Quartus handoff once
   toolchain is available.
-
