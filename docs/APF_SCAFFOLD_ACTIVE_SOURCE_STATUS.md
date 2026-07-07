@@ -18,9 +18,15 @@ These are the only files currently activated via `quartus/files_apf_scaffold.qsf
 
 ## Inactive runtime source root
 
-- `quartus/files_genesis_runtime.qsf` remains a non-buildable placeholder.
-- No `third_party/Genesis_MiSTer/rtl/system.sv` or other Genesis runtime files are active.
+- `quartus/files_genesis_runtime.qsf` is no longer the chosen implementation lane for this milestone.
+- Task 6V sets the active runtime strategy to a submodule-backed `openFPGA-Genesis` integration lane.
 - `quartus/files_genesis_runtime.candidate.qsf` exists as planning-only (candidate/static lane).
+
+## Active runtime source direction (Task 6V)
+
+- Preferred runtime source root: `third_party/openFPGA-Genesis`.
+- `third_party/Genesis_MiSTer` is retained as historical planning/reference and is not the active implementation path.
+- OpenFPGA submodule checkout and full runtime manifest wiring are pending a follow-up integration task.
 
 ## Inactive runtime dependencies
 

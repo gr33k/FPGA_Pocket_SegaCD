@@ -39,3 +39,12 @@ keep this stage as package/layout scaffolding with an explicit host handoff.
 - No Sega-CD/32X at this stage.
 - No save state support yet.
 - No host-per-read ROM streaming.
+
+## Task 6V target follow-on
+
+After this strategy lock:
+
+1. Add/pin `third_party/openFPGA-Genesis` as the single upstream runtime source lane.
+2. Keep `third_party/Genesis_MiSTer` as reference-only and non-active.
+3. Rebuild the runtime-active source manifest from openFPGA core paths.
+4. Run Quartus analysis/elaboration against the new active lane only once toolchain is available.

@@ -3,6 +3,7 @@
 ## Current status
 
 - APF runtime wrapper and ROM preload scaffold remain active boundaries.
+- **Implementation strategy now selected:** submodule-backed `openFPGA-Genesis` path for the Genesis-only lane.
 - No Sega-CD and no 32X integration.
 - No real memory controller or runtime host-per-read ROM streaming.
 - No package build outputs or Quartus synthesis artifacts are committed.
@@ -19,9 +20,15 @@
   - `docs/POCKET_FILE_LAYOUT_GENESIS_ONLY.md`
   - `docs/GENESIS_ONLY_SMOKE_TEST_PLAN.md`
 
+## Milestone 6V status
+
+- Chosen source integration strategy is **C: submodule-based `openFPGA-Genesis`.**
+- `third_party/Genesis_MiSTer` remains in planning/reference state and is no longer the active implementation lane.
+- Active implementation direction now points to the Pocket/openFPGA-Genesis submodule integration path.
+- No submodule checkout for `third_party/openFPGA-Genesis` is enforced in this host session yet.
+
 ## Remaining blockers
 
 - Quartus toolchain still absent for real synthesis/elaboration automation.
 - No active package copy step from repo APF sources into package payload.
 - No imported Genesis_MiSTer runtime source set activated yet.
-

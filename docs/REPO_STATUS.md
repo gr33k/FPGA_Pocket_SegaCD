@@ -38,6 +38,16 @@ Date: 2026-07-06
 - No binary payload files committed.
 - Dockerized Quartus prep is now in place; real execution still requires Quartus-capable host.
 
+## Task 6V status
+
+- Source integration strategy decision is now made: **build around a submodule** using `openFPGA-Genesis`.
+- Active implementation lane is no longer the `third_party/Genesis_MiSTer` path for runtime behavior.
+- APF-owned scaffolding remains active and unchanged:
+  - `apf/src/fpga/core/*`
+  - `apf/apf_genesis_base.sv`
+- The new active runtime direction is documented in
+  `docs/TASK6V_SOURCE_INTEGRATION_STRATEGY.md`.
+
 ## Safety constraints still in effect
 
 - Genesis-only APF behavior only.

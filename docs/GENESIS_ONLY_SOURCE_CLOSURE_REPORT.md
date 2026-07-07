@@ -22,6 +22,12 @@ Report date: 2026-07-06
 - No real APF data-slot host streaming at runtime
 - No generated Quartus bitstreams in source closure
 
+## Runtime source direction (Task 6V)
+
+- Active runtime source direction is now `third_party/openFPGA-Genesis` as a submodule target.
+- `third_party/Genesis_MiSTer` is retained only as an historical reference in docs/manifests.
+- Runtime build activation remains deferred until the openFPGA submodule is available.
+
 ## Task 6Q additions (non-breaking)
 
 - Package skeleton directory and readmes added as inactive placeholders.
@@ -32,4 +38,3 @@ Report date: 2026-07-06
 
 The closure remains APF-runtime scaffold only and does not include imported
 Genesis_MiSTer runtime files yet.
-
