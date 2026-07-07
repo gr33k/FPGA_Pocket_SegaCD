@@ -22,6 +22,7 @@
 - Task 5P tightened the compile-probe source list by static inspection to confirmed files only.
 - Task 5Q documented mixed-language compile strategy and flow constraints.
 - Task 5R documented APF Quartus/openFPGA project planning and structure approach.
+- Task 5S documented future Quartus/openFPGA project skeleton, file checklist, output-ignore plan, and validation checklist (docs only).
 - Imported runtime RTL remains unmodified and is treated as read-only in this phase.
 - `docs/GENESIS_RUNTIME_FIRST_COMPILE_ERRORS.md` records advisory probe output and tool constraints.
 
@@ -39,6 +40,8 @@
 - No other runtime behavior was modified outside APF scaffold files during this milestone.
 
 - Runtime source-list planning is still inactive and not compile-ready.
+- No actual Quartus/openFPGA project files were created in Task 5S.
+- APF runtime compile remains inactive; no synthesis claims are made.
 
 ## Status checks to keep conservative
 - Build target for this stage remains APF compile-verification only.
@@ -71,6 +74,10 @@
   - [docs/GENESIS_MIXED_LANGUAGE_TOOLCHAIN_NOTES.md](docs/GENESIS_MIXED_LANGUAGE_TOOLCHAIN_NOTES.md)
   - [docs/GENESIS_COMPILE_FLOW_OPTIONS.md](docs/GENESIS_COMPILE_FLOW_OPTIONS.md)
   - [docs/TASK5R_APF_QUARTUS_PROJECT_PLAN.md](docs/TASK5R_APF_QUARTUS_PROJECT_PLAN.md)
+  - [docs/TASK5S_QUARTUS_OPENFPGA_PROJECT_SKELETON_CHECKLIST.md](docs/TASK5S_QUARTUS_OPENFPGA_PROJECT_SKELETON_CHECKLIST.md)
+  - [docs/QUARTUS_PROJECT_FILE_CHECKLIST.md](docs/QUARTUS_PROJECT_FILE_CHECKLIST.md)
+  - [docs/APF_BUILD_OUTPUT_IGNORE_PLAN.md](docs/APF_BUILD_OUTPUT_IGNORE_PLAN.md)
+  - [docs/APF_PROJECT_VALIDATION_STEPS.md](docs/APF_PROJECT_VALIDATION_STEPS.md)
   - [docs/APF_PROJECT_STRUCTURE_PLAN.md](docs/APF_PROJECT_STRUCTURE_PLAN.md)
   - [docs/QUARTUS_OPENFPGA_INTEGRATION_NOTES.md](docs/QUARTUS_OPENFPGA_INTEGRATION_NOTES.md)
 

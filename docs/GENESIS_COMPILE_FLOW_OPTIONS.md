@@ -5,6 +5,7 @@
 - Task 5R adds that the likely long-term route is a Quartus/openFPGA project skeleton that owns final file ordering and mixed-language integration.
 - This task still does not create any Quartus project files.
 - The current runtime source lists remain inactive and are planning-only.
+- Task 5S adds explicit future Quartus/openFPGA skeleton checklists (project files, output ignore plan, validation steps) but still does not create real project files.
 
 ## Recommended near-term flow
 

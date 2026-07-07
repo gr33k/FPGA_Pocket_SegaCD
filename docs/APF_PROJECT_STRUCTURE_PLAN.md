@@ -40,6 +40,7 @@ This milestone keeps planning explicit and does not add a real Quartus project. 
 ## Separation from this task
 
 - This document only defines structure.
+- Task 5S added a concrete checklist set for future Quartus/openFPGA skeleton files, generated output ignore rules, and validation steps.
 - No project files are created.
 - No synthesis success is implied.
 - No APF packaging files are added.

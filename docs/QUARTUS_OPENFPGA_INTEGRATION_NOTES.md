@@ -6,6 +6,12 @@
 - The project must support Verilog, SystemVerilog, and VHDL as required by runtime dependencies.
 - `core_top` is the intended APF top for now.
 
+Related checklist docs added in Task 5S:
+- [Task 5S skeleton checklist](docs/TASK5S_QUARTUS_OPENFPGA_PROJECT_SKELETON_CHECKLIST.md)
+- [Quartus project file checklist](docs/QUARTUS_PROJECT_FILE_CHECKLIST.md)
+- [APF build output ignore plan](docs/APF_BUILD_OUTPUT_IGNORE_PLAN.md)
+- [APF project validation steps](docs/APF_PROJECT_VALIDATION_STEPS.md)
+
 ## Real runtime boundary rules
 
 - Use `apf/apf_genesis_base.sv` in the real runtime path.
@@ -19,6 +25,7 @@
 - Do not include memory-controller integration, save state, or SRAM/Sdram/PSram controllers yet.
 - Keep APF metadata/packaging separate from source-order planning in this task.
 - Keep real synthesis stubs out of simulation-only directories.
+- Actual Quartus/openFPGA project creation remains deferred.
 
 ## Mixed-language validation implication
 
