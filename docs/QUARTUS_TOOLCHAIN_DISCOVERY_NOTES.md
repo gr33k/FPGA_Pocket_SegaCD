@@ -35,3 +35,11 @@ To help the analysis runner locate `quartus_map`, set one of:
 - Full synthesis/fitter/assembler/timing is not run.
 - No APF packaging is run.
 - Runtime compile success is not claimed at this stage.
+
+## Latest blocker classification
+
+- Current status: **TOOLCHAIN_UNAVAILABLE**.
+- If `quartus_map` is unavailable, prefer:
+  - `export QUARTUS_MAP=/path/to/quartus_map`
+  - or `export QUARTUS_ROOTDIR=/path/to/quartus`
+- Project activation for runtime is intentionally paused until toolchain discovery succeeds.

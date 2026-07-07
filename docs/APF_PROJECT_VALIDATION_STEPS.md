@@ -104,3 +104,12 @@ Expected: no prohibited features in active regions.
 - Review [docs/QUARTUS_ANALYSIS_ONLY_RESULT.md](docs/QUARTUS_ANALYSIS_ONLY_RESULT.md) after the run.
 
 - Confirm generated outputs were not committed.
+
+## 12) Confirm blocker classification before source activation
+
+- Read [docs/QUARTUS_ANALYSIS_BLOCKER_CLASSIFICATION.md](docs/QUARTUS_ANALYSIS_BLOCKER_CLASSIFICATION.md) before deciding any runtime activation branch.
+
+## 13) Confirm selected next branch
+
+- Read [docs/NEXT_ACTIVATION_PATH.md](docs/NEXT_ACTIVATION_PATH.md) and apply only the selected branch.
+- Keep all non-Branch-A activations paused when Branch A (TOOLCHAIN_UNAVAILABLE) is in force.

@@ -35,3 +35,4 @@ quartus_map unavailable via discovery; analysis not run.
 - No APF packaging was run.
 - No games were booted.
 - Failure here is expected until full runtime activation and constraint work are complete.
+- Blocker classification for this state: **TOOLCHAIN_UNAVAILABLE**.

@@ -40,6 +40,7 @@ These are the only files currently activated via `quartus/files_apf_scaffold.qsf
 
 - Task 6C-6E added and executed a guarded attempt flow in [tools/run_quartus_analysis_only_if_available.sh](tools/run_quartus_analysis_only_if_available.sh).
 - [docs/QUARTUS_ANALYSIS_ONLY_RESULT.md](docs/QUARTUS_ANALYSIS_ONLY_RESULT.md) captures the latest preflight + `quartus_map --analysis_and_elaboration` execution state.
+- Task 6G-6H classified the blocker as **TOOLCHAIN_UNAVAILABLE** and confirmed this remains an advisory pre-build state.
 - `quartus/files_apf_scaffold.qsf` remains active for APF-owned sources.
 - `quartus/files_genesis_runtime.qsf` remains inactive placeholder only.
 - `docs/QUARTUS_ANALYSIS_ONLY_RESULT.md` is advisory and does not imply runtime build success.
@@ -60,3 +61,10 @@ Real runtime compilation is still not possible until runtime sources are activat
 - No gameplay boot is claimed.
 - No Sega-CD / 32X runtime path is active.
 - No memory-controller integration is active.
+
+## 6G-6H blocker snapshot
+
+- Selected branch: **Toolchain unavailable**.
+- APF scaffold source list remains active.
+- Genesis runtime source list remains intentionally inactive.
+- No build outputs are committed in this milestone.

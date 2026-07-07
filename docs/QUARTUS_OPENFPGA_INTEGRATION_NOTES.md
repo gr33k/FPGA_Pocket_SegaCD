@@ -50,6 +50,7 @@ Current status:
 - This remains an analysis/elaboration-only check, not synthesis, fitter, assembler, or timing analysis.
 - Runtime and constraints remain inactive, so failures are expected and advisory.
 - Captured outputs are now stored in [docs/QUARTUS_ANALYSIS_ONLY_RESULT.md](docs/QUARTUS_ANALYSIS_ONLY_RESULT.md).
+- Task 6G-6H classifies current status as **TOOLCHAIN_UNAVAILABLE** and should drive branch selection in this milestone.
 
 ## Activation status after 6B
 
@@ -94,3 +95,12 @@ Task 6F added deterministic Quartus toolchain discovery to the analysis-only run
 - Discovery checks `QUARTUS_MAP`, then `QUARTUS_ROOTDIR`, PATH, then common IntelFPGA install locations.
 - Multiple matches are sorted and first candidate is used; all discovered candidates are recorded.
 - Analysis-only discovery/runs remain advisory and do not imply synthesis readiness.
+
+## 6G-6H next branch
+
+- Selected branch: **A (TOOLCHAIN_UNAVAILABLE)**.
+- Current actions remain:
+  - Document installation/path setup
+  - Keep runtime source activation paused
+  - Keep all runtime/constraints/integration changes advisory only
+- Analysis classification is guidance, not proof of build correctness.

@@ -61,3 +61,11 @@ Validation note:
 - Task 6C-6D added analysis preflight + command plan for future-only Quartus analysis.
 - Analysis commands are not run in this milestone.
 - Runtime and constraints remain inactive as expected.
+
+## 6G-6H blocker snapshot
+
+- Blocker category: **TOOLCHAIN_UNAVAILABLE**.
+- APF skeleton remains active-only with no runtime source activation.
+- No files were promoted to active runtime compile path in this step.
+- No synthesis/fitter/assembler/timing outputs are expected or committed.
+- Next action remains local toolchain setup before any source-activation branch continues.
