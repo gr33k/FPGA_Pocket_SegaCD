@@ -1,20 +1,14 @@
-# NON-BUILDABLE PLACEHOLDER
-# DO NOT RUN SYNTHESIS FROM THIS FILE YET
-# SOURCE LISTS ARE PROVISIONAL
-# MIXED-LANGUAGE FLOW IS NOT FINAL
-# IMPORTED GENESIS_MISTER RTL MUST REMAIN READ-ONLY
+# ACTIVE SKELETON - DO NOT RUN SYNTHESIS YET
+# PROJECT STRUCTURE ONLY
+# SOURCE LISTS ARE NOT ACTIVE YET
+# NO BUILD OUTPUTS SHOULD BE GENERATED
+#
+# Task 5Z top-level active skeleton conversion (safe, non-run milestone).
+#
+# This file is an early project shell. It does not enable real synthesis yet.
+# Source includes and constraints remain deferred in placeholder files.
 
-# Quartus placeholder settings file for APF scaffold (Task 5W)
-#
-# This file is documentation/skeleton only and is not a production or buildable
-# configuration.
-#
-# - No generated output settings are present.
-# - No final device/pin assignments are present.
-# - No third_party runtime wrappers are included.
-#
-# Planned top (informational):
+# Planned future top-level target (documented intent only):
 # set_global_assignment -name TOP_LEVEL_ENTITY core_top
 #
-# Include-file linkage remains provisional and will be activated with a real
-# Quartus/openFPGA build script later.
+# No device/package/pin/timing settings are enabled in this skeleton stage.

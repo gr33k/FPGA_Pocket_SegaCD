@@ -11,9 +11,18 @@ Before any real Quartus synthesis or packaging, run these hygiene checks.
 - `test -f quartus/files_genesis_runtime.qsf`
 - `test -f quartus/files_constraints.qsf`
 
-## 2) Confirm non-build markers in each placeholder
+## 2) Confirm top-level active skeleton markers
 
-Each file above must include:
+For `quartus/FPGA_Pocket_SegaCD.qpf` and `quartus/FPGA_Pocket_SegaCD.qsf`, confirm:
+
+- ACTIVE SKELETON - DO NOT RUN SYNTHESIS YET
+- PROJECT STRUCTURE ONLY
+- SOURCE LISTS ARE NOT ACTIVE YET
+- NO BUILD OUTPUTS SHOULD BE GENERATED
+
+## 2b) Confirm non-build markers in placeholders
+
+For the remaining placeholder files, confirm each includes:
 
 - NON-BUILDABLE PLACEHOLDER
 - DO NOT RUN SYNTHESIS FROM THIS FILE YET
@@ -79,7 +88,15 @@ Expected: clean for this workspace.
 - Confirm `docs/QUARTUS_ACTIVATION_GATE_CHECKLIST.md` is complete and reviewed.
 - Re-run the Task 5X hygiene check after any placeholder conversion edits.
 
-## 10) Confirm Task 5X expectation
+## 11) Confirm Task 5X expectation
 
 Task 5X should only validate hygiene and placeholder scope, not claim synthesis,
 build success, or playable boot behavior.
+
+## 12) Confirm Task 5Z state
+
+- `quartus/FPGA_Pocket_SegaCD.qpf` and `quartus/FPGA_Pocket_SegaCD.qsf` contain active-skeleton markers.
+- `quartus/FPGA_Pocket_SegaCD.sdc`, `quartus/files_apf_scaffold.qsf`,
+  `quartus/files_genesis_runtime.qsf`, `quartus/files_constraints.qsf` remain
+  non-buildable placeholders.
+- no generated output files/directories are present.

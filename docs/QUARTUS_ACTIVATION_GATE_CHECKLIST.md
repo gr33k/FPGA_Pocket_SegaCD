@@ -1,10 +1,15 @@
 # Quartus Activation Gate Checklist (Task 5Y)
 
-All gates below must be reviewed and pass before any placeholder file is converted to an active Quartus project file.
+Gate status after Task 5Z:
 
-1. Hygiene validation passes
+- Task 5Z conversion status: `qpf` + `qsf` converted to active skeleton shell (non-run).
+- Remaining gates are **pending** until the validator and integration flow are updated for split active/placeholder policy.
+
+All gates below are required before further active conversion in later phases.
+
+1. Hygiene validation passes (current state: pending for mixed policy)
 - Run `tools/check_quartus_placeholder_hygiene.sh`
-- Inspect `docs/QUARTUS_PLACEHOLDER_HYGIENE_REPORT.md` for `Overall status: PASS` and zero fails
+- Inspect `docs/QUARTUS_PLACEHOLDER_HYGIENE_REPORT.md` for `Overall status: PASS` and zero fails once Task 6A updates policy.
 
 2. Submodule is initialized
 - Run `git submodule update --init --recursive`
@@ -61,4 +66,4 @@ All gates below must be reviewed and pass before any placeholder file is convert
 14. No games are claimed to boot
 - No documentation or commit message should claim playable boot status before real integration
 
-Gate status is advisory until active conversion work begins in later tasks.
+Gate status remains advisory until active source/constraint conversion proceeds beyond Task 5Z.

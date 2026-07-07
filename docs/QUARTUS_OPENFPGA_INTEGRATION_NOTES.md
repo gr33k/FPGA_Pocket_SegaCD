@@ -28,6 +28,7 @@ Current status:
 - Task 5W created the documentation-only `quartus/README.md`, `quartus/notes_mixed_language.md` and placeholder project files.
 - Task 5X adds `tools/check_quartus_placeholder_hygiene.sh` to document non-buildable placeholder safety.
 - Task 5Y adds the controlled activation gate checklist and conversion plan before any placeholder becomes active.
+- Task 5Z converted the top-level `FPGA_Pocket_SegaCD.qpf`/`.qsf` into active skeleton form.
 
 ## Real runtime boundary rules
 
@@ -36,11 +37,12 @@ Current status:
 - Do not use imported MiSTer top-level `Genesis.sv` as the APF top.
 - Keep `sys/sys_top.v` and HPS/IOCTL framework files excluded unless explicitly planned and required later.
 
-## Activation status after 5Y
+## Activation status after 5Z
 
 - `docs/QUARTUS_ACTIVATION_GATE_CHECKLIST.md` defines all pre-activation gates.
-- Placeholder-to-active conversion is still deferred to Task 5Z.
-- `tools/check_quartus_placeholder_hygiene.sh` must pass before and after any future placeholder conversion.
+- Placeholder-to-active conversion has completed top-level shell conversion (Task 5Z) only.
+- Source include activation remains deferred (`*.qsf` includes and constraints).
+- `tools/check_quartus_placeholder_hygiene.sh` must be updated in Task 6A to distinguish active skeleton from non-buildable placeholders.
 - `apf/src/fpga/sim/apf_genesis_base_stub.sv` remains excluded from active synthesis paths.
 - Synthesis remains disabled and no Quartus run output is expected in this milestone.
 

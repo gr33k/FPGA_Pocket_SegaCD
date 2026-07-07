@@ -18,8 +18,13 @@ This document defines the minimum criteria for the first active Quartus skeleton
 - No APF packaging is attempted.
 - No real runtime compile success or game boot claim is made from this stage.
 - No memory-controller integration (PSRAM / SDRAM / SRAM) is active.
+- Task 5Z status: top-level skeleton files are active (`qpf` + `qsf`); runtime source activation remains pending.
 
 ## Acceptance notes
 
-A skeleton is only considered complete when conversion gates in Task 5Y are documented,
-validated by the hygiene script, and reviewed as advisory-only before further steps.
+A skeleton is only considered complete for this milestone when:
+
+- top-level `qpf` + `qsf` are converted,
+- source include activation is still pending,
+- `files`/`.sdc` placeholders remain non-buildable,
+- and the task remains non-run.

@@ -1,6 +1,6 @@
 # Quartus Placeholder Hygiene Report
 
-Validation date/time: 2026-07-07 02:28:14 UTC
+Validation date/time: 2026-07-07 02:34:37 UTC
 
 This report is advisory and does not claim synthesis success.
 
@@ -20,10 +20,10 @@ This report is advisory and does not claim synthesis success.
 - [PASS] Exists: quartus/files_genesis_runtime.qsf
 - [PASS] Exists: quartus/files_constraints.qsf
 ## 2) Required marker presence
-- [PASS] Marker 'NON-BUILDABLE PLACEHOLDER' in quartus/FPGA_Pocket_SegaCD.qpf
-- [PASS] Marker 'DO NOT RUN SYNTHESIS FROM THIS FILE YET' in quartus/FPGA_Pocket_SegaCD.qpf
-- [PASS] Marker 'NON-BUILDABLE PLACEHOLDER' in quartus/FPGA_Pocket_SegaCD.qsf
-- [PASS] Marker 'DO NOT RUN SYNTHESIS FROM THIS FILE YET' in quartus/FPGA_Pocket_SegaCD.qsf
+- [FAIL] Marker 'NON-BUILDABLE PLACEHOLDER' in quartus/FPGA_Pocket_SegaCD.qpf
+- [FAIL] Marker 'DO NOT RUN SYNTHESIS FROM THIS FILE YET' in quartus/FPGA_Pocket_SegaCD.qpf
+- [FAIL] Marker 'NON-BUILDABLE PLACEHOLDER' in quartus/FPGA_Pocket_SegaCD.qsf
+- [FAIL] Marker 'DO NOT RUN SYNTHESIS FROM THIS FILE YET' in quartus/FPGA_Pocket_SegaCD.qsf
 - [PASS] Marker 'NON-BUILDABLE PLACEHOLDER' in quartus/FPGA_Pocket_SegaCD.sdc
 - [PASS] Marker 'DO NOT RUN SYNTHESIS FROM THIS FILE YET' in quartus/FPGA_Pocket_SegaCD.sdc
 - [PASS] Marker 'NON-BUILDABLE PLACEHOLDER' in quartus/files_apf_scaffold.qsf
@@ -62,9 +62,9 @@ This report is advisory and does not claim synthesis success.
 - [PASS] .gitignore contains: *.rbf_r
 
 ## Summary
-- PASS count: 40
-- FAIL count: 0
-- Overall status: PASS (advisory only)
+- PASS count: 36
+- FAIL count: 4
+- Overall status: FAIL (advisory only - must be reviewed manually)
 
 ## Notes
 - No synthesis was run.

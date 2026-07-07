@@ -29,6 +29,7 @@
 - Task 5W added non-buildable Quartus placeholder project files under `quartus/`.
 - Task 5X added Quartus placeholder hygiene validation docs and a non-invasive script.
 - Task 5Y added controlled Quartus activation planning and removed `rg` dependency from hygiene checks.
+- Task 5Z converted `quartus/FPGA_Pocket_SegaCD.qpf` and `quartus/FPGA_Pocket_SegaCD.qsf` to active-but-not-run skeletons.
 - `docs/TASK5W_QUARTUS_PLACEHOLDER_PROJECT_FILES.md` now records Task 5W scope and constraints.
 - Imported runtime RTL remains unmodified and is treated as read-only in this phase.
 - `docs/GENESIS_RUNTIME_FIRST_COMPILE_ERRORS.md` records advisory probe output and tool constraints.
@@ -46,7 +47,7 @@
   - Mixed-language and Quartus planning docs for Tasks 5Q/5R/5S/5T/5U/5W/5X.
 - Kept in `quartus/`:
   - `README.md` and `notes_mixed_language.md`.
-  - Non-buildable placeholder project structure files for Task 5W:
+  - Active/placeholder mixed project structure files:
     - `FPGA_Pocket_SegaCD.qpf`
     - `FPGA_Pocket_SegaCD.qsf`
     - `FPGA_Pocket_SegaCD.sdc`
@@ -66,11 +67,11 @@
 
 ## Planned next steps
 
-- Task 5X performed placeholder-hygiene validation:
-  - marker presence
-  - exclusion list compliance
-  - no outputs committed
-  - no forbidden runtime/system path activation
-- Task 5Y defined a controlled activation plan for moving from placeholder to a first real Quartus project skeleton.
-- Task 5Z should convert only top-level Quartus placeholder files to the first active shell skeleton.
+- Continue 5Z documentation state updates where needed.
+- Task 6A should update `tools/check_quartus_placeholder_hygiene.sh` to support mixed active-skeleton/placeholder states.
 - Real project conversion remains deferred to preserve safe incremental scope.
+- Synthesis is still not run.
+- Runtime source integration and constraints are still deferred.
+- Sega CD remains unimplemented.
+- Memory-controller integration remains deferred.
+- APF packaging remains deferred.

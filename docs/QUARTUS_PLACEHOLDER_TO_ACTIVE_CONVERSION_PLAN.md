@@ -17,6 +17,9 @@ This is a phase-gated conversion roadmap. Each phase is intentionally small and 
 - Keep source include list minimal and conservative.
 - Do not add device/pin/timing defaults unless independently confirmed.
 - Keep synthesis disabled and do not generate outputs.
+- Task 5Z status: this phase is now **partially completed**.
+  - `qpf` and `qsf` are converted to active skeletons.
+  - source include files remain placeholders.
 
 ## Phase C — APF scaffold wiring
 
@@ -25,6 +28,7 @@ This is a phase-gated conversion roadmap. Each phase is intentionally small and 
   - APF scaffold helper files already planned
 - Keep full Genesis runtime include list limited to confirmed files only, and keep simulation-only stub excluded.
 - Do not introduce save-state/IOCTL/host bridge build-time behavior beyond scaffold intent.
+  - Pending in later milestones.
 
 ## Phase D — Mixed-language handling
 
