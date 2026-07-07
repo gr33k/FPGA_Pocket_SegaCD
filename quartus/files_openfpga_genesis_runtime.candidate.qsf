@@ -1,0 +1,29 @@
+# CANDIDATE ONLY
+# OPENFPGA-GENESIS SOURCE LANE
+# DO NOT RUN SYNTHESIS FROM THIS FILE YET
+# DO NOT INCLUDE UNTIL QUARTUS HOST VALIDATION
+# GENESIS ONLY
+# SEGA CD EXCLUDED
+# 32X EXCLUDED
+# GENESIS_MISTER REFERENCE ONLY
+
+set_global_assignment -name ORIGINAL_QUARTUS_VERSION 21.1
+set_global_assignment -name DEVICE 10M50DAF484C7G
+set_global_assignment -name TOP_LEVEL_ENTITY core_top
+
+# Candidate active files (openFPGA-Genesis lane)
+set_global_assignment -name SYSTEMVERILOG_FILE ../third_party/openFPGA-Genesis/src/fpga/apf/apf_top.v
+set_global_assignment -name SYSTEMVERILOG_FILE ../third_party/openFPGA-Genesis/src/fpga/core/core_top.sv
+set_global_assignment -name SYSTEMVERILOG_FILE ../third_party/openFPGA-Genesis/src/fpga/core/rtl/system.sv
+
+# candidate planning references (commented until direct compile validation)
+# set_global_assignment -name SYSTEMVERILOG_FILE ../third_party/openFPGA-Genesis/src/fpga/core/core_bridge_cmd.v
+# set_global_assignment -name SYSTEMVERILOG_FILE ../third_party/openFPGA-Genesis/src/fpga/core/data_loader.sv
+# set_global_assignment -name SYSTEMVERILOG_FILE ../third_party/openFPGA-Genesis/src/fpga/core/data_unloader.sv
+# set_global_assignment -name SYSTEMVERILOG_FILE ../third_party/openFPGA-Genesis/src/fpga/core/sdram.sv
+# set_global_assignment -name SYSTEMVERILOG_FILE ../third_party/openFPGA-Genesis/src/fpga/core/sound_i2s.sv
+# set_global_assignment -name SYSTEMVERILOG_FILE ../third_party/openFPGA-Genesis/src/fpga/core/mf_pllbase.v
+# set_global_assignment -name QIP_FILE ../third_party/openFPGA-Genesis/src/fpga/core/mf_pllbase.qip
+# set_global_assignment -name QIP_FILE ../third_party/openFPGA-Genesis/src/fpga/core/pin_ddio_clk.qip
+# set_global_assignment -name QIP_FILE ../third_party/openFPGA-Genesis/src/fpga/apf/mf_ddio_bidir_12.qip
+# set_global_assignment -name SDC_FILE ../third_party/openFPGA-Genesis/src/fpga/core/core_constraints.sdc

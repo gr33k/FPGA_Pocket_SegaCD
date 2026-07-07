@@ -35,3 +35,14 @@ This is the **new primary Genesis-only runtime source lane**.
 
 - Sega CD is deferred until Genesis boots.
 - 32X is deferred until Genesis boots and platform risk is acceptable.
+
+## Task 6X note
+
+- Added Task 6X active-source planning from the real upstream tree:
+  - `docs/OPENFPGA_GENESIS_UPSTREAM_FILE_INVENTORY.md`
+  - `docs/OPENFPGA_GENESIS_ACTIVE_SOURCE_PLAN.md`
+  - `docs/OPENFPGA_GENESIS_SOURCE_PLAN_CHECK.md`
+- Added planning candidate list at:
+  - `quartus/files_openfpga_genesis_runtime.candidate.qsf`
+- No Quartus analysis/elaboration or synthesis was executed in Task 6X.
+- `third_party/Genesis_MiSTer` remains reference-only, not active.
