@@ -15,7 +15,8 @@
 - Task 5G added a documented smoke configuration override flow for scaffold modes and made `ENABLE_FAKE_ROM_FOR_SMOKE_TEST` independently overrideable through `core_top`.
 - Task 5H added compile/elaboration sanity scaffolding for `core_top` with simulation-only `apf_genesis_base_stub` and a dedicated core-top smoke testbench.
 - Task 5I added a non-invasive Genesis_MiSTer runtime integration plan, manifest draft, and runtime source TODO draft.
-- Task 5L selected the future import strategy as a pinned git submodule at `third_party/Genesis_MiSTer` (not yet added).
+- Task 5L selected the future import strategy as a pinned git submodule at `third_party/Genesis_MiSTer`.
+- Task 5M added the submodule and recorded pinned revision `adc0c42cfb1fa5d484cc8566767f7d68982bc44a`.
 
 ## Scope currently in-tree
 - Kept in `apf/`:
@@ -43,8 +44,8 @@
 
 ## Planned runtime import tasks
 
-- Task 5L: strategy documented for `third_party/Genesis_MiSTer` submodule import (deferred).
-- Task 5M: future step to add the pinned submodule.
+- Task 5M: completed submodule add for `third_party/Genesis_MiSTer`.
+- Remaining runtime integration remains planning/verification work (compile-oriented dependency pass, manifest completion, and integration filelist updates).
 - Current docs:
   - [docs/TASK5L_GENESIS_IMPORT_STRATEGY.md](docs/TASK5L_GENESIS_IMPORT_STRATEGY.md)
   - [docs/THIRD_PARTY_IMPORT_POLICY.md](docs/THIRD_PARTY_IMPORT_POLICY.md)

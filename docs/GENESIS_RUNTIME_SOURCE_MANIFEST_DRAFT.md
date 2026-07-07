@@ -6,17 +6,18 @@
 ## Required chain for this APF scaffold phase
 
 - `apf/apf_genesis_base.sv` (confirmed present in repo)
-- `third_party/Genesis_MiSTer/rtl/system.sv` (planned; not present yet)
+- `third_party/Genesis_MiSTer/rtl/system.sv` (present via submodule)
 
 ## Dependency status (first-pass)
 
 ### confirmed present
 
 - `apf/apf_genesis_base.sv` (APF boundary wrapper)
+- `third_party/Genesis_MiSTer/rtl/system.sv` (runtime module root now present under submodule)
 
-### missing from repo / external/imported expected
+### external/runtime expected / compile-confirmed pending
 
-- `third_party/Genesis_MiSTer/rtl/system.sv`
+- `third_party/Genesis_MiSTer/rtl/system.sv` exists but compile-coverage for APF boundary is still pending
 - 68000 CPU core group (e.g. `third_party/Genesis_MiSTer/rtl/FX68K/fx68k.sv`)
 - Z80/T80 group (`third_party/Genesis_MiSTer/rtl/T80/*` + dependent files)
 - VDP/video group (`third_party/Genesis_MiSTer/rtl/vdp.vhd`, `third_party/Genesis_MiSTer/rtl/vdp_common.vhd`, and helpers)
@@ -40,7 +41,8 @@
 ## Notes for next passes
 
 - Task 5L selected `git submodule` as the future runtime import strategy.
-- Task 5J performed a source-inspection pass only (no compile). Next step is a real dependency compile scan after runtime import.
+- Task 5M added the submodule and pinned the runtime commit.
+- Task 5J performed a source-inspection pass only (no compile). Next step remains compile-oriented validation.
 - `apf/src/fpga/core/genesis_runtime_dependency_probe.todo.f` now carries a Task-5J probe manifest with explicit status tags.
 
 ## Exclusions (do not include yet)

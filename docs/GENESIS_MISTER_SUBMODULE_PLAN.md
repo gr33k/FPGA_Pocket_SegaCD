@@ -8,8 +8,16 @@
 
 ## Status for this task
 
-- Do **NOT** run these commands in Task 5L.
-- This task documents the command flow only; actual submodule addition is deferred to Task 5M.
+- Completed in Task 5M.
+
+## Task 5M execution result
+
+- Submodule has been added at:
+  - `third_party/Genesis_MiSTer`
+- Pinned revision:
+  - `adc0c42cfb1fa5d484cc8566767f7d68982bc44a`
+- This run remains read-only for the runtime boundary.
+- APF adapter and scaffold behavior is unchanged by this import.
 
 ## Future commands (documentation only)
 
@@ -35,7 +43,7 @@ or, after clone:
 git submodule update --init --recursive
 ```
 
-## Why this is deferred to Task 5M
+## Why this was done in Task 5M
 
-- Task 5L is strategy definition only.
-- Submodule operations should occur in a separate step when manifest updates and dependency scans can immediately validate the newly present runtime files.
+- Task 5L selected strategy.
+- Task 5M performs the actual add and confirms the first runtime source location needed for future compile-oriented dependency passes.

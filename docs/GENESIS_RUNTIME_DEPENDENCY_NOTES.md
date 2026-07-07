@@ -5,24 +5,25 @@
 - Runtime import strategy chosen: **git submodule** (documentation-only for now).
 - Planned import path: `third_party/Genesis_MiSTer`
 - Planned upstream: `https://github.com/MiSTer-devel/Genesis_MiSTer`
-- Task 5M will perform the actual submodule addition.
+- Task 5M performed the actual submodule addition and pinned the first known runtime commit.
 
 ## Direct dependency chain found so far
 
 - `core_top`
   - `->` `apf_genesis_base.sv`
   - `->` `system` (instantiated as `u_genesis` in `apf_genesis_base.sv`)
-- `system` declaration is not present in this repository, so the next resolved file is expected to be imported from `third_party/Genesis_MiSTer/rtl/system.sv`.
+- `system` declaration is now available from the `third_party/Genesis_MiSTer` runtime import (`third_party/Genesis_MiSTer/rtl/system.sv`), while full runtime compile pass is still pending.
 
 ## Major dependency groups identified for full runtime integration
 
 ### Confirmed in this repo
 
 - `apf/apf_genesis_base.sv` (APF boundary wrapper)
+- `third_party/Genesis_MiSTer/rtl/system.sv` (present via submodule)
 
 ### Missing from repo (expected external/imported runtime)
 
-- `third_party/Genesis_MiSTer/rtl/system.sv` (source defining `system`)
+- `third_party/Genesis_MiSTer/rtl/system.sv` (source defining `system`, now present via submodule)
 - 68000 CPU core group (expected under `third_party/Genesis_MiSTer`, e.g. `rtl/FX68K/fx68k.sv`)
 - Z80/T80 group (`third_party/Genesis_MiSTer/rtl/T80/*` family)
 - VDP/video group (`third_party/Genesis_MiSTer/rtl/vdp*` family)
