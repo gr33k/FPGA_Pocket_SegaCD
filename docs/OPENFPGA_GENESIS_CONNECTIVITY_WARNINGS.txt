@@ -1,0 +1,1 @@
+No detailed connectivity report found before cleanup (analysis run unavailable in this environment: docker/quartus not available). Quartus analysis was previously successful with 72 warnings and no errors.

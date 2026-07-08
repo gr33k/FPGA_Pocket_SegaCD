@@ -9,6 +9,7 @@ WORK_ROOT_DIR="$ROOT_DIR/build/openfpga_genesis_analysis_work"
 WORK_FPGA_DIR="$WORK_ROOT_DIR/src/fpga"
 STATUS_PATH="$ROOT_DIR/docs/OPENFPGA_GENESIS_ANALYSIS_ONLY_STATUS.md"
 LOG_PATH="$ROOT_DIR/docs/OPENFPGA_GENESIS_ANALYSIS_ONLY_LOG.txt"
+CONNECTIVITY_WARNINGS_PATH="$ROOT_DIR/docs/OPENFPGA_GENESIS_CONNECTIVITY_WARNINGS.txt"
 RUN_TIMESTAMP="$(date -u '+%Y-%m-%d %H:%M:%S UTC')"
 
 clean_generated_dirs=("output_files" "db" "incremental_db" "greybox_tmp" "simulation")
@@ -90,6 +91,43 @@ cleanup_generated_outputs() {
   fi
 }
 
+capture_connectivity_reports() {
+  local match_file
+  local matches=()
+  local output_path="$CONNECTIVITY_WARNINGS_PATH"
+  local pattern='Connectivity|connectivity|Warning \(12241\)|no driver|never assigned|default initial value'
+
+  mapfile -t matches < <(rg -Il -e "$pattern" "$WORK_FPGA_DIR" 2>/dev/null || true)
+
+  if [[ "${#matches[@]}" -eq 0 ]]; then
+    printf '%s\n' "No detailed connectivity report found before cleanup." > "$output_path"
+    append_status "No connectivity report files matched the capture search before cleanup."
+    return 0
+  fi
+
+  {
+    echo "# Quartus connectivity warning evidence"
+    echo "Generated: $RUN_TIMESTAMP"
+    echo
+    echo "Source search path: $WORK_FPGA_DIR"
+    echo "Pattern: $pattern"
+    echo
+  } > "$output_path"
+
+  for match_file in "${matches[@]}"; do
+    [[ -f "$match_file" ]] || continue
+    {
+      echo "## ${match_file}"
+      echo '```text'
+      sed -n '1,200p' "$match_file"
+      echo '```'
+      echo
+    } >> "$output_path"
+  done
+
+  append_status "Captured connectivity evidence into: $output_path"
+}
+
 write_header() {
   {
     echo "# openFPGA-Genesis analysis-only status"
@@ -143,6 +181,7 @@ if [[ -n "$selected_quartus_map" && -x "$selected_quartus_map" ]]; then
     analysis_exit=$?
     append_status "Analysis exit: $analysis_exit"
   fi
+  capture_connectivity_reports
   append_status "Log file: $LOG_PATH"
   cleanup_generated_outputs
 else

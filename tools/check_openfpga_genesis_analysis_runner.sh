@@ -5,6 +5,7 @@ ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 RUNNER="$ROOT_DIR/tools/run_openfpga_genesis_analysis_only.sh"
 CHECK_REPORT="$ROOT_DIR/docs/OPENFPGA_GENESIS_ANALYSIS_RUNNER_CHECK.md"
 STATUS_FILE="$ROOT_DIR/docs/OPENFPGA_GENESIS_ANALYSIS_ONLY_STATUS.md"
+CONNECTIVITY_FILE="$ROOT_DIR/docs/OPENFPGA_GENESIS_CONNECTIVITY_WARNINGS.txt"
 
 PASS_COUNT=0
 WARN_COUNT=0
@@ -94,6 +95,17 @@ if [[ -f "$STATUS_FILE" ]]; then
   log PASS "Status file exists: $STATUS_FILE"
 else
   log WARN "Status file missing (expected after running runner): $STATUS_FILE"
+fi
+
+if [[ -f "$CONNECTIVITY_FILE" ]]; then
+  log PASS "Connectivity warning evidence file exists: $CONNECTIVITY_FILE"
+  if rg -q "No detailed connectivity report found before cleanup" "$CONNECTIVITY_FILE"; then
+    log WARN "Connectivity capture indicates no detailed connectivity file was present before cleanup."
+  else
+    log PASS "Connectivity capture contains report content."
+  fi
+else
+  log WARN "Connectivity warning evidence file missing: $CONNECTIVITY_FILE"
 fi
 
 {

@@ -1,18 +1,22 @@
-# Next activation path after Task 7J
+# Next activation path after Task 7K
 
 ## Current task status
 
-- Task 7J is active: warning triage and fitter-readiness gate.
-- Warning classification run: `tools/classify_openfpga_genesis_analysis_warnings.sh`
-- Current decision: `REVIEW_WARNINGS_FIRST`.
+- Task 7K is complete: warning sources were reviewed against upstream openFPGA-Genesis source text with connectivity-capture/runner check updates in place.
+- Current gate decision remains: `REVIEW_WARNINGS_FIRST`.
+- Current blocker: warning class `12241` (connectivity summary class) and class `10259` (SDRAM constant-width/default math) remain needs-more-review without local Quartus connectivity details.
 
-## Decision branch for Task 7J
+## Why this branch stays blocked
 
-- If gate remains `READY_FOR_FITTER_GATE`, next task may be a controlled fitter gate.
-- If gate remains `REVIEW_WARNINGS_FIRST`, the next task is warning-review only (no fitter).
-- If gate becomes `BLOCKED_BEFORE_FITTER`, keep fitter blocked and stop until blocker resolution.
+- `tools/review_openfpga_genesis_warning_sources.sh` confirms many high-volume warnings are intentional placeholders in the current scaffold lane.
+- The lane still needs a real analysis run in a Quartus-capable environment to capture connectivity details and confirm `12241` context before fitter transition.
 
-## Current milestone note
+## Action before moving on
 
-- No fitter/assembler/timing/bitstream run has been executed yet.
-- This branch stays Genesis-only and keeps Sega-CD/32X/save-state/CD path deferred.
+- Run connectivity-capable analysis in an environment with Quartus (`tools/docker_run_openfpga_genesis_analysis_prebuilt.sh` or local Quartus path).
+- Confirm `docs/OPENFPGA_GENESIS_CONNECTIVITY_WARNINGS.txt` contains parseable connectivity/driver evidence instead of the placeholder fallback message.
+- Re-run:
+  - `tools/classify_openfpga_genesis_analysis_warnings.sh`
+  - `tools/review_openfpga_genesis_warning_sources.sh`
+  - `tools/check_openfpga_genesis_analysis_runner.sh`
+- Only after `OPENFPGA_GENESIS_FITTER_READINESS_GATE.md` becomes `READY_FOR_FITTER_GATE` should a controlled fitter-only task be scheduled.
