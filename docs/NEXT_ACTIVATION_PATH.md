@@ -1,41 +1,43 @@
-# Next activation path after Task 7O
+# Next activation path after Task 7R
 
 ## Current milestone status
 
-- Task 7O completed: controlled fitter smoke gate passed.
-- Task 7P completed: post-fitter warning/timing-review disposition pass for the docs review pass.
-- Current gate decision: **REVIEW_FITTER_WARNINGS_FIRST**.
-- Analysis was executed with `quartus_map --analysis_and_elaboration` and exited `0` with `0` errors in the smoke fit stage.
+- Task 7R completed: post-fitter checker false-negative and warning-class fixes are in place.
+- Current fitter smoke check: `docs/OPENFPGA_GENESIS_FITTER_SMOKE_CHECK.md` -> `Status: pass`, `Result: PASS`, `FITTER_SMOKE_PASS`.
+- Current post-fitter review check: `docs/OPENFPGA_GENESIS_POST_FITTER_REVIEW_CHECK.md` -> `Status: pass`, `Result: PASS`.
+- Current gate decision: `REVIEW_FITTER_WARNINGS_FIRST`.
 - Host-per-read ROM streaming is still explicitly forbidden.
 - No fitter/assembler/timing/bitstream task was run in this milestone.
 - This still does not prove Pocket boot or runtime correctness.
 
 ## Disposition snapshot
 
-- `12241` (connectivity summary): accepted as pre-fit smoke-risk-only due to text connectivity detail limitations in this pass.
-- `10259` (SDRAM default/constant-width state math): accepted for controlled smoke gate with caveat for later fitter/timing/runtime review.
-- `10030` / `10858` (ROM/bridge placeholder-like): accepted for first fitter smoke gate based on source review.
-- New 7P post-fitter warning risks include timing-review items and unknown classes:
-  - Timing-review items: incomplete I/O assignments, non-dedicated global clock routing, PIN/enable behavior warnings, PLL reset, ignored fast I/O wildcard destinations, and placement/timing-related warnings.
-  - Unknown classes: many existing Quartus warning classes remain to classify before advancing toward timing-only safety.
+- Warning summary totals now show:
+  - `needs review before timing gate: 119`
+  - `safe / known inherited: 76`
+  - `accepted smoke-only risk: 14`
+  - `unknown: 0`
+- `Task 7R` normalized `RST port on the PLL...` warnings into `PLL_RESET_NOT_CONNECTED` for explicit review.
+- `docs/OPENFPGA_GENESIS_TIMING_REVIEW_BLOCKER_ORDER.md` captures the prioritized timing-review closure list.
+- No hard map/fitter or analyzer exit blockers are active.
 
-## Next task (post-fitter review closure)
+## Next task (timing-review closure prep)
 
-- Task 7Q should review and clear the remaining unknown and timing-review-class warnings, then refresh:
+- Continue `REVIEW_FITTER_WARNINGS_FIRST` by addressing highest-priority classes first in:
+  - `docs/OPENFPGA_GENESIS_TIMING_REVIEW_BLOCKER_ORDER.md`
+  - `docs/OPENFPGA_GENESIS_FITTER_UNKNOWN_WARNING_REVIEW.md`
   - `docs/OPENFPGA_GENESIS_FITTER_WARNING_SUMMARY.md`
   - `docs/OPENFPGA_GENESIS_POST_FITTER_GATE.md`
-  - `docs/OPENFPGA_GENESIS_POST_FITTER_REVIEW_CHECK.md`
-- Do not run assembler, timing analysis, or bitstream generation in this phase.
-- Do not claim runtime correctness or Pocket boot from this milestone.
-- Key gates to confirm next: warning disposition updates for fitter output, then decide between timing-review-only or constrained blocker remediation.
+- Re-run `tools/review_openfpga_genesis_fitter_unknown_warnings.sh` and `tools/classify_openfpga_genesis_fitter_smoke_warnings.sh` after any source/port assignment edits.
 
-- Constraints for next task:
-  - Do not run assembler, timing analysis, or bitstream generation.
-  - Do not claim runtime correctness or Pocket boot at end of that task.
-  - Capture fitter logs and immediate cleanup reports.
-  - Continue to avoid Sega-CD, 32X, save-state, and host-per-read ROM streaming paths.
+Constraints for next task:
+
+- Do not run assembler, timing analysis, or bitstream generation.
+- Do not claim runtime correctness or Pocket boot at the end of the task.
+- Capture fitter logs and cleanup artifacts after any script updates.
+- Continue to avoid Sega-CD, 32X, save-state, and host-per-read ROM streaming paths.
 
 ## Blockers now removed
 
-- No hard Quartus assembler/timing/bitstream blockers are active purely from fit/tool exit status.
-- Unknown warning classes and timing-review caution classes remain active from the latest summary and require explicit disposition before timing-driven actions.
+- No hard Quartus assembler/timing/bitstream blockers remain from fit/tool exit status.
+- Timing-review caution classes remain active and must be resolved or justified before timing-focused gate movement.

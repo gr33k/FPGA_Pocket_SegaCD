@@ -1,5 +1,5 @@
 # Pocket SD staging report
-Generated: 2026-07-08T09:49:05Z
+Generated: 2026-07-08T16:14:18Z
 Tool: tools/check_pocket_sd_staging.sh
 
 Repository skeleton check:

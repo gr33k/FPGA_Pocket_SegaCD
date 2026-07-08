@@ -55,7 +55,7 @@ warn_key() {
     return
   fi
 
-  if [[ "$line" == *"RST port on the PLL is not properly connected"* ]]; then
+  if [[ "$lower" == *"rst port on the pll is not properly connected"* ]]; then
     echo "PLL_RESET_NOT_CONNECTED"; return
   fi
   if [[ "$line" == *"incomplete I/O assignments"* ]]; then
@@ -73,7 +73,7 @@ warn_key() {
   if [[ "$line" == *"No output dependent on input pin"* ]]; then
     echo "PIN_ASSIGNMENT_WARNING"; return
   fi
-  if [[ "$line" == *"Placement Effort Multiplier"* ]]; then
+  if [[ "$lower" == *"placement effort multiplier"* ]]; then
     echo "PLACEMENT_ROUTING_WARNING"; return
   fi
 
@@ -86,10 +86,12 @@ base_risk() {
       echo "safe / known inherited" ;;
     CODE_10259|CODE_113027|CODE_113028|CODE_10762|CODE_10858|CODE_292013)
       echo "accepted smoke-only risk" ;;
-    CODE_13009|CODE_13010|CODE_13024|CODE_13032|CODE_13033|CODE_13039|CODE_13040|CODE_13410|CODE_15610|CODE_15714|CODE_16406|CODE_16407|CODE_169064|CODE_170136|CODE_176251|CODE_19016|CODE_19017|CODE_21074|CODE_287013|NO_CODE_WARNING|IGNORED_FAST_IO_WILDCARD|INCOMPLETE_IO_ASSIGNMENTS|NON_DEDICATED_CLOCK_ROUTING|NO_OUTPUT_ENABLE|PIN_ASSIGNMENT_WARNING|PLACEMENT_ROUTING_WARNING|PLL_RESET_NOT_CONNECTED)
+    CODE_13009|CODE_13010|CODE_13024|CODE_13032|CODE_13033|CODE_13039|CODE_13040|CODE_13410|CODE_15610|CODE_15714|CODE_16406|CODE_16407|CODE_169064|CODE_170136|CODE_176251|CODE_19016|CODE_19017|CODE_21074|CODE_287013|IGNORED_FAST_IO_WILDCARD|INCOMPLETE_IO_ASSIGNMENTS|NON_DEDICATED_CLOCK_ROUTING|NO_OUTPUT_ENABLE|PIN_ASSIGNMENT_WARNING|PLACEMENT_ROUTING_WARNING|PLL_RESET_NOT_CONNECTED)
       echo "needs review before timing gate" ;;
     CODE_14284|CODE_14285|CODE_14320)
       echo "safe / known inherited" ;;
+    NO_CODE_WARNING)
+      echo "unknown" ;;
     *)
       echo "unknown" ;;
   esac
@@ -129,7 +131,14 @@ scan_file() {
   while IFS= read -r line; do
     # Ignore plain info lines.
     [[ "$line" == *"Info:"* ]] && continue
-    [[ "$(printf '%s' "$line" | tr 'A-Z' 'a-z')" =~ warning[[:space:]]*\([[:space:]]*[0-9]+[[:space:]]*\) ]] || continue
+    local lower
+    lower="$(printf '%s' "$line" | tr 'A-Z' 'a-z')"
+    [[ "$lower" == *"warning"* ]] || continue
+    if [[ "$lower" == *"warning ("* ]] || [[ "$lower" == *"warning:"* ]]; then
+    :
+  else
+    continue
+  fi
     local key
     key="$(warn_key "$line")"
     printf '%s|%s\n' "$key" "$line" >> "$TMP_CLASS"

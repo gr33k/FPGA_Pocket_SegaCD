@@ -1,10 +1,10 @@
 # Quartus Docker workflow validation status
 
-Generated: 2026-07-08T06:20:19Z
+Generated: 2026-07-08T16:14:17Z
 Advisory check; exits 0 by design.
 
 PASS: Docker command check started
-PASS: docker command present
+WARN: docker command not found in PATH (expected on build host)
 PASS: file exists: docker/quartus/Dockerfile.ubuntu-quartus-base
 PASS: file exists: docker/quartus/README.md
 PASS: file exists: docker/quartus/.gitignore
@@ -59,7 +59,7 @@ PASS: root .gitignore includes *.fit.*
 PASS: root .gitignore includes *.sta.*
 
 ## Summary
-- PASS-like checks: 54
-- WARN-like checks: 0
+- PASS-like checks: 53
+- WARN-like checks: 1
 - Status: CHECKED
 

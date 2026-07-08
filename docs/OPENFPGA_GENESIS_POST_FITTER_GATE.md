@@ -1,5 +1,5 @@
 # openFPGA Genesis post-fitter gate
-Generated: 2026-07-08 09:55:38 UTC
+Generated: 2026-07-08 16:14:54 UTC
 
 ## Inputs
 - Fitter smoke status: docs/OPENFPGA_GENESIS_FITTER_SMOKE_STATUS.md
@@ -14,7 +14,7 @@ Current gate decision: **REVIEW_FITTER_WARNINGS_FIRST**
 Map exit code: 0
 Fitter exit code: 0
 Fitter attempted: yes
-Fitter smoke check result: checks failed
+Fitter smoke check result: PASS
 Warning decision: REVIEW_FITTER_WARNINGS_FIRST
 
 ## Scope constraints for this task
@@ -28,5 +28,7 @@ Warning decision: REVIEW_FITTER_WARNINGS_FIRST
 ## Rationale
 - No Quartus assembler/timing/bitstream flow is enabled in this gate
 - This gate only controls transition from fitter smoke review to the next timing-review-only step
+- No hard fitter blocker from pass/fail map/fitter status.
+- Timing-review blocker count is not yet classified; gate remains conservative.
 
 - Review first: one or more warnings need explicit confirmation before timing review.

@@ -7,6 +7,7 @@ CHECK_FILE="$ROOT_DIR/docs/OPENFPGA_GENESIS_FITTER_SMOKE_CHECK.md"
 WARNING_SUMMARY="$ROOT_DIR/docs/OPENFPGA_GENESIS_FITTER_WARNING_SUMMARY.md"
 RESOURCE_SUMMARY="$ROOT_DIR/docs/OPENFPGA_GENESIS_FITTER_RESOURCE_SUMMARY.md"
 OUT_FILE="$ROOT_DIR/docs/OPENFPGA_GENESIS_POST_FITTER_GATE.md"
+TIMING_ORDER_FILE="$ROOT_DIR/docs/OPENFPGA_GENESIS_TIMING_REVIEW_BLOCKER_ORDER.md"
 NOW="$(date -u '+%Y-%m-%d %H:%M:%S UTC')"
 
 required=("$STATUS_FILE" "$CHECK_FILE" "$WARNING_SUMMARY" "$RESOURCE_SUMMARY")
@@ -17,6 +18,18 @@ for file in "${required[@]}"; do
   fi
 
 done
+
+extract_timing_blocker_count() {
+  local count
+  if [[ -f "$TIMING_ORDER_FILE" ]]; then
+    count="$(rg -m1 "^- active_timing_blocker_count:[[:space:]]*[0-9]+" "$TIMING_ORDER_FILE" | awk -F: '{print $2}' | tr -dc '0-9' | tr -d '\n' || true)"
+    if [[ -n "$count" ]]; then
+      echo "$count"
+      return
+    fi
+  fi
+  echo "unknown"
+}
 
 map_exit="$(rg -m1 '^Map exit code:' "$STATUS_FILE" | awk -F': ' '{print $NF}' | tr -d '\r' || true)"
 fitter_exit="$(rg -m1 '^Fitter exit code:' "$STATUS_FILE" | awk -F': ' '{print $NF}' | tr -d '\r' || true)"
@@ -40,13 +53,27 @@ fi
 critical_classes="$(rg -c 'risk=blocks timing/assembler gate' "$WARNING_SUMMARY" || true)"
 unknown_classes="$(rg -c 'risk=unknown' "$WARNING_SUMMARY" || true)"
 
+timing_blockers="$(extract_timing_blocker_count)"
+
 if [[ "$map_exit" != "0" || "$fitter_exit" != "0" ]]; then
   gate="BLOCKED_AFTER_FITTER"
 elif [[ "$fitter_attempted" != "yes" ]]; then
   gate="BLOCKED_AFTER_FITTER"
 elif (( ${critical_classes:-0} > 0 )); then
   gate="BLOCKED_AFTER_FITTER"
+elif [[ "$warning_decision" == "READY_FOR_TIMING_REVIEW_GATE" ]]; then
+  if [[ "$timing_blockers" == "unknown" ]]; then
+    gate="REVIEW_FITTER_WARNINGS_FIRST"
+  elif (( timing_blockers > 0 )); then
+    gate="REVIEW_FITTER_WARNINGS_FIRST"
+  else
+    gate="READY_FOR_TIMING_REVIEW_GATE"
+  fi
 elif [[ "$warning_decision" == "REVIEW_FITTER_WARNINGS_FIRST" || ${unknown_classes:-0} -gt 0 ]]; then
+  gate="REVIEW_FITTER_WARNINGS_FIRST"
+elif [[ "$timing_blockers" == "unknown" ]]; then
+  gate="REVIEW_FITTER_WARNINGS_FIRST"
+elif (( timing_blockers > 0 )); then
   gate="REVIEW_FITTER_WARNINGS_FIRST"
 else
   gate="READY_FOR_TIMING_REVIEW_GATE"
@@ -84,6 +111,15 @@ fi
   echo "## Rationale"
   echo "- No Quartus assembler/timing/bitstream flow is enabled in this gate"
   echo "- This gate only controls transition from fitter smoke review to the next timing-review-only step"
+
+  if [[ "$fit_result" == "PASS" || "$fit_result" == "fitter-smoke-pass" ]]; then
+    echo "- No hard fitter blocker from pass/fail map/fitter status."
+  fi
+  if [[ "$timing_blockers" == "unknown" ]]; then
+    echo "- Timing-review blocker count is not yet classified; gate remains conservative."
+  else
+    echo "- Timing-review blockers remaining in prioritized order: $timing_blockers"
+  fi
   echo
   case "$gate" in
     READY_FOR_TIMING_REVIEW_GATE)

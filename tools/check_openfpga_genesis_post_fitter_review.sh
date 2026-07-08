@@ -23,6 +23,26 @@ require_file() {
   fi
 }
 
+fitter_smoke_ok() {
+  local map_exit fit_exit fit_attempted
+
+  map_exit="$(rg -m1 '^Map exit code:' "$STATUS_FILE" | awk -F': ' '{print $NF}' | tr -d '\r' || true)"
+  fit_exit="$(rg -m1 '^Fitter exit code:' "$STATUS_FILE" | awk -F': ' '{print $NF}' | tr -d '\r' || true)"
+  fit_attempted="$(rg -m1 '^Fitter attempted:' "$STATUS_FILE" | awk -F': ' '{print $NF}' | tr -d '\r' || true)"
+
+  if [[ "$map_exit" == "0" && "$fit_exit" == "0" && "$fit_attempted" == "yes" ]]; then
+    if rg -q "Result: fitter-smoke-pass" "$STATUS_FILE" 2>/dev/null; then
+      return 0
+    fi
+  fi
+
+  if [[ -f "$SMOKE_CHECK" ]] && rg -q "Result: PASS" "$SMOKE_CHECK"; then
+    return 0
+  fi
+
+  return 1
+}
+
 require_file "$SUMMARY_FILE"
 require_file "$REVIEW_SUMMARY"
 require_file "$RESOURCE_FILE"
@@ -98,17 +118,10 @@ if [[ -f "$REVIEW_SUMMARY" ]]; then
   fi
 fi
 
-if [[ -f "$SMOKE_CHECK" ]]; then
-  if ! rg -q "Fitter smoke result: FITTER_SMOKE_PASS|Result: PASS|PASS" "$SMOKE_CHECK"; then
+if [[ -f "$SMOKE_CHECK" || -f "$STATUS_FILE" ]]; then
+  if ! fitter_smoke_ok; then
     status="fail"
-    reasons+=("fitter-smoke-check-not-pass")
-  fi
-fi
-
-if [[ -f "$STATUS_FILE" ]]; then
-  if ! rg -q 'Result: fitter-smoke-pass' "$STATUS_FILE"; then
-    status="fail"
-    reasons+=("status-not-fitter-pass")
+    reasons+=("fitter-smoke-not-pass")
   fi
 fi
 

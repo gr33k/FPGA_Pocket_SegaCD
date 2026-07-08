@@ -63,6 +63,24 @@ Date: 2026-07-08
 - No assembler, timing, bitstream generation, or Pocket runtime correctness claims were made.
 - No Sega-CD/32X, no save states, and no host-per-read ROM streaming at this milestone.
 
+## Task 7R status
+
+- Fixed post-fitter checker false-negatives so smoke work-dir cleanup is accepted when documented cleanup happened.
+- Added explicit non-code warning classification for PLL reset (`PLL_RESET_NOT_CONNECTED`) so it is no longer counted as unknown.
+- Added prioritized timing-review blocker-order documentation for next work (`docs/OPENFPGA_GENESIS_TIMING_REVIEW_BLOCKER_ORDER.md`) and corresponding generation script.
+- Reran checker chain after updates:
+  - `tools/check_openfpga_genesis_fitter_smoke.sh` → `Result: PASS`, `Fitter smoke result: FITTER_SMOKE_PASS`
+  - `tools/check_openfpga_genesis_post_fitter_review.sh` → `Result: PASS`
+  - `tools/review_openfpga_genesis_fitter_unknown_warnings.sh`
+  - `tools/classify_openfpga_genesis_fitter_smoke_warnings.sh`
+  - `tools/prioritize_openfpga_genesis_timing_review_blockers.sh`
+- Current warning totals:
+  - `needs review before timing gate: 119`
+  - `safe / known inherited: 76`
+  - `accepted smoke-only risk: 14`
+  - `unknown: 0`
+- Current gate decision remains `REVIEW_FITTER_WARNINGS_FIRST` with no hard blockers and no Quartus assembler/timing/bitstream/runtime claims.
+
 ## Safety constraints
 
 - No Sega-CD, no 32X, no save states, and no host-per-read ROM streaming at this milestone.

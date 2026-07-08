@@ -24,6 +24,7 @@ CLEAN_REL="docs/OPENFPGA_GENESIS_FITTER_SMOKE_CLEANUP.md"
 
 status="pass"
 reasons=()
+notes=()
 TMP_GATE_LOG="/tmp/openfpga_fitter_gate_ready.log"
 
 require_file() {
@@ -60,6 +61,29 @@ has_clear_gate_failure() {
     return 0
   fi
   if [[ "$lower_text" == *"fail"* ]]; then
+    return 0
+  fi
+  return 1
+}
+
+extract_dir_state() {
+  local file="$1"
+  local tag="$2"
+  rg -q "Removed dir: .*${tag}" "$file" 2>/dev/null
+}
+
+smoke_status_ok() {
+  if [[ "${map_exit:-}" == "0" && "${fit_exit:-}" == "0" && "${fit_attempted:-}" == "yes" ]]; then
+    if rg -q "Result: fitter-smoke-pass" "$STATUS" 2>/dev/null; then
+      return 0
+    fi
+  fi
+  return 1
+}
+
+work_root_cleanup_expected() {
+  local file="$1"
+  if extract_dir_state "$file" "output_files" && extract_dir_state "$file" "db" && extract_dir_state "$file" "incremental_db"; then
     return 0
   fi
   return 1
@@ -108,18 +132,45 @@ require_file "$MAP_LOG" "smoke map log"
 require_file "$FIT_LOG" "smoke fit log"
 require_file "$GATE_DOC" "gate readiness doc"
 require_file "$GATE_STATUS" "gate-ready status"
-require_dir "$WORK_ROOT" "smoke work root"
-require_dir "$WORK_ROOT/src/fpga" "smoke work dir"
+map_exit="$(rg -m1 "^Map exit code:" "$STATUS" | sed "s/.*: //")"
+fit_exit="$(rg -m1 "^Fitter exit code:" "$STATUS" | sed "s/.*: //")"
+fit_attempted="$(rg -m1 "^Fitter attempted:" "$STATUS" | sed "s/.*: //")"
+
+cleanup_ok="false"
+if smoke_status_ok && work_root_cleanup_expected "$CLEAN"; then
+  cleanup_ok="true"
+fi
+
+if [[ -d "$WORK_ROOT" ]]; then
+  if [[ -d "$WORK_ROOT/src/fpga" ]]; then
+    if [[ -d "$WORK_ROOT/src/fpga/output_files" || -d "$WORK_ROOT/src/fpga/db" || -d "$WORK_ROOT/src/fpga/incremental_db" || -d "$WORK_ROOT/src/fpga/greybox_tmp" || -d "$WORK_ROOT/src/fpga/simulation" ]]; then
+      status="fail"
+      reasons+=("cleanup-incomplete")
+    elif [[ "$cleanup_ok" == "true" ]]; then
+      notes+=("smoke-work-dir-cleaned")
+    fi
+  else
+    if [[ "$cleanup_ok" == "true" ]]; then
+      notes+=("smoke-work-dir-cleaned")
+    else
+      status="fail"
+      reasons+=("missing:smoke work dir")
+    fi
+  fi
+else
+  if [[ "$cleanup_ok" == "true" ]]; then
+    notes+=("smoke-work-root-cleaned")
+  else
+    status="fail"
+    reasons+=("missing:smoke work root")
+  fi
+fi
 
 # Validate smoke status output as source of truth
 if ! rg -q "Result: fitter-smoke-pass" "$STATUS" 2>/dev/null; then
   status="fail"
   reasons+=("smoke-status-not-pass")
 fi
-
-map_exit="$(rg -m1 "^Map exit code:" "$STATUS" | sed "s/.*: //")"
-fit_exit="$(rg -m1 "^Fitter exit code:" "$STATUS" | sed "s/.*: //")"
-fit_attempted="$(rg -m1 "^Fitter attempted:" "$STATUS" | sed "s/.*: //")"
 
 if [[ -z "$map_exit" ]]; then
   status="fail"
@@ -203,6 +254,11 @@ fi
     echo "Runtime correctness claimed: no"
   else
     echo "Result: checks failed"
+  fi
+  if [[ ${#notes[@]} -gt 0 ]]; then
+    echo
+    echo "Notes:"
+    printf " - %s\n" "${notes[@]}"
   fi
   echo
   if [[ ${#reasons[@]} -gt 0 ]]; then

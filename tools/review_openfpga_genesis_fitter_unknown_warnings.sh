@@ -30,12 +30,83 @@ sample_code() {
   rg -m 1 "Warning \(${code}\)" "$MAP_LOG" "$FIT_LOG" 2>/dev/null | sed -e "s#^$ROOT_DIR/##" || true
 }
 
+warn_nocode_key() {
+  local line="$1"
+  local lower
+  lower="$(printf '%s' "$line" | tr 'A-Z' 'a-z')"
+
+  if [[ "$lower" == *"rst port on the pll is not properly connected"* ]]; then
+    echo "PLL_RESET_NOT_CONNECTED"
+    return
+  fi
+  if [[ "$lower" == *"incomplete i/o assignments"* ]]; then
+    echo "INCOMPLETE_IO_ASSIGNMENTS"
+    return
+  fi
+  if [[ "$lower" == *"non-dedicated"* ]]; then
+    echo "NON_DEDICATED_CLOCK_ROUTING"
+    return
+  fi
+  if [[ "$lower" == *"ignoring some wildcard destinations"* ]]; then
+    echo "IGNORED_FAST_IO_WILDCARD"
+    return
+  fi
+  if [[ "$lower" == *"no output enable"* ]]; then
+    echo "NO_OUTPUT_ENABLE"
+    return
+  fi
+  if [[ "$lower" == *"no output dependent on input pin"* ]]; then
+    echo "PIN_ASSIGNMENT_WARNING"
+    return
+  fi
+  if [[ "$lower" == *"placement effort multiplier"* ]]; then
+    echo "PLACEMENT_ROUTING_WARNING"
+    return
+  fi
+
+  echo "NO_CODE_WARNING"
+}
+
 count_nocode_warning() {
-  rg -c -P '^\s*Warning(?!\s*\([0-9]+\):)' "$MAP_LOG" "$FIT_LOG" 2>/dev/null | awk -F: '{s += $2} END {print s+0}'
+  local line
+  local class
+  local total=0
+
+  for file in "$MAP_LOG" "$FIT_LOG"; do
+    while IFS= read -r line; do
+      [[ -z "$line" ]] && continue
+      [[ "$line" == *"Info:"* ]] && continue
+      [[ "$line" != *"Warning:"* ]] && continue
+      [[ "$line" == *"Warning ("* ]] && continue
+      class="$(warn_nocode_key "$line")"
+      if [[ "$class" == "NO_CODE_WARNING" ]]; then
+        total=$((total + 1))
+      fi
+    done < "$file"
+  done
+
+  echo "$total"
 }
 
 sample_nocode_warning() {
-  rg -m 1 -P '^\s*Warning(?!\s*\([0-9]+\):)' "$MAP_LOG" "$FIT_LOG" 2>/dev/null | sed -e "s#^$ROOT_DIR/##" || true
+  local line
+  local class
+
+  for file in "$MAP_LOG" "$FIT_LOG"; do
+    while IFS= read -r line; do
+      [[ -z "$line" ]] && continue
+      [[ "$line" == *"Info:"* ]] && continue
+      [[ "$line" != *"Warning:"* ]] && continue
+      [[ "$line" == *"Warning ("* ]] && continue
+      class="$(warn_nocode_key "$line")"
+      if [[ "$class" == "NO_CODE_WARNING" ]]; then
+        echo "$line"
+        return
+      fi
+    done < "$file"
+  done
+
+  echo ""
 }
 
 source_ref() {
@@ -102,7 +173,13 @@ emit() {
   emit CODE_19017 "$(count_code 19017)" "$(sample_code 19017)" "$(source_ref 'current_pix_clk' "$CORE_TOP")" "needs_review" "Named clock multiplexer should be verified against final timing constraints." "Do not force timing-gate readiness until source review and timing evidence are added."
   emit CODE_21074 "$(count_code 21074)" "$(sample_code 21074)" "$(source_ref 'No output dependent on input pin' "$CORE_TOP")" "needs_review" "Several top-level inputs are intentionally unconnected in this scaffold." "Track these inputs in pin-audit before timing review."
   emit CODE_287013 "$(count_code 287013)" "$(sample_code 287013)" "" "safe" "Generated RAM primitive warning for unused/underdriven node names is consistent with current scaffold paths." "No action before timing because this is not a direct functional blocker."
-  emit NO_CODE_WARNING "$(count_nocode_warning)" "$(sample_nocode_warning)" "" "unknown" "No-code warning-like lines are currently not classified as real warning-code entries unless they are explicitly warning-like with missing code format." "Keep this in unknown until an explicit non-code warning format appears."
+  no_code_warning_count="$(count_nocode_warning)"
+  no_code_warning_sample="$(sample_nocode_warning)"
+  if [[ "$no_code_warning_count" -gt 0 ]]; then
+    emit NO_CODE_WARNING "$no_code_warning_count" "$no_code_warning_sample" "" "unknown" "These lines did not match any known non-code warning class mapping and remain unreviewed non-code warnings." "Classify each remaining non-code warning line before moving into timing review."
+  else
+    emit NO_CODE_WARNING "0" "" "" "safe" "No-code warning-like lines are mapped to known classes or do not exist." "No additional no-code action needed."
+  fi
 
   echo "## Timing-review warning classes"
   emit IGNORED_FAST_IO_WILDCARD "$(count_code 176251)" "$(sample_code 176251)" "$(source_ref 'FAST_OUTPUT_REGISTER' "$QSF")" "needs_review" "Wildcard destination behavior is intentional only with explicit plan; requires review for final clocking and timing." "Keep as requires-review before timing gate."
@@ -145,7 +222,11 @@ emit() {
   echo "REVIEW_ENTRY class=CODE_19017 reviewed=true disposition=needs_review"
   echo "REVIEW_ENTRY class=CODE_21074 reviewed=true disposition=needs_review"
   echo "REVIEW_ENTRY class=CODE_287013 reviewed=true disposition=safe"
-  echo "REVIEW_ENTRY class=NO_CODE_WARNING reviewed=true disposition=unknown"
+  if [[ "${no_code_warning_count:-0}" -gt 0 ]]; then
+    echo "REVIEW_ENTRY class=NO_CODE_WARNING reviewed=true disposition=unknown"
+  else
+    echo "REVIEW_ENTRY class=NO_CODE_WARNING reviewed=true disposition=safe"
+  fi
   echo "REVIEW_ENTRY class=IGNORED_FAST_IO_WILDCARD reviewed=true disposition=needs_review"
   echo "REVIEW_ENTRY class=INCOMPLETE_IO_ASSIGNMENTS reviewed=true disposition=needs_review"
   echo "REVIEW_ENTRY class=NON_DEDICATED_CLOCK_ROUTING reviewed=true disposition=needs_review"

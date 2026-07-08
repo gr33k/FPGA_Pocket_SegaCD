@@ -1,5 +1,5 @@
 # openFPGA Genesis fitter unknown warning review
-Generated: 2026-07-08 09:55:28 UTC
+Generated: 2026-07-08 16:15:18 UTC
 Scope: post-fitter warning class review only; no Quartus run.
 Inputs checked:
 - docs/OPENFPGA_GENESIS_FITTER_SMOKE_MAP_LOG.txt
@@ -171,12 +171,10 @@ Inputs checked:
 - next_action: No action before timing because this is not a direct functional blocker.
 
 ### REVIEW_ENTRY class=NO_CODE_WARNING
-- count: 7
-- sample: docs/OPENFPGA_GENESIS_FITTER_SMOKE_FIT_LOG.txt:Warning: RST port on the PLL is not properly connected on instance core_top:ic|mf_pllbase:mp1|mf_pllbase_0002:mf_pllbase_inst|altera_pll:altera_pll_i|general[1].gpll. The reset port on the PLL should be connected. If the PLL loses lock for any reason, you might need to manually reset the PLL in order to re-establish lock to the reference clock. File: /opt/intelFPGA_lite/quartus/libraries/megafunctions/altera_pll.v Line: 749
-docs/OPENFPGA_GENESIS_FITTER_SMOKE_MAP_LOG.txt:Warning: RST port on the PLL is not properly connected on instance core_top:ic|mf_pllbase:mp1|mf_pllbase_0002:mf_pllbase_inst|altera_pll:altera_pll_i|general[1].gpll. The reset port on the PLL should be connected. If the PLL loses lock for any reason, you might need to manually reset the PLL in order to re-establish lock to the reference clock. File: /opt/intelFPGA_lite/quartus/libraries/megafunctions/altera_pll.v Line: 749
-- disposition: unknown
-- rationale: No-code warning-like lines are currently not classified as real warning-code entries unless they are explicitly warning-like with missing code format.
-- next_action: Keep this in unknown until an explicit non-code warning format appears.
+- count: 0
+- disposition: safe
+- rationale: No-code warning-like lines are mapped to known classes or do not exist.
+- next_action: No additional no-code action needed.
 
 ## Timing-review warning classes
 ### REVIEW_ENTRY class=IGNORED_FAST_IO_WILDCARD
@@ -262,7 +260,7 @@ REVIEW_ENTRY class=CODE_19016 reviewed=true disposition=needs_review
 REVIEW_ENTRY class=CODE_19017 reviewed=true disposition=needs_review
 REVIEW_ENTRY class=CODE_21074 reviewed=true disposition=needs_review
 REVIEW_ENTRY class=CODE_287013 reviewed=true disposition=safe
-REVIEW_ENTRY class=NO_CODE_WARNING reviewed=true disposition=unknown
+REVIEW_ENTRY class=NO_CODE_WARNING reviewed=true disposition=safe
 REVIEW_ENTRY class=IGNORED_FAST_IO_WILDCARD reviewed=true disposition=needs_review
 REVIEW_ENTRY class=INCOMPLETE_IO_ASSIGNMENTS reviewed=true disposition=needs_review
 REVIEW_ENTRY class=NON_DEDICATED_CLOCK_ROUTING reviewed=true disposition=needs_review

@@ -1,5 +1,5 @@
 # openFPGA Genesis post-fitter warning summary
-Generated: 2026-07-08 09:55:29 UTC
+Generated: 2026-07-08 16:15:19 UTC
 Source status: docs/OPENFPGA_GENESIS_FITTER_SMOKE_STATUS.md
 
 Map errors: 0
@@ -72,10 +72,12 @@ Fitter warnings: 7
   sample: Warning (287013): Variable or input pin "outclock" is defined but never used. File: /work/build/openfpga_genesis_fitter_smoke_work/src/fpga/db/dpram_f092.tdf Line: 34
 - CODE_292013 | count=1 | risk=accepted smoke-only risk
   sample: Warning (292013): Feature LogicLock is only available with a valid subscription license. You can purchase a software subscription to gain full access to this feature.
+- PLL_RESET_NOT_CONNECTED | count=7 | risk=needs review before timing gate
+  sample: Warning: RST port on the PLL is not properly connected on instance core_top:ic|mf_pllbase:mp1|mf_pllbase_0002:mf_pllbase_inst|altera_pll:altera_pll_i|general[1].gpll. The reset port on the PLL should be connected. If the PLL loses lock for any reason, you might need to manually reset the PLL in order to re-establish lock to the reference clock. File: /opt/intelFPGA_lite/quartus/libraries/megafunctions/altera_pll.v Line: 749
 
 ## Risk totals
 - blocks timing/assembler gate: 0
-- needs review before timing gate: 112
+- needs review before timing gate: 119
 - safe / known inherited: 76
 - accepted smoke-only risk: 14
 - unknown: 0
