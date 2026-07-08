@@ -1,6 +1,6 @@
 # openFPGA Genesis analysis warning summary
 
-Generated: 2026-07-08 04:44:56 UTC
+Generated: 2026-07-08 06:20:14 UTC
 Source: docs/OPENFPGA_GENESIS_ANALYSIS_ONLY_LOG.txt
 
 Total warnings: 72

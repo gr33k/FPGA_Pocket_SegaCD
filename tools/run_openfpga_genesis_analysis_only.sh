@@ -281,7 +281,7 @@ fi
 if [[ -f "$UPSTREAM_QSF" ]]; then
   append_status "TOP_LEVEL_ENTITY: $(grep -Eo 'TOP_LEVEL_ENTITY[[:space:]]+apf_top' "$UPSTREAM_QSF" || true)"
   append_status "DEVICE: $(grep -Eo 'set_global_assignment[[:space:]]+-name[[:space:]]+DEVICE[[:space:]]+[A-Za-z0-9]+' "$UPSTREAM_QSF" || true)"
-  append_status "QIP/SDC assignments: $(grep -c '^set_global_assignment -name QIP_FILE\\|^set_global_assignment -name SDC_FILE' "$UPSTREAM_QSF" || true)"
+  append_status "QIP/SDC assignments: $(grep -E -c '^[[:space:]]*set_global_assignment[[:space:]]+-name[[:space:]]+(QIP_FILE|SDC_FILE)' "$UPSTREAM_QSF" || true)"
 else
   append_status "WARNING: upstream qsf missing: $UPSTREAM_QSF"
 fi
@@ -295,7 +295,7 @@ quartus_version=""
 
 if [[ -n "$selected_quartus_map" && -x "$selected_quartus_map" ]]; then
   append_status "Selected quartus_map: $selected_quartus_map"
-  quartus_version="$($selected_quartus_map --version 2>/dev/null | head -n 1 || true)"
+  quartus_version="$($selected_quartus_map --version 2>/dev/null | awk '/Build/ {print; exit}' 2>/dev/null || $selected_quartus_map --version 2>/dev/null | awk 'NF {print; exit}' || true)"
   [[ -n "$quartus_version" ]] && append_status "Quartus version: $quartus_version"
 
   : > "$LOG_PATH"

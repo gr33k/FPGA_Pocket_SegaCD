@@ -1,6 +1,6 @@
 # openFPGA Genesis deep-capture check (advisory)
 
-Generated: 2026-07-08T04:39:00Z
+Generated: 2026-07-08T06:20:18Z
 
 PASS: Runner references OPENFPGA_GENESIS_QUARTUS_REPORT_INVENTORY.txt
 PASS: Runner references OPENFPGA_GENESIS_CONNECTIVITY_WARNINGS.txt

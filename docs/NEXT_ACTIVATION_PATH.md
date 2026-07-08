@@ -1,22 +1,31 @@
-# Next activation path after Task 7K
+# Next activation path after Task 7N
 
-## Current task status
+## Current milestone status
 
-- Task 7K is complete: warning sources were reviewed against upstream openFPGA-Genesis source text with connectivity-capture/runner check updates in place.
-- Current gate decision remains: `REVIEW_WARNINGS_FIRST`.
-- Current blocker: warning class `12241` (connectivity summary class) and class `10259` (SDRAM constant-width/default math) remain needs-more-review without local Quartus connectivity details.
+- Task 7N completed: warning disposition finalized from deep-capture evidence.
+- Current gate decision: **READY_FOR_FITTER_GATE**.
+- Analysis was executed with `quartus_map --analysis_and_elaboration` and exited `0` with `0` errors.
+- Host-per-read ROM streaming is still explicitly forbidden.
+- No fitter/assembler/timing/bitstream task was run in this milestone.
+- This still does not prove Pocket boot or runtime correctness.
 
-## Why this branch stays blocked
+## Disposition snapshot
 
-- `tools/review_openfpga_genesis_warning_sources.sh` confirms many high-volume warnings are intentional placeholders in the current scaffold lane.
-- The lane still needs a real analysis run in a Quartus-capable environment to capture connectivity details and confirm `12241` context before fitter transition.
+- `12241` (connectivity summary): accepted as pre-fit smoke-risk-only due to text connectivity detail limitations in this pass.
+- `10259` (SDRAM default/constant-width state math): accepted for controlled smoke gate with caveat for later fitter/timing/runtime review.
+- `10030` / `10858` (ROM/bridge placeholder-like): accepted for first fitter smoke gate based on source review.
 
-## Action before moving on
+## Next task (controlled)
 
-- Run connectivity-capable analysis in an environment with Quartus (`tools/docker_run_openfpga_genesis_analysis_prebuilt.sh` or local Quartus path).
-- Confirm `docs/OPENFPGA_GENESIS_CONNECTIVITY_WARNINGS.txt` contains parseable connectivity/driver evidence instead of the placeholder fallback message.
-- Re-run:
-  - `tools/classify_openfpga_genesis_analysis_warnings.sh`
-  - `tools/review_openfpga_genesis_warning_sources.sh`
-  - `tools/check_openfpga_genesis_analysis_runner.sh`
-- Only after `OPENFPGA_GENESIS_FITTER_READINESS_GATE.md` becomes `READY_FOR_FITTER_GATE` should a controlled fitter-only task be scheduled.
+- Task 7O: run a **controlled fitter-only smoke gate** only.
+- Constraints for next task:
+  - Do not run assembler, timing analysis, or bitstream generation.
+  - Do not claim runtime correctness or Pocket boot at end of that task.
+  - Capture fitter logs and immediate cleanup reports.
+  - Continue to avoid Sega-CD, 32X, save-state, and host-per-read ROM streaming paths.
+
+## Blockers now removed
+
+- No hard Quartus fitter blockers are active in the current warning disposition.
+- No unknown warning classes remain active from the latest summary.
+

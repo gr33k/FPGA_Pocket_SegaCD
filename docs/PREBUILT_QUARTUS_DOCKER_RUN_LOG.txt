@@ -1,5 +1,5 @@
 # Prebuilt Quartus Docker run log
-Generated: 2026-07-08 04:43:32 UTC
+Generated: 2026-07-08 06:18:54 UTC
 Host cwd: /Data/dockerprojects/FPGA_Pocket_SegaCD
 ===== wrapper start =====
 stdin: is not a tty
@@ -10,7 +10,7 @@ Version 19.1.0 Build 670 09/22/2019 SJ Lite Edition
 Copyright (C) 2019  Intel Corporation. All rights reserved.
 pwd in container: /work
 
--rwxr-xr-x. 1 root root 12K Jul  8 04:37 tools/run_openfpga_genesis_analysis_only.sh
+-rwxr-xr-x. 1 root root 13K Jul  8 06:18 tools/run_openfpga_genesis_analysis_only.sh
 runner invocation: ./tools/run_openfpga_genesis_analysis_only.sh
 checker invocation: ./tools/check_openfpga_genesis_analysis_runner.sh
 PASS: Runner executable: /work/tools/run_openfpga_genesis_analysis_only.sh

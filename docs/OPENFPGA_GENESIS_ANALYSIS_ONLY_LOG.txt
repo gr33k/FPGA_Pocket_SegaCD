@@ -15,7 +15,7 @@ Info: Running Quartus Prime Analysis & Elaboration
     Info: Intel and sold by Intel or its authorized distributors.  Please
     Info: refer to the applicable agreement for further details, at
     Info: https://fpgasoftware.intel.com/eula.
-    Info: Processing started: Wed Jul  8 04:43:38 2026
+    Info: Processing started: Wed Jul  8 06:19:00 2026
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off ap_core -c ap_core --analysis_and_elaboration
 Info (16303): High Performance Effort optimization mode selected -- timing performance will be prioritized at the potential cost of increased compilation time
     Info (16304): Mode behavior is affected by advanced setting Physical Synthesis Effort Level (default for this mode is Normal)
@@ -1508,7 +1508,7 @@ Info (12133): Instantiated megafunction "core_top:ic|mf_pllbase:mp1|mf_pllbase_0
     Info (12134): Parameter "pll_type" = "General"
     Info (12134): Parameter "pll_subtype" = "General"
 Info (11170): Starting IP generation for the debug fabric: alt_sld_fab.
-Info (11172): 2026.07.08.04:44:09 Progress: Loading sld09e0bd25/alt_sld_fab_wrapper_hw.tcl
+Info (11172): 2026.07.08.06:19:31 Progress: Loading sld09e0bd25/alt_sld_fab_wrapper_hw.tcl
 Info (11172): Alt_sld_fab.alt_sld_fab: SLD fabric agents which did not specify prefer_host were connected to JTAG
 Info (11172): Alt_sld_fab: Generating alt_sld_fab "alt_sld_fab" for QUARTUS_SYNTH
 Info (11172): Alt_sld_fab: "alt_sld_fab" instantiated alt_sld_fab "alt_sld_fab"
@@ -1535,6 +1535,6 @@ Warning (12241): 48 hierarchies have connectivity warnings - see the Connectivit
 Info (144001): Generated suppressed messages file /work/build/openfpga_genesis_analysis_work/src/fpga/output_files/ap_core.map.smsg
 Info: Quartus Prime Analysis & Elaboration was successful. 0 errors, 72 warnings
     Info: Peak virtual memory: 1826 megabytes
-    Info: Processing ended: Wed Jul  8 04:44:17 2026
+    Info: Processing ended: Wed Jul  8 06:19:39 2026
     Info: Elapsed time: 00:00:39
-    Info: Total CPU time (on all processors): 00:01:25
+    Info: Total CPU time (on all processors): 00:01:27

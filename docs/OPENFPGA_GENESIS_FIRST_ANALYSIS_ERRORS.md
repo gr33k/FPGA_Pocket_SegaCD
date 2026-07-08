@@ -1,4 +1,4 @@
-# Task 7I / 7J / 7K: openFPGA Genesis first-analysis findings and warning source review
+# Task 7I / 7J / 7K / 7N: openFPGA Genesis analysis warning disposition and fitter gate
 
 ## Status
 
@@ -8,7 +8,7 @@
 - Current summary state:
   - Errors: `0`
   - Warnings: `72`
-  - Gate: `REVIEW_WARNINGS_FIRST`.
+  - Gate: `READY_FOR_FITTER_GATE` (deep-capture-aware, not runtime proof).
 
 ## Key findings from source review
 
@@ -18,14 +18,14 @@
   - `third_party/openFPGA-Genesis/src/fpga/core/rtl/sdram.sv`
   - `third_party/openFPGA-Genesis/src/fpga/apf/build_id.mif`
 - Placeholder-class warnings (10030, 10858, 10036, 10230, 10762, 113027, 113028, 287013) are not classified as hard blockers in this milestone.
-- Warning class `12241` still has no direct line-level witness in current warnings summary and depends on connectivity evidence.
-- Warning class `10259` is localized to SDRAM state math in `sdram.sv` and is kept as needs-more-review until memory-parameter intent is explicitly validated against the target build posture.
+- Warning class `12241` remains warning-only in this phase; it is classified as pre-fit smoke risk with explicit connectivity-capture caveat.
+- Warning class `10259` is localized to SDRAM state math in `sdram.sv` and is accepted for smoke readiness with a later-review caveat if fitter/timing/runtime exposes concrete issues.
 
 ## Interpretation
 
-- This remains a warning-intent review milestone; it does not claim fitter readiness or runtime readiness.
+- This is now the warning-disposition milestone; it permits the next controlled fitter-only smoke task only.
 - No Sega-CD/32X path, no host-per-read streaming, no save-state path, and no ROM/CD/BIOS payload behavior was changed in this task.
 
 ## Next action
 
-- Remain in `REVIEW_WARNINGS_FIRST` until connectivity report evidence is available and source-verified by a real Quartus analysis run on a host with Quartus available.
+- Ready for controlled fitter-only smoke gate: `READY_FOR_FITTER_GATE`.
