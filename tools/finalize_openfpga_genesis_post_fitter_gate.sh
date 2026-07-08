@@ -15,6 +15,7 @@ for file in "${required[@]}"; do
     echo "Missing required source file: $file"
     exit 1
   fi
+
 done
 
 map_exit="$(rg -m1 '^Map exit code:' "$STATUS_FILE" | awk -F': ' '{print $NF}' | tr -d '\r' || true)"
@@ -24,8 +25,8 @@ fit_result_line="$(rg -m1 'Result:' "$CHECK_FILE" | sed 's/.*Result:[[:space:]]*
 fit_result="${fit_result_line:-}"
 
 if [[ "$fit_result" == "" ]]; then
-  if rg -q 'FITTER_SMOKE_PASS|pass' "$CHECK_FILE" 2>/dev/null; then
-    fit_result="pass"
+  if rg -q 'FITTER_SMOKE_PASS|PASS' "$CHECK_FILE" 2>/dev/null; then
+    fit_result="PASS"
   else
     fit_result=""
   fi
@@ -37,7 +38,7 @@ if [[ "$warning_decision" == "" ]]; then
 fi
 
 critical_classes="$(rg -c 'risk=blocks timing/assembler gate' "$WARNING_SUMMARY" || true)"
-unknown_classes="$(rg -c 'risk=unknown|class=unknown|unknown' "$WARNING_SUMMARY" || true)"
+unknown_classes="$(rg -c 'risk=unknown' "$WARNING_SUMMARY" || true)"
 
 if [[ "$map_exit" != "0" || "$fitter_exit" != "0" ]]; then
   gate="BLOCKED_AFTER_FITTER"
@@ -48,7 +49,6 @@ elif (( ${critical_classes:-0} > 0 )); then
 elif [[ "$warning_decision" == "REVIEW_FITTER_WARNINGS_FIRST" || ${unknown_classes:-0} -gt 0 ]]; then
   gate="REVIEW_FITTER_WARNINGS_FIRST"
 else
-  # default to timing-review path after controlled smoke gate
   gate="READY_FOR_TIMING_REVIEW_GATE"
 fi
 
@@ -58,10 +58,10 @@ fi
   echo "Generated: $NOW"
   echo
   echo "## Inputs"
-  echo "- Fitter smoke status: $STATUS_FILE"
-  echo "- Fitter smoke check: $CHECK_FILE"
-  echo "- Warning summary: $WARNING_SUMMARY"
-  echo "- Resource summary: $RESOURCE_SUMMARY"
+  echo "- Fitter smoke status: docs/OPENFPGA_GENESIS_FITTER_SMOKE_STATUS.md"
+  echo "- Fitter smoke check: docs/OPENFPGA_GENESIS_FITTER_SMOKE_CHECK.md"
+  echo "- Warning summary: docs/OPENFPGA_GENESIS_FITTER_WARNING_SUMMARY.md"
+  echo "- Resource summary: docs/OPENFPGA_GENESIS_FITTER_RESOURCE_SUMMARY.md"
   echo
   echo "## Gate decision"
   echo "Current gate decision: **$gate**"

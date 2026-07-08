@@ -1,11 +1,11 @@
 # openFPGA Genesis post-fitter gate
-Generated: 2026-07-08 09:14:15 UTC
+Generated: 2026-07-08 09:55:38 UTC
 
 ## Inputs
-- Fitter smoke status: /Users/phassold/Projects/FPGA_Pocket_SegaCD/docs/OPENFPGA_GENESIS_FITTER_SMOKE_STATUS.md
-- Fitter smoke check: /Users/phassold/Projects/FPGA_Pocket_SegaCD/docs/OPENFPGA_GENESIS_FITTER_SMOKE_CHECK.md
-- Warning summary: /Users/phassold/Projects/FPGA_Pocket_SegaCD/docs/OPENFPGA_GENESIS_FITTER_WARNING_SUMMARY.md
-- Resource summary: /Users/phassold/Projects/FPGA_Pocket_SegaCD/docs/OPENFPGA_GENESIS_FITTER_RESOURCE_SUMMARY.md
+- Fitter smoke status: docs/OPENFPGA_GENESIS_FITTER_SMOKE_STATUS.md
+- Fitter smoke check: docs/OPENFPGA_GENESIS_FITTER_SMOKE_CHECK.md
+- Warning summary: docs/OPENFPGA_GENESIS_FITTER_WARNING_SUMMARY.md
+- Resource summary: docs/OPENFPGA_GENESIS_FITTER_RESOURCE_SUMMARY.md
 
 ## Gate decision
 Current gate decision: **REVIEW_FITTER_WARNINGS_FIRST**
@@ -14,7 +14,7 @@ Current gate decision: **REVIEW_FITTER_WARNINGS_FIRST**
 Map exit code: 0
 Fitter exit code: 0
 Fitter attempted: yes
-Fitter smoke check result: PASS
+Fitter smoke check result: checks failed
 Warning decision: REVIEW_FITTER_WARNINGS_FIRST
 
 ## Scope constraints for this task

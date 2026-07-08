@@ -1,12 +1,13 @@
 # openFPGA Genesis post-fitter review check (advisory)
-Generated: 2026-07-08 09:14:15 UTC
-Status: pass
+Generated: 2026-07-08 09:55:38 UTC
+Status: fail
 
 ## Files checked
-- /Users/phassold/Projects/FPGA_Pocket_SegaCD/docs/OPENFPGA_GENESIS_FITTER_WARNING_SUMMARY.md
-- /Users/phassold/Projects/FPGA_Pocket_SegaCD/docs/OPENFPGA_GENESIS_FITTER_RESOURCE_SUMMARY.md
-- /Users/phassold/Projects/FPGA_Pocket_SegaCD/docs/OPENFPGA_GENESIS_POST_FITTER_GATE.md
-- /Users/phassold/Projects/FPGA_Pocket_SegaCD/docs/OPENFPGA_GENESIS_POST_FITTER_REVIEW_CHECK.md
+- docs/OPENFPGA_GENESIS_FITTER_WARNING_SUMMARY.md
+- docs/OPENFPGA_GENESIS_FITTER_UNKNOWN_WARNING_REVIEW.md
+- docs/OPENFPGA_GENESIS_FITTER_RESOURCE_SUMMARY.md
+- docs/OPENFPGA_GENESIS_POST_FITTER_GATE.md
+- docs/OPENFPGA_GENESIS_POST_FITTER_REVIEW_CHECK.md
 
 ## Required scope constraints
 - assembler did not run
@@ -16,5 +17,6 @@ Status: pass
 - Pocket boot not claimed
 - runtime correctness not claimed
 
-Result: PASS
-No known blockers in this documentation-only review pass.
+Result: FAIL
+Issues:
+- fitter-smoke-check-not-pass

@@ -23,14 +23,15 @@ extract_unique() {
 
 selected_device="$(extract_unique "$MAP_LOG" 'intended_device_family' | head -n 1)"
 [ -z "$selected_device" ] && selected_device="not captured in current logs"
+selected_device="$(printf '%s\n' "$selected_device" | sed -e "s#^$ROOT_DIR/##")"
 
-promoted_clocks="$(rg -n 'global input pin|global clock|promot' "$FIT_LOG" | head -n 40 || true)"
-memory_notes="$(rg -n 'RAM|memory|altsyncram|sdram|sram|pll' "$FIT_LOG" "$MAP_LOG" | head -n 60 || true)"
-resource_lines="$(rg -n 'Info \(21057\)|Info \(21058\)|Info \(21059\)|Info \(21060\)|Info \(21061\)|Info \(21064\)|Info \(21065\)|Implemented [0-9]+ (device resources|input pins|output pins|bidirectional pins|logic cells|RAM segments|PLLs|DSP elements)' "$MAP_LOG" | head -n 40 || true)"
-pin_warning_lines="$(rg -n 'assignment|pin|IO|I/O|no output enable|output enable|permanently disabled|No output dependent|incomplete I/O assignments' "$FIT_LOG" | head -n 80 || true)"
-pll_lines="$(rg -n 'LogicLock|(292013)|PLL|altera_pll|pll' "$FIT_LOG" | head -n 80 || true)"
-non_dedicated="$(rg -n 'non-dedicated|global input pin|clock routing' "$FIT_LOG" | head -n 60 || true)"
-fit_success="$(rg -n 'Quartus Prime Fitter was successful|fit was successful' "$FIT_LOG" | head -n 3 || true)"
+promoted_clocks="$(rg -n 'global input pin|global clock|promot' "$FIT_LOG" 2>/dev/null | head -n 40 | sed -e "s#^$ROOT_DIR/##" || true)"
+memory_notes="$(rg -n 'RAM|memory|altsyncram|sdram|sram|pll' "$FIT_LOG" "$MAP_LOG" 2>/dev/null | head -n 60 | sed -e "s#^$ROOT_DIR/##" || true)"
+resource_lines="$(rg -n 'Info \(21057\)|Info \(21058\)|Info \(21059\)|Info \(21060\)|Info \(21061\)|Info \(21064\)|Info \(21065\)|Implemented [0-9]+ (device resources|input pins|output pins|bidirectional pins|logic cells|RAM segments|PLLs|DSP elements)' "$MAP_LOG" 2>/dev/null | head -n 40 | sed -e "s#^$ROOT_DIR/##" || true)"
+pin_warning_lines="$(rg -n 'assignment|pin|IO|I/O|no output enable|output enable|permanently disabled|No output dependent|incomplete I/O assignments' "$FIT_LOG" 2>/dev/null | head -n 80 | sed -e "s#^$ROOT_DIR/##" || true)"
+pll_lines="$(rg -n 'LogicLock|(292013)|PLL|altera_pll|pll' "$FIT_LOG" 2>/dev/null | head -n 80 | sed -e "s#^$ROOT_DIR/##" || true)"
+non_dedicated="$(rg -n 'non-dedicated|global input pin|clock routing' "$FIT_LOG" 2>/dev/null | head -n 60 | sed -e "s#^$ROOT_DIR/##" || true)"
+fit_success="$(rg -n 'Quartus Prime Fitter was successful|fit was successful' "$FIT_LOG" 2>/dev/null | head -n 3 | sed -e "s#^$ROOT_DIR/##" || true)"
 
 : > "$OUT_FILE"
 {
@@ -38,8 +39,8 @@ fit_success="$(rg -n 'Quartus Prime Fitter was successful|fit was successful' "$
   echo "Generated: $NOW"
   echo
   echo "## Source files"
-  echo "- Map log: $MAP_LOG"
-  echo "- Fit log: $FIT_LOG"
+  echo "- Map log: docs/OPENFPGA_GENESIS_FITTER_SMOKE_MAP_LOG.txt"
+  echo "- Fit log: docs/OPENFPGA_GENESIS_FITTER_SMOKE_FIT_LOG.txt"
   echo
   echo "## Selected device context"
   echo "$selected_device"

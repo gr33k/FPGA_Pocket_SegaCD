@@ -3,11 +3,12 @@ set -euo pipefail
 
 ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 SUMMARY_FILE="$ROOT_DIR/docs/OPENFPGA_GENESIS_FITTER_WARNING_SUMMARY.md"
+REVIEW_SUMMARY="$ROOT_DIR/docs/OPENFPGA_GENESIS_FITTER_UNKNOWN_WARNING_REVIEW.md"
 RESOURCE_FILE="$ROOT_DIR/docs/OPENFPGA_GENESIS_FITTER_RESOURCE_SUMMARY.md"
 GATE_FILE="$ROOT_DIR/docs/OPENFPGA_GENESIS_POST_FITTER_GATE.md"
 CHECK_FILE="$ROOT_DIR/docs/OPENFPGA_GENESIS_POST_FITTER_REVIEW_CHECK.md"
+SMOKE_CHECK="${ROOT_DIR}/docs/OPENFPGA_GENESIS_FITTER_SMOKE_CHECK.md"
 STATUS_FILE="$ROOT_DIR/docs/OPENFPGA_GENESIS_FITTER_SMOKE_STATUS.md"
-FIT_CHECK="${ROOT_DIR}/docs/OPENFPGA_GENESIS_FITTER_SMOKE_CHECK.md"
 NOW="$(date -u '+%Y-%m-%d %H:%M:%S UTC')"
 
 status="pass"
@@ -23,6 +24,7 @@ require_file() {
 }
 
 require_file "$SUMMARY_FILE"
+require_file "$REVIEW_SUMMARY"
 require_file "$RESOURCE_FILE"
 require_file "$GATE_FILE"
 
@@ -43,7 +45,7 @@ if [[ -f "$SUMMARY_FILE" ]]; then
     status="fail"
     reasons+=("summary-missing-fitter-warnings")
   fi
-  if rg -q 'decision=' "$SUMMARY_FILE"; then
+  if rg -q '^decision=' "$SUMMARY_FILE"; then
     decision="$(rg -m1 '^decision=' "$SUMMARY_FILE" | sed -E 's/^decision=//')"
     case "$decision" in
       READY_FOR_TIMING_REVIEW_GATE|REVIEW_FITTER_WARNINGS_FIRST|BLOCKED_AFTER_FITTER)
@@ -69,6 +71,7 @@ if [[ -f "$GATE_FILE" ]]; then
       reasons+=("gate-invalid-decision")
     fi
   fi
+
   for token in "Assembler was not run" "Timing analysis was not run" "Bitstream was not intentionally generated" "APF packaging was not run" "Pocket boot was not proven" "Runtime correctness was not proven"; do
     if ! rg -q "$token" "$GATE_FILE"; then
       status="fail"
@@ -84,8 +87,19 @@ if [[ -f "$RESOURCE_FILE" ]]; then
   fi
 fi
 
-if [[ -f "$FIT_CHECK" ]]; then
-  if ! rg -q "Fitter smoke result: FITTER_SMOKE_PASS|Result: PASS|PASS" "$FIT_CHECK"; then
+if [[ -f "$REVIEW_SUMMARY" ]]; then
+  if ! rg -q "## Unknown warning classes" "$REVIEW_SUMMARY"; then
+    status="warn"
+    reasons+=("review-missing-unknown-section")
+  fi
+  if ! rg -q "REVIEW_ENTRY class=" "$REVIEW_SUMMARY"; then
+    status="fail"
+    reasons+=("review-missing-review-entries")
+  fi
+fi
+
+if [[ -f "$SMOKE_CHECK" ]]; then
+  if ! rg -q "Fitter smoke result: FITTER_SMOKE_PASS|Result: PASS|PASS" "$SMOKE_CHECK"; then
     status="fail"
     reasons+=("fitter-smoke-check-not-pass")
   fi
@@ -105,16 +119,18 @@ if [[ "$status" == "pass" ]]; then
   fi
 fi
 
+: > "$CHECK_FILE"
 {
   echo "# openFPGA Genesis post-fitter review check (advisory)"
   echo "Generated: $NOW"
   echo "Status: $status"
   echo
   echo "## Files checked"
-  echo "- $SUMMARY_FILE"
-  echo "- $RESOURCE_FILE"
-  echo "- $GATE_FILE"
-  echo "- $CHECK_FILE"
+  echo "- docs/OPENFPGA_GENESIS_FITTER_WARNING_SUMMARY.md"
+  echo "- docs/OPENFPGA_GENESIS_FITTER_UNKNOWN_WARNING_REVIEW.md"
+  echo "- docs/OPENFPGA_GENESIS_FITTER_RESOURCE_SUMMARY.md"
+  echo "- docs/OPENFPGA_GENESIS_POST_FITTER_GATE.md"
+  echo "- docs/OPENFPGA_GENESIS_POST_FITTER_REVIEW_CHECK.md"
   echo
   echo "## Required scope constraints"
   echo "- assembler did not run"
