@@ -1,5 +1,5 @@
 # openFPGA Genesis post-fitter gate
-Generated: 2026-07-08 16:14:54 UTC
+Generated: 2026-07-08 16:57:03 UTC
 
 ## Inputs
 - Fitter smoke status: docs/OPENFPGA_GENESIS_FITTER_SMOKE_STATUS.md

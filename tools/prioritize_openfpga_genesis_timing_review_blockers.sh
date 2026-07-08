@@ -6,6 +6,7 @@ WARNING_SUMMARY="$ROOT_DIR/docs/OPENFPGA_GENESIS_FITTER_WARNING_SUMMARY.md"
 REVIEW_DOC="$ROOT_DIR/docs/OPENFPGA_GENESIS_FITTER_UNKNOWN_WARNING_REVIEW.md"
 RESOURCE_DOC="$ROOT_DIR/docs/OPENFPGA_GENESIS_FITTER_RESOURCE_SUMMARY.md"
 GATE_DOC="$ROOT_DIR/docs/OPENFPGA_GENESIS_POST_FITTER_GATE.md"
+PRIORITY1_GATE="$ROOT_DIR/docs/OPENFPGA_GENESIS_PRIORITY1_CLOCKING_GATE.md"
 QSF="$ROOT_DIR/third_party/openFPGA-Genesis/src/fpga/ap_core.qsf"
 APF_TOP="$ROOT_DIR/third_party/openFPGA-Genesis/src/fpga/apf/apf_top.v"
 CORE_TOP="$ROOT_DIR/third_party/openFPGA-Genesis/src/fpga/core/core_top.sv"
@@ -40,10 +41,26 @@ class_count() {
 
 sample_source() {
   local pattern="$1"
-  if rg -n -m 1 "$pattern" "$APF_TOP" "$CORE_TOP" "$QSF" 2>/dev/null | head -n 1; then
+  local found
+  local src
+  local body
+
+  found="$(rg -n -m 1 "$pattern" "$APF_TOP" "$CORE_TOP" "$QSF" 2>/dev/null | head -n 1 || true)"
+  if [[ -n "$found" ]]; then
+    src="${found%%:*}"
+    body="${found#*:}"
+    if [[ "$src" == "$ROOT_DIR"* ]]; then
+      src="${src#$ROOT_DIR/}"
+    fi
+    echo "- $src:$body"
     return 0
   fi
   echo "- source not found in captured docs/source snapshots"
+}
+
+rel_path() {
+  local path="$1"
+  printf '%s' "${path/#$ROOT_DIR\//}"
 }
 
 emit_blockers() {
@@ -201,11 +218,28 @@ done
   echo
   echo "## Cross-checks"
   gate_decision="$(rg -m1 '^Current gate decision:' "$GATE_DOC" | sed -E 's/.*\*\*([^*]+)\*\*.*/\1/' | tr -d '[:space:]' || true)"
+  priority1_status="unknown"
+  if [[ -f "$PRIORITY1_GATE" ]]; then
+    priority1_status="$(rg -m1 '^Current priority1 gate decision:' "$PRIORITY1_GATE" | sed -E 's/.*:\\s*//; s/[[:space:]]*$//' || true)"
+  fi
   if [[ -z "$gate_decision" ]]; then
     gate_decision="unknown"
   fi
   echo "- current gate decision: $gate_decision"
+  if [[ -n "$priority1_status" ]]; then
+    echo "- priority1 clocking gate decision: $priority1_status"
+  else
+    echo "- priority1 clocking gate decision: not yet generated"
+  fi
   echo "- top active priority groups should remain REVIEW_FITTER_WARNINGS_FIRST until classes are resolved"
+  echo
+  if [[ "$priority1_status" == "PRIORITY1_CLOCKING_BLOCKED" ]]; then
+    echo "- Priority 1 remains blocked; timing-review gating remains conservative."
+  elif [[ "$priority1_status" == "PRIORITY1_CLOCKING_REVIEW_STILL_REQUIRED" ]]; then
+    echo "- Priority 1 review still required before timing-review progression."
+  else
+    echo "- Priority 1 gate is clear for timing-review handoff, but lower-priority groups remain active."
+  fi
   echo
   echo "## Required next step"
   echo "- Keep gate at REVIEW_FITTER_WARNINGS_FIRST until high-risk timing groups are reviewed and documented."

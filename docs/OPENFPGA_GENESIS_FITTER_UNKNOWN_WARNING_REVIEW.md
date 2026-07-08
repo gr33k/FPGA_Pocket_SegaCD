@@ -1,5 +1,5 @@
 # openFPGA Genesis fitter unknown warning review
-Generated: 2026-07-08 16:15:18 UTC
+Generated: 2026-07-08 16:56:55 UTC
 Scope: post-fitter warning class review only; no Quartus run.
 Inputs checked:
 - docs/OPENFPGA_GENESIS_FITTER_SMOKE_MAP_LOG.txt

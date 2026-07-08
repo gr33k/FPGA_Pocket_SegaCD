@@ -6,6 +6,17 @@ REPORT_PATH="$ROOT_DIR/docs/DOCKER_QUARTUS_INSTALL_FLOW_CHECK.md"
 INSTALL_SCRIPT="$ROOT_DIR/tools/docker_install_quartus_lite.sh"
 ANALYSIS_SCRIPT="$ROOT_DIR/tools/docker_run_openfpga_genesis_analysis_only.sh"
 
+rel_path() {
+  local path="$1"
+  if [[ -z "$path" ]]; then
+    printf ''
+  elif [[ "$path" == "$ROOT_DIR"* ]]; then
+    printf '%s' "${path#$ROOT_DIR/}"
+  else
+    printf '%s' "$path"
+  fi
+}
+
 PASS_COUNT=0
 WARN_COUNT=0
 
@@ -14,12 +25,12 @@ log() {
 }
 
 log_pass() {
-  echo "PASS: $1"
+  echo "PASS: $(rel_path "$1")"
   PASS_COUNT=$((PASS_COUNT + 1))
 }
 
 log_warn() {
-  echo "WARN: $1"
+  echo "WARN: $(rel_path "$1")"
   WARN_COUNT=$((WARN_COUNT + 1))
 }
 
@@ -82,7 +93,7 @@ log_warn() {
 
   echo
   echo "Summary: PASS=$PASS_COUNT WARN=$WARN_COUNT"
-  echo "Status file: $REPORT_PATH"
+  echo "Status file: $(rel_path "$REPORT_PATH")"
   echo
 } | tee "$REPORT_PATH"
 

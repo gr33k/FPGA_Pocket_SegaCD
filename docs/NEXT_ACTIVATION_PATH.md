@@ -30,6 +30,19 @@
   - `docs/OPENFPGA_GENESIS_POST_FITTER_GATE.md`
 - Re-run `tools/review_openfpga_genesis_fitter_unknown_warnings.sh` and `tools/classify_openfpga_genesis_fitter_smoke_warnings.sh` after any source/port assignment edits.
 
+## Task 7S status update
+
+- Added a dedicated priority-1 clocking review layer for timing-gate prep:
+  - `tools/review_openfpga_genesis_priority1_clocking.sh`
+  - `tools/finalize_openfpga_genesis_priority1_clocking_gate.sh`
+  - `tools/check_openfpga_genesis_priority1_clocking_review.sh`
+- Current outcome is:
+  - `docs/OPENFPGA_GENESIS_PRIORITY1_CLOCKING_REVIEW_CHECK.md` -> `Status: pass`
+  - `docs/OPENFPGA_GENESIS_PRIORITY1_CLOCKING_GATE.md` -> `Current priority1 gate decision: **PRIORITY1_CLOCKING_REVIEW_STILL_REQUIRED**`
+  - `docs/OPENFPGA_GENESIS_TIMING_REVIEW_BLOCKER_ORDER.md` now includes this decision in cross-check notes.
+- Timing-review posture is unchanged: `REVIEW_FITTER_WARNINGS_FIRST` remains active until priority-1 items are cleared.
+- No fitter/assembler/timing/bitstream runs were performed in this update.
+
 Constraints for next task:
 
 - Do not run assembler, timing analysis, or bitstream generation.

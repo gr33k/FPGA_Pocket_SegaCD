@@ -7,6 +7,15 @@ CHECK_REPORT="$ROOT_DIR/docs/OPENFPGA_GENESIS_ANALYSIS_RUNNER_CHECK.md"
 STATUS_FILE="$ROOT_DIR/docs/OPENFPGA_GENESIS_ANALYSIS_ONLY_STATUS.md"
 CONNECTIVITY_FILE="$ROOT_DIR/docs/OPENFPGA_GENESIS_CONNECTIVITY_WARNINGS.txt"
 
+rel_path() {
+  local path="$1"
+  if [[ "$path" == "$ROOT_DIR"* ]]; then
+    printf '%s' "${path#$ROOT_DIR/}"
+  else
+    printf '%s' "$path"
+  fi
+}
+
 PASS_COUNT=0
 WARN_COUNT=0
 FAIL_COUNT=0
@@ -31,9 +40,9 @@ log() {
 } >> "$CHECK_REPORT"
 
 if [[ -x "$RUNNER" ]]; then
-  log PASS "Runner executable: $RUNNER"
+  log PASS "Runner executable: $(rel_path "$RUNNER")"
 else
-  log FAIL "Runner missing or not executable: $RUNNER"
+  log FAIL "Runner missing or not executable: $(rel_path "$RUNNER")"
 fi
 
 if grep -q -- "--analysis_and_elaboration" "$RUNNER"; then
@@ -94,13 +103,13 @@ for forbidden in quartus_fit quartus_asm quartus_sta quartus_cpf; do
  done
 
 if [[ -f "$STATUS_FILE" ]]; then
-  log PASS "Status file exists: $STATUS_FILE"
+  log PASS "Status file exists: $(rel_path "$STATUS_FILE")"
 else
-  log WARN "Status file missing: $STATUS_FILE"
+  log WARN "Status file missing: $(rel_path "$STATUS_FILE")"
 fi
 
 if [[ -f "$CONNECTIVITY_FILE" ]]; then
-  log PASS "Connectivity warning evidence file exists: $CONNECTIVITY_FILE"
+  log PASS "Connectivity warning evidence file exists: $(rel_path "$CONNECTIVITY_FILE")"
   if rg -q "No detailed connectivity report found before cleanup" "$CONNECTIVITY_FILE"; then
     log WARN "Connectivity capture was empty and includes fallback reason."
   else
@@ -112,7 +121,7 @@ if [[ -f "$CONNECTIVITY_FILE" ]]; then
     log WARN "Connectivity evidence has minimal structure."
   fi
 else
-  log WARN "Connectivity warning evidence file missing: $CONNECTIVITY_FILE"
+  log WARN "Connectivity warning evidence file missing: $(rel_path "$CONNECTIVITY_FILE")"
 fi
 
 {
@@ -130,5 +139,5 @@ fi
 } >> "$CHECK_REPORT"
 
 printf '%s: PASS=%s WARN=%s FAIL=%s\n' "Result" "$PASS_COUNT" "$WARN_COUNT" "$FAIL_COUNT" >> "$CHECK_REPORT"
-log PASS "Check complete: $CHECK_REPORT"
+log PASS "Check complete: $(rel_path "$CHECK_REPORT")"
 exit 0

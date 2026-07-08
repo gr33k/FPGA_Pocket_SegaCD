@@ -1,5 +1,5 @@
 # openFPGA Genesis post-fitter warning summary
-Generated: 2026-07-08 16:15:19 UTC
+Generated: 2026-07-08 16:56:56 UTC
 Source status: docs/OPENFPGA_GENESIS_FITTER_SMOKE_STATUS.md
 
 Map errors: 0

@@ -1,5 +1,5 @@
 # openFPGA Genesis timing-review blocker order
-Generated: 2026-07-08 16:15:25 UTC
+Generated: 2026-07-08 16:57:02 UTC
 Reason: prioritize what must be reviewed before timing-review-only gate
 
 Inputs:
@@ -28,7 +28,7 @@ active_timing_blocker_count: 118
 ### CODE_16406
 - count: 1
 - reason: PLL/clock pin behavior is timing-sensitive in scaffolded top-level
-- source: /Users/phassold/Projects/FPGA_Pocket_SegaCD/third_party/openFPGA-Genesis/src/fpga/ap_core.qsf:91:set_location_assignment PIN_H16 -to clk_74b
+- source: - third_party/openFPGA-Genesis/src/fpga/ap_core.qsf:91:set_location_assignment PIN_H16 -to clk_74b
 - recommended next task: keep as manual timing-review item for first clocking cleanup
 - requires: APF pin-plan + QSF review
 - blocks_timing_gate_now: yes
@@ -36,7 +36,7 @@ active_timing_blocker_count: 118
 ### CODE_16407
 - count: 1
 - reason: PLL/clock pin behavior is timing-sensitive in scaffolded top-level
-- source: /Users/phassold/Projects/FPGA_Pocket_SegaCD/third_party/openFPGA-Genesis/src/fpga/ap_core.qsf:91:set_location_assignment PIN_H16 -to clk_74b
+- source: - third_party/openFPGA-Genesis/src/fpga/ap_core.qsf:91:set_location_assignment PIN_H16 -to clk_74b
 - recommended next task: keep as manual timing-review item for first clocking cleanup
 - requires: APF pin-plan + QSF review
 - blocks_timing_gate_now: yes
@@ -60,7 +60,7 @@ active_timing_blocker_count: 118
 ### PLL_RESET_NOT_CONNECTED
 - count: 7
 - reason: reset and recovery behavior may affect deterministic bring-up
-- source: /Users/phassold/Projects/FPGA_Pocket_SegaCD/third_party/openFPGA-Genesis/src/fpga/core/core_top.sv:206://   [23:16] rstick_x
+- source: - third_party/openFPGA-Genesis/src/fpga/core/core_top.sv:206://   [23:16] rstick_x
 - recommended next task: document intended reset handling and any required source edits
 - requires: source edits + QSF review
 - blocks_timing_gate_now: yes
@@ -296,7 +296,10 @@ active_timing_blocker_count: 118
 
 ## Cross-checks
 - current gate decision: REVIEW_FITTER_WARNINGS_FIRST
+- priority1 clocking gate decision: Current priority1 gate decision: **PRIORITY1_CLOCKING_REVIEW_STILL_REQUIRED**
 - top active priority groups should remain REVIEW_FITTER_WARNINGS_FIRST until classes are resolved
+
+- Priority 1 gate is clear for timing-review handoff, but lower-priority groups remain active.
 
 ## Required next step
 - Keep gate at REVIEW_FITTER_WARNINGS_FIRST until high-risk timing groups are reviewed and documented.

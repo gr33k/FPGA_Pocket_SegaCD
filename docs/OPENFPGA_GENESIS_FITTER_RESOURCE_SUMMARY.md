@@ -1,5 +1,5 @@
 # openFPGA Genesis fitter resource summary
-Generated: 2026-07-08 16:14:12 UTC
+Generated: 2026-07-08 16:57:02 UTC
 
 ## Source files
 - Map log: docs/OPENFPGA_GENESIS_FITTER_SMOKE_MAP_LOG.txt

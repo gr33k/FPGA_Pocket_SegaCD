@@ -81,6 +81,27 @@ Date: 2026-07-08
   - `unknown: 0`
 - Current gate decision remains `REVIEW_FITTER_WARNINGS_FIRST` with no hard blockers and no Quartus assembler/timing/bitstream/runtime claims.
 
+## Task 7S status
+
+- Added dedicated priority-1 clocking review/finalize/check scripts:
+  - `tools/review_openfpga_genesis_priority1_clocking.sh`
+  - `tools/finalize_openfpga_genesis_priority1_clocking_gate.sh`
+  - `tools/check_openfpga_genesis_priority1_clocking_review.sh`
+- Updated:
+  - `docs/OPENFPGA_GENESIS_PRIORITY1_CLOCKING_REVIEW.md`
+  - `docs/OPENFPGA_GENESIS_PRIORITY1_CLOCKING_GATE.md`
+  - `docs/OPENFPGA_GENESIS_PRIORITY1_CLOCKING_REVIEW_CHECK.md`
+- Chain results are now:
+  - `OPENFPGA_GENESIS_PRIORITY1_CLOCKING_REVIEW_CHECK.md` reports `Status: pass`
+  - Current priority-1 gate decision: `PRIORITY1_CLOCKING_REVIEW_STILL_REQUIRED`
+- `POST_FITTER`/`timing-review` scripts were refreshed and still report:
+  - `check_openfpga_genesis_post_fitter_review.sh` -> pass
+  - `OPENFPGA_GENESIS_POST_FITTER_REVIEW_CHECK.md` -> `Status: pass`
+  - Existing warning/timing blocker counts remain unchanged for this milestone.
+- This pass also normalized tool/docs output paths to repo-relative values.
+- No fitter/assembler/timing/bitstream steps or runtime-boot claims were performed.
+- No Sega-CD/32X/save-state path changes were made.
+
 ## Safety constraints
 
 - No Sega-CD, no 32X, no save states, and no host-per-read ROM streaming at this milestone.
