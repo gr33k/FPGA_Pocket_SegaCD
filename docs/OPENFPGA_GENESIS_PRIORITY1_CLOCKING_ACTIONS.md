@@ -1,11 +1,10 @@
 # openFPGA Genesis Priority-1 clocking action matrix
-Generated: 2026-07-08 17:30:54 UTC
+Generated: 2026-07-08 17:32:07 UTC
 
 Inputs:
 - docs/OPENFPGA_GENESIS_PRIORITY1_CLOCKING_REVIEW.md
 - docs/OPENFPGA_GENESIS_FITTER_WARNING_SUMMARY.md
 - docs/OPENFPGA_GENESIS_TIMING_REVIEW_BLOCKER_ORDER.md
-- timing priority1 gate note: PRIORITY1_CLOCKING_REVIEW_STILL_REQUIRED
 
 ## Action guidance by class
 ### CODE_16406

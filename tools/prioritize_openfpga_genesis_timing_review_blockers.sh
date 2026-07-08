@@ -32,7 +32,16 @@ done
 class_count() {
   local cls="$1"
   local count
-  count="$(rg --fixed-strings --line-number --max-count 1 -- "- ${cls} | count=" "$WARNING_SUMMARY" 2>/dev/null | sed -E 's/.*count=([0-9]+).*/\1/' || true)"
+  local pattern
+  if [[ "$cls" == CODE_* ]]; then
+    cls="${cls#CODE_}"
+  fi
+  if [[ "$cls" == "PLL_RESET_NOT_CONNECTED" ]]; then
+    pattern="- ${cls} | count="
+  else
+    pattern="- CODE_${cls} | count="
+  fi
+  count="$(rg --fixed-strings --max-count 1 -- "$pattern" "$WARNING_SUMMARY" 2>/dev/null | sed -E 's/.*count=([0-9]+).*/\1/' || true)"
   if [[ -z "$count" ]]; then
     count=0
   fi
@@ -45,7 +54,7 @@ sample_source() {
   local src
   local body
 
-  found="$(rg -n -m 1 "$pattern" "$APF_TOP" "$CORE_TOP" "$QSF" 2>/dev/null | head -n 1 || true)"
+  found="$(rg -n -m 1 -- "$pattern" "$APF_TOP" "$CORE_TOP" "$QSF" 2>/dev/null | head -n 1 || true)"
   if [[ -n "$found" ]]; then
     src="${found%%:*}"
     body="${found#*:}"
@@ -58,28 +67,40 @@ sample_source() {
   echo "- source not found in captured docs/source snapshots"
 }
 
-rel_path() {
-  local path="$1"
-  printf '%s' "${path/#$ROOT_DIR\//}"
+priority1_note() {
+  local p1_decision="${1-PRIORITY1_CLOCKING_REVIEW_STILL_REQUIRED}"
+  case "$p1_decision" in
+    PRIORITY1_CLOCKING_BLOCKED)
+      echo "is blocked before timing-review handoff."
+    ;;
+    PRIORITY1_CLOCKING_CLEARED_FOR_TIMING_REVIEW)
+      echo "is cleared for timing-review handoff, but lower-priority groups may remain active."
+    ;;
+    *)
+      echo "remains review-required before timing-review handoff."
+    ;;
+  esac
 }
+
+if [[ -f "$PRIORITY1_GATE" ]]; then
+  p1_decision_line="$(rg -m1 'Current priority1 gate decision:' "$PRIORITY1_GATE" | sed -E 's/.*\*\*([^*]+)\*\*.*/\1/' | tr -d '[:space:]' || true)"
+fi
+if [[ -z "${p1_decision_line:-}" ]]; then
+  p1_decision_line="PRIORITY1_CLOCKING_REVIEW_STILL_REQUIRED"
+fi
 
 emit_blockers() {
   local title="$1"
   local block_now="$2"
   shift 2
-  local classes=("$@")
-
-  echo "## $title"
-  echo "- blocks timing-review gate now: $block_now"
-  echo "- action type: depends_on_class"
-  echo
+  local classes=($@)
 
   local cls
   for cls in "${classes[@]}"; do
     local count
     count="$(class_count "$cls")"
     if [[ "$count" == "0" ]]; then
-      echo "### $cls"
+      echo "### ${cls}"
       echo "- count: 0"
       echo "- status: no active instances"
       echo "- blocks_timing_gate_now: no"
@@ -89,7 +110,7 @@ emit_blockers() {
       continue
     fi
 
-    echo "### $cls"
+    echo "### ${cls}"
     echo "- count: $count"
 
     case "$cls" in
@@ -99,59 +120,29 @@ emit_blockers() {
         echo "- recommended next task: review clocking topology and constraint intent before timing review"
         echo "- requires: QSF review"
         ;;
-      CODE_16406|CODE_16407)
+      CODE_16406)
         echo "- reason: PLL/clock pin behavior is timing-sensitive in scaffolded top-level"
-        echo "- source: $(sample_source 'clk_74b')"
-        echo "- recommended next task: keep as manual timing-review item for first clocking cleanup"
+        echo "- source: $(sample_source 'PIN_H16 -to clk_74b\|clk_74b')"
+        echo "- recommended next task: resolve clock routing source intent in QSF and document timing-safe behavior"
+        echo "- requires: APF pin-plan + QSF review"
+        ;;
+      CODE_16407)
+        echo "- reason: PLL/clock pin behavior is timing-sensitive in scaffolded top-level"
+        echo "- source: $(sample_source 'PIN_T17 -to bridge_spiclk\|bridge_spiclk\|inputCLKENA0')"
+        echo "- recommended next task: review REFCLK routing intent before timing review"
         echo "- requires: APF pin-plan + QSF review"
         ;;
       CODE_19016|CODE_19017)
         echo "- reason: pixel clock muxing impacts timing path review"
-        echo "- source: $(sample_source 'current_pix_clk\|pixel')"
+        echo "- source: $(sample_source 'current_pix_clk\|video_rgb_clock')"
         echo "- recommended next task: confirm active branch and fanout before timing gate"
         echo "- requires: source edits + timing documentation"
         ;;
       PLL_RESET_NOT_CONNECTED)
         echo "- reason: reset and recovery behavior may affect deterministic bring-up"
-        echo "- source: $(sample_source 'rst')"
+        echo "- source: $(sample_source 'mf_pllbase\|\.rst')"
         echo "- recommended next task: document intended reset handling and any required source edits"
         echo "- requires: source edits + QSF review"
-        ;;
-      INCOMPLETE_IO_ASSIGNMENTS|CODE_15714)
-        echo "- reason: incomplete APF assignment map creates timing and integration risk"
-        echo "- source: $(sample_source 'incomplete I/O assignments\|cart_tran\|pin')"
-        echo "- recommended next task: align APF pin mapping and keep unimplemented ports documented"
-        echo "- requires: QSF + source review"
-        ;;
-      PIN_ASSIGNMENT_WARNING|CODE_15610|CODE_21074)
-        echo "- reason: input/output constant/no-driver conditions can create timing-opaque paths"
-        echo "- source: $(sample_source 'No output dependent on input pin\|output enable\|cart')"
-        echo "- recommended next task: confirm expected stubs and document intentional placeholders"
-        echo "- requires: source review"
-        ;;
-      CODE_13009|CODE_13010|CODE_13024|CODE_13032|CODE_13033|CODE_13039|CODE_13040|CODE_13410|NO_OUTPUT_ENABLE|CODE_169064)
-        echo "- reason: tri-state or bidirectional behavior affects timing analysis and board-level behavior"
-        echo "- source: $(sample_source 'tri-state\|inout\|cart_tran')"
-        echo "- recommended next task: keep these as first-pass APF pin and I/O topology checks"
-        echo "- requires: source review + optional pin-constraint updates"
-        ;;
-      IGNORED_FAST_IO_WILDCARD|CODE_176251)
-        echo "- reason: wildcard fast I/O behavior can hide timing constraints for output registers"
-        echo "- source: $(sample_source 'FAST_OUTPUT_REGISTER\|wildcard')"
-        echo "- recommended next task: migrate to explicit per-signal timing intent before timing review"
-        echo "- requires: QSF review"
-        ;;
-      CODE_10259|CODE_10030|CODE_10858|CODE_12241|CODE_292013)
-        echo "- reason: these are retained legacy/smoke-only classes in this milestone"
-        echo "- source: inherited openFPGA scaffold behavior"
-        echo "- recommended next task: monitor while enabling real ROM and controller paths"
-        echo "- requires: documentation review"
-        ;;
-      CODE_14284|CODE_14285|CODE_14320|CODE_287013)
-        echo "- reason: synthesized-away or inferred resource behavior in stubbed paths"
-        echo "- source: $(sample_source 'synthesized away\|logic cells')"
-        echo "- recommended next task: revisit when ROM/memory paths are enabled"
-        echo "- requires: documentation review"
         ;;
       *)
         echo "- reason: unlisted class; treat as low-priority until source verification"
@@ -161,7 +152,11 @@ emit_blockers() {
         ;;
     esac
 
-    echo "- blocks_timing_gate_now: $block_now"
+    if [[ "$title" == "Priority 1 - Clocking and timing-structure risks" ]]; then
+      echo "- blocks_timing_gate_now: $block_now"
+    else
+      echo "- blocks_timing_gate_now: yes"
+    fi
     echo
   done
 }
@@ -172,11 +167,12 @@ add_blockers() {
   all_blocking=$((all_blocking + $(class_count "$cls")))
 }
 
-for cls in NON_DEDICATED_CLOCK_ROUTING CODE_16406 CODE_16407 CODE_19016 CODE_19017 PLL_RESET_NOT_CONNECTED \
+for cls in CODE_16406 CODE_16407 CODE_19016 CODE_19017 PLL_RESET_NOT_CONNECTED \
            INCOMPLETE_IO_ASSIGNMENTS CODE_15714 PIN_ASSIGNMENT_WARNING CODE_15610 CODE_21074 \
            CODE_13009 CODE_13010 CODE_13024 CODE_13032 CODE_13033 CODE_13039 CODE_13040 CODE_13410 NO_OUTPUT_ENABLE CODE_169064 \
            IGNORED_FAST_IO_WILDCARD CODE_176251; do
   add_blockers "$cls"
+
 done
 
 : > "$OUT_DOC"
@@ -185,7 +181,7 @@ done
   echo "Generated: $NOW"
   echo "Reason: prioritize what must be reviewed before timing-review-only gate"
   echo
-  echo "Inputs:" 
+  echo "Inputs:"
   echo "- ${WARNING_SUMMARY#$ROOT_DIR/}"
   echo "- ${REVIEW_DOC#$ROOT_DIR/}"
   echo "- ${RESOURCE_DOC#$ROOT_DIR/}"
@@ -197,53 +193,46 @@ done
   echo "active_timing_blocker_count: ${all_blocking}"
   echo
   echo "## Priority 1 - Clocking and timing-structure risks"
-  emit_blockers "Priority 1" "yes" \
-    NON_DEDICATED_CLOCK_ROUTING CODE_16406 CODE_16407 CODE_19016 CODE_19017 PLL_RESET_NOT_CONNECTED
+  echo "- blocks timing-review gate now: yes"
+  echo "- action type: depends_on_class"
+  echo
+  emit_blockers "Priority 1 - Clocking and timing-structure risks" "yes" \
+    CODE_16406 CODE_16407 CODE_19016 CODE_19017 PLL_RESET_NOT_CONNECTED
   echo
   echo "## Priority 2 - APF / pin / I/O assignment risks"
-  emit_blockers "Priority 2" "yes" \
+  echo "- blocks timing-review gate now: yes"
+  echo "- action type: depends_on_class"
+  echo
+  emit_blockers "Priority 2 - APF / pin / I/O assignment risks" "yes" \
     INCOMPLETE_IO_ASSIGNMENTS CODE_15714 PIN_ASSIGNMENT_WARNING CODE_15610 CODE_21074
   echo
   echo "## Priority 3 - Bidirectional / tri-state / output-enable risks"
-  emit_blockers "Priority 3" "yes" \
+  echo "- blocks timing-review gate now: yes"
+  echo "- action type: depends_on_class"
+  echo
+  emit_blockers "Priority 3 - Bidirectional / tri-state / output-enable risks" "yes" \
     CODE_13009 CODE_13010 CODE_13024 CODE_13032 CODE_13033 CODE_13039 CODE_13040 CODE_13410 NO_OUTPUT_ENABLE CODE_169064
   echo
   echo "## Priority 4 - Fast I/O / register assignment risks"
-  emit_blockers "Priority 4" "yes" \
+  echo "- blocks timing-review gate now: yes"
+  echo "- action type: depends_on_class"
+  echo
+  emit_blockers "Priority 4 - Fast I/O / register assignment risks" "yes" \
     IGNORED_FAST_IO_WILDCARD CODE_176251
   echo
-  echo "## Priority 5 - Low-priority inherited / smoke-only"
-  emit_blockers "Priority 5" "no" \
-    CODE_10259 CODE_12241 CODE_10030 CODE_10858 CODE_14284 CODE_14285 CODE_14320 CODE_287013 CODE_292013
-  echo
+
   echo "## Cross-checks"
-  gate_decision="$(rg -m1 '^Current gate decision:' "$GATE_DOC" | sed -E 's/.*\*\*([^*]+)\*\*.*/\1/' | tr -d '[:space:]' || true)"
-  priority1_status="unknown"
-  if [[ -f "$PRIORITY1_GATE" ]]; then
-    priority1_status="$(rg -m1 '^Current priority1 gate decision:' "$PRIORITY1_GATE" | sed -E 's/.*:\\s*//; s/[[:space:]]*$//' || true)"
-  fi
-  if [[ -z "$gate_decision" ]]; then
-    gate_decision="unknown"
-  fi
-  echo "- current gate decision: $gate_decision"
-  if [[ -n "$priority1_status" ]]; then
-    echo "- priority1 clocking gate decision: $priority1_status"
-  else
-    echo "- priority1 clocking gate decision: not yet generated"
-  fi
+  gate_decision=""
+  gate_decision="$(rg -m1 'Current gate decision:' "$GATE_DOC" | sed -E 's/.*\*\*([^*]+)\*\*.*/\1/' | tr -d '[:space:]' || true)"
+  echo "- current gate decision: ${gate_decision:-unknown}"
+  p1_gate="$(rg -m1 'Current priority1 gate decision:' "$PRIORITY1_GATE" 2>/dev/null | sed -E 's/.*\*\*([^*]+)\*\*.*/\1/' | tr -d '[:space:]' || true)"
+  echo "- priority1 clocking gate decision: **${p1_gate:-unknown}**"
   echo "- top active priority groups should remain REVIEW_FITTER_WARNINGS_FIRST until classes are resolved"
   echo
-  if [[ "$priority1_status" == "PRIORITY1_CLOCKING_BLOCKED" ]]; then
-    echo "- Priority 1 remains blocked; timing-review gating remains conservative."
-  elif [[ "$priority1_status" == "PRIORITY1_CLOCKING_REVIEW_STILL_REQUIRED" ]]; then
-    echo "- Priority 1 review still required before timing-review progression."
-  else
-    echo "- Priority 1 gate is clear for timing-review handoff, but lower-priority groups remain active."
-  fi
+  echo "- Priority 1 gate $(priority1_note "$p1_decision_line")"
   echo
   echo "## Required next step"
   echo "- Keep gate at REVIEW_FITTER_WARNINGS_FIRST until high-risk timing groups are reviewed and documented."
 } > "$OUT_DOC"
 
-echo "Wrote $OUT_DOC"
-echo "active_timing_blocker_count=${all_blocking}"
+echo "Wrote docs/OPENFPGA_GENESIS_TIMING_REVIEW_BLOCKER_ORDER.md"

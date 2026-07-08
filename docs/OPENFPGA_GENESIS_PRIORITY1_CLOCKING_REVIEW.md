@@ -1,5 +1,5 @@
 # openFPGA Genesis Priority-1 clocking review
-Generated: 2026-07-08 17:30:54 UTC
+Generated: 2026-07-08 17:32:06 UTC
 Inputs checked:
 - docs/OPENFPGA_GENESIS_FITTER_WARNING_SUMMARY.md
 - docs/OPENFPGA_GENESIS_FITTER_SMOKE_FIT_LOG.txt
