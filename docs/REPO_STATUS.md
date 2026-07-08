@@ -29,6 +29,21 @@ Date: 2026-07-08
 - 0 errors, 72 warnings in analysis output.
 - `docs/OPENFPGA_GENESIS_FITTER_READINESS_GATE.md` now permits the next controlled fitter step.
 
+## Task 7O status
+
+- Controlled fitter smoke has run and passed (`PASS` check outcome) with map/fitter both exit `0`.
+- Fitter smoke check now emits `Result: PASS` and `Fitter smoke result: FITTER_SMOKE_PASS`.
+- Evidence files refreshed:
+  - `docs/OPENFPGA_GENESIS_FITTER_SMOKE_STATUS.md`
+  - `docs/OPENFPGA_GENESIS_FITTER_SMOKE_CHECK.md`
+  - `docs/OPENFPGA_GENESIS_FITTER_SMOKE_REPORTS.md`
+  - `docs/OPENFPGA_GENESIS_FITTER_SMOKE_CLEANUP.md`
+  - `docs/OPENFPGA_GENESIS_FITTER_GATE_READY_CHECK.md`
+- Gate-ready checker false-negative has been fixed to accept plain `PASS` and `Result: PASS` outputs.
+- No assembler, timing, bitstream generation, or Pocket runtime correctness claims were made.
+- Fitter artifacts were cleaned and `docs/OPENFPGA_GENESIS_FITTER_SMOKE_CLEANUP.md` records removed paths.
+- No changes made to third_party code.
+
 ## Safety constraints
 
 - No Sega-CD, no 32X, no save states, and no host-per-read ROM streaming at this milestone.

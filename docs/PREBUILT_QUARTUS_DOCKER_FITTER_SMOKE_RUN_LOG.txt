@@ -1,0 +1,22 @@
+# prebuilt Quartus fitter smoke wrapper run
+Generated: 2026-07-08 08:00:23 UTC
+Image: theypsilon/quartus-lite-c5:19.1-heavy
+Checking gate ready
+Wrote /Data/dockerprojects/FPGA_Pocket_SegaCD/docs/OPENFPGA_GENESIS_FITTER_GATE_READY_CHECK.md
+PASS
+Running fitter smoke checker
+WARN
+gate-not-ready
+missing-output:OPENFPGA_GENESIS_FITTER_SMOKE_FIT_LOG.txt
+missing-output:fpga
+missing-fit-log
+missing-work-dir
+status-missing-map-exit
+status-missing-fitter-flag
+Launching docker run
+Wrote /work/docs/OPENFPGA_GENESIS_FITTER_GATE_READY_CHECK.md
+PASS
+Fitter smoke completed
+WARN
+gate-not-ready
+Docker fitter smoke run complete

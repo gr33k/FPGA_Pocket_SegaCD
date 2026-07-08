@@ -1,9 +1,10 @@
-# Next activation path after Task 7N
+# Next activation path after Task 7O
 
 ## Current milestone status
 
-- Task 7N completed: warning disposition finalized from deep-capture evidence.
-- Current gate decision: **READY_FOR_FITTER_GATE**.
+- Task 7O completed: controlled fitter smoke gate passed.
+- Gate decision remains: READY_FOR_FITTER_GATE.
+- Current gate decision: **READY_FOR_FITTER_GATE** and controlled fitter smoke check passed.
 - Analysis was executed with `quartus_map --analysis_and_elaboration` and exited `0` with `0` errors.
 - Host-per-read ROM streaming is still explicitly forbidden.
 - No fitter/assembler/timing/bitstream task was run in this milestone.
@@ -15,9 +16,13 @@
 - `10259` (SDRAM default/constant-width state math): accepted for controlled smoke gate with caveat for later fitter/timing/runtime review.
 - `10030` / `10858` (ROM/bridge placeholder-like): accepted for first fitter smoke gate based on source review.
 
-## Next task (controlled)
+## Next task (post-fitter report review)
 
-- Task 7O: run a **controlled fitter-only smoke gate** only.
+- Task 7P: perform first post-fitter report review and classify fitter warnings by risk/impact.
+- Do not run assembler, timing analysis, or bitstream generation in this phase.
+- Do not claim runtime correctness or Pocket boot from this milestone.
+- Key gates to confirm next: warning disposition updates for fitter output, then safe readiness for constrained timing/build actions only.
+
 - Constraints for next task:
   - Do not run assembler, timing analysis, or bitstream generation.
   - Do not claim runtime correctness or Pocket boot at end of that task.
