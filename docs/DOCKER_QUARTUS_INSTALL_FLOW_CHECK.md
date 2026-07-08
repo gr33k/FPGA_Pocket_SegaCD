@@ -8,5 +8,5 @@ PASS: analysis script does not call quartus_fit/asm/sta/cpf
 PASS: analysis script references /root/fpga/intelFPGA_lite mount
 
 Summary: PASS=8 WARN=0
-Status file: /Users/phassold/Projects/FPGA_Pocket_SegaCD/docs/DOCKER_QUARTUS_INSTALL_FLOW_CHECK.md
+Status file: /Data/dockerprojects/FPGA_Pocket_SegaCD/docs/DOCKER_QUARTUS_INSTALL_FLOW_CHECK.md
 

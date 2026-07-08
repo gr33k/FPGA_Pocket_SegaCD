@@ -1,8 +1,8 @@
 # openFPGA Genesis analysis-runner check (advisory)
 
-Generated: 2026-07-07T15:38:55Z
+Generated: 2026-07-08T02:03:09Z
 
-PASS: Runner executable: /Users/phassold/Projects/FPGA_Pocket_SegaCD/tools/run_openfpga_genesis_analysis_only.sh
+PASS: Runner executable: /Data/dockerprojects/FPGA_Pocket_SegaCD/tools/run_openfpga_genesis_analysis_only.sh
 PASS: Runner invokes --analysis_and_elaboration
 PASS: Runner uses build/openfpga_genesis_analysis_work
 PASS: Runner does not rm -rf UPSTREAM_DIR
@@ -13,7 +13,7 @@ PASS: Runner does not reference forbidden tool: quartus_asm
 PASS: Runner does not reference forbidden tool: quartus_sta
 PASS: Runner does not reference forbidden tool: quartus_cpf
 PASS: Runner references upstream project path third_party/openFPGA-Genesis/src/fpga
-PASS: Status file exists: /Users/phassold/Projects/FPGA_Pocket_SegaCD/docs/OPENFPGA_GENESIS_ANALYSIS_ONLY_STATUS.md
+PASS: Status file exists: /Data/dockerprojects/FPGA_Pocket_SegaCD/docs/OPENFPGA_GENESIS_ANALYSIS_ONLY_STATUS.md
 
 ## Summary
 PASS: 12
@@ -22,4 +22,4 @@ FAIL: 0
 Result: PASS (advisory)
 
 Result: PASS=12 WARN=0 FAIL=0
-PASS: Check complete: /Users/phassold/Projects/FPGA_Pocket_SegaCD/docs/OPENFPGA_GENESIS_ANALYSIS_RUNNER_CHECK.md
+PASS: Check complete: /Data/dockerprojects/FPGA_Pocket_SegaCD/docs/OPENFPGA_GENESIS_ANALYSIS_RUNNER_CHECK.md

@@ -1,6 +1,1540 @@
-# Task 7D execution log (blocked)
-
-- Installer search on NAS: no Quartus package found in /root/fpga/installers.
-- Task 7D did not run tools/run_openfpga_genesis_analysis_only.sh (blocked).
-- No Quartus compile output available.
-- No synthesis/fitter/assembler/timing/bitstream steps run.
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Elaboration
+    Info: Version 19.1.0 Build 670 09/22/2019 SJ Lite Edition
+    Info: Copyright (C) 2019  Intel Corporation. All rights reserved.
+    Info: Your use of Intel Corporation's design tools, logic functions 
+    Info: and other software and tools, and any partner logic 
+    Info: functions, and any output files from any of the foregoing 
+    Info: (including device programming or simulation files), and any 
+    Info: associated documentation or information are expressly subject 
+    Info: to the terms and conditions of the Intel Program License 
+    Info: Subscription Agreement, the Intel Quartus Prime License Agreement,
+    Info: the Intel FPGA IP License Agreement, or other applicable license
+    Info: agreement, including, without limitation, that your use is for
+    Info: the sole purpose of programming logic devices manufactured by
+    Info: Intel and sold by Intel or its authorized distributors.  Please
+    Info: refer to the applicable agreement for further details, at
+    Info: https://fpgasoftware.intel.com/eula.
+    Info: Processing started: Wed Jul  8 02:02:18 2026
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off ap_core -c ap_core --analysis_and_elaboration
+Info (16303): High Performance Effort optimization mode selected -- timing performance will be prioritized at the potential cost of increased compilation time
+    Info (16304): Mode behavior is affected by advanced setting Physical Synthesis Effort Level (default for this mode is Normal)
+Info (20032): Parallel compilation is enabled and will use up to 4 processors
+Info (12021): Found 1 design units, including 1 entities, in source file core/core_top.sv
+    Info (12023): Found entity 1: core_top File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/core_top.sv Line: 9
+Info (12021): Found 1 design units, including 1 entities, in source file core/data_unloader.sv
+    Info (12023): Found entity 1: data_unloader File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/data_unloader.sv Line: 29
+Info (12021): Found 1 design units, including 1 entities, in source file core/data_loader.sv
+    Info (12023): Found entity 1: data_loader File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/data_loader.sv Line: 29
+Info (12021): Found 1 design units, including 1 entities, in source file core/sync_fifo.sv
+    Info (12023): Found entity 1: sync_fifo File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/sync_fifo.sv Line: 27
+Info (12021): Found 1 design units, including 1 entities, in source file core/sound_i2s.sv
+    Info (12023): Found entity 1: sound_i2s File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/sound_i2s.sv Line: 26
+Info (12021): Found 2 design units, including 1 entities, in source file core/rtl/T80/T80s.vhd
+    Info (12022): Found design unit 1: T80s-rtl File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/T80/T80s.vhd Line: 102
+    Info (12023): Found entity 1: T80s File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/T80/T80s.vhd Line: 73
+Info (12021): Found 2 design units, including 1 entities, in source file core/rtl/T80/T80pa.vhd
+    Info (12022): Found design unit 1: T80pa-rtl File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/T80/T80pa.vhd Line: 91
+    Info (12023): Found entity 1: T80pa File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/T80/T80pa.vhd Line: 60
+Info (12021): Found 2 design units, including 1 entities, in source file core/rtl/T80/T80_Reg.vhd
+    Info (12022): Found design unit 1: T80_Reg-rtl File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/T80/T80_Reg.vhd Line: 98
+    Info (12023): Found entity 1: T80_Reg File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/T80/T80_Reg.vhd Line: 75
+Info (12021): Found 2 design units, including 1 entities, in source file core/rtl/T80/T80_MCode.vhd
+    Info (12022): Found design unit 1: T80_MCode-rtl File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/T80/T80_MCode.vhd Line: 150
+    Info (12023): Found entity 1: T80_MCode File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/T80/T80_MCode.vhd Line: 78
+Info (12021): Found 2 design units, including 1 entities, in source file core/rtl/T80/T80_ALU.vhd
+    Info (12022): Found design unit 1: T80_ALU-rtl File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/T80/T80_ALU.vhd Line: 102
+    Info (12023): Found entity 1: T80_ALU File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/T80/T80_ALU.vhd Line: 74
+Info (12021): Found 2 design units, including 1 entities, in source file core/rtl/T80/T80.vhd
+    Info (12022): Found design unit 1: T80-rtl File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/T80/T80.vhd Line: 128
+    Info (12023): Found entity 1: T80 File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/T80/T80.vhd Line: 83
+Info (12021): Found 2 design units, including 1 entities, in source file core/rtl/SVP/SSP160x.vhd
+    Info (12022): Found design unit 1: SSP160x-rtl File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/SVP/SSP160x.vhd Line: 38
+    Info (12023): Found entity 1: SSP160x File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/SVP/SSP160x.vhd Line: 11
+Info (12021): Found 2 design units, including 0 entities, in source file core/rtl/SVP/SSP160x_PKG.vhd
+    Info (12022): Found design unit 1: SSP160x_PKG File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/SVP/SSP160x_PKG.vhd Line: 6
+    Info (12022): Found design unit 2: SSP160x_PKG-body File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/SVP/SSP160x_PKG.vhd Line: 78
+Info (12021): Found 2 design units, including 1 entities, in source file core/rtl/SVP/SVP.vhd
+    Info (12022): Found design unit 1: SVP-rtl File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/SVP/SVP.vhd Line: 36
+    Info (12023): Found entity 1: SVP File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/SVP/SVP.vhd Line: 9
+Info (12021): Found 1 design units, including 0 entities, in source file core/rtl/jt89/jt89.vhd
+    Info (12022): Found design unit 1: jt89 File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt89/jt89.vhd Line: 4
+Info (12021): Found 1 design units, including 1 entities, in source file core/rtl/jt89/jt89.v
+    Info (12023): Found entity 1: jt89 File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt89/jt89.v Line: 33
+Info (12021): Found 1 design units, including 1 entities, in source file core/rtl/jt89/jt89_noise.v
+    Info (12023): Found entity 1: jt89_noise File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt89/jt89_noise.v Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file core/rtl/jt89/jt89_vol.v
+    Info (12023): Found entity 1: jt89_vol File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt89/jt89_vol.v Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file core/rtl/jt89/jt89_mixer.v
+    Info (12023): Found entity 1: jt89_mixer File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt89/jt89_mixer.v Line: 22
+Info (12021): Found 1 design units, including 1 entities, in source file core/rtl/jt89/jt89_tone.v
+    Info (12023): Found entity 1: jt89_tone File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt89/jt89_tone.v Line: 25
+Info (12021): Found 1 design units, including 0 entities, in source file core/rtl/jt12/jt12.vhd
+    Info (12022): Found design unit 1: jt12 File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt12/jt12.vhd Line: 4
+Info (12021): Found 1 design units, including 1 entities, in source file core/rtl/jt12/jt12.v
+    Info (12023): Found entity 1: jt12 File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt12/jt12.v Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file core/rtl/jt12/jt12_top.v
+    Info (12023): Found entity 1: jt12_top File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt12/jt12_top.v Line: 27
+Info (12021): Found 1 design units, including 1 entities, in source file core/rtl/jt12/jt12_acc.v
+    Info (12023): Found entity 1: jt12_acc File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt12/jt12_acc.v Line: 36
+Info (12021): Found 1 design units, including 1 entities, in source file core/rtl/jt12/jt12_single_acc.v
+    Info (12023): Found entity 1: jt12_single_acc File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt12/jt12_single_acc.v Line: 27
+Info (12021): Found 1 design units, including 1 entities, in source file core/rtl/jt12/jt12_eg.v
+    Info (12023): Found entity 1: jt12_eg File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt12/jt12_eg.v Line: 22
+Info (12021): Found 1 design units, including 1 entities, in source file core/rtl/jt12/jt12_eg_cnt.v
+    Info (12023): Found entity 1: jt12_eg_cnt File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt12/jt12_eg_cnt.v Line: 22
+Info (12021): Found 1 design units, including 1 entities, in source file core/rtl/jt12/jt12_eg_comb.v
+    Info (12023): Found entity 1: jt12_eg_comb File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt12/jt12_eg_comb.v Line: 22
+Info (12021): Found 1 design units, including 1 entities, in source file core/rtl/jt12/jt12_eg_step.v
+    Info (12023): Found entity 1: jt12_eg_step File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt12/jt12_eg_step.v Line: 22
+Info (12021): Found 1 design units, including 1 entities, in source file core/rtl/jt12/jt12_eg_pure.v
+    Info (12023): Found entity 1: jt12_eg_pure File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt12/jt12_eg_pure.v Line: 22
+Info (12021): Found 1 design units, including 1 entities, in source file core/rtl/jt12/jt12_eg_final.v
+    Info (12023): Found entity 1: jt12_eg_final File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt12/jt12_eg_final.v Line: 22
+Info (12021): Found 1 design units, including 1 entities, in source file core/rtl/jt12/jt12_eg_ctrl.v
+    Info (12023): Found entity 1: jt12_eg_ctrl File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt12/jt12_eg_ctrl.v Line: 22
+Info (12021): Found 1 design units, including 1 entities, in source file core/rtl/jt12/jt12_exprom.v
+    Info (12023): Found entity 1: jt12_exprom File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt12/jt12_exprom.v Line: 29
+Info (12021): Found 1 design units, including 1 entities, in source file core/rtl/jt12/jt12_kon.v
+    Info (12023): Found entity 1: jt12_kon File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt12/jt12_kon.v Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file core/rtl/jt12/jt12_lfo.v
+    Info (12023): Found entity 1: jt12_lfo File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt12/jt12_lfo.v Line: 64
+Info (12021): Found 1 design units, including 1 entities, in source file core/rtl/jt12/jt12_div.v
+    Info (12023): Found entity 1: jt12_div File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt12/jt12_div.v Line: 22
+Info (12021): Found 1 design units, including 1 entities, in source file core/rtl/jt12/jt12_mod.v
+    Info (12023): Found entity 1: jt12_mod File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt12/jt12_mod.v Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file core/rtl/jt12/jt12_op.v
+    Info (12023): Found entity 1: jt12_op File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt12/jt12_op.v Line: 28
+Info (12021): Found 1 design units, including 1 entities, in source file core/rtl/jt12/jt12_csr.v
+    Info (12023): Found entity 1: jt12_csr File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt12/jt12_csr.v Line: 23
+Info (12021): Found 1 design units, including 1 entities, in source file core/rtl/jt12/jt12_pg.v
+    Info (12023): Found entity 1: jt12_pg File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt12/jt12_pg.v Line: 34
+Info (12021): Found 1 design units, including 1 entities, in source file core/rtl/jt12/jt12_pg_inc.v
+    Info (12023): Found entity 1: jt12_pg_inc File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt12/jt12_pg_inc.v Line: 27
+Info (12021): Found 1 design units, including 1 entities, in source file core/rtl/jt12/jt12_pg_dt.v
+    Info (12023): Found entity 1: jt12_pg_dt File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt12/jt12_pg_dt.v Line: 29
+Info (12021): Found 1 design units, including 1 entities, in source file core/rtl/jt12/jt12_pg_sum.v
+    Info (12023): Found entity 1: jt12_pg_sum File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt12/jt12_pg_sum.v Line: 27
+Info (12021): Found 1 design units, including 1 entities, in source file core/rtl/jt12/jt12_pg_comb.v
+    Info (12023): Found entity 1: jt12_pg_comb File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt12/jt12_pg_comb.v Line: 26
+Info (12021): Found 1 design units, including 1 entities, in source file core/rtl/jt12/jt12_pm.v
+    Info (12023): Found entity 1: jt12_pm File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt12/jt12_pm.v Line: 24
+Info (12021): Found 1 design units, including 1 entities, in source file core/rtl/jt12/jt12_logsin.v
+    Info (12023): Found entity 1: jt12_logsin File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt12/jt12_logsin.v Line: 27
+Info (12021): Found 1 design units, including 1 entities, in source file core/rtl/jt12/jt12_reg.v
+    Info (12023): Found entity 1: jt12_reg File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt12/jt12_reg.v Line: 23
+Info (12021): Found 1 design units, including 1 entities, in source file core/rtl/jt12/jt12_sh.v
+    Info (12023): Found entity 1: jt12_sh File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt12/jt12_sh.v Line: 23
+Info (12021): Found 1 design units, including 1 entities, in source file core/rtl/jt12/jt12_sh_rst.v
+    Info (12023): Found entity 1: jt12_sh_rst File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt12/jt12_sh_rst.v Line: 23
+Info (12021): Found 1 design units, including 1 entities, in source file core/rtl/jt12/jt12_sh24.v
+    Info (12023): Found entity 1: jt12_sh24 File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt12/jt12_sh24.v Line: 22
+Info (12021): Found 1 design units, including 1 entities, in source file core/rtl/jt12/jt12_sumch.v
+    Info (12023): Found entity 1: jt12_sumch File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt12/jt12_sumch.v Line: 25
+Info (12021): Found 2 design units, including 2 entities, in source file core/rtl/jt12/jt12_timers.v
+    Info (12023): Found entity 1: jt12_timers File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt12/jt12_timers.v Line: 26
+    Info (12023): Found entity 2: jt12_timer File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt12/jt12_timers.v Line: 88
+Info (12021): Found 1 design units, including 1 entities, in source file core/rtl/jt12/jt12_pcm_interpol.v
+    Info (12023): Found entity 1: jt12_pcm_interpol File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt12/jt12_pcm_interpol.v Line: 22
+Info (12021): Found 1 design units, including 1 entities, in source file core/rtl/jt12/jt12_mmr.v
+    Info (12023): Found entity 1: jt12_mmr File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt12/jt12_mmr.v Line: 22
+Info (12021): Found 1 design units, including 1 entities, in source file core/rtl/jt12/jt12_dout.v
+    Info (12023): Found entity 1: jt12_dout File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt12/jt12_dout.v Line: 22
+Info (12021): Found 1 design units, including 1 entities, in source file core/rtl/jt12/jt12_rst.v
+    Info (12023): Found entity 1: jt12_rst File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt12/jt12_rst.v Line: 22
+Info (12021): Found 1 design units, including 1 entities, in source file core/rtl/jt12/adpcm/jt10_adpcm_div.v
+    Info (12023): Found entity 1: jt10_adpcm_div File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt12/adpcm/jt10_adpcm_div.v Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file core/rtl/jt12/mixer/jt12_genmix.v
+    Info (12023): Found entity 1: jt12_genmix File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt12/mixer/jt12_genmix.v Line: 35
+Info (12021): Found 1 design units, including 1 entities, in source file core/rtl/jt12/mixer/jt12_decim.v
+    Info (12023): Found entity 1: jt12_decim File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt12/mixer/jt12_decim.v Line: 23
+Info (12021): Found 1 design units, including 1 entities, in source file core/rtl/jt12/mixer/jt12_interpol.v
+    Info (12023): Found entity 1: jt12_interpol File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt12/mixer/jt12_interpol.v Line: 23
+Info (12021): Found 1 design units, including 1 entities, in source file core/rtl/jt12/mixer/jt12_comb.v
+    Info (12023): Found entity 1: jt12_comb File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt12/mixer/jt12_comb.v Line: 23
+Info (12021): Found 1 design units, including 1 entities, in source file core/rtl/jt12/mixer/jt12_fm_uprate.v
+    Info (12023): Found entity 1: jt12_fm_uprate File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt12/mixer/jt12_fm_uprate.v Line: 32
+Info (12021): Found 14 design units, including 14 entities, in source file core/rtl/FX68K/fx68k.sv
+    Info (12023): Found entity 1: fx68k File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/FX68K/fx68k.sv Line: 132
+    Info (12023): Found entity 2: nDecoder3 File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/FX68K/fx68k.sv Line: 643
+    Info (12023): Found entity 3: irdDecode File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/FX68K/fx68k.sv Line: 923
+    Info (12023): Found entity 4: excUnit File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/FX68K/fx68k.sv Line: 1135
+    Info (12023): Found entity 5: dataIo File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/FX68K/fx68k.sv Line: 1689
+    Info (12023): Found entity 6: uaddrDecode File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/FX68K/fx68k.sv Line: 1787
+    Info (12023): Found entity 7: onehotEncoder4 File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/FX68K/fx68k.sv Line: 1872
+    Info (12023): Found entity 8: pren File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/FX68K/fx68k.sv Line: 1899
+    Info (12023): Found entity 9: sequencer File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/FX68K/fx68k.sv Line: 1923
+    Info (12023): Found entity 10: busArbiter File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/FX68K/fx68k.sv Line: 2164
+    Info (12023): Found entity 11: busControl File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/FX68K/fx68k.sv Line: 2248
+    Info (12023): Found entity 12: uRom File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/FX68K/fx68k.sv Line: 2454
+    Info (12023): Found entity 13: nanoRom File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/FX68K/fx68k.sv Line: 2465
+    Info (12023): Found entity 14: microToNanoAddr File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/FX68K/fx68k.sv Line: 2476
+Info (12021): Found 6 design units, including 6 entities, in source file core/rtl/FX68K/fx68kAlu.sv
+    Info (12023): Found entity 1: fx68kAlu File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/FX68K/fx68kAlu.sv Line: 35
+    Info (12023): Found entity 2: aluCorf File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/FX68K/fx68kAlu.sv Line: 462
+    Info (12023): Found entity 3: aluShifter File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/FX68K/fx68kAlu.sv Line: 497
+    Info (12023): Found entity 4: aluGetOp File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/FX68K/fx68kAlu.sv Line: 532
+    Info (12023): Found entity 5: rowDecoder File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/FX68K/fx68kAlu.sv Line: 629
+    Info (12023): Found entity 6: ccrTable File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/FX68K/fx68kAlu.sv Line: 763
+Info (12021): Found 1 design units, including 1 entities, in source file core/rtl/FX68K/uaddrPla.sv
+    Info (12023): Found entity 1: pla_lined File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/FX68K/uaddrPla.sv Line: 44
+Info (12021): Found 1 design units, including 0 entities, in source file core/rtl/vdp_common.vhd
+    Info (12022): Found design unit 1: vdp_common File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/vdp_common.vhd Line: 39
+Info (12021): Found 2 design units, including 1 entities, in source file core/rtl/vdp.vhd
+    Info (12022): Found design unit 1: vdp-rtl File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/vdp.vhd Line: 123
+    Info (12023): Found entity 1: vdp File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/vdp.vhd Line: 50
+Info (12021): Found 1 design units, including 1 entities, in source file core/rtl/teamplayer.sv
+    Info (12023): Found entity 1: teamplayer File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/teamplayer.sv Line: 35
+Info (12021): Found 1 design units, including 1 entities, in source file core/rtl/system.sv
+    Info (12023): Found entity 1: system File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/system.sv Line: 36
+Info (12021): Found 1 design units, including 1 entities, in source file core/rtl/sdram.sv
+    Info (12023): Found entity 1: sdram File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/sdram.sv Line: 21
+Info (12021): Found 1 design units, including 1 entities, in source file core/rtl/multitap.sv
+    Info (12023): Found entity 1: multitap File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/multitap.sv Line: 36
+Info (12021): Found 2 design units, including 1 entities, in source file core/rtl/mlab.vhd
+    Info (12022): Found design unit 1: mlab-SYN File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/mlab.vhd Line: 24
+    Info (12023): Found entity 1: mlab File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/mlab.vhd Line: 7
+Info (12021): Found 2 design units, including 2 entities, in source file core/rtl/miracle.sv
+    Info (12023): Found entity 1: miraclepiano File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/miracle.sv Line: 29
+    Info (12023): Found entity 2: midi_uart File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/miracle.sv Line: 202
+Info (12021): Found 1 design units, including 1 entities, in source file core/rtl/lightgun.sv
+    Info (12023): Found entity 1: lightgun File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/lightgun.sv Line: 2
+Info (12021): Found 2 design units, including 2 entities, in source file core/rtl/genesis_lpf.v
+    Info (12023): Found entity 1: genesis_lpf File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/genesis_lpf.v Line: 27
+    Info (12023): Found entity 2: genesis_fm_lpf File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/genesis_lpf.v Line: 84
+Info (12021): Found 3 design units, including 3 entities, in source file core/rtl/gen_io.sv
+    Info (12023): Found entity 1: gen_io File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/gen_io.sv Line: 37
+    Info (12023): Found entity 2: pad_io File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/gen_io.sv Line: 291
+    Info (12023): Found entity 3: gun_io File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/gen_io.sv Line: 373
+Info (12021): Found 1 design units, including 1 entities, in source file core/rtl/fourway.v
+    Info (12023): Found entity 1: fourway File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/fourway.v Line: 35
+Info (12021): Found 1 design units, including 1 entities, in source file core/rtl/EEPROM_STM95.sv
+    Info (12023): Found entity 1: STM95XXX File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/EEPROM_STM95.sv Line: 5
+Info (12021): Found 1 design units, including 1 entities, in source file core/rtl/cofi.sv
+    Info (12023): Found entity 1: cofi File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/cofi.sv Line: 3
+Info (12021): Found 1 design units, including 1 entities, in source file core/rtl/cheatcodes.sv
+    Info (12023): Found entity 1: CODES File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/cheatcodes.sv Line: 10
+Info (12021): Found 12 design units, including 6 entities, in source file core/rtl/bram.vhd
+    Info (12022): Found design unit 1: spram-SYN File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/bram.vhd Line: 31
+    Info (12022): Found design unit 2: spram_sz-SYN File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/bram.vhd Line: 69
+    Info (12022): Found design unit 3: DualPortRAM-SYN File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/bram.vhd Line: 133
+    Info (12022): Found design unit 4: obj_cache-SYN File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/bram.vhd Line: 163
+    Info (12022): Found design unit 5: dpram-SYN File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/bram.vhd Line: 229
+    Info (12022): Found design unit 6: dpram_dif-SYN File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/bram.vhd Line: 273
+    Info (12023): Found entity 1: spram File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/bram.vhd Line: 11
+    Info (12023): Found entity 2: spram_sz File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/bram.vhd Line: 49
+    Info (12023): Found entity 3: DualPortRAM File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/bram.vhd Line: 111
+    Info (12023): Found entity 4: obj_cache File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/bram.vhd Line: 149
+    Info (12023): Found entity 5: dpram File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/bram.vhd Line: 202
+    Info (12023): Found entity 6: dpram_dif File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/bram.vhd Line: 244
+Info (12021): Found 2 design units, including 2 entities, in source file core/rtl/audio_iir_filter.v
+    Info (12023): Found entity 1: iir_1st_order File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/audio_iir_filter.v Line: 23
+    Info (12023): Found entity 2: iir_2nd_order File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/audio_iir_filter.v Line: 95
+Info (12021): Found 1 design units, including 1 entities, in source file apf/apf_top.v
+    Info (12023): Found entity 1: apf_top File: /work/build/openfpga_genesis_analysis_work/src/fpga/apf/apf_top.v Line: 44
+Info (12021): Found 4 design units, including 4 entities, in source file apf/common.v
+    Info (12023): Found entity 1: synch_2 File: /work/build/openfpga_genesis_analysis_work/src/fpga/apf/common.v Line: 39
+    Info (12023): Found entity 2: synch_3 File: /work/build/openfpga_genesis_analysis_work/src/fpga/apf/common.v Line: 62
+    Info (12023): Found entity 3: bram_block_dp File: /work/build/openfpga_genesis_analysis_work/src/fpga/apf/common.v Line: 82
+    Info (12023): Found entity 4: bram_block_dp_nonstd File: /work/build/openfpga_genesis_analysis_work/src/fpga/apf/common.v Line: 120
+Info (12021): Found 1 design units, including 1 entities, in source file apf/io_bridge_peripheral.v
+    Info (12023): Found entity 1: io_bridge_peripheral File: /work/build/openfpga_genesis_analysis_work/src/fpga/apf/io_bridge_peripheral.v Line: 52
+Info (12021): Found 1 design units, including 1 entities, in source file apf/io_pad_controller.v
+    Info (12023): Found entity 1: io_pad_controller File: /work/build/openfpga_genesis_analysis_work/src/fpga/apf/io_pad_controller.v Line: 41
+Info (12021): Found 1 design units, including 1 entities, in source file apf/mf_datatable.v
+    Info (12023): Found entity 1: mf_datatable File: /work/build/openfpga_genesis_analysis_work/src/fpga/apf/mf_datatable.v Line: 40
+Info (12021): Found 1 design units, including 1 entities, in source file apf/mf_ddio_bidir_12.v
+    Info (12023): Found entity 1: mf_ddio_bidir_12 File: /work/build/openfpga_genesis_analysis_work/src/fpga/apf/mf_ddio_bidir_12.v Line: 40
+Info (12021): Found 1 design units, including 1 entities, in source file core/core_bridge_cmd.v
+    Info (12023): Found entity 1: core_bridge_cmd File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/core_bridge_cmd.v Line: 18
+Info (12021): Found 1 design units, including 1 entities, in source file core/mf_pllbase.v
+    Info (12023): Found entity 1: mf_pllbase File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/mf_pllbase.v Line: 8
+Info (12021): Found 1 design units, including 1 entities, in source file core/mf_pllbase/mf_pllbase_0002.v
+    Info (12023): Found entity 1: mf_pllbase_0002 File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/mf_pllbase/mf_pllbase_0002.v Line: 2
+Info (12127): Elaborating entity "apf_top" for the top level hierarchy
+Info (12128): Elaborating entity "mf_ddio_bidir_12" for hierarchy "mf_ddio_bidir_12:isco" File: /work/build/openfpga_genesis_analysis_work/src/fpga/apf/apf_top.v Line: 253
+Info (12128): Elaborating entity "altddio_bidir" for hierarchy "mf_ddio_bidir_12:isco|altddio_bidir:ALTDDIO_BIDIR_component" File: /work/build/openfpga_genesis_analysis_work/src/fpga/apf/mf_ddio_bidir_12.v Line: 81
+Info (12130): Elaborated megafunction instantiation "mf_ddio_bidir_12:isco|altddio_bidir:ALTDDIO_BIDIR_component" File: /work/build/openfpga_genesis_analysis_work/src/fpga/apf/mf_ddio_bidir_12.v Line: 81
+Info (12133): Instantiated megafunction "mf_ddio_bidir_12:isco|altddio_bidir:ALTDDIO_BIDIR_component" with the following parameter: File: /work/build/openfpga_genesis_analysis_work/src/fpga/apf/mf_ddio_bidir_12.v Line: 81
+    Info (12134): Parameter "extend_oe_disable" = "OFF"
+    Info (12134): Parameter "implement_input_in_lcell" = "OFF"
+    Info (12134): Parameter "intended_device_family" = "Cyclone V"
+    Info (12134): Parameter "invert_output" = "OFF"
+    Info (12134): Parameter "lpm_hint" = "UNUSED"
+    Info (12134): Parameter "lpm_type" = "altddio_bidir"
+    Info (12134): Parameter "oe_reg" = "UNREGISTERED"
+    Info (12134): Parameter "power_up_high" = "OFF"
+    Info (12134): Parameter "width" = "12"
+Info (12021): Found 1 design units, including 1 entities, in source file db/ddio_bidir_euo.tdf
+    Info (12023): Found entity 1: ddio_bidir_euo File: /work/build/openfpga_genesis_analysis_work/src/fpga/db/ddio_bidir_euo.tdf Line: 33
+Info (12128): Elaborating entity "ddio_bidir_euo" for hierarchy "mf_ddio_bidir_12:isco|altddio_bidir:ALTDDIO_BIDIR_component|ddio_bidir_euo:auto_generated" File: /opt/intelFPGA_lite/quartus/libraries/megafunctions/altddio_bidir.tdf Line: 116
+Info (12128): Elaborating entity "io_pad_controller" for hierarchy "io_pad_controller:ipm" File: /work/build/openfpga_genesis_analysis_work/src/fpga/apf/apf_top.v Line: 314
+Info (12128): Elaborating entity "synch_3" for hierarchy "io_pad_controller:ipm|synch_3:s00" File: /work/build/openfpga_genesis_analysis_work/src/fpga/apf/io_pad_controller.v Line: 65
+Info (12128): Elaborating entity "io_bridge_peripheral" for hierarchy "io_bridge_peripheral:ibs" File: /work/build/openfpga_genesis_analysis_work/src/fpga/apf/apf_top.v Line: 343
+Info (12128): Elaborating entity "core_top" for hierarchy "core_top:ic" File: /work/build/openfpga_genesis_analysis_work/src/fpga/apf/apf_top.v Line: 472
+Warning (10036): Verilog HDL or VHDL warning at core_top.sv(454): object "cs_m30_map_enable" assigned a value but never read File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/core_top.sv Line: 454
+Warning (10762): Verilog HDL Case Statement warning at core_top.sv(303): can't check case statement for completeness because the case expression has too many possible states File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/core_top.sv Line: 303
+Warning (10230): Verilog HDL assignment warning at core_top.sv(460): truncated value with size 32 to match size of target (12) File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/core_top.sv Line: 460
+Warning (10230): Verilog HDL assignment warning at core_top.sv(462): truncated value with size 32 to match size of target (16) File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/core_top.sv Line: 462
+Warning (10762): Verilog HDL Case Statement warning at core_top.sv(466): can't check case statement for completeness because the case expression has too many possible states File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/core_top.sv Line: 466
+Warning (10230): Verilog HDL assignment warning at core_top.sv(525): truncated value with size 32 to match size of target (10) File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/core_top.sv Line: 525
+Warning (10230): Verilog HDL assignment warning at core_top.sv(536): truncated value with size 32 to match size of target (3) File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/core_top.sv Line: 536
+Warning (10030): Net "rom_data2" at core_top.sv(870) has no driver or initial value, using a default initial value '0' File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/core_top.sv Line: 870
+Warning (10030): Net "rom_rdack2" at core_top.sv(872) has no driver or initial value, using a default initial value '0' File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/core_top.sv Line: 872
+Info (12128): Elaborating entity "core_bridge_cmd" for hierarchy "core_top:ic|core_bridge_cmd:icb" File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/core_top.sv Line: 427
+Warning (10036): Verilog HDL or VHDL warning at core_bridge_cmd.v(109): object "host_24" assigned a value but never read File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/core_bridge_cmd.v Line: 109
+Warning (10036): Verilog HDL or VHDL warning at core_bridge_cmd.v(110): object "host_28" assigned a value but never read File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/core_bridge_cmd.v Line: 110
+Warning (10036): Verilog HDL or VHDL warning at core_bridge_cmd.v(111): object "host_2C" assigned a value but never read File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/core_bridge_cmd.v Line: 111
+Warning (10858): Verilog HDL warning at core_bridge_cmd.v(116): object host_4C used but never assigned File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/core_bridge_cmd.v Line: 116
+Warning (10858): Verilog HDL warning at core_bridge_cmd.v(137): object target_20 used but never assigned File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/core_bridge_cmd.v Line: 137
+Warning (10858): Verilog HDL warning at core_bridge_cmd.v(138): object target_24 used but never assigned File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/core_bridge_cmd.v Line: 138
+Warning (10858): Verilog HDL warning at core_bridge_cmd.v(139): object target_28 used but never assigned File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/core_bridge_cmd.v Line: 139
+Warning (10858): Verilog HDL warning at core_bridge_cmd.v(140): object target_2C used but never assigned File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/core_bridge_cmd.v Line: 140
+Warning (10036): Verilog HDL or VHDL warning at core_bridge_cmd.v(142): object "target_40" assigned a value but never read File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/core_bridge_cmd.v Line: 142
+Warning (10036): Verilog HDL or VHDL warning at core_bridge_cmd.v(143): object "target_44" assigned a value but never read File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/core_bridge_cmd.v Line: 143
+Warning (10036): Verilog HDL or VHDL warning at core_bridge_cmd.v(144): object "target_48" assigned a value but never read File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/core_bridge_cmd.v Line: 144
+Warning (10036): Verilog HDL or VHDL warning at core_bridge_cmd.v(145): object "target_4C" assigned a value but never read File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/core_bridge_cmd.v Line: 145
+Warning (10230): Verilog HDL assignment warning at core_bridge_cmd.v(182): truncated value with size 32 to match size of target (10) File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/core_bridge_cmd.v Line: 182
+Warning (10762): Verilog HDL Case Statement warning at core_bridge_cmd.v(185): can't check case statement for completeness because the case expression has too many possible states File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/core_bridge_cmd.v Line: 185
+Warning (10762): Verilog HDL Case Statement warning at core_bridge_cmd.v(220): can't check case statement for completeness because the case expression has too many possible states File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/core_bridge_cmd.v Line: 220
+Warning (10030): Net "host_4C" at core_bridge_cmd.v(116) has no driver or initial value, using a default initial value '0' File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/core_bridge_cmd.v Line: 116
+Warning (10030): Net "target_20" at core_bridge_cmd.v(137) has no driver or initial value, using a default initial value '0' File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/core_bridge_cmd.v Line: 137
+Warning (10030): Net "target_24" at core_bridge_cmd.v(138) has no driver or initial value, using a default initial value '0' File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/core_bridge_cmd.v Line: 138
+Warning (10030): Net "target_28" at core_bridge_cmd.v(139) has no driver or initial value, using a default initial value '0' File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/core_bridge_cmd.v Line: 139
+Warning (10030): Net "target_2C" at core_bridge_cmd.v(140) has no driver or initial value, using a default initial value '0' File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/core_bridge_cmd.v Line: 140
+Info (12128): Elaborating entity "mf_datatable" for hierarchy "core_top:ic|core_bridge_cmd:icb|mf_datatable:idt" File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/core_bridge_cmd.v Line: 442
+Info (12128): Elaborating entity "altsyncram" for hierarchy "core_top:ic|core_bridge_cmd:icb|mf_datatable:idt|altsyncram:altsyncram_component" File: /work/build/openfpga_genesis_analysis_work/src/fpga/apf/mf_datatable.v Line: 100
+Info (12130): Elaborated megafunction instantiation "core_top:ic|core_bridge_cmd:icb|mf_datatable:idt|altsyncram:altsyncram_component" File: /work/build/openfpga_genesis_analysis_work/src/fpga/apf/mf_datatable.v Line: 100
+Info (12133): Instantiated megafunction "core_top:ic|core_bridge_cmd:icb|mf_datatable:idt|altsyncram:altsyncram_component" with the following parameter: File: /work/build/openfpga_genesis_analysis_work/src/fpga/apf/mf_datatable.v Line: 100
+    Info (12134): Parameter "address_reg_b" = "CLOCK1"
+    Info (12134): Parameter "clock_enable_input_a" = "BYPASS"
+    Info (12134): Parameter "clock_enable_input_b" = "BYPASS"
+    Info (12134): Parameter "clock_enable_output_a" = "BYPASS"
+    Info (12134): Parameter "clock_enable_output_b" = "BYPASS"
+    Info (12134): Parameter "indata_reg_b" = "CLOCK1"
+    Info (12134): Parameter "init_file" = "./apf/build_id.mif"
+    Info (12134): Parameter "intended_device_family" = "Cyclone V"
+    Info (12134): Parameter "lpm_type" = "altsyncram"
+    Info (12134): Parameter "numwords_a" = "256"
+    Info (12134): Parameter "numwords_b" = "256"
+    Info (12134): Parameter "operation_mode" = "BIDIR_DUAL_PORT"
+    Info (12134): Parameter "outdata_aclr_a" = "NONE"
+    Info (12134): Parameter "outdata_aclr_b" = "NONE"
+    Info (12134): Parameter "outdata_reg_a" = "CLOCK0"
+    Info (12134): Parameter "outdata_reg_b" = "CLOCK1"
+    Info (12134): Parameter "power_up_uninitialized" = "FALSE"
+    Info (12134): Parameter "read_during_write_mode_port_a" = "NEW_DATA_NO_NBE_READ"
+    Info (12134): Parameter "read_during_write_mode_port_b" = "NEW_DATA_NO_NBE_READ"
+    Info (12134): Parameter "widthad_a" = "8"
+    Info (12134): Parameter "widthad_b" = "8"
+    Info (12134): Parameter "width_a" = "32"
+    Info (12134): Parameter "width_b" = "32"
+    Info (12134): Parameter "width_byteena_a" = "1"
+    Info (12134): Parameter "width_byteena_b" = "1"
+    Info (12134): Parameter "wrcontrol_wraddress_reg_b" = "CLOCK1"
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_ltk2.tdf
+    Info (12023): Found entity 1: altsyncram_ltk2 File: /work/build/openfpga_genesis_analysis_work/src/fpga/db/altsyncram_ltk2.tdf Line: 28
+Info (12128): Elaborating entity "altsyncram_ltk2" for hierarchy "core_top:ic|core_bridge_cmd:icb|mf_datatable:idt|altsyncram:altsyncram_component|altsyncram_ltk2:auto_generated" File: /opt/intelFPGA_lite/quartus/libraries/megafunctions/altsyncram.tdf Line: 792
+Warning (113028): 253 out of 256 addresses are uninitialized. The Quartus Prime software will initialize them to "0". There are 2 warnings found, and 2 warnings are reported. File: /work/build/openfpga_genesis_analysis_work/src/fpga/apf/build_id.mif Line: 1
+    Warning (113027): Addresses ranging from 0 to 223 are not initialized File: /work/build/openfpga_genesis_analysis_work/src/fpga/apf/build_id.mif Line: 1
+    Warning (113027): Addresses ranging from 227 to 255 are not initialized File: /work/build/openfpga_genesis_analysis_work/src/fpga/apf/build_id.mif Line: 1
+Info (12128): Elaborating entity "data_unloader" for hierarchy "core_top:ic|data_unloader:save_data_unloader" File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/core_top.sv Line: 557
+Warning (10230): Verilog HDL assignment warning at data_unloader.sv(151): truncated value with size 32 to match size of target (28) File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/data_unloader.sv Line: 151
+Warning (10230): Verilog HDL assignment warning at data_unloader.sv(153): truncated value with size 32 to match size of target (3) File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/data_unloader.sv Line: 153
+Info (10264): Verilog HDL Case Statement information at data_unloader.sv(142): all case item expressions in this case statement are onehot File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/data_unloader.sv Line: 142
+Warning (10230): Verilog HDL assignment warning at data_unloader.sv(178): truncated value with size 32 to match size of target (3) File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/data_unloader.sv Line: 178
+Warning (10230): Verilog HDL assignment warning at data_unloader.sv(181): truncated value with size 32 to match size of target (3) File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/data_unloader.sv Line: 181
+Warning (10230): Verilog HDL assignment warning at data_unloader.sv(206): truncated value with size 32 to match size of target (3) File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/data_unloader.sv Line: 206
+Warning (10230): Verilog HDL assignment warning at data_unloader.sv(208): truncated value with size 32 to match size of target (3) File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/data_unloader.sv Line: 208
+Info (10264): Verilog HDL Case Statement information at data_unloader.sv(187): all case item expressions in this case statement are onehot File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/data_unloader.sv Line: 187
+Warning (10230): Verilog HDL assignment warning at data_unloader.sv(225): truncated value with size 32 to match size of target (6) File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/data_unloader.sv Line: 225
+Warning (10230): Verilog HDL assignment warning at data_unloader.sv(228): truncated value with size 32 to match size of target (6) File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/data_unloader.sv Line: 228
+Info (12128): Elaborating entity "dcfifo" for hierarchy "core_top:ic|data_unloader:save_data_unloader|dcfifo:fifo_address_req" File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/data_unloader.sv Line: 79
+Info (12130): Elaborated megafunction instantiation "core_top:ic|data_unloader:save_data_unloader|dcfifo:fifo_address_req" File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/data_unloader.sv Line: 79
+Info (12133): Instantiated megafunction "core_top:ic|data_unloader:save_data_unloader|dcfifo:fifo_address_req" with the following parameter: File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/data_unloader.sv Line: 79
+    Info (12134): Parameter "clocks_are_synchronized" = "FALSE"
+    Info (12134): Parameter "intended_device_family" = "Cyclone V"
+    Info (12134): Parameter "lpm_numwords" = "4"
+    Info (12134): Parameter "lpm_showahead" = "OFF"
+    Info (12134): Parameter "lpm_type" = "dcfifo"
+    Info (12134): Parameter "lpm_width" = "28"
+    Info (12134): Parameter "lpm_widthu" = "2"
+    Info (12134): Parameter "overflow_checking" = "OFF"
+    Info (12134): Parameter "rdsync_delaypipe" = "5"
+    Info (12134): Parameter "underflow_checking" = "OFF"
+    Info (12134): Parameter "use_eab" = "OFF"
+    Info (12134): Parameter "wrsync_delaypipe" = "5"
+Info (12021): Found 1 design units, including 1 entities, in source file db/dcfifo_46o1.tdf
+    Info (12023): Found entity 1: dcfifo_46o1 File: /work/build/openfpga_genesis_analysis_work/src/fpga/db/dcfifo_46o1.tdf Line: 39
+Info (12128): Elaborating entity "dcfifo_46o1" for hierarchy "core_top:ic|data_unloader:save_data_unloader|dcfifo:fifo_address_req|dcfifo_46o1:auto_generated" File: /opt/intelFPGA_lite/quartus/libraries/megafunctions/dcfifo.tdf Line: 191
+Info (12021): Found 1 design units, including 1 entities, in source file db/a_graycounter_7g6.tdf
+    Info (12023): Found entity 1: a_graycounter_7g6 File: /work/build/openfpga_genesis_analysis_work/src/fpga/db/a_graycounter_7g6.tdf Line: 25
+Info (12128): Elaborating entity "a_graycounter_7g6" for hierarchy "core_top:ic|data_unloader:save_data_unloader|dcfifo:fifo_address_req|dcfifo_46o1:auto_generated|a_graycounter_7g6:rdptr_g1p" File: /work/build/openfpga_genesis_analysis_work/src/fpga/db/dcfifo_46o1.tdf Line: 50
+Info (12021): Found 1 design units, including 1 entities, in source file db/a_graycounter_3ub.tdf
+    Info (12023): Found entity 1: a_graycounter_3ub File: /work/build/openfpga_genesis_analysis_work/src/fpga/db/a_graycounter_3ub.tdf Line: 25
+Info (12128): Elaborating entity "a_graycounter_3ub" for hierarchy "core_top:ic|data_unloader:save_data_unloader|dcfifo:fifo_address_req|dcfifo_46o1:auto_generated|a_graycounter_3ub:wrptr_g1p" File: /work/build/openfpga_genesis_analysis_work/src/fpga/db/dcfifo_46o1.tdf Line: 51
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_s0i1.tdf
+    Info (12023): Found entity 1: altsyncram_s0i1 File: /work/build/openfpga_genesis_analysis_work/src/fpga/db/altsyncram_s0i1.tdf Line: 29
+Info (12128): Elaborating entity "altsyncram_s0i1" for hierarchy "core_top:ic|data_unloader:save_data_unloader|dcfifo:fifo_address_req|dcfifo_46o1:auto_generated|altsyncram_s0i1:fifo_ram" File: /work/build/openfpga_genesis_analysis_work/src/fpga/db/dcfifo_46o1.tdf Line: 52
+Info (12021): Found 1 design units, including 1 entities, in source file db/decode_v07.tdf
+    Info (12023): Found entity 1: decode_v07 File: /work/build/openfpga_genesis_analysis_work/src/fpga/db/decode_v07.tdf Line: 23
+Info (12128): Elaborating entity "decode_v07" for hierarchy "core_top:ic|data_unloader:save_data_unloader|dcfifo:fifo_address_req|dcfifo_46o1:auto_generated|altsyncram_s0i1:fifo_ram|decode_v07:address_decoder" File: /work/build/openfpga_genesis_analysis_work/src/fpga/db/altsyncram_s0i1.tdf Line: 49
+Info (12021): Found 1 design units, including 1 entities, in source file db/mux_1t7.tdf
+    Info (12023): Found entity 1: mux_1t7 File: /work/build/openfpga_genesis_analysis_work/src/fpga/db/mux_1t7.tdf Line: 23
+Info (12128): Elaborating entity "mux_1t7" for hierarchy "core_top:ic|data_unloader:save_data_unloader|dcfifo:fifo_address_req|dcfifo_46o1:auto_generated|altsyncram_s0i1:fifo_ram|mux_1t7:output_mux" File: /work/build/openfpga_genesis_analysis_work/src/fpga/db/altsyncram_s0i1.tdf Line: 50
+Info (12021): Found 1 design units, including 1 entities, in source file db/alt_synch_pipe_b9l.tdf
+    Info (12023): Found entity 1: alt_synch_pipe_b9l File: /work/build/openfpga_genesis_analysis_work/src/fpga/db/alt_synch_pipe_b9l.tdf Line: 27
+Info (12128): Elaborating entity "alt_synch_pipe_b9l" for hierarchy "core_top:ic|data_unloader:save_data_unloader|dcfifo:fifo_address_req|dcfifo_46o1:auto_generated|alt_synch_pipe_b9l:rs_dgwp" File: /work/build/openfpga_genesis_analysis_work/src/fpga/db/dcfifo_46o1.tdf Line: 71
+Info (12021): Found 1 design units, including 1 entities, in source file db/dffpipe_su8.tdf
+    Info (12023): Found entity 1: dffpipe_su8 File: /work/build/openfpga_genesis_analysis_work/src/fpga/db/dffpipe_su8.tdf Line: 25
+Info (12128): Elaborating entity "dffpipe_su8" for hierarchy "core_top:ic|data_unloader:save_data_unloader|dcfifo:fifo_address_req|dcfifo_46o1:auto_generated|alt_synch_pipe_b9l:rs_dgwp|dffpipe_su8:dffpipe7" File: /work/build/openfpga_genesis_analysis_work/src/fpga/db/alt_synch_pipe_b9l.tdf Line: 34
+Info (12021): Found 1 design units, including 1 entities, in source file db/cmpr_qu5.tdf
+    Info (12023): Found entity 1: cmpr_qu5 File: /work/build/openfpga_genesis_analysis_work/src/fpga/db/cmpr_qu5.tdf Line: 23
+Info (12128): Elaborating entity "cmpr_qu5" for hierarchy "core_top:ic|data_unloader:save_data_unloader|dcfifo:fifo_address_req|dcfifo_46o1:auto_generated|cmpr_qu5:rdempty_eq_comp1_lsb" File: /work/build/openfpga_genesis_analysis_work/src/fpga/db/dcfifo_46o1.tdf Line: 73
+Info (12021): Found 1 design units, including 1 entities, in source file db/cmpr_pu5.tdf
+    Info (12023): Found entity 1: cmpr_pu5 File: /work/build/openfpga_genesis_analysis_work/src/fpga/db/cmpr_pu5.tdf Line: 23
+Info (12128): Elaborating entity "cmpr_pu5" for hierarchy "core_top:ic|data_unloader:save_data_unloader|dcfifo:fifo_address_req|dcfifo_46o1:auto_generated|cmpr_pu5:rdempty_eq_comp1_msb" File: /work/build/openfpga_genesis_analysis_work/src/fpga/db/dcfifo_46o1.tdf Line: 74
+Info (12021): Found 1 design units, including 1 entities, in source file db/mux_5r7.tdf
+    Info (12023): Found entity 1: mux_5r7 File: /work/build/openfpga_genesis_analysis_work/src/fpga/db/mux_5r7.tdf Line: 23
+Info (12128): Elaborating entity "mux_5r7" for hierarchy "core_top:ic|data_unloader:save_data_unloader|dcfifo:fifo_address_req|dcfifo_46o1:auto_generated|mux_5r7:rdemp_eq_comp_lsb_mux" File: /work/build/openfpga_genesis_analysis_work/src/fpga/db/dcfifo_46o1.tdf Line: 81
+Info (12128): Elaborating entity "dcfifo" for hierarchy "core_top:ic|data_unloader:save_data_unloader|dcfifo:fifo_data_response" File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/data_unloader.sv Line: 111
+Info (12130): Elaborated megafunction instantiation "core_top:ic|data_unloader:save_data_unloader|dcfifo:fifo_data_response" File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/data_unloader.sv Line: 111
+Info (12133): Instantiated megafunction "core_top:ic|data_unloader:save_data_unloader|dcfifo:fifo_data_response" with the following parameter: File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/data_unloader.sv Line: 111
+    Info (12134): Parameter "clocks_are_synchronized" = "FALSE"
+    Info (12134): Parameter "intended_device_family" = "Cyclone V"
+    Info (12134): Parameter "lpm_numwords" = "4"
+    Info (12134): Parameter "lpm_showahead" = "OFF"
+    Info (12134): Parameter "lpm_type" = "dcfifo"
+    Info (12134): Parameter "lpm_width" = "16"
+    Info (12134): Parameter "lpm_widthu" = "2"
+    Info (12134): Parameter "overflow_checking" = "OFF"
+    Info (12134): Parameter "rdsync_delaypipe" = "5"
+    Info (12134): Parameter "underflow_checking" = "OFF"
+    Info (12134): Parameter "use_eab" = "OFF"
+    Info (12134): Parameter "wrsync_delaypipe" = "5"
+Info (12021): Found 1 design units, including 1 entities, in source file db/dcfifo_u5o1.tdf
+    Info (12023): Found entity 1: dcfifo_u5o1 File: /work/build/openfpga_genesis_analysis_work/src/fpga/db/dcfifo_u5o1.tdf Line: 41
+Info (12128): Elaborating entity "dcfifo_u5o1" for hierarchy "core_top:ic|data_unloader:save_data_unloader|dcfifo:fifo_data_response|dcfifo_u5o1:auto_generated" File: /opt/intelFPGA_lite/quartus/libraries/megafunctions/dcfifo.tdf Line: 191
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_m0i1.tdf
+    Info (12023): Found entity 1: altsyncram_m0i1 File: /work/build/openfpga_genesis_analysis_work/src/fpga/db/altsyncram_m0i1.tdf Line: 29
+Info (12128): Elaborating entity "altsyncram_m0i1" for hierarchy "core_top:ic|data_unloader:save_data_unloader|dcfifo:fifo_data_response|dcfifo_u5o1:auto_generated|altsyncram_m0i1:fifo_ram" File: /work/build/openfpga_genesis_analysis_work/src/fpga/db/dcfifo_u5o1.tdf Line: 54
+Info (12021): Found 1 design units, including 1 entities, in source file db/mux_us7.tdf
+    Info (12023): Found entity 1: mux_us7 File: /work/build/openfpga_genesis_analysis_work/src/fpga/db/mux_us7.tdf Line: 23
+Info (12128): Elaborating entity "mux_us7" for hierarchy "core_top:ic|data_unloader:save_data_unloader|dcfifo:fifo_data_response|dcfifo_u5o1:auto_generated|altsyncram_m0i1:fifo_ram|mux_us7:output_mux" File: /work/build/openfpga_genesis_analysis_work/src/fpga/db/altsyncram_m0i1.tdf Line: 50
+Info (12021): Found 1 design units, including 1 entities, in source file db/alt_synch_pipe_c9l.tdf
+    Info (12023): Found entity 1: alt_synch_pipe_c9l File: /work/build/openfpga_genesis_analysis_work/src/fpga/db/alt_synch_pipe_c9l.tdf Line: 27
+Info (12128): Elaborating entity "alt_synch_pipe_c9l" for hierarchy "core_top:ic|data_unloader:save_data_unloader|dcfifo:fifo_data_response|dcfifo_u5o1:auto_generated|alt_synch_pipe_c9l:rs_dgwp" File: /work/build/openfpga_genesis_analysis_work/src/fpga/db/dcfifo_u5o1.tdf Line: 73
+Info (12021): Found 1 design units, including 1 entities, in source file db/dffpipe_tu8.tdf
+    Info (12023): Found entity 1: dffpipe_tu8 File: /work/build/openfpga_genesis_analysis_work/src/fpga/db/dffpipe_tu8.tdf Line: 25
+Info (12128): Elaborating entity "dffpipe_tu8" for hierarchy "core_top:ic|data_unloader:save_data_unloader|dcfifo:fifo_data_response|dcfifo_u5o1:auto_generated|alt_synch_pipe_c9l:rs_dgwp|dffpipe_tu8:dffpipe3" File: /work/build/openfpga_genesis_analysis_work/src/fpga/db/alt_synch_pipe_c9l.tdf Line: 34
+Info (12128): Elaborating entity "data_loader" for hierarchy "core_top:ic|data_loader:save_data_loader" File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/core_top.sv Line: 576
+Warning (10230): Verilog HDL assignment warning at data_loader.sv(140): truncated value with size 32 to match size of target (28) File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/data_loader.sv Line: 140
+Warning (10230): Verilog HDL assignment warning at data_loader.sv(142): truncated value with size 32 to match size of target (3) File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/data_loader.sv Line: 142
+Info (10264): Verilog HDL Case Statement information at data_loader.sv(129): all case item expressions in this case statement are onehot File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/data_loader.sv Line: 129
+Warning (10230): Verilog HDL assignment warning at data_loader.sv(169): truncated value with size 32 to match size of target (6) File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/data_loader.sv Line: 169
+Warning (10230): Verilog HDL assignment warning at data_loader.sv(172): truncated value with size 32 to match size of target (6) File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/data_loader.sv Line: 172
+Warning (10230): Verilog HDL assignment warning at data_loader.sv(186): truncated value with size 28 to match size of target (17) File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/data_loader.sv Line: 186
+Info (12128): Elaborating entity "dcfifo" for hierarchy "core_top:ic|data_loader:save_data_loader|dcfifo:dcfifo_component" File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/data_loader.sv Line: 94
+Info (12130): Elaborated megafunction instantiation "core_top:ic|data_loader:save_data_loader|dcfifo:dcfifo_component" File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/data_loader.sv Line: 94
+Info (12133): Instantiated megafunction "core_top:ic|data_loader:save_data_loader|dcfifo:dcfifo_component" with the following parameter: File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/data_loader.sv Line: 94
+    Info (12134): Parameter "clocks_are_synchronized" = "FALSE"
+    Info (12134): Parameter "intended_device_family" = "Cyclone V"
+    Info (12134): Parameter "lpm_numwords" = "4"
+    Info (12134): Parameter "lpm_showahead" = "OFF"
+    Info (12134): Parameter "lpm_type" = "dcfifo"
+    Info (12134): Parameter "lpm_width" = "44"
+    Info (12134): Parameter "lpm_widthu" = "2"
+    Info (12134): Parameter "overflow_checking" = "OFF"
+    Info (12134): Parameter "rdsync_delaypipe" = "5"
+    Info (12134): Parameter "underflow_checking" = "OFF"
+    Info (12134): Parameter "use_eab" = "OFF"
+    Info (12134): Parameter "wrsync_delaypipe" = "5"
+Info (12021): Found 1 design units, including 1 entities, in source file db/dcfifo_06o1.tdf
+    Info (12023): Found entity 1: dcfifo_06o1 File: /work/build/openfpga_genesis_analysis_work/src/fpga/db/dcfifo_06o1.tdf Line: 41
+Info (12128): Elaborating entity "dcfifo_06o1" for hierarchy "core_top:ic|data_loader:save_data_loader|dcfifo:dcfifo_component|dcfifo_06o1:auto_generated" File: /opt/intelFPGA_lite/quartus/libraries/megafunctions/dcfifo.tdf Line: 191
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_o0i1.tdf
+    Info (12023): Found entity 1: altsyncram_o0i1 File: /work/build/openfpga_genesis_analysis_work/src/fpga/db/altsyncram_o0i1.tdf Line: 29
+Info (12128): Elaborating entity "altsyncram_o0i1" for hierarchy "core_top:ic|data_loader:save_data_loader|dcfifo:dcfifo_component|dcfifo_06o1:auto_generated|altsyncram_o0i1:fifo_ram" File: /work/build/openfpga_genesis_analysis_work/src/fpga/db/dcfifo_06o1.tdf Line: 54
+Info (12021): Found 1 design units, including 1 entities, in source file db/mux_vs7.tdf
+    Info (12023): Found entity 1: mux_vs7 File: /work/build/openfpga_genesis_analysis_work/src/fpga/db/mux_vs7.tdf Line: 23
+Info (12128): Elaborating entity "mux_vs7" for hierarchy "core_top:ic|data_loader:save_data_loader|dcfifo:dcfifo_component|dcfifo_06o1:auto_generated|altsyncram_o0i1:fifo_ram|mux_vs7:output_mux" File: /work/build/openfpga_genesis_analysis_work/src/fpga/db/altsyncram_o0i1.tdf Line: 50
+Info (12021): Found 1 design units, including 1 entities, in source file db/alt_synch_pipe_d9l.tdf
+    Info (12023): Found entity 1: alt_synch_pipe_d9l File: /work/build/openfpga_genesis_analysis_work/src/fpga/db/alt_synch_pipe_d9l.tdf Line: 27
+Info (12128): Elaborating entity "alt_synch_pipe_d9l" for hierarchy "core_top:ic|data_loader:save_data_loader|dcfifo:dcfifo_component|dcfifo_06o1:auto_generated|alt_synch_pipe_d9l:rs_dgwp" File: /work/build/openfpga_genesis_analysis_work/src/fpga/db/dcfifo_06o1.tdf Line: 73
+Info (12021): Found 1 design units, including 1 entities, in source file db/dffpipe_uu8.tdf
+    Info (12023): Found entity 1: dffpipe_uu8 File: /work/build/openfpga_genesis_analysis_work/src/fpga/db/dffpipe_uu8.tdf Line: 25
+Info (12128): Elaborating entity "dffpipe_uu8" for hierarchy "core_top:ic|data_loader:save_data_loader|dcfifo:dcfifo_component|dcfifo_06o1:auto_generated|alt_synch_pipe_d9l:rs_dgwp|dffpipe_uu8:dffpipe3" File: /work/build/openfpga_genesis_analysis_work/src/fpga/db/alt_synch_pipe_d9l.tdf Line: 34
+Info (12128): Elaborating entity "data_loader" for hierarchy "core_top:ic|data_loader:rom_loader" File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/core_top.sv Line: 670
+Warning (10230): Verilog HDL assignment warning at data_loader.sv(140): truncated value with size 32 to match size of target (28) File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/data_loader.sv Line: 140
+Warning (10230): Verilog HDL assignment warning at data_loader.sv(142): truncated value with size 32 to match size of target (3) File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/data_loader.sv Line: 142
+Info (10264): Verilog HDL Case Statement information at data_loader.sv(129): all case item expressions in this case statement are onehot File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/data_loader.sv Line: 129
+Warning (10230): Verilog HDL assignment warning at data_loader.sv(169): truncated value with size 32 to match size of target (6) File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/data_loader.sv Line: 169
+Warning (10230): Verilog HDL assignment warning at data_loader.sv(172): truncated value with size 32 to match size of target (6) File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/data_loader.sv Line: 172
+Warning (10230): Verilog HDL assignment warning at data_loader.sv(186): truncated value with size 28 to match size of target (25) File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/data_loader.sv Line: 186
+Info (12128): Elaborating entity "sound_i2s" for hierarchy "core_top:ic|sound_i2s:sound_i2s" File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/core_top.sv Line: 691
+Warning (10230): Verilog HDL assignment warning at sound_i2s.sv(49): truncated value with size 32 to match size of target (21) File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/sound_i2s.sv Line: 49
+Info (12128): Elaborating entity "sync_fifo" for hierarchy "core_top:ic|sound_i2s:sound_i2s|sync_fifo:sync_fifo" File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/sound_i2s.sv Line: 111
+Info (10264): Verilog HDL Case Statement information at sync_fifo.sv(79): all case item expressions in this case statement are onehot File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/sync_fifo.sv Line: 79
+Info (12128): Elaborating entity "dcfifo" for hierarchy "core_top:ic|sound_i2s:sound_i2s|sync_fifo:sync_fifo|dcfifo:dcfifo_component" File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/sync_fifo.sv Line: 58
+Info (12130): Elaborated megafunction instantiation "core_top:ic|sound_i2s:sound_i2s|sync_fifo:sync_fifo|dcfifo:dcfifo_component" File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/sync_fifo.sv Line: 58
+Info (12133): Instantiated megafunction "core_top:ic|sound_i2s:sound_i2s|sync_fifo:sync_fifo|dcfifo:dcfifo_component" with the following parameter: File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/sync_fifo.sv Line: 58
+    Info (12134): Parameter "intended_device_family" = "Cyclone V"
+    Info (12134): Parameter "lpm_numwords" = "4"
+    Info (12134): Parameter "lpm_showahead" = "OFF"
+    Info (12134): Parameter "lpm_type" = "dcfifo"
+    Info (12134): Parameter "lpm_width" = "32"
+    Info (12134): Parameter "lpm_widthu" = "2"
+    Info (12134): Parameter "overflow_checking" = "ON"
+    Info (12134): Parameter "rdsync_delaypipe" = "5"
+    Info (12134): Parameter "underflow_checking" = "ON"
+    Info (12134): Parameter "use_eab" = "ON"
+    Info (12134): Parameter "wrsync_delaypipe" = "5"
+Info (12021): Found 1 design units, including 1 entities, in source file db/dcfifo_vqk1.tdf
+    Info (12023): Found entity 1: dcfifo_vqk1 File: /work/build/openfpga_genesis_analysis_work/src/fpga/db/dcfifo_vqk1.tdf Line: 41
+Info (12128): Elaborating entity "dcfifo_vqk1" for hierarchy "core_top:ic|sound_i2s:sound_i2s|sync_fifo:sync_fifo|dcfifo:dcfifo_component|dcfifo_vqk1:auto_generated" File: /opt/intelFPGA_lite/quartus/libraries/megafunctions/dcfifo.tdf Line: 191
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_2ia1.tdf
+    Info (12023): Found entity 1: altsyncram_2ia1 File: /work/build/openfpga_genesis_analysis_work/src/fpga/db/altsyncram_2ia1.tdf Line: 28
+Info (12128): Elaborating entity "altsyncram_2ia1" for hierarchy "core_top:ic|sound_i2s:sound_i2s|sync_fifo:sync_fifo|dcfifo:dcfifo_component|dcfifo_vqk1:auto_generated|altsyncram_2ia1:fifo_ram" File: /work/build/openfpga_genesis_analysis_work/src/fpga/db/dcfifo_vqk1.tdf Line: 54
+Info (12021): Found 1 design units, including 1 entities, in source file db/alt_synch_pipe_e9l.tdf
+    Info (12023): Found entity 1: alt_synch_pipe_e9l File: /work/build/openfpga_genesis_analysis_work/src/fpga/db/alt_synch_pipe_e9l.tdf Line: 27
+Info (12128): Elaborating entity "alt_synch_pipe_e9l" for hierarchy "core_top:ic|sound_i2s:sound_i2s|sync_fifo:sync_fifo|dcfifo:dcfifo_component|dcfifo_vqk1:auto_generated|alt_synch_pipe_e9l:rs_dgwp" File: /work/build/openfpga_genesis_analysis_work/src/fpga/db/dcfifo_vqk1.tdf Line: 73
+Info (12021): Found 1 design units, including 1 entities, in source file db/dffpipe_vu8.tdf
+    Info (12023): Found entity 1: dffpipe_vu8 File: /work/build/openfpga_genesis_analysis_work/src/fpga/db/dffpipe_vu8.tdf Line: 25
+Info (12128): Elaborating entity "dffpipe_vu8" for hierarchy "core_top:ic|sound_i2s:sound_i2s|sync_fifo:sync_fifo|dcfifo:dcfifo_component|dcfifo_vqk1:auto_generated|alt_synch_pipe_e9l:rs_dgwp|dffpipe_vu8:dffpipe6" File: /work/build/openfpga_genesis_analysis_work/src/fpga/db/alt_synch_pipe_e9l.tdf Line: 34
+Info (12021): Found 1 design units, including 1 entities, in source file db/alt_synch_pipe_f9l.tdf
+    Info (12023): Found entity 1: alt_synch_pipe_f9l File: /work/build/openfpga_genesis_analysis_work/src/fpga/db/alt_synch_pipe_f9l.tdf Line: 27
+Info (12128): Elaborating entity "alt_synch_pipe_f9l" for hierarchy "core_top:ic|sound_i2s:sound_i2s|sync_fifo:sync_fifo|dcfifo:dcfifo_component|dcfifo_vqk1:auto_generated|alt_synch_pipe_f9l:ws_dgrp" File: /work/build/openfpga_genesis_analysis_work/src/fpga/db/dcfifo_vqk1.tdf Line: 74
+Info (12021): Found 1 design units, including 1 entities, in source file db/dffpipe_0v8.tdf
+    Info (12023): Found entity 1: dffpipe_0v8 File: /work/build/openfpga_genesis_analysis_work/src/fpga/db/dffpipe_0v8.tdf Line: 25
+Info (12128): Elaborating entity "dffpipe_0v8" for hierarchy "core_top:ic|sound_i2s:sound_i2s|sync_fifo:sync_fifo|dcfifo:dcfifo_component|dcfifo_vqk1:auto_generated|alt_synch_pipe_f9l:ws_dgrp|dffpipe_0v8:dffpipe9" File: /work/build/openfpga_genesis_analysis_work/src/fpga/db/alt_synch_pipe_f9l.tdf Line: 34
+Info (12128): Elaborating entity "synch_3" for hierarchy "core_top:ic|synch_3:sv2" File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/core_top.sv Line: 748
+Warning (10230): Verilog HDL assignment warning at common.v(74): truncated value with size 2 to match size of target (1) File: /work/build/openfpga_genesis_analysis_work/src/fpga/apf/common.v Line: 74
+Warning (10230): Verilog HDL assignment warning at common.v(75): truncated value with size 2 to match size of target (1) File: /work/build/openfpga_genesis_analysis_work/src/fpga/apf/common.v Line: 75
+Info (12128): Elaborating entity "cofi" for hierarchy "core_top:ic|cofi:coffee" File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/core_top.sv Line: 821
+Info (12128): Elaborating entity "sdram" for hierarchy "core_top:ic|sdram:sdram" File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/core_top.sv Line: 867
+Warning (10259): Verilog HDL error at sdram.sv(82): constant value overflow File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/sdram.sv Line: 82
+Info (10264): Verilog HDL Case Statement information at sdram.sv(203): all case item expressions in this case statement are onehot File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/sdram.sv Line: 203
+Info (12128): Elaborating entity "altddio_out" for hierarchy "core_top:ic|sdram:sdram|altddio_out:sdramclk_ddr" File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/sdram.sv Line: 236
+Info (12130): Elaborated megafunction instantiation "core_top:ic|sdram:sdram|altddio_out:sdramclk_ddr" File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/sdram.sv Line: 236
+Info (12133): Instantiated megafunction "core_top:ic|sdram:sdram|altddio_out:sdramclk_ddr" with the following parameter: File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/sdram.sv Line: 236
+    Info (12134): Parameter "extend_oe_disable" = "OFF"
+    Info (12134): Parameter "intended_device_family" = "Cyclone V"
+    Info (12134): Parameter "invert_output" = "OFF"
+    Info (12134): Parameter "lpm_hint" = "UNUSED"
+    Info (12134): Parameter "lpm_type" = "altddio_out"
+    Info (12134): Parameter "oe_reg" = "UNREGISTERED"
+    Info (12134): Parameter "power_up_high" = "OFF"
+    Info (12134): Parameter "width" = "1"
+Info (12021): Found 1 design units, including 1 entities, in source file db/ddio_out_b2j.tdf
+    Info (12023): Found entity 1: ddio_out_b2j File: /work/build/openfpga_genesis_analysis_work/src/fpga/db/ddio_out_b2j.tdf Line: 28
+Info (12128): Elaborating entity "ddio_out_b2j" for hierarchy "core_top:ic|sdram:sdram|altddio_out:sdramclk_ddr|ddio_out_b2j:auto_generated" File: /opt/intelFPGA_lite/quartus/libraries/megafunctions/altddio_out.tdf Line: 101
+Info (12128): Elaborating entity "synch_3" for hierarchy "core_top:ic|synch_3:cont1_s" File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/core_top.sv Line: 983
+Warning (10230): Verilog HDL assignment warning at common.v(74): truncated value with size 32 to match size of target (1) File: /work/build/openfpga_genesis_analysis_work/src/fpga/apf/common.v Line: 74
+Warning (10230): Verilog HDL assignment warning at common.v(75): truncated value with size 32 to match size of target (1) File: /work/build/openfpga_genesis_analysis_work/src/fpga/apf/common.v Line: 75
+Info (12128): Elaborating entity "lightgun" for hierarchy "core_top:ic|lightgun:lightgun" File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/core_top.sv Line: 1122
+Warning (10036): Verilog HDL or VHDL warning at lightgun.sv(45): object "new_x" assigned a value but never read File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/lightgun.sv Line: 45
+Warning (10036): Verilog HDL or VHDL warning at lightgun.sv(46): object "new_y" assigned a value but never read File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/lightgun.sv Line: 46
+Info (12128): Elaborating entity "system" for hierarchy "core_top:ic|system:system" File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/core_top.sv Line: 1231
+Info (10264): Verilog HDL Case Statement information at system.sv(1071): all case item expressions in this case statement are onehot File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/system.sv Line: 1071
+Info (12128): Elaborating entity "fx68k" for hierarchy "core_top:ic|system:system|fx68k:M68K" File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/system.sv Line: 291
+Info (12128): Elaborating entity "microToNanoAddr" for hierarchy "core_top:ic|system:system|fx68k:M68K|microToNanoAddr:microToNanoAddr" File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/FX68K/fx68k.sv Line: 243
+Info (12128): Elaborating entity "nanoRom" for hierarchy "core_top:ic|system:system|fx68k:M68K|nanoRom:nanoRom" File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/FX68K/fx68k.sv Line: 247
+Info (12128): Elaborating entity "uRom" for hierarchy "core_top:ic|system:system|fx68k:M68K|uRom:uRom" File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/FX68K/fx68k.sv Line: 248
+Info (12128): Elaborating entity "uaddrDecode" for hierarchy "core_top:ic|system:system|fx68k:M68K|uaddrDecode:uaddrDecode" File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/FX68K/fx68k.sv Line: 342
+Info (10264): Verilog HDL Case Statement information at fx68k.sv(1842): all case item expressions in this case statement are onehot File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/FX68K/fx68k.sv Line: 1842
+Info (12128): Elaborating entity "onehotEncoder4" for hierarchy "core_top:ic|system:system|fx68k:M68K|uaddrDecode:uaddrDecode|onehotEncoder4:irLineDecod" File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/FX68K/fx68k.sv Line: 1796
+Info (12128): Elaborating entity "pla_lined" for hierarchy "core_top:ic|system:system|fx68k:M68K|uaddrDecode:uaddrDecode|pla_lined:pla_lined" File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/FX68K/fx68k.sv Line: 1803
+Info (12128): Elaborating entity "sequencer" for hierarchy "core_top:ic|system:system|fx68k:M68K|sequencer:sequencer" File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/FX68K/fx68k.sv Line: 348
+Info (12128): Elaborating entity "excUnit" for hierarchy "core_top:ic|system:system|fx68k:M68K|excUnit:excUnit" File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/FX68K/fx68k.sv Line: 353
+Info (12128): Elaborating entity "pren" for hierarchy "core_top:ic|system:system|fx68k:M68K|excUnit:excUnit|pren:rmPren" File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/FX68K/fx68k.sv Line: 1607
+Info (12128): Elaborating entity "dataIo" for hierarchy "core_top:ic|system:system|fx68k:M68K|excUnit:excUnit|dataIo:dataIo" File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/FX68K/fx68k.sv Line: 1666
+Info (12128): Elaborating entity "fx68kAlu" for hierarchy "core_top:ic|system:system|fx68k:M68K|excUnit:excUnit|fx68kAlu:alu" File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/FX68K/fx68k.sv Line: 1676
+Info (12128): Elaborating entity "rowDecoder" for hierarchy "core_top:ic|system:system|fx68k:M68K|excUnit:excUnit|fx68kAlu:alu|rowDecoder:rowDecoder" File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/FX68K/fx68kAlu.sv Line: 103
+Info (12128): Elaborating entity "aluGetOp" for hierarchy "core_top:ic|system:system|fx68k:M68K|excUnit:excUnit|fx68kAlu:alu|aluGetOp:aluGetOp" File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/FX68K/fx68kAlu.sv Line: 110
+Info (12128): Elaborating entity "ccrTable" for hierarchy "core_top:ic|system:system|fx68k:M68K|excUnit:excUnit|fx68kAlu:alu|ccrTable:ccrTable" File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/FX68K/fx68kAlu.sv Line: 111
+Info (10264): Verilog HDL Case Statement information at fx68kAlu.sv(814): all case item expressions in this case statement are onehot File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/FX68K/fx68kAlu.sv Line: 814
+Info (12128): Elaborating entity "aluShifter" for hierarchy "core_top:ic|system:system|fx68k:M68K|excUnit:excUnit|fx68kAlu:alu|aluShifter:shifter" File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/FX68K/fx68kAlu.sv Line: 171
+Info (12128): Elaborating entity "aluCorf" for hierarchy "core_top:ic|system:system|fx68k:M68K|excUnit:excUnit|fx68kAlu:alu|aluCorf:aluCorf" File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/FX68K/fx68kAlu.sv Line: 177
+Info (12128): Elaborating entity "nDecoder3" for hierarchy "core_top:ic|system:system|fx68k:M68K|nDecoder3:nDecoder" File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/FX68K/fx68k.sv Line: 355
+Info (12128): Elaborating entity "irdDecode" for hierarchy "core_top:ic|system:system|fx68k:M68K|irdDecode:irdDecode" File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/FX68K/fx68k.sv Line: 357
+Info (12128): Elaborating entity "busControl" for hierarchy "core_top:ic|system:system|fx68k:M68K|busControl:busControl" File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/FX68K/fx68k.sv Line: 363
+Info (12128): Elaborating entity "busArbiter" for hierarchy "core_top:ic|system:system|fx68k:M68K|busArbiter:busArbiter" File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/FX68K/fx68k.sv Line: 365
+Info (10264): Verilog HDL Case Statement information at fx68k.sv(2218): all case item expressions in this case statement are onehot File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/FX68K/fx68k.sv Line: 2218
+Info (12128): Elaborating entity "CODES" for hierarchy "core_top:ic|system:system|CODES:codes" File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/system.sv Line: 312
+Info (12128): Elaborating entity "dpram" for hierarchy "core_top:ic|system:system|dpram:vram_l1" File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/system.sv Line: 357
+Info (12128): Elaborating entity "dpram_dif" for hierarchy "core_top:ic|system:system|dpram:vram_l1|dpram_dif:ram" File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/bram.vhd Line: 231
+Info (12128): Elaborating entity "altsyncram" for hierarchy "core_top:ic|system:system|dpram:vram_l1|dpram_dif:ram|altsyncram:altsyncram_component" File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/bram.vhd Line: 282
+Info (12130): Elaborated megafunction instantiation "core_top:ic|system:system|dpram:vram_l1|dpram_dif:ram|altsyncram:altsyncram_component" File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/bram.vhd Line: 282
+Info (12133): Instantiated megafunction "core_top:ic|system:system|dpram:vram_l1|dpram_dif:ram|altsyncram:altsyncram_component" with the following parameter: File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/bram.vhd Line: 282
+    Info (12134): Parameter "address_aclr_a" = "UNUSED"
+    Info (12134): Parameter "address_aclr_b" = "NONE"
+    Info (12134): Parameter "address_reg_b" = "CLOCK1"
+    Info (12134): Parameter "byte_size" = "8"
+    Info (12134): Parameter "byteena_aclr_a" = "UNUSED"
+    Info (12134): Parameter "byteena_aclr_b" = "NONE"
+    Info (12134): Parameter "byteena_reg_b" = "CLOCK1"
+    Info (12134): Parameter "clock_enable_core_a" = "USE_INPUT_CLKEN"
+    Info (12134): Parameter "clock_enable_core_b" = "USE_INPUT_CLKEN"
+    Info (12134): Parameter "clock_enable_input_a" = "NORMAL"
+    Info (12134): Parameter "clock_enable_input_b" = "NORMAL"
+    Info (12134): Parameter "clock_enable_output_a" = "BYPASS"
+    Info (12134): Parameter "clock_enable_output_b" = "BYPASS"
+    Info (12134): Parameter "intended_device_family" = "Cyclone V"
+    Info (12134): Parameter "ecc_pipeline_stage_enabled" = "FALSE"
+    Info (12134): Parameter "enable_ecc" = "FALSE"
+    Info (12134): Parameter "implement_in_les" = "OFF"
+    Info (12134): Parameter "indata_aclr_a" = "UNUSED"
+    Info (12134): Parameter "indata_aclr_b" = "NONE"
+    Info (12134): Parameter "indata_reg_b" = "CLOCK1"
+    Info (12134): Parameter "init_file" = " "
+    Info (12134): Parameter "init_file_layout" = "PORT_A"
+    Info (12134): Parameter "maximum_depth" = "0"
+    Info (12134): Parameter "numwords_a" = "16384"
+    Info (12134): Parameter "numwords_b" = "16384"
+    Info (12134): Parameter "operation_mode" = "BIDIR_DUAL_PORT"
+    Info (12134): Parameter "outdata_aclr_a" = "NONE"
+    Info (12134): Parameter "outdata_aclr_b" = "NONE"
+    Info (12134): Parameter "outdata_reg_a" = "UNREGISTERED"
+    Info (12134): Parameter "outdata_reg_b" = "UNREGISTERED"
+    Info (12134): Parameter "power_up_uninitialized" = "FALSE"
+    Info (12134): Parameter "ram_block_type" = "AUTO"
+    Info (12134): Parameter "rdcontrol_aclr_b" = "NONE"
+    Info (12134): Parameter "rdcontrol_reg_b" = "CLOCK1"
+    Info (12134): Parameter "read_during_write_mode_mixed_ports" = "DONT_CARE"
+    Info (12134): Parameter "read_during_write_mode_port_a" = "NEW_DATA_NO_NBE_READ"
+    Info (12134): Parameter "read_during_write_mode_port_b" = "NEW_DATA_NO_NBE_READ"
+    Info (12134): Parameter "stratixiv_m144k_allow_dual_clocks" = "ON"
+    Info (12134): Parameter "width_a" = "8"
+    Info (12134): Parameter "width_b" = "8"
+    Info (12134): Parameter "width_byteena_a" = "1"
+    Info (12134): Parameter "width_byteena_b" = "1"
+    Info (12134): Parameter "width_eccstatus" = "3"
+    Info (12134): Parameter "widthad_a" = "14"
+    Info (12134): Parameter "widthad_b" = "14"
+    Info (12134): Parameter "wrcontrol_aclr_a" = "UNUSED"
+    Info (12134): Parameter "wrcontrol_aclr_b" = "NONE"
+    Info (12134): Parameter "wrcontrol_wraddress_reg_b" = "CLOCK1"
+    Info (12134): Parameter "lpm_hint" = "UNUSED"
+    Info (12134): Parameter "lpm_type" = "altsyncram"
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_af34.tdf
+    Info (12023): Found entity 1: altsyncram_af34 File: /work/build/openfpga_genesis_analysis_work/src/fpga/db/altsyncram_af34.tdf Line: 32
+Info (12128): Elaborating entity "altsyncram_af34" for hierarchy "core_top:ic|system:system|dpram:vram_l1|dpram_dif:ram|altsyncram:altsyncram_component|altsyncram_af34:auto_generated" File: /opt/intelFPGA_lite/quartus/libraries/megafunctions/altsyncram.tdf Line: 792
+Info (12021): Found 1 design units, including 1 entities, in source file db/decode_5la.tdf
+    Info (12023): Found entity 1: decode_5la File: /work/build/openfpga_genesis_analysis_work/src/fpga/db/decode_5la.tdf Line: 23
+Info (12128): Elaborating entity "decode_5la" for hierarchy "core_top:ic|system:system|dpram:vram_l1|dpram_dif:ram|altsyncram:altsyncram_component|altsyncram_af34:auto_generated|decode_5la:decode2" File: /work/build/openfpga_genesis_analysis_work/src/fpga/db/altsyncram_af34.tdf Line: 50
+Info (12021): Found 1 design units, including 1 entities, in source file db/mux_lfb.tdf
+    Info (12023): Found entity 1: mux_lfb File: /work/build/openfpga_genesis_analysis_work/src/fpga/db/mux_lfb.tdf Line: 23
+Info (12128): Elaborating entity "mux_lfb" for hierarchy "core_top:ic|system:system|dpram:vram_l1|dpram_dif:ram|altsyncram:altsyncram_component|altsyncram_af34:auto_generated|mux_lfb:mux4" File: /work/build/openfpga_genesis_analysis_work/src/fpga/db/altsyncram_af34.tdf Line: 52
+Info (12128): Elaborating entity "vdp" for hierarchy "core_top:ic|system:system|vdp:vdp" File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/system.sv Line: 480
+Info (10041): Inferred latch for "OBJ_MAX_LINE[0]" at vdp.vhd(1699) File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/vdp.vhd Line: 1699
+Info (10041): Inferred latch for "OBJ_MAX_LINE[1]" at vdp.vhd(1699) File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/vdp.vhd Line: 1699
+Info (10041): Inferred latch for "OBJ_MAX_LINE[2]" at vdp.vhd(1699) File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/vdp.vhd Line: 1699
+Info (10041): Inferred latch for "OBJ_MAX_LINE[3]" at vdp.vhd(1699) File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/vdp.vhd Line: 1699
+Info (10041): Inferred latch for "OBJ_MAX_LINE[4]" at vdp.vhd(1699) File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/vdp.vhd Line: 1699
+Info (10041): Inferred latch for "OBJ_MAX_LINE[5]" at vdp.vhd(1699) File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/vdp.vhd Line: 1699
+Info (12128): Elaborating entity "DualPortRAM" for hierarchy "core_top:ic|system:system|vdp:vdp|DualPortRAM:bgb_ci" File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/vdp.vhd Line: 701
+Info (12128): Elaborating entity "dpram_dif" for hierarchy "core_top:ic|system:system|vdp:vdp|DualPortRAM:bgb_ci|dpram_dif:ram" File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/bram.vhd Line: 135
+Info (12128): Elaborating entity "altsyncram" for hierarchy "core_top:ic|system:system|vdp:vdp|DualPortRAM:bgb_ci|dpram_dif:ram|altsyncram:altsyncram_component" File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/bram.vhd Line: 282
+Info (12130): Elaborated megafunction instantiation "core_top:ic|system:system|vdp:vdp|DualPortRAM:bgb_ci|dpram_dif:ram|altsyncram:altsyncram_component" File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/bram.vhd Line: 282
+Info (12133): Instantiated megafunction "core_top:ic|system:system|vdp:vdp|DualPortRAM:bgb_ci|dpram_dif:ram|altsyncram:altsyncram_component" with the following parameter: File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/bram.vhd Line: 282
+    Info (12134): Parameter "address_aclr_a" = "UNUSED"
+    Info (12134): Parameter "address_aclr_b" = "NONE"
+    Info (12134): Parameter "address_reg_b" = "CLOCK1"
+    Info (12134): Parameter "byte_size" = "8"
+    Info (12134): Parameter "byteena_aclr_a" = "UNUSED"
+    Info (12134): Parameter "byteena_aclr_b" = "NONE"
+    Info (12134): Parameter "byteena_reg_b" = "CLOCK1"
+    Info (12134): Parameter "clock_enable_core_a" = "USE_INPUT_CLKEN"
+    Info (12134): Parameter "clock_enable_core_b" = "USE_INPUT_CLKEN"
+    Info (12134): Parameter "clock_enable_input_a" = "NORMAL"
+    Info (12134): Parameter "clock_enable_input_b" = "NORMAL"
+    Info (12134): Parameter "clock_enable_output_a" = "BYPASS"
+    Info (12134): Parameter "clock_enable_output_b" = "BYPASS"
+    Info (12134): Parameter "intended_device_family" = "Cyclone V"
+    Info (12134): Parameter "ecc_pipeline_stage_enabled" = "FALSE"
+    Info (12134): Parameter "enable_ecc" = "FALSE"
+    Info (12134): Parameter "implement_in_les" = "OFF"
+    Info (12134): Parameter "indata_aclr_a" = "UNUSED"
+    Info (12134): Parameter "indata_aclr_b" = "NONE"
+    Info (12134): Parameter "indata_reg_b" = "CLOCK1"
+    Info (12134): Parameter "init_file" = " "
+    Info (12134): Parameter "init_file_layout" = "PORT_A"
+    Info (12134): Parameter "maximum_depth" = "0"
+    Info (12134): Parameter "numwords_a" = "512"
+    Info (12134): Parameter "numwords_b" = "512"
+    Info (12134): Parameter "operation_mode" = "BIDIR_DUAL_PORT"
+    Info (12134): Parameter "outdata_aclr_a" = "NONE"
+    Info (12134): Parameter "outdata_aclr_b" = "NONE"
+    Info (12134): Parameter "outdata_reg_a" = "UNREGISTERED"
+    Info (12134): Parameter "outdata_reg_b" = "UNREGISTERED"
+    Info (12134): Parameter "power_up_uninitialized" = "FALSE"
+    Info (12134): Parameter "ram_block_type" = "AUTO"
+    Info (12134): Parameter "rdcontrol_aclr_b" = "NONE"
+    Info (12134): Parameter "rdcontrol_reg_b" = "CLOCK1"
+    Info (12134): Parameter "read_during_write_mode_mixed_ports" = "DONT_CARE"
+    Info (12134): Parameter "read_during_write_mode_port_a" = "NEW_DATA_NO_NBE_READ"
+    Info (12134): Parameter "read_during_write_mode_port_b" = "NEW_DATA_NO_NBE_READ"
+    Info (12134): Parameter "stratixiv_m144k_allow_dual_clocks" = "ON"
+    Info (12134): Parameter "width_a" = "8"
+    Info (12134): Parameter "width_b" = "8"
+    Info (12134): Parameter "width_byteena_a" = "1"
+    Info (12134): Parameter "width_byteena_b" = "1"
+    Info (12134): Parameter "width_eccstatus" = "3"
+    Info (12134): Parameter "widthad_a" = "9"
+    Info (12134): Parameter "widthad_b" = "9"
+    Info (12134): Parameter "wrcontrol_aclr_a" = "UNUSED"
+    Info (12134): Parameter "wrcontrol_aclr_b" = "NONE"
+    Info (12134): Parameter "wrcontrol_wraddress_reg_b" = "CLOCK1"
+    Info (12134): Parameter "lpm_hint" = "UNUSED"
+    Info (12134): Parameter "lpm_type" = "altsyncram"
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_m534.tdf
+    Info (12023): Found entity 1: altsyncram_m534 File: /work/build/openfpga_genesis_analysis_work/src/fpga/db/altsyncram_m534.tdf Line: 28
+Info (12128): Elaborating entity "altsyncram_m534" for hierarchy "core_top:ic|system:system|vdp:vdp|DualPortRAM:bgb_ci|dpram_dif:ram|altsyncram:altsyncram_component|altsyncram_m534:auto_generated" File: /opt/intelFPGA_lite/quartus/libraries/megafunctions/altsyncram.tdf Line: 792
+Info (12128): Elaborating entity "DualPortRAM" for hierarchy "core_top:ic|system:system|vdp:vdp|DualPortRAM:obj_ci" File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/vdp.vhd Line: 737
+Info (12128): Elaborating entity "dpram_dif" for hierarchy "core_top:ic|system:system|vdp:vdp|DualPortRAM:obj_ci|dpram_dif:ram" File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/bram.vhd Line: 135
+Info (12128): Elaborating entity "altsyncram" for hierarchy "core_top:ic|system:system|vdp:vdp|DualPortRAM:obj_ci|dpram_dif:ram|altsyncram:altsyncram_component" File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/bram.vhd Line: 282
+Info (12130): Elaborated megafunction instantiation "core_top:ic|system:system|vdp:vdp|DualPortRAM:obj_ci|dpram_dif:ram|altsyncram:altsyncram_component" File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/bram.vhd Line: 282
+Info (12133): Instantiated megafunction "core_top:ic|system:system|vdp:vdp|DualPortRAM:obj_ci|dpram_dif:ram|altsyncram:altsyncram_component" with the following parameter: File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/bram.vhd Line: 282
+    Info (12134): Parameter "address_aclr_a" = "UNUSED"
+    Info (12134): Parameter "address_aclr_b" = "NONE"
+    Info (12134): Parameter "address_reg_b" = "CLOCK1"
+    Info (12134): Parameter "byte_size" = "8"
+    Info (12134): Parameter "byteena_aclr_a" = "UNUSED"
+    Info (12134): Parameter "byteena_aclr_b" = "NONE"
+    Info (12134): Parameter "byteena_reg_b" = "CLOCK1"
+    Info (12134): Parameter "clock_enable_core_a" = "USE_INPUT_CLKEN"
+    Info (12134): Parameter "clock_enable_core_b" = "USE_INPUT_CLKEN"
+    Info (12134): Parameter "clock_enable_input_a" = "NORMAL"
+    Info (12134): Parameter "clock_enable_input_b" = "NORMAL"
+    Info (12134): Parameter "clock_enable_output_a" = "BYPASS"
+    Info (12134): Parameter "clock_enable_output_b" = "BYPASS"
+    Info (12134): Parameter "intended_device_family" = "Cyclone V"
+    Info (12134): Parameter "ecc_pipeline_stage_enabled" = "FALSE"
+    Info (12134): Parameter "enable_ecc" = "FALSE"
+    Info (12134): Parameter "implement_in_les" = "OFF"
+    Info (12134): Parameter "indata_aclr_a" = "UNUSED"
+    Info (12134): Parameter "indata_aclr_b" = "NONE"
+    Info (12134): Parameter "indata_reg_b" = "CLOCK1"
+    Info (12134): Parameter "init_file" = " "
+    Info (12134): Parameter "init_file_layout" = "PORT_A"
+    Info (12134): Parameter "maximum_depth" = "0"
+    Info (12134): Parameter "numwords_a" = "512"
+    Info (12134): Parameter "numwords_b" = "512"
+    Info (12134): Parameter "operation_mode" = "BIDIR_DUAL_PORT"
+    Info (12134): Parameter "outdata_aclr_a" = "NONE"
+    Info (12134): Parameter "outdata_aclr_b" = "NONE"
+    Info (12134): Parameter "outdata_reg_a" = "UNREGISTERED"
+    Info (12134): Parameter "outdata_reg_b" = "UNREGISTERED"
+    Info (12134): Parameter "power_up_uninitialized" = "FALSE"
+    Info (12134): Parameter "ram_block_type" = "AUTO"
+    Info (12134): Parameter "rdcontrol_aclr_b" = "NONE"
+    Info (12134): Parameter "rdcontrol_reg_b" = "CLOCK1"
+    Info (12134): Parameter "read_during_write_mode_mixed_ports" = "DONT_CARE"
+    Info (12134): Parameter "read_during_write_mode_port_a" = "NEW_DATA_NO_NBE_READ"
+    Info (12134): Parameter "read_during_write_mode_port_b" = "NEW_DATA_NO_NBE_READ"
+    Info (12134): Parameter "stratixiv_m144k_allow_dual_clocks" = "ON"
+    Info (12134): Parameter "width_a" = "7"
+    Info (12134): Parameter "width_b" = "7"
+    Info (12134): Parameter "width_byteena_a" = "1"
+    Info (12134): Parameter "width_byteena_b" = "1"
+    Info (12134): Parameter "width_eccstatus" = "3"
+    Info (12134): Parameter "widthad_a" = "9"
+    Info (12134): Parameter "widthad_b" = "9"
+    Info (12134): Parameter "wrcontrol_aclr_a" = "UNUSED"
+    Info (12134): Parameter "wrcontrol_aclr_b" = "NONE"
+    Info (12134): Parameter "wrcontrol_wraddress_reg_b" = "CLOCK1"
+    Info (12134): Parameter "lpm_hint" = "UNUSED"
+    Info (12134): Parameter "lpm_type" = "altsyncram"
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_k534.tdf
+    Info (12023): Found entity 1: altsyncram_k534 File: /work/build/openfpga_genesis_analysis_work/src/fpga/db/altsyncram_k534.tdf Line: 28
+Info (12128): Elaborating entity "altsyncram_k534" for hierarchy "core_top:ic|system:system|vdp:vdp|DualPortRAM:obj_ci|dpram_dif:ram|altsyncram:altsyncram_component|altsyncram_k534:auto_generated" File: /opt/intelFPGA_lite/quartus/libraries/megafunctions/altsyncram.tdf Line: 792
+Info (12128): Elaborating entity "obj_cache" for hierarchy "core_top:ic|system:system|vdp:vdp|obj_cache:obj_cache" File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/vdp.vhd Line: 777
+Info (12128): Elaborating entity "dpram_dif" for hierarchy "core_top:ic|system:system|vdp:vdp|obj_cache:obj_cache|dpram_dif:ram0" File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/bram.vhd Line: 166
+Info (12128): Elaborating entity "altsyncram" for hierarchy "core_top:ic|system:system|vdp:vdp|obj_cache:obj_cache|dpram_dif:ram0|altsyncram:altsyncram_component" File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/bram.vhd Line: 282
+Info (12130): Elaborated megafunction instantiation "core_top:ic|system:system|vdp:vdp|obj_cache:obj_cache|dpram_dif:ram0|altsyncram:altsyncram_component" File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/bram.vhd Line: 282
+Info (12133): Instantiated megafunction "core_top:ic|system:system|vdp:vdp|obj_cache:obj_cache|dpram_dif:ram0|altsyncram:altsyncram_component" with the following parameter: File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/bram.vhd Line: 282
+    Info (12134): Parameter "address_aclr_a" = "UNUSED"
+    Info (12134): Parameter "address_aclr_b" = "NONE"
+    Info (12134): Parameter "address_reg_b" = "CLOCK1"
+    Info (12134): Parameter "byte_size" = "8"
+    Info (12134): Parameter "byteena_aclr_a" = "UNUSED"
+    Info (12134): Parameter "byteena_aclr_b" = "NONE"
+    Info (12134): Parameter "byteena_reg_b" = "CLOCK1"
+    Info (12134): Parameter "clock_enable_core_a" = "USE_INPUT_CLKEN"
+    Info (12134): Parameter "clock_enable_core_b" = "USE_INPUT_CLKEN"
+    Info (12134): Parameter "clock_enable_input_a" = "NORMAL"
+    Info (12134): Parameter "clock_enable_input_b" = "NORMAL"
+    Info (12134): Parameter "clock_enable_output_a" = "BYPASS"
+    Info (12134): Parameter "clock_enable_output_b" = "BYPASS"
+    Info (12134): Parameter "intended_device_family" = "Cyclone V"
+    Info (12134): Parameter "ecc_pipeline_stage_enabled" = "FALSE"
+    Info (12134): Parameter "enable_ecc" = "FALSE"
+    Info (12134): Parameter "implement_in_les" = "OFF"
+    Info (12134): Parameter "indata_aclr_a" = "UNUSED"
+    Info (12134): Parameter "indata_aclr_b" = "NONE"
+    Info (12134): Parameter "indata_reg_b" = "CLOCK1"
+    Info (12134): Parameter "init_file" = " "
+    Info (12134): Parameter "init_file_layout" = "PORT_A"
+    Info (12134): Parameter "maximum_depth" = "0"
+    Info (12134): Parameter "numwords_a" = "128"
+    Info (12134): Parameter "numwords_b" = "128"
+    Info (12134): Parameter "operation_mode" = "BIDIR_DUAL_PORT"
+    Info (12134): Parameter "outdata_aclr_a" = "NONE"
+    Info (12134): Parameter "outdata_aclr_b" = "NONE"
+    Info (12134): Parameter "outdata_reg_a" = "UNREGISTERED"
+    Info (12134): Parameter "outdata_reg_b" = "UNREGISTERED"
+    Info (12134): Parameter "power_up_uninitialized" = "FALSE"
+    Info (12134): Parameter "ram_block_type" = "AUTO"
+    Info (12134): Parameter "rdcontrol_aclr_b" = "NONE"
+    Info (12134): Parameter "rdcontrol_reg_b" = "CLOCK1"
+    Info (12134): Parameter "read_during_write_mode_mixed_ports" = "DONT_CARE"
+    Info (12134): Parameter "read_during_write_mode_port_a" = "NEW_DATA_NO_NBE_READ"
+    Info (12134): Parameter "read_during_write_mode_port_b" = "NEW_DATA_NO_NBE_READ"
+    Info (12134): Parameter "stratixiv_m144k_allow_dual_clocks" = "ON"
+    Info (12134): Parameter "width_a" = "8"
+    Info (12134): Parameter "width_b" = "8"
+    Info (12134): Parameter "width_byteena_a" = "1"
+    Info (12134): Parameter "width_byteena_b" = "1"
+    Info (12134): Parameter "width_eccstatus" = "3"
+    Info (12134): Parameter "widthad_a" = "7"
+    Info (12134): Parameter "widthad_b" = "7"
+    Info (12134): Parameter "wrcontrol_aclr_a" = "UNUSED"
+    Info (12134): Parameter "wrcontrol_aclr_b" = "NONE"
+    Info (12134): Parameter "wrcontrol_wraddress_reg_b" = "CLOCK1"
+    Info (12134): Parameter "lpm_hint" = "UNUSED"
+    Info (12134): Parameter "lpm_type" = "altsyncram"
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_o534.tdf
+    Info (12023): Found entity 1: altsyncram_o534 File: /work/build/openfpga_genesis_analysis_work/src/fpga/db/altsyncram_o534.tdf Line: 28
+Info (12128): Elaborating entity "altsyncram_o534" for hierarchy "core_top:ic|system:system|vdp:vdp|obj_cache:obj_cache|dpram_dif:ram0|altsyncram:altsyncram_component|altsyncram_o534:auto_generated" File: /opt/intelFPGA_lite/quartus/libraries/megafunctions/altsyncram.tdf Line: 792
+Info (12128): Elaborating entity "DualPortRAM" for hierarchy "core_top:ic|system:system|vdp:vdp|DualPortRAM:obj_visinfo" File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/vdp.vhd Line: 790
+Info (12128): Elaborating entity "dpram_dif" for hierarchy "core_top:ic|system:system|vdp:vdp|DualPortRAM:obj_visinfo|dpram_dif:ram" File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/bram.vhd Line: 135
+Info (12128): Elaborating entity "altsyncram" for hierarchy "core_top:ic|system:system|vdp:vdp|DualPortRAM:obj_visinfo|dpram_dif:ram|altsyncram:altsyncram_component" File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/bram.vhd Line: 282
+Info (12130): Elaborated megafunction instantiation "core_top:ic|system:system|vdp:vdp|DualPortRAM:obj_visinfo|dpram_dif:ram|altsyncram:altsyncram_component" File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/bram.vhd Line: 282
+Info (12133): Instantiated megafunction "core_top:ic|system:system|vdp:vdp|DualPortRAM:obj_visinfo|dpram_dif:ram|altsyncram:altsyncram_component" with the following parameter: File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/bram.vhd Line: 282
+    Info (12134): Parameter "address_aclr_a" = "UNUSED"
+    Info (12134): Parameter "address_aclr_b" = "NONE"
+    Info (12134): Parameter "address_reg_b" = "CLOCK1"
+    Info (12134): Parameter "byte_size" = "8"
+    Info (12134): Parameter "byteena_aclr_a" = "UNUSED"
+    Info (12134): Parameter "byteena_aclr_b" = "NONE"
+    Info (12134): Parameter "byteena_reg_b" = "CLOCK1"
+    Info (12134): Parameter "clock_enable_core_a" = "USE_INPUT_CLKEN"
+    Info (12134): Parameter "clock_enable_core_b" = "USE_INPUT_CLKEN"
+    Info (12134): Parameter "clock_enable_input_a" = "NORMAL"
+    Info (12134): Parameter "clock_enable_input_b" = "NORMAL"
+    Info (12134): Parameter "clock_enable_output_a" = "BYPASS"
+    Info (12134): Parameter "clock_enable_output_b" = "BYPASS"
+    Info (12134): Parameter "intended_device_family" = "Cyclone V"
+    Info (12134): Parameter "ecc_pipeline_stage_enabled" = "FALSE"
+    Info (12134): Parameter "enable_ecc" = "FALSE"
+    Info (12134): Parameter "implement_in_les" = "OFF"
+    Info (12134): Parameter "indata_aclr_a" = "UNUSED"
+    Info (12134): Parameter "indata_aclr_b" = "NONE"
+    Info (12134): Parameter "indata_reg_b" = "CLOCK1"
+    Info (12134): Parameter "init_file" = " "
+    Info (12134): Parameter "init_file_layout" = "PORT_A"
+    Info (12134): Parameter "maximum_depth" = "0"
+    Info (12134): Parameter "numwords_a" = "64"
+    Info (12134): Parameter "numwords_b" = "64"
+    Info (12134): Parameter "operation_mode" = "BIDIR_DUAL_PORT"
+    Info (12134): Parameter "outdata_aclr_a" = "NONE"
+    Info (12134): Parameter "outdata_aclr_b" = "NONE"
+    Info (12134): Parameter "outdata_reg_a" = "UNREGISTERED"
+    Info (12134): Parameter "outdata_reg_b" = "UNREGISTERED"
+    Info (12134): Parameter "power_up_uninitialized" = "FALSE"
+    Info (12134): Parameter "ram_block_type" = "AUTO"
+    Info (12134): Parameter "rdcontrol_aclr_b" = "NONE"
+    Info (12134): Parameter "rdcontrol_reg_b" = "CLOCK1"
+    Info (12134): Parameter "read_during_write_mode_mixed_ports" = "DONT_CARE"
+    Info (12134): Parameter "read_during_write_mode_port_a" = "NEW_DATA_NO_NBE_READ"
+    Info (12134): Parameter "read_during_write_mode_port_b" = "NEW_DATA_NO_NBE_READ"
+    Info (12134): Parameter "stratixiv_m144k_allow_dual_clocks" = "ON"
+    Info (12134): Parameter "width_a" = "7"
+    Info (12134): Parameter "width_b" = "7"
+    Info (12134): Parameter "width_byteena_a" = "1"
+    Info (12134): Parameter "width_byteena_b" = "1"
+    Info (12134): Parameter "width_eccstatus" = "3"
+    Info (12134): Parameter "widthad_a" = "6"
+    Info (12134): Parameter "widthad_b" = "6"
+    Info (12134): Parameter "wrcontrol_aclr_a" = "UNUSED"
+    Info (12134): Parameter "wrcontrol_aclr_b" = "NONE"
+    Info (12134): Parameter "wrcontrol_wraddress_reg_b" = "CLOCK1"
+    Info (12134): Parameter "lpm_hint" = "UNUSED"
+    Info (12134): Parameter "lpm_type" = "altsyncram"
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_i234.tdf
+    Info (12023): Found entity 1: altsyncram_i234 File: /work/build/openfpga_genesis_analysis_work/src/fpga/db/altsyncram_i234.tdf Line: 28
+Info (12128): Elaborating entity "altsyncram_i234" for hierarchy "core_top:ic|system:system|vdp:vdp|DualPortRAM:obj_visinfo|dpram_dif:ram|altsyncram:altsyncram_component|altsyncram_i234:auto_generated" File: /opt/intelFPGA_lite/quartus/libraries/megafunctions/altsyncram.tdf Line: 792
+Info (12128): Elaborating entity "DualPortRAM" for hierarchy "core_top:ic|system:system|vdp:vdp|DualPortRAM:obj_spinfo" File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/vdp.vhd Line: 807
+Info (12128): Elaborating entity "dpram_dif" for hierarchy "core_top:ic|system:system|vdp:vdp|DualPortRAM:obj_spinfo|dpram_dif:ram" File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/bram.vhd Line: 135
+Info (12128): Elaborating entity "altsyncram" for hierarchy "core_top:ic|system:system|vdp:vdp|DualPortRAM:obj_spinfo|dpram_dif:ram|altsyncram:altsyncram_component" File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/bram.vhd Line: 282
+Info (12130): Elaborated megafunction instantiation "core_top:ic|system:system|vdp:vdp|DualPortRAM:obj_spinfo|dpram_dif:ram|altsyncram:altsyncram_component" File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/bram.vhd Line: 282
+Info (12133): Instantiated megafunction "core_top:ic|system:system|vdp:vdp|DualPortRAM:obj_spinfo|dpram_dif:ram|altsyncram:altsyncram_component" with the following parameter: File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/bram.vhd Line: 282
+    Info (12134): Parameter "address_aclr_a" = "UNUSED"
+    Info (12134): Parameter "address_aclr_b" = "NONE"
+    Info (12134): Parameter "address_reg_b" = "CLOCK1"
+    Info (12134): Parameter "byte_size" = "8"
+    Info (12134): Parameter "byteena_aclr_a" = "UNUSED"
+    Info (12134): Parameter "byteena_aclr_b" = "NONE"
+    Info (12134): Parameter "byteena_reg_b" = "CLOCK1"
+    Info (12134): Parameter "clock_enable_core_a" = "USE_INPUT_CLKEN"
+    Info (12134): Parameter "clock_enable_core_b" = "USE_INPUT_CLKEN"
+    Info (12134): Parameter "clock_enable_input_a" = "NORMAL"
+    Info (12134): Parameter "clock_enable_input_b" = "NORMAL"
+    Info (12134): Parameter "clock_enable_output_a" = "BYPASS"
+    Info (12134): Parameter "clock_enable_output_b" = "BYPASS"
+    Info (12134): Parameter "intended_device_family" = "Cyclone V"
+    Info (12134): Parameter "ecc_pipeline_stage_enabled" = "FALSE"
+    Info (12134): Parameter "enable_ecc" = "FALSE"
+    Info (12134): Parameter "implement_in_les" = "OFF"
+    Info (12134): Parameter "indata_aclr_a" = "UNUSED"
+    Info (12134): Parameter "indata_aclr_b" = "NONE"
+    Info (12134): Parameter "indata_reg_b" = "CLOCK1"
+    Info (12134): Parameter "init_file" = " "
+    Info (12134): Parameter "init_file_layout" = "PORT_A"
+    Info (12134): Parameter "maximum_depth" = "0"
+    Info (12134): Parameter "numwords_a" = "64"
+    Info (12134): Parameter "numwords_b" = "64"
+    Info (12134): Parameter "operation_mode" = "BIDIR_DUAL_PORT"
+    Info (12134): Parameter "outdata_aclr_a" = "NONE"
+    Info (12134): Parameter "outdata_aclr_b" = "NONE"
+    Info (12134): Parameter "outdata_reg_a" = "UNREGISTERED"
+    Info (12134): Parameter "outdata_reg_b" = "UNREGISTERED"
+    Info (12134): Parameter "power_up_uninitialized" = "FALSE"
+    Info (12134): Parameter "ram_block_type" = "AUTO"
+    Info (12134): Parameter "rdcontrol_aclr_b" = "NONE"
+    Info (12134): Parameter "rdcontrol_reg_b" = "CLOCK1"
+    Info (12134): Parameter "read_during_write_mode_mixed_ports" = "DONT_CARE"
+    Info (12134): Parameter "read_during_write_mode_port_a" = "NEW_DATA_NO_NBE_READ"
+    Info (12134): Parameter "read_during_write_mode_port_b" = "NEW_DATA_NO_NBE_READ"
+    Info (12134): Parameter "stratixiv_m144k_allow_dual_clocks" = "ON"
+    Info (12134): Parameter "width_a" = "35"
+    Info (12134): Parameter "width_b" = "35"
+    Info (12134): Parameter "width_byteena_a" = "1"
+    Info (12134): Parameter "width_byteena_b" = "1"
+    Info (12134): Parameter "width_eccstatus" = "3"
+    Info (12134): Parameter "widthad_a" = "6"
+    Info (12134): Parameter "widthad_b" = "6"
+    Info (12134): Parameter "wrcontrol_aclr_a" = "UNUSED"
+    Info (12134): Parameter "wrcontrol_aclr_b" = "NONE"
+    Info (12134): Parameter "wrcontrol_wraddress_reg_b" = "CLOCK1"
+    Info (12134): Parameter "lpm_hint" = "UNUSED"
+    Info (12134): Parameter "lpm_type" = "altsyncram"
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_l534.tdf
+    Info (12023): Found entity 1: altsyncram_l534 File: /work/build/openfpga_genesis_analysis_work/src/fpga/db/altsyncram_l534.tdf Line: 28
+Info (12128): Elaborating entity "altsyncram_l534" for hierarchy "core_top:ic|system:system|vdp:vdp|DualPortRAM:obj_spinfo|dpram_dif:ram|altsyncram:altsyncram_component|altsyncram_l534:auto_generated" File: /opt/intelFPGA_lite/quartus/libraries/megafunctions/altsyncram.tdf Line: 792
+Info (12128): Elaborating entity "DualPortRAM" for hierarchy "core_top:ic|system:system|vdp:vdp|DualPortRAM:cram" File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/vdp.vhd Line: 824
+Info (12128): Elaborating entity "dpram_dif" for hierarchy "core_top:ic|system:system|vdp:vdp|DualPortRAM:cram|dpram_dif:ram" File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/bram.vhd Line: 135
+Info (12128): Elaborating entity "altsyncram" for hierarchy "core_top:ic|system:system|vdp:vdp|DualPortRAM:cram|dpram_dif:ram|altsyncram:altsyncram_component" File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/bram.vhd Line: 282
+Info (12130): Elaborated megafunction instantiation "core_top:ic|system:system|vdp:vdp|DualPortRAM:cram|dpram_dif:ram|altsyncram:altsyncram_component" File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/bram.vhd Line: 282
+Info (12133): Instantiated megafunction "core_top:ic|system:system|vdp:vdp|DualPortRAM:cram|dpram_dif:ram|altsyncram:altsyncram_component" with the following parameter: File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/bram.vhd Line: 282
+    Info (12134): Parameter "address_aclr_a" = "UNUSED"
+    Info (12134): Parameter "address_aclr_b" = "NONE"
+    Info (12134): Parameter "address_reg_b" = "CLOCK1"
+    Info (12134): Parameter "byte_size" = "8"
+    Info (12134): Parameter "byteena_aclr_a" = "UNUSED"
+    Info (12134): Parameter "byteena_aclr_b" = "NONE"
+    Info (12134): Parameter "byteena_reg_b" = "CLOCK1"
+    Info (12134): Parameter "clock_enable_core_a" = "USE_INPUT_CLKEN"
+    Info (12134): Parameter "clock_enable_core_b" = "USE_INPUT_CLKEN"
+    Info (12134): Parameter "clock_enable_input_a" = "NORMAL"
+    Info (12134): Parameter "clock_enable_input_b" = "NORMAL"
+    Info (12134): Parameter "clock_enable_output_a" = "BYPASS"
+    Info (12134): Parameter "clock_enable_output_b" = "BYPASS"
+    Info (12134): Parameter "intended_device_family" = "Cyclone V"
+    Info (12134): Parameter "ecc_pipeline_stage_enabled" = "FALSE"
+    Info (12134): Parameter "enable_ecc" = "FALSE"
+    Info (12134): Parameter "implement_in_les" = "OFF"
+    Info (12134): Parameter "indata_aclr_a" = "UNUSED"
+    Info (12134): Parameter "indata_aclr_b" = "NONE"
+    Info (12134): Parameter "indata_reg_b" = "CLOCK1"
+    Info (12134): Parameter "init_file" = " "
+    Info (12134): Parameter "init_file_layout" = "PORT_A"
+    Info (12134): Parameter "maximum_depth" = "0"
+    Info (12134): Parameter "numwords_a" = "64"
+    Info (12134): Parameter "numwords_b" = "64"
+    Info (12134): Parameter "operation_mode" = "BIDIR_DUAL_PORT"
+    Info (12134): Parameter "outdata_aclr_a" = "NONE"
+    Info (12134): Parameter "outdata_aclr_b" = "NONE"
+    Info (12134): Parameter "outdata_reg_a" = "UNREGISTERED"
+    Info (12134): Parameter "outdata_reg_b" = "UNREGISTERED"
+    Info (12134): Parameter "power_up_uninitialized" = "FALSE"
+    Info (12134): Parameter "ram_block_type" = "AUTO"
+    Info (12134): Parameter "rdcontrol_aclr_b" = "NONE"
+    Info (12134): Parameter "rdcontrol_reg_b" = "CLOCK1"
+    Info (12134): Parameter "read_during_write_mode_mixed_ports" = "DONT_CARE"
+    Info (12134): Parameter "read_during_write_mode_port_a" = "NEW_DATA_NO_NBE_READ"
+    Info (12134): Parameter "read_during_write_mode_port_b" = "NEW_DATA_NO_NBE_READ"
+    Info (12134): Parameter "stratixiv_m144k_allow_dual_clocks" = "ON"
+    Info (12134): Parameter "width_a" = "9"
+    Info (12134): Parameter "width_b" = "9"
+    Info (12134): Parameter "width_byteena_a" = "1"
+    Info (12134): Parameter "width_byteena_b" = "1"
+    Info (12134): Parameter "width_eccstatus" = "3"
+    Info (12134): Parameter "widthad_a" = "6"
+    Info (12134): Parameter "widthad_b" = "6"
+    Info (12134): Parameter "wrcontrol_aclr_a" = "UNUSED"
+    Info (12134): Parameter "wrcontrol_aclr_b" = "NONE"
+    Info (12134): Parameter "wrcontrol_wraddress_reg_b" = "CLOCK1"
+    Info (12134): Parameter "lpm_hint" = "UNUSED"
+    Info (12134): Parameter "lpm_type" = "altsyncram"
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_m234.tdf
+    Info (12023): Found entity 1: altsyncram_m234 File: /work/build/openfpga_genesis_analysis_work/src/fpga/db/altsyncram_m234.tdf Line: 28
+Info (12128): Elaborating entity "altsyncram_m234" for hierarchy "core_top:ic|system:system|vdp:vdp|DualPortRAM:cram|dpram_dif:ram|altsyncram:altsyncram_component|altsyncram_m234:auto_generated" File: /opt/intelFPGA_lite/quartus/libraries/megafunctions/altsyncram.tdf Line: 792
+Info (12128): Elaborating entity "DualPortRAM" for hierarchy "core_top:ic|system:system|vdp:vdp|DualPortRAM:vsram0" File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/vdp.vhd Line: 843
+Info (12128): Elaborating entity "dpram_dif" for hierarchy "core_top:ic|system:system|vdp:vdp|DualPortRAM:vsram0|dpram_dif:ram" File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/bram.vhd Line: 135
+Info (12128): Elaborating entity "altsyncram" for hierarchy "core_top:ic|system:system|vdp:vdp|DualPortRAM:vsram0|dpram_dif:ram|altsyncram:altsyncram_component" File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/bram.vhd Line: 282
+Info (12130): Elaborated megafunction instantiation "core_top:ic|system:system|vdp:vdp|DualPortRAM:vsram0|dpram_dif:ram|altsyncram:altsyncram_component" File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/bram.vhd Line: 282
+Info (12133): Instantiated megafunction "core_top:ic|system:system|vdp:vdp|DualPortRAM:vsram0|dpram_dif:ram|altsyncram:altsyncram_component" with the following parameter: File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/bram.vhd Line: 282
+    Info (12134): Parameter "address_aclr_a" = "UNUSED"
+    Info (12134): Parameter "address_aclr_b" = "NONE"
+    Info (12134): Parameter "address_reg_b" = "CLOCK1"
+    Info (12134): Parameter "byte_size" = "8"
+    Info (12134): Parameter "byteena_aclr_a" = "UNUSED"
+    Info (12134): Parameter "byteena_aclr_b" = "NONE"
+    Info (12134): Parameter "byteena_reg_b" = "CLOCK1"
+    Info (12134): Parameter "clock_enable_core_a" = "USE_INPUT_CLKEN"
+    Info (12134): Parameter "clock_enable_core_b" = "USE_INPUT_CLKEN"
+    Info (12134): Parameter "clock_enable_input_a" = "NORMAL"
+    Info (12134): Parameter "clock_enable_input_b" = "NORMAL"
+    Info (12134): Parameter "clock_enable_output_a" = "BYPASS"
+    Info (12134): Parameter "clock_enable_output_b" = "BYPASS"
+    Info (12134): Parameter "intended_device_family" = "Cyclone V"
+    Info (12134): Parameter "ecc_pipeline_stage_enabled" = "FALSE"
+    Info (12134): Parameter "enable_ecc" = "FALSE"
+    Info (12134): Parameter "implement_in_les" = "OFF"
+    Info (12134): Parameter "indata_aclr_a" = "UNUSED"
+    Info (12134): Parameter "indata_aclr_b" = "NONE"
+    Info (12134): Parameter "indata_reg_b" = "CLOCK1"
+    Info (12134): Parameter "init_file" = " "
+    Info (12134): Parameter "init_file_layout" = "PORT_A"
+    Info (12134): Parameter "maximum_depth" = "0"
+    Info (12134): Parameter "numwords_a" = "32"
+    Info (12134): Parameter "numwords_b" = "32"
+    Info (12134): Parameter "operation_mode" = "BIDIR_DUAL_PORT"
+    Info (12134): Parameter "outdata_aclr_a" = "NONE"
+    Info (12134): Parameter "outdata_aclr_b" = "NONE"
+    Info (12134): Parameter "outdata_reg_a" = "UNREGISTERED"
+    Info (12134): Parameter "outdata_reg_b" = "UNREGISTERED"
+    Info (12134): Parameter "power_up_uninitialized" = "FALSE"
+    Info (12134): Parameter "ram_block_type" = "AUTO"
+    Info (12134): Parameter "rdcontrol_aclr_b" = "NONE"
+    Info (12134): Parameter "rdcontrol_reg_b" = "CLOCK1"
+    Info (12134): Parameter "read_during_write_mode_mixed_ports" = "DONT_CARE"
+    Info (12134): Parameter "read_during_write_mode_port_a" = "NEW_DATA_NO_NBE_READ"
+    Info (12134): Parameter "read_during_write_mode_port_b" = "NEW_DATA_NO_NBE_READ"
+    Info (12134): Parameter "stratixiv_m144k_allow_dual_clocks" = "ON"
+    Info (12134): Parameter "width_a" = "11"
+    Info (12134): Parameter "width_b" = "11"
+    Info (12134): Parameter "width_byteena_a" = "1"
+    Info (12134): Parameter "width_byteena_b" = "1"
+    Info (12134): Parameter "width_eccstatus" = "3"
+    Info (12134): Parameter "widthad_a" = "5"
+    Info (12134): Parameter "widthad_b" = "5"
+    Info (12134): Parameter "wrcontrol_aclr_a" = "UNUSED"
+    Info (12134): Parameter "wrcontrol_aclr_b" = "NONE"
+    Info (12134): Parameter "wrcontrol_wraddress_reg_b" = "CLOCK1"
+    Info (12134): Parameter "lpm_hint" = "UNUSED"
+    Info (12134): Parameter "lpm_type" = "altsyncram"
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_s434.tdf
+    Info (12023): Found entity 1: altsyncram_s434 File: /work/build/openfpga_genesis_analysis_work/src/fpga/db/altsyncram_s434.tdf Line: 28
+Info (12128): Elaborating entity "altsyncram_s434" for hierarchy "core_top:ic|system:system|vdp:vdp|DualPortRAM:vsram0|dpram_dif:ram|altsyncram:altsyncram_component|altsyncram_s434:auto_generated" File: /opt/intelFPGA_lite/quartus/libraries/megafunctions/altsyncram.tdf Line: 792
+Info (12128): Elaborating entity "jt89" for hierarchy "core_top:ic|system:system|jt89:psg" File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/system.sv Line: 494
+Info (12128): Elaborating entity "jt89_mixer" for hierarchy "core_top:ic|system:system|jt89:psg|jt89_mixer:mix" File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt89/jt89.v Line: 62
+Info (12128): Elaborating entity "jt89_tone" for hierarchy "core_top:ic|system:system|jt89:psg|jt89_tone:u_tone0" File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt89/jt89.v Line: 124
+Info (12128): Elaborating entity "jt89_vol" for hierarchy "core_top:ic|system:system|jt89:psg|jt89_tone:u_tone0|jt89_vol:u_vol" File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt89/jt89_tone.v Line: 45
+Info (12128): Elaborating entity "jt89_noise" for hierarchy "core_top:ic|system:system|jt89:psg|jt89_noise:u_noise" File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt89/jt89.v Line: 157
+Info (12128): Elaborating entity "multitap" for hierarchy "core_top:ic|system:system|multitap:multitap" File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/system.sv Line: 613
+Info (12128): Elaborating entity "gen_io" for hierarchy "core_top:ic|system:system|multitap:multitap|gen_io:io" File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/multitap.sv Line: 106
+Info (12128): Elaborating entity "pad_io" for hierarchy "core_top:ic|system:system|multitap:multitap|gen_io:io|pad_io:pad1" File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/gen_io.sv Line: 158
+Info (12128): Elaborating entity "gun_io" for hierarchy "core_top:ic|system:system|multitap:multitap|gen_io:io|gun_io:gun" File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/gen_io.sv Line: 205
+Info (12128): Elaborating entity "fourway" for hierarchy "core_top:ic|system:system|multitap:multitap|fourway:fourway" File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/multitap.sv Line: 115
+Info (12128): Elaborating entity "teamplayer" for hierarchy "core_top:ic|system:system|multitap:multitap|teamplayer:teamplayer" File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/multitap.sv Line: 125
+Info (12128): Elaborating entity "dpram_dif" for hierarchy "core_top:ic|system:system|dpram_dif:sram" File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/system.sv Line: 657
+Info (12128): Elaborating entity "altsyncram" for hierarchy "core_top:ic|system:system|dpram_dif:sram|altsyncram:altsyncram_component" File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/bram.vhd Line: 282
+Info (12130): Elaborated megafunction instantiation "core_top:ic|system:system|dpram_dif:sram|altsyncram:altsyncram_component" File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/bram.vhd Line: 282
+Info (12133): Instantiated megafunction "core_top:ic|system:system|dpram_dif:sram|altsyncram:altsyncram_component" with the following parameter: File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/bram.vhd Line: 282
+    Info (12134): Parameter "address_aclr_a" = "UNUSED"
+    Info (12134): Parameter "address_aclr_b" = "NONE"
+    Info (12134): Parameter "address_reg_b" = "CLOCK1"
+    Info (12134): Parameter "byte_size" = "8"
+    Info (12134): Parameter "byteena_aclr_a" = "UNUSED"
+    Info (12134): Parameter "byteena_aclr_b" = "NONE"
+    Info (12134): Parameter "byteena_reg_b" = "CLOCK1"
+    Info (12134): Parameter "clock_enable_core_a" = "USE_INPUT_CLKEN"
+    Info (12134): Parameter "clock_enable_core_b" = "USE_INPUT_CLKEN"
+    Info (12134): Parameter "clock_enable_input_a" = "NORMAL"
+    Info (12134): Parameter "clock_enable_input_b" = "NORMAL"
+    Info (12134): Parameter "clock_enable_output_a" = "BYPASS"
+    Info (12134): Parameter "clock_enable_output_b" = "BYPASS"
+    Info (12134): Parameter "intended_device_family" = "Cyclone V"
+    Info (12134): Parameter "ecc_pipeline_stage_enabled" = "FALSE"
+    Info (12134): Parameter "enable_ecc" = "FALSE"
+    Info (12134): Parameter "implement_in_les" = "OFF"
+    Info (12134): Parameter "indata_aclr_a" = "UNUSED"
+    Info (12134): Parameter "indata_aclr_b" = "NONE"
+    Info (12134): Parameter "indata_reg_b" = "CLOCK1"
+    Info (12134): Parameter "init_file" = " "
+    Info (12134): Parameter "init_file_layout" = "PORT_A"
+    Info (12134): Parameter "maximum_depth" = "0"
+    Info (12134): Parameter "numwords_a" = "131072"
+    Info (12134): Parameter "numwords_b" = "65536"
+    Info (12134): Parameter "operation_mode" = "BIDIR_DUAL_PORT"
+    Info (12134): Parameter "outdata_aclr_a" = "NONE"
+    Info (12134): Parameter "outdata_aclr_b" = "NONE"
+    Info (12134): Parameter "outdata_reg_a" = "UNREGISTERED"
+    Info (12134): Parameter "outdata_reg_b" = "UNREGISTERED"
+    Info (12134): Parameter "power_up_uninitialized" = "FALSE"
+    Info (12134): Parameter "ram_block_type" = "AUTO"
+    Info (12134): Parameter "rdcontrol_aclr_b" = "NONE"
+    Info (12134): Parameter "rdcontrol_reg_b" = "CLOCK1"
+    Info (12134): Parameter "read_during_write_mode_mixed_ports" = "DONT_CARE"
+    Info (12134): Parameter "read_during_write_mode_port_a" = "NEW_DATA_NO_NBE_READ"
+    Info (12134): Parameter "read_during_write_mode_port_b" = "NEW_DATA_NO_NBE_READ"
+    Info (12134): Parameter "stratixiv_m144k_allow_dual_clocks" = "ON"
+    Info (12134): Parameter "width_a" = "8"
+    Info (12134): Parameter "width_b" = "16"
+    Info (12134): Parameter "width_byteena_a" = "1"
+    Info (12134): Parameter "width_byteena_b" = "1"
+    Info (12134): Parameter "width_eccstatus" = "3"
+    Info (12134): Parameter "widthad_a" = "17"
+    Info (12134): Parameter "widthad_b" = "16"
+    Info (12134): Parameter "wrcontrol_aclr_a" = "UNUSED"
+    Info (12134): Parameter "wrcontrol_aclr_b" = "NONE"
+    Info (12134): Parameter "wrcontrol_wraddress_reg_b" = "CLOCK1"
+    Info (12134): Parameter "lpm_hint" = "UNUSED"
+    Info (12134): Parameter "lpm_type" = "altsyncram"
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_9i34.tdf
+    Info (12023): Found entity 1: altsyncram_9i34 File: /work/build/openfpga_genesis_analysis_work/src/fpga/db/altsyncram_9i34.tdf Line: 34
+Info (12128): Elaborating entity "altsyncram_9i34" for hierarchy "core_top:ic|system:system|dpram_dif:sram|altsyncram:altsyncram_component|altsyncram_9i34:auto_generated" File: /opt/intelFPGA_lite/quartus/libraries/megafunctions/altsyncram.tdf Line: 792
+Info (12021): Found 1 design units, including 1 entities, in source file db/decode_tma.tdf
+    Info (12023): Found entity 1: decode_tma File: /work/build/openfpga_genesis_analysis_work/src/fpga/db/decode_tma.tdf Line: 23
+Info (12128): Elaborating entity "decode_tma" for hierarchy "core_top:ic|system:system|dpram_dif:sram|altsyncram:altsyncram_component|altsyncram_9i34:auto_generated|decode_tma:decode2" File: /work/build/openfpga_genesis_analysis_work/src/fpga/db/altsyncram_9i34.tdf Line: 52
+Info (12021): Found 1 design units, including 1 entities, in source file db/mux_dhb.tdf
+    Info (12023): Found entity 1: mux_dhb File: /work/build/openfpga_genesis_analysis_work/src/fpga/db/mux_dhb.tdf Line: 23
+Info (12128): Elaborating entity "mux_dhb" for hierarchy "core_top:ic|system:system|dpram_dif:sram|altsyncram:altsyncram_component|altsyncram_9i34:auto_generated|mux_dhb:mux4" File: /work/build/openfpga_genesis_analysis_work/src/fpga/db/altsyncram_9i34.tdf Line: 54
+Info (12021): Found 1 design units, including 1 entities, in source file db/mux_sib.tdf
+    Info (12023): Found entity 1: mux_sib File: /work/build/openfpga_genesis_analysis_work/src/fpga/db/mux_sib.tdf Line: 23
+Info (12128): Elaborating entity "mux_sib" for hierarchy "core_top:ic|system:system|dpram_dif:sram|altsyncram:altsyncram_component|altsyncram_9i34:auto_generated|mux_sib:mux5" File: /work/build/openfpga_genesis_analysis_work/src/fpga/db/altsyncram_9i34.tdf Line: 55
+Info (12128): Elaborating entity "STM95XXX" for hierarchy "core_top:ic|system:system|STM95XXX:pier_eeprom" File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/system.sv Line: 684
+Info (10264): Verilog HDL Case Statement information at EEPROM_STM95.sv(76): all case item expressions in this case statement are onehot File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/EEPROM_STM95.sv Line: 76
+Info (12128): Elaborating entity "SVP" for hierarchy "core_top:ic|system:system|SVP:svp" File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/system.sv Line: 725
+Info (12128): Elaborating entity "SSP160x" for hierarchy "core_top:ic|system:system|SVP:svp|SSP160x:SSP160x" File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/SVP/SVP.vhd Line: 173
+Info (12128): Elaborating entity "mlab" for hierarchy "core_top:ic|system:system|SVP:svp|SSP160x:SSP160x|mlab:RAMA" File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/SVP/SSP160x.vhd Line: 697
+Info (12128): Elaborating entity "altdpram" for hierarchy "core_top:ic|system:system|SVP:svp|SSP160x:SSP160x|mlab:RAMA|altdpram:altdpram_component" File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/mlab.vhd Line: 29
+Info (12130): Elaborated megafunction instantiation "core_top:ic|system:system|SVP:svp|SSP160x:SSP160x|mlab:RAMA|altdpram:altdpram_component" File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/mlab.vhd Line: 29
+Info (12133): Instantiated megafunction "core_top:ic|system:system|SVP:svp|SSP160x:SSP160x|mlab:RAMA|altdpram:altdpram_component" with the following parameter: File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/mlab.vhd Line: 29
+    Info (12134): Parameter "byte_size" = "0"
+    Info (12134): Parameter "intended_device_family" = "Cyclone V"
+    Info (12134): Parameter "indata_aclr" = "OFF"
+    Info (12134): Parameter "indata_reg" = "INCLOCK"
+    Info (12134): Parameter "lpm_file" = "UNUSED"
+    Info (12134): Parameter "maximum_depth" = "0"
+    Info (12134): Parameter "numwords" = "0"
+    Info (12134): Parameter "outdata_aclr" = "OFF"
+    Info (12134): Parameter "outdata_reg" = "UNREGISTERED"
+    Info (12134): Parameter "outdata_sclr" = "ON"
+    Info (12134): Parameter "ram_block_type" = "MLAB"
+    Info (12134): Parameter "rdaddress_aclr" = "OFF"
+    Info (12134): Parameter "rdaddress_reg" = "UNREGISTERED"
+    Info (12134): Parameter "rdcontrol_aclr" = "OFF"
+    Info (12134): Parameter "rdcontrol_reg" = "UNREGISTERED"
+    Info (12134): Parameter "read_during_write_mode_mixed_ports" = "CONSTRAINED_DONT_CARE"
+    Info (12134): Parameter "use_eab" = "ON"
+    Info (12134): Parameter "width" = "16"
+    Info (12134): Parameter "width_byteena" = "1"
+    Info (12134): Parameter "widthad" = "8"
+    Info (12134): Parameter "wraddress_aclr" = "OFF"
+    Info (12134): Parameter "wraddress_reg" = "INCLOCK"
+    Info (12134): Parameter "wrcontrol_aclr" = "OFF"
+    Info (12134): Parameter "wrcontrol_reg" = "INCLOCK"
+    Info (12134): Parameter "lpm_hint" = "UNUSED"
+    Info (12134): Parameter "lpm_type" = "altdpram"
+Info (12021): Found 1 design units, including 1 entities, in source file db/dpram_f092.tdf
+    Info (12023): Found entity 1: dpram_f092 File: /work/build/openfpga_genesis_analysis_work/src/fpga/db/dpram_f092.tdf Line: 30
+Info (12128): Elaborating entity "dpram_f092" for hierarchy "core_top:ic|system:system|SVP:svp|SSP160x:SSP160x|mlab:RAMA|altdpram:altdpram_component|dpram_f092:auto_generated" File: /opt/intelFPGA_lite/quartus/libraries/megafunctions/altdpram.tdf Line: 203
+Warning (287013): Variable or input pin "outclock" is defined but never used. File: /work/build/openfpga_genesis_analysis_work/src/fpga/db/dpram_f092.tdf Line: 34
+Info (12021): Found 1 design units, including 1 entities, in source file db/decode_dla.tdf
+    Info (12023): Found entity 1: decode_dla File: /work/build/openfpga_genesis_analysis_work/src/fpga/db/decode_dla.tdf Line: 23
+Info (12128): Elaborating entity "decode_dla" for hierarchy "core_top:ic|system:system|SVP:svp|SSP160x:SSP160x|mlab:RAMA|altdpram:altdpram_component|dpram_f092:auto_generated|decode_dla:wr_decode" File: /work/build/openfpga_genesis_analysis_work/src/fpga/db/dpram_f092.tdf Line: 41
+Info (12021): Found 1 design units, including 1 entities, in source file db/mux_chb.tdf
+    Info (12023): Found entity 1: mux_chb File: /work/build/openfpga_genesis_analysis_work/src/fpga/db/mux_chb.tdf Line: 23
+Info (12128): Elaborating entity "mux_chb" for hierarchy "core_top:ic|system:system|SVP:svp|SSP160x:SSP160x|mlab:RAMA|altdpram:altdpram_component|dpram_f092:auto_generated|mux_chb:rd_mux" File: /work/build/openfpga_genesis_analysis_work/src/fpga/db/dpram_f092.tdf Line: 42
+Info (12128): Elaborating entity "spram" for hierarchy "core_top:ic|system:system|SVP:svp|spram:IRAM" File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/SVP/SVP.vhd Line: 515
+Info (12128): Elaborating entity "spram_sz" for hierarchy "core_top:ic|system:system|SVP:svp|spram:IRAM|spram_sz:spram_sz" File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/bram.vhd Line: 33
+Info (12128): Elaborating entity "altsyncram" for hierarchy "core_top:ic|system:system|SVP:svp|spram:IRAM|spram_sz:spram_sz|altsyncram:altsyncram_component" File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/bram.vhd Line: 74
+Info (12130): Elaborated megafunction instantiation "core_top:ic|system:system|SVP:svp|spram:IRAM|spram_sz:spram_sz|altsyncram:altsyncram_component" File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/bram.vhd Line: 74
+Info (12133): Instantiated megafunction "core_top:ic|system:system|SVP:svp|spram:IRAM|spram_sz:spram_sz|altsyncram:altsyncram_component" with the following parameter: File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/bram.vhd Line: 74
+    Info (12134): Parameter "address_aclr_a" = "UNUSED"
+    Info (12134): Parameter "address_aclr_b" = "NONE"
+    Info (12134): Parameter "address_reg_b" = "CLOCK1"
+    Info (12134): Parameter "byte_size" = "8"
+    Info (12134): Parameter "byteena_aclr_a" = "UNUSED"
+    Info (12134): Parameter "byteena_aclr_b" = "NONE"
+    Info (12134): Parameter "byteena_reg_b" = "CLOCK1"
+    Info (12134): Parameter "clock_enable_core_a" = "USE_INPUT_CLKEN"
+    Info (12134): Parameter "clock_enable_core_b" = "USE_INPUT_CLKEN"
+    Info (12134): Parameter "clock_enable_input_a" = "BYPASS"
+    Info (12134): Parameter "clock_enable_input_b" = "NORMAL"
+    Info (12134): Parameter "clock_enable_output_a" = "BYPASS"
+    Info (12134): Parameter "clock_enable_output_b" = "NORMAL"
+    Info (12134): Parameter "intended_device_family" = "Cyclone V"
+    Info (12134): Parameter "ecc_pipeline_stage_enabled" = "FALSE"
+    Info (12134): Parameter "enable_ecc" = "FALSE"
+    Info (12134): Parameter "implement_in_les" = "OFF"
+    Info (12134): Parameter "indata_aclr_a" = "UNUSED"
+    Info (12134): Parameter "indata_aclr_b" = "NONE"
+    Info (12134): Parameter "indata_reg_b" = "CLOCK1"
+    Info (12134): Parameter "init_file" = " "
+    Info (12134): Parameter "init_file_layout" = "PORT_A"
+    Info (12134): Parameter "maximum_depth" = "0"
+    Info (12134): Parameter "numwords_a" = "1024"
+    Info (12134): Parameter "numwords_b" = "0"
+    Info (12134): Parameter "operation_mode" = "SINGLE_PORT"
+    Info (12134): Parameter "outdata_aclr_a" = "NONE"
+    Info (12134): Parameter "outdata_aclr_b" = "NONE"
+    Info (12134): Parameter "outdata_reg_a" = "UNREGISTERED"
+    Info (12134): Parameter "outdata_reg_b" = "UNREGISTERED"
+    Info (12134): Parameter "power_up_uninitialized" = "FALSE"
+    Info (12134): Parameter "ram_block_type" = "AUTO"
+    Info (12134): Parameter "rdcontrol_aclr_b" = "NONE"
+    Info (12134): Parameter "rdcontrol_reg_b" = "CLOCK1"
+    Info (12134): Parameter "read_during_write_mode_mixed_ports" = "DONT_CARE"
+    Info (12134): Parameter "read_during_write_mode_port_a" = "NEW_DATA_NO_NBE_READ"
+    Info (12134): Parameter "read_during_write_mode_port_b" = "NEW_DATA_NO_NBE_READ"
+    Info (12134): Parameter "stratixiv_m144k_allow_dual_clocks" = "ON"
+    Info (12134): Parameter "width_a" = "16"
+    Info (12134): Parameter "width_b" = "1"
+    Info (12134): Parameter "width_byteena_a" = "1"
+    Info (12134): Parameter "width_byteena_b" = "1"
+    Info (12134): Parameter "width_eccstatus" = "3"
+    Info (12134): Parameter "widthad_a" = "10"
+    Info (12134): Parameter "widthad_b" = "1"
+    Info (12134): Parameter "wrcontrol_aclr_a" = "UNUSED"
+    Info (12134): Parameter "wrcontrol_aclr_b" = "NONE"
+    Info (12134): Parameter "wrcontrol_wraddress_reg_b" = "CLOCK1"
+    Info (12134): Parameter "lpm_hint" = "ENABLE_RUNTIME_MOD=YES,INSTANCE_NAME=MEM"
+    Info (12134): Parameter "lpm_type" = "altsyncram"
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_r624.tdf
+    Info (12023): Found entity 1: altsyncram_r624 File: /work/build/openfpga_genesis_analysis_work/src/fpga/db/altsyncram_r624.tdf Line: 28
+Info (12128): Elaborating entity "altsyncram_r624" for hierarchy "core_top:ic|system:system|SVP:svp|spram:IRAM|spram_sz:spram_sz|altsyncram:altsyncram_component|altsyncram_r624:auto_generated" File: /opt/intelFPGA_lite/quartus/libraries/megafunctions/altsyncram.tdf Line: 792
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_fpv2.tdf
+    Info (12023): Found entity 1: altsyncram_fpv2 File: /work/build/openfpga_genesis_analysis_work/src/fpga/db/altsyncram_fpv2.tdf Line: 28
+Info (12128): Elaborating entity "altsyncram_fpv2" for hierarchy "core_top:ic|system:system|SVP:svp|spram:IRAM|spram_sz:spram_sz|altsyncram:altsyncram_component|altsyncram_r624:auto_generated|altsyncram_fpv2:altsyncram1" File: /work/build/openfpga_genesis_analysis_work/src/fpga/db/altsyncram_r624.tdf Line: 37
+Info (12128): Elaborating entity "sld_mod_ram_rom" for hierarchy "core_top:ic|system:system|SVP:svp|spram:IRAM|spram_sz:spram_sz|altsyncram:altsyncram_component|altsyncram_r624:auto_generated|sld_mod_ram_rom:mgl_prim2" File: /work/build/openfpga_genesis_analysis_work/src/fpga/db/altsyncram_r624.tdf Line: 38
+Info (12130): Elaborated megafunction instantiation "core_top:ic|system:system|SVP:svp|spram:IRAM|spram_sz:spram_sz|altsyncram:altsyncram_component|altsyncram_r624:auto_generated|sld_mod_ram_rom:mgl_prim2" File: /work/build/openfpga_genesis_analysis_work/src/fpga/db/altsyncram_r624.tdf Line: 38
+Info (12133): Instantiated megafunction "core_top:ic|system:system|SVP:svp|spram:IRAM|spram_sz:spram_sz|altsyncram:altsyncram_component|altsyncram_r624:auto_generated|sld_mod_ram_rom:mgl_prim2" with the following parameter: File: /work/build/openfpga_genesis_analysis_work/src/fpga/db/altsyncram_r624.tdf Line: 38
+    Info (12134): Parameter "CVALUE" = "0000000000000000"
+    Info (12134): Parameter "IS_DATA_IN_RAM" = "1"
+    Info (12134): Parameter "IS_READABLE" = "1"
+    Info (12134): Parameter "NODE_NAME" = "1296387328"
+    Info (12134): Parameter "NUMWORDS" = "1024"
+    Info (12134): Parameter "SHIFT_COUNT_BITS" = "5"
+    Info (12134): Parameter "WIDTH_WORD" = "16"
+    Info (12134): Parameter "WIDTHAD" = "10"
+Info (12128): Elaborating entity "sld_jtag_endpoint_adapter" for hierarchy "core_top:ic|system:system|SVP:svp|spram:IRAM|spram_sz:spram_sz|altsyncram:altsyncram_component|altsyncram_r624:auto_generated|sld_mod_ram_rom:mgl_prim2|sld_jtag_endpoint_adapter:jtag_signal_adapter" File: /opt/intelFPGA_lite/quartus/libraries/megafunctions/sld_mod_ram_rom.vhd Line: 302
+Info (12128): Elaborating entity "sld_jtag_endpoint_adapter_impl" for hierarchy "core_top:ic|system:system|SVP:svp|spram:IRAM|spram_sz:spram_sz|altsyncram:altsyncram_component|altsyncram_r624:auto_generated|sld_mod_ram_rom:mgl_prim2|sld_jtag_endpoint_adapter:jtag_signal_adapter|sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst" File: /opt/intelFPGA_lite/quartus/libraries/megafunctions/sld_jtag_endpoint_adapter.vhd Line: 232
+Info (12128): Elaborating entity "sld_rom_sr" for hierarchy "core_top:ic|system:system|SVP:svp|spram:IRAM|spram_sz:spram_sz|altsyncram:altsyncram_component|altsyncram_r624:auto_generated|sld_mod_ram_rom:mgl_prim2|sld_rom_sr:\ram_rom_logic_gen:name_gen:info_rom_sr" File: /opt/intelFPGA_lite/quartus/libraries/megafunctions/sld_mod_ram_rom.vhd Line: 828
+Info (12128): Elaborating entity "dpram" for hierarchy "core_top:ic|system:system|dpram:ram68k_u" File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/system.sv Line: 743
+Info (12128): Elaborating entity "dpram_dif" for hierarchy "core_top:ic|system:system|dpram:ram68k_u|dpram_dif:ram" File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/bram.vhd Line: 231
+Info (12128): Elaborating entity "altsyncram" for hierarchy "core_top:ic|system:system|dpram:ram68k_u|dpram_dif:ram|altsyncram:altsyncram_component" File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/bram.vhd Line: 282
+Info (12130): Elaborated megafunction instantiation "core_top:ic|system:system|dpram:ram68k_u|dpram_dif:ram|altsyncram:altsyncram_component" File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/bram.vhd Line: 282
+Info (12133): Instantiated megafunction "core_top:ic|system:system|dpram:ram68k_u|dpram_dif:ram|altsyncram:altsyncram_component" with the following parameter: File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/bram.vhd Line: 282
+    Info (12134): Parameter "address_aclr_a" = "UNUSED"
+    Info (12134): Parameter "address_aclr_b" = "NONE"
+    Info (12134): Parameter "address_reg_b" = "CLOCK1"
+    Info (12134): Parameter "byte_size" = "8"
+    Info (12134): Parameter "byteena_aclr_a" = "UNUSED"
+    Info (12134): Parameter "byteena_aclr_b" = "NONE"
+    Info (12134): Parameter "byteena_reg_b" = "CLOCK1"
+    Info (12134): Parameter "clock_enable_core_a" = "USE_INPUT_CLKEN"
+    Info (12134): Parameter "clock_enable_core_b" = "USE_INPUT_CLKEN"
+    Info (12134): Parameter "clock_enable_input_a" = "NORMAL"
+    Info (12134): Parameter "clock_enable_input_b" = "NORMAL"
+    Info (12134): Parameter "clock_enable_output_a" = "BYPASS"
+    Info (12134): Parameter "clock_enable_output_b" = "BYPASS"
+    Info (12134): Parameter "intended_device_family" = "Cyclone V"
+    Info (12134): Parameter "ecc_pipeline_stage_enabled" = "FALSE"
+    Info (12134): Parameter "enable_ecc" = "FALSE"
+    Info (12134): Parameter "implement_in_les" = "OFF"
+    Info (12134): Parameter "indata_aclr_a" = "UNUSED"
+    Info (12134): Parameter "indata_aclr_b" = "NONE"
+    Info (12134): Parameter "indata_reg_b" = "CLOCK1"
+    Info (12134): Parameter "init_file" = " "
+    Info (12134): Parameter "init_file_layout" = "PORT_A"
+    Info (12134): Parameter "maximum_depth" = "0"
+    Info (12134): Parameter "numwords_a" = "32768"
+    Info (12134): Parameter "numwords_b" = "32768"
+    Info (12134): Parameter "operation_mode" = "BIDIR_DUAL_PORT"
+    Info (12134): Parameter "outdata_aclr_a" = "NONE"
+    Info (12134): Parameter "outdata_aclr_b" = "NONE"
+    Info (12134): Parameter "outdata_reg_a" = "UNREGISTERED"
+    Info (12134): Parameter "outdata_reg_b" = "UNREGISTERED"
+    Info (12134): Parameter "power_up_uninitialized" = "FALSE"
+    Info (12134): Parameter "ram_block_type" = "AUTO"
+    Info (12134): Parameter "rdcontrol_aclr_b" = "NONE"
+    Info (12134): Parameter "rdcontrol_reg_b" = "CLOCK1"
+    Info (12134): Parameter "read_during_write_mode_mixed_ports" = "DONT_CARE"
+    Info (12134): Parameter "read_during_write_mode_port_a" = "NEW_DATA_NO_NBE_READ"
+    Info (12134): Parameter "read_during_write_mode_port_b" = "NEW_DATA_NO_NBE_READ"
+    Info (12134): Parameter "stratixiv_m144k_allow_dual_clocks" = "ON"
+    Info (12134): Parameter "width_a" = "8"
+    Info (12134): Parameter "width_b" = "8"
+    Info (12134): Parameter "width_byteena_a" = "1"
+    Info (12134): Parameter "width_byteena_b" = "1"
+    Info (12134): Parameter "width_eccstatus" = "3"
+    Info (12134): Parameter "widthad_a" = "15"
+    Info (12134): Parameter "widthad_b" = "15"
+    Info (12134): Parameter "wrcontrol_aclr_a" = "UNUSED"
+    Info (12134): Parameter "wrcontrol_aclr_b" = "NONE"
+    Info (12134): Parameter "wrcontrol_wraddress_reg_b" = "CLOCK1"
+    Info (12134): Parameter "lpm_hint" = "UNUSED"
+    Info (12134): Parameter "lpm_type" = "altsyncram"
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_kf34.tdf
+    Info (12023): Found entity 1: altsyncram_kf34 File: /work/build/openfpga_genesis_analysis_work/src/fpga/db/altsyncram_kf34.tdf Line: 32
+Info (12128): Elaborating entity "altsyncram_kf34" for hierarchy "core_top:ic|system:system|dpram:ram68k_u|dpram_dif:ram|altsyncram:altsyncram_component|altsyncram_kf34:auto_generated" File: /opt/intelFPGA_lite/quartus/libraries/megafunctions/altsyncram.tdf Line: 792
+Info (12021): Found 1 design units, including 1 entities, in source file db/decode_8la.tdf
+    Info (12023): Found entity 1: decode_8la File: /work/build/openfpga_genesis_analysis_work/src/fpga/db/decode_8la.tdf Line: 23
+Info (12128): Elaborating entity "decode_8la" for hierarchy "core_top:ic|system:system|dpram:ram68k_u|dpram_dif:ram|altsyncram:altsyncram_component|altsyncram_kf34:auto_generated|decode_8la:decode2" File: /work/build/openfpga_genesis_analysis_work/src/fpga/db/altsyncram_kf34.tdf Line: 50
+Info (12021): Found 1 design units, including 1 entities, in source file db/mux_ofb.tdf
+    Info (12023): Found entity 1: mux_ofb File: /work/build/openfpga_genesis_analysis_work/src/fpga/db/mux_ofb.tdf Line: 23
+Info (12128): Elaborating entity "mux_ofb" for hierarchy "core_top:ic|system:system|dpram:ram68k_u|dpram_dif:ram|altsyncram:altsyncram_component|altsyncram_kf34:auto_generated|mux_ofb:mux4" File: /work/build/openfpga_genesis_analysis_work/src/fpga/db/altsyncram_kf34.tdf Line: 52
+Info (12128): Elaborating entity "T80s" for hierarchy "core_top:ic|system:system|T80s:Z80" File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/system.sv Line: 1215
+Info (12128): Elaborating entity "T80" for hierarchy "core_top:ic|system:system|T80s:Z80|T80:u0" File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/T80/T80s.vhd Line: 114
+Info (12128): Elaborating entity "T80_MCode" for hierarchy "core_top:ic|system:system|T80s:Z80|T80:u0|T80_MCode:mcode" File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/T80/T80.vhd Line: 265
+Info (12128): Elaborating entity "T80_ALU" for hierarchy "core_top:ic|system:system|T80s:Z80|T80:u0|T80_ALU:alu" File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/T80/T80.vhd Line: 333
+Info (12128): Elaborating entity "T80_Reg" for hierarchy "core_top:ic|system:system|T80s:Z80|T80:u0|T80_Reg:Regs" File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/T80/T80.vhd Line: 932
+Info (12128): Elaborating entity "dpram" for hierarchy "core_top:ic|system:system|dpram:ramZ80" File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/system.sv Line: 1273
+Info (12128): Elaborating entity "dpram_dif" for hierarchy "core_top:ic|system:system|dpram:ramZ80|dpram_dif:ram" File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/bram.vhd Line: 231
+Info (12128): Elaborating entity "altsyncram" for hierarchy "core_top:ic|system:system|dpram:ramZ80|dpram_dif:ram|altsyncram:altsyncram_component" File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/bram.vhd Line: 282
+Info (12130): Elaborated megafunction instantiation "core_top:ic|system:system|dpram:ramZ80|dpram_dif:ram|altsyncram:altsyncram_component" File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/bram.vhd Line: 282
+Info (12133): Instantiated megafunction "core_top:ic|system:system|dpram:ramZ80|dpram_dif:ram|altsyncram:altsyncram_component" with the following parameter: File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/bram.vhd Line: 282
+    Info (12134): Parameter "address_aclr_a" = "UNUSED"
+    Info (12134): Parameter "address_aclr_b" = "NONE"
+    Info (12134): Parameter "address_reg_b" = "CLOCK1"
+    Info (12134): Parameter "byte_size" = "8"
+    Info (12134): Parameter "byteena_aclr_a" = "UNUSED"
+    Info (12134): Parameter "byteena_aclr_b" = "NONE"
+    Info (12134): Parameter "byteena_reg_b" = "CLOCK1"
+    Info (12134): Parameter "clock_enable_core_a" = "USE_INPUT_CLKEN"
+    Info (12134): Parameter "clock_enable_core_b" = "USE_INPUT_CLKEN"
+    Info (12134): Parameter "clock_enable_input_a" = "NORMAL"
+    Info (12134): Parameter "clock_enable_input_b" = "NORMAL"
+    Info (12134): Parameter "clock_enable_output_a" = "BYPASS"
+    Info (12134): Parameter "clock_enable_output_b" = "BYPASS"
+    Info (12134): Parameter "intended_device_family" = "Cyclone V"
+    Info (12134): Parameter "ecc_pipeline_stage_enabled" = "FALSE"
+    Info (12134): Parameter "enable_ecc" = "FALSE"
+    Info (12134): Parameter "implement_in_les" = "OFF"
+    Info (12134): Parameter "indata_aclr_a" = "UNUSED"
+    Info (12134): Parameter "indata_aclr_b" = "NONE"
+    Info (12134): Parameter "indata_reg_b" = "CLOCK1"
+    Info (12134): Parameter "init_file" = " "
+    Info (12134): Parameter "init_file_layout" = "PORT_A"
+    Info (12134): Parameter "maximum_depth" = "0"
+    Info (12134): Parameter "numwords_a" = "8192"
+    Info (12134): Parameter "numwords_b" = "8192"
+    Info (12134): Parameter "operation_mode" = "BIDIR_DUAL_PORT"
+    Info (12134): Parameter "outdata_aclr_a" = "NONE"
+    Info (12134): Parameter "outdata_aclr_b" = "NONE"
+    Info (12134): Parameter "outdata_reg_a" = "UNREGISTERED"
+    Info (12134): Parameter "outdata_reg_b" = "UNREGISTERED"
+    Info (12134): Parameter "power_up_uninitialized" = "FALSE"
+    Info (12134): Parameter "ram_block_type" = "AUTO"
+    Info (12134): Parameter "rdcontrol_aclr_b" = "NONE"
+    Info (12134): Parameter "rdcontrol_reg_b" = "CLOCK1"
+    Info (12134): Parameter "read_during_write_mode_mixed_ports" = "DONT_CARE"
+    Info (12134): Parameter "read_during_write_mode_port_a" = "NEW_DATA_NO_NBE_READ"
+    Info (12134): Parameter "read_during_write_mode_port_b" = "NEW_DATA_NO_NBE_READ"
+    Info (12134): Parameter "stratixiv_m144k_allow_dual_clocks" = "ON"
+    Info (12134): Parameter "width_a" = "8"
+    Info (12134): Parameter "width_b" = "8"
+    Info (12134): Parameter "width_byteena_a" = "1"
+    Info (12134): Parameter "width_byteena_b" = "1"
+    Info (12134): Parameter "width_eccstatus" = "3"
+    Info (12134): Parameter "widthad_a" = "13"
+    Info (12134): Parameter "widthad_b" = "13"
+    Info (12134): Parameter "wrcontrol_aclr_a" = "UNUSED"
+    Info (12134): Parameter "wrcontrol_aclr_b" = "NONE"
+    Info (12134): Parameter "wrcontrol_wraddress_reg_b" = "CLOCK1"
+    Info (12134): Parameter "lpm_hint" = "UNUSED"
+    Info (12134): Parameter "lpm_type" = "altsyncram"
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_4c34.tdf
+    Info (12023): Found entity 1: altsyncram_4c34 File: /work/build/openfpga_genesis_analysis_work/src/fpga/db/altsyncram_4c34.tdf Line: 28
+Info (12128): Elaborating entity "altsyncram_4c34" for hierarchy "core_top:ic|system:system|dpram:ramZ80|dpram_dif:ram|altsyncram:altsyncram_component|altsyncram_4c34:auto_generated" File: /opt/intelFPGA_lite/quartus/libraries/megafunctions/altsyncram.tdf Line: 792
+Info (12128): Elaborating entity "jt12" for hierarchy "core_top:ic|system:system|jt12:fm" File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/system.sv Line: 1408
+Info (12128): Elaborating entity "jt12_top" for hierarchy "core_top:ic|system:system|jt12:fm|jt12_top:u_jt12" File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt12/jt12.v Line: 82
+Info (12128): Elaborating entity "jt12_dout" for hierarchy "core_top:ic|system:system|jt12:fm|jt12_top:u_jt12|jt12_dout:u_dout" File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt12/jt12_top.v Line: 290
+Info (12128): Elaborating entity "jt12_mmr" for hierarchy "core_top:ic|system:system|jt12:fm|jt12_top:u_jt12|jt12_mmr:u_mmr" File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt12/jt12_top.v Line: 399
+Info (12128): Elaborating entity "jt12_div" for hierarchy "core_top:ic|system:system|jt12:fm|jt12_top:u_jt12|jt12_mmr:u_mmr|jt12_div:u_div" File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt12/jt12_mmr.v Line: 142
+Info (12128): Elaborating entity "jt12_reg" for hierarchy "core_top:ic|system:system|jt12:fm|jt12_top:u_jt12|jt12_mmr:u_mmr|jt12_reg:u_reg" File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt12/jt12_mmr.v Line: 508
+Info (12128): Elaborating entity "jt12_sumch" for hierarchy "core_top:ic|system:system|jt12:fm|jt12_top:u_jt12|jt12_mmr:u_mmr|jt12_reg:u_reg|jt12_sumch:u_opch_II" File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt12/jt12_reg.v Line: 166
+Info (12128): Elaborating entity "jt12_kon" for hierarchy "core_top:ic|system:system|jt12:fm|jt12_top:u_jt12|jt12_mmr:u_mmr|jt12_reg:u_reg|jt12_kon:u_kon" File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt12/jt12_reg.v Line: 235
+Info (12128): Elaborating entity "jt12_sh_rst" for hierarchy "core_top:ic|system:system|jt12:fm|jt12_top:u_jt12|jt12_mmr:u_mmr|jt12_reg:u_reg|jt12_kon:u_kon|jt12_sh_rst:u_konch0" File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt12/jt12_kon.v Line: 96
+Info (12128): Elaborating entity "jt12_mod" for hierarchy "core_top:ic|system:system|jt12:fm|jt12_top:u_jt12|jt12_mmr:u_mmr|jt12_reg:u_reg|jt12_mod:u_mod" File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt12/jt12_reg.v Line: 250
+Info (12128): Elaborating entity "jt12_csr" for hierarchy "core_top:ic|system:system|jt12:fm|jt12_top:u_jt12|jt12_mmr:u_mmr|jt12_reg:u_reg|jt12_csr:u_csr0" File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt12/jt12_reg.v Line: 276
+Info (12128): Elaborating entity "jt12_sh_rst" for hierarchy "core_top:ic|system:system|jt12:fm|jt12_top:u_jt12|jt12_mmr:u_mmr|jt12_reg:u_reg|jt12_csr:u_csr0|jt12_sh_rst:u_regch" File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt12/jt12_csr.v Line: 53
+Info (12128): Elaborating entity "jt12_sh_rst" for hierarchy "core_top:ic|system:system|jt12:fm|jt12_top:u_jt12|jt12_mmr:u_mmr|jt12_reg:u_reg|jt12_sh_rst:u_regch" File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt12/jt12_reg.v Line: 352
+Info (12128): Elaborating entity "jt12_sh_rst" for hierarchy "core_top:ic|system:system|jt12:fm|jt12_top:u_jt12|jt12_mmr:u_mmr|jt12_reg:u_reg|jt12_sh_rst:u_regch_rl" File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt12/jt12_reg.v Line: 365
+Info (12128): Elaborating entity "jt12_timers" for hierarchy "core_top:ic|system:system|jt12:fm|jt12_top:u_jt12|jt12_timers:u_timers" File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt12/jt12_top.v Line: 422
+Info (12128): Elaborating entity "jt12_timer" for hierarchy "core_top:ic|system:system|jt12:fm|jt12_top:u_jt12|jt12_timers:u_timers|jt12_timer:timer_A" File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt12/jt12_timers.v Line: 72
+Warning (10036): Verilog HDL or VHDL warning at jt12_timers.v(106): object "free_next" assigned a value but never read File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt12/jt12_timers.v Line: 106
+Info (12128): Elaborating entity "jt12_timer" for hierarchy "core_top:ic|system:system|jt12:fm|jt12_top:u_jt12|jt12_timers:u_timers|jt12_timer:timer_B" File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt12/jt12_timers.v Line: 84
+Warning (10036): Verilog HDL or VHDL warning at jt12_timers.v(106): object "free_next" assigned a value but never read File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt12/jt12_timers.v Line: 106
+Info (12128): Elaborating entity "jt12_lfo" for hierarchy "core_top:ic|system:system|jt12:fm|jt12_top:u_jt12|jt12_lfo:gen_lfo.u_lfo" File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt12/jt12_top.v Line: 440
+Info (12128): Elaborating entity "jt12_pg" for hierarchy "core_top:ic|system:system|jt12:fm|jt12_top:u_jt12|jt12_pg:u_pg" File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt12/jt12_top.v Line: 515
+Info (12128): Elaborating entity "jt12_pg_comb" for hierarchy "core_top:ic|system:system|jt12:fm|jt12_top:u_jt12|jt12_pg:u_pg|jt12_pg_comb:u_comb" File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt12/jt12_pg.v Line: 94
+Info (12128): Elaborating entity "jt12_pm" for hierarchy "core_top:ic|system:system|jt12:fm|jt12_top:u_jt12|jt12_pg:u_pg|jt12_pg_comb:u_comb|jt12_pm:u_pm" File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt12/jt12_pg_comb.v Line: 61
+Warning (10030): Net "lfo_sh1_lut.data_a" at jt12_pm.v(38) has no driver or initial value, using a default initial value '0' File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt12/jt12_pm.v Line: 38
+Warning (10030): Net "lfo_sh1_lut.waddr_a" at jt12_pm.v(38) has no driver or initial value, using a default initial value '0' File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt12/jt12_pm.v Line: 38
+Warning (10030): Net "lfo_sh2_lut.data_a" at jt12_pm.v(39) has no driver or initial value, using a default initial value '0' File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt12/jt12_pm.v Line: 39
+Warning (10030): Net "lfo_sh2_lut.waddr_a" at jt12_pm.v(39) has no driver or initial value, using a default initial value '0' File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt12/jt12_pm.v Line: 39
+Warning (10030): Net "lfo_sh1_lut.we_a" at jt12_pm.v(38) has no driver or initial value, using a default initial value '0' File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt12/jt12_pm.v Line: 38
+Warning (10030): Net "lfo_sh2_lut.we_a" at jt12_pm.v(39) has no driver or initial value, using a default initial value '0' File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt12/jt12_pm.v Line: 39
+Info (12128): Elaborating entity "jt12_pg_dt" for hierarchy "core_top:ic|system:system|jt12:fm|jt12_top:u_jt12|jt12_pg:u_pg|jt12_pg_comb:u_comb|jt12_pg_dt:u_dt" File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt12/jt12_pg_comb.v Line: 69
+Info (12128): Elaborating entity "jt12_pg_inc" for hierarchy "core_top:ic|system:system|jt12:fm|jt12_top:u_jt12|jt12_pg:u_pg|jt12_pg_comb:u_comb|jt12_pg_inc:u_inc" File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt12/jt12_pg_comb.v Line: 76
+Info (12128): Elaborating entity "jt12_pg_sum" for hierarchy "core_top:ic|system:system|jt12:fm|jt12_top:u_jt12|jt12_pg:u_pg|jt12_pg_comb:u_comb|jt12_pg_sum:u_sum" File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt12/jt12_pg_comb.v Line: 88
+Info (12128): Elaborating entity "jt12_sh_rst" for hierarchy "core_top:ic|system:system|jt12:fm|jt12_top:u_jt12|jt12_pg:u_pg|jt12_sh_rst:u_phsh" File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt12/jt12_pg.v Line: 102
+Info (12128): Elaborating entity "jt12_sh_rst" for hierarchy "core_top:ic|system:system|jt12:fm|jt12_top:u_jt12|jt12_pg:u_pg|jt12_sh_rst:u_pad" File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt12/jt12_pg.v Line: 110
+Info (12128): Elaborating entity "jt12_eg" for hierarchy "core_top:ic|system:system|jt12:fm|jt12_top:u_jt12|jt12_eg:u_eg" File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt12/jt12_top.v Line: 546
+Info (12128): Elaborating entity "jt12_eg_cnt" for hierarchy "core_top:ic|system:system|jt12:fm|jt12_top:u_jt12|jt12_eg:u_eg|jt12_eg_cnt:u_egcnt" File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt12/jt12_eg.v Line: 61
+Info (12128): Elaborating entity "jt12_eg_comb" for hierarchy "core_top:ic|system:system|jt12:fm|jt12_top:u_jt12|jt12_eg:u_eg|jt12_eg_comb:u_comb" File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt12/jt12_eg.v Line: 140
+Info (12128): Elaborating entity "jt12_eg_ctrl" for hierarchy "core_top:ic|system:system|jt12:fm|jt12_top:u_jt12|jt12_eg:u_eg|jt12_eg_comb:u_comb|jt12_eg_ctrl:u_ctrl" File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt12/jt12_eg_comb.v Line: 97
+Info (12128): Elaborating entity "jt12_eg_step" for hierarchy "core_top:ic|system:system|jt12:fm|jt12_top:u_jt12|jt12_eg:u_eg|jt12_eg_comb:u_comb|jt12_eg_step:u_step" File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt12/jt12_eg_comb.v Line: 112
+Info (12128): Elaborating entity "jt12_eg_pure" for hierarchy "core_top:ic|system:system|jt12:fm|jt12_top:u_jt12|jt12_eg:u_eg|jt12_eg_comb:u_comb|jt12_eg_pure:u_pure" File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt12/jt12_eg_comb.v Line: 125
+Info (12128): Elaborating entity "jt12_eg_final" for hierarchy "core_top:ic|system:system|jt12:fm|jt12_top:u_jt12|jt12_eg:u_eg|jt12_eg_comb:u_comb|jt12_eg_final:u_final" File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt12/jt12_eg_comb.v Line: 137
+Info (12128): Elaborating entity "jt12_sh" for hierarchy "core_top:ic|system:system|jt12:fm|jt12_top:u_jt12|jt12_eg:u_eg|jt12_sh:u_cntsh" File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt12/jt12_eg.v Line: 168
+Info (12128): Elaborating entity "jt12_sh_rst" for hierarchy "core_top:ic|system:system|jt12:fm|jt12_top:u_jt12|jt12_eg:u_eg|jt12_sh_rst:u_egsh" File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt12/jt12_eg.v Line: 176
+Info (12128): Elaborating entity "jt12_sh_rst" for hierarchy "core_top:ic|system:system|jt12:fm|jt12_top:u_jt12|jt12_eg:u_eg|jt12_sh_rst:u_egstate" File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt12/jt12_eg.v Line: 184
+Info (12128): Elaborating entity "jt12_sh_rst" for hierarchy "core_top:ic|system:system|jt12:fm|jt12_top:u_jt12|jt12_eg:u_eg|jt12_sh_rst:u_ssg_inv" File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt12/jt12_eg.v Line: 192
+Info (12128): Elaborating entity "jt12_sh_rst" for hierarchy "core_top:ic|system:system|jt12:fm|jt12_top:u_jt12|jt12_eg:u_eg|jt12_sh_rst:u_konsh" File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt12/jt12_eg.v Line: 200
+Info (12128): Elaborating entity "jt12_sh" for hierarchy "core_top:ic|system:system|jt12:fm|jt12_top:u_jt12|jt12_sh:u_egpad" File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt12/jt12_top.v Line: 553
+Info (12128): Elaborating entity "jt12_op" for hierarchy "core_top:ic|system:system|jt12:fm|jt12_top:u_jt12|jt12_op:u_op" File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt12/jt12_top.v Line: 577
+Info (12128): Elaborating entity "jt12_sh" for hierarchy "core_top:ic|system:system|jt12:fm|jt12_top:u_jt12|jt12_op:u_op|jt12_sh:prev1_buffer" File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt12/jt12_op.v Line: 92
+Info (12128): Elaborating entity "jt12_sh" for hierarchy "core_top:ic|system:system|jt12:fm|jt12_top:u_jt12|jt12_op:u_op|jt12_sh:phasemod_sh" File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt12/jt12_op.v Line: 178
+Info (12128): Elaborating entity "jt12_logsin" for hierarchy "core_top:ic|system:system|jt12:fm|jt12_top:u_jt12|jt12_op:u_op|jt12_logsin:u_logsin" File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt12/jt12_op.v Line: 209
+Info (12128): Elaborating entity "jt12_exprom" for hierarchy "core_top:ic|system:system|jt12:fm|jt12_top:u_jt12|jt12_op:u_op|jt12_exprom:u_exprom" File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt12/jt12_op.v Line: 230
+Info (12128): Elaborating entity "jt12_rst" for hierarchy "core_top:ic|system:system|jt12:fm|jt12_top:u_jt12|jt12_rst:gen_pcm_acc.u_rst_pcm" File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt12/jt12_top.v Line: 618
+Info (12128): Elaborating entity "jt12_pcm_interpol" for hierarchy "core_top:ic|system:system|jt12:fm|jt12_top:u_jt12|jt12_pcm_interpol:gen_pcm_acc.u_pcm" File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt12/jt12_top.v Line: 633
+Warning (10230): Verilog HDL assignment warning at jt12_pcm_interpol.v(55): truncated value with size 32 to match size of target (11) File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt12/jt12_pcm_interpol.v Line: 55
+Warning (10230): Verilog HDL assignment warning at jt12_pcm_interpol.v(61): truncated value with size 32 to match size of target (5) File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt12/jt12_pcm_interpol.v Line: 61
+Info (12128): Elaborating entity "jt10_adpcm_div" for hierarchy "core_top:ic|system:system|jt12:fm|jt12_top:u_jt12|jt12_pcm_interpol:gen_pcm_acc.u_pcm|jt10_adpcm_div:u_div" File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt12/jt12_pcm_interpol.v Line: 106
+Warning (10230): Verilog HDL assignment warning at jt10_adpcm_div.v(47): truncated value with size 16 to match size of target (11) File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt12/adpcm/jt10_adpcm_div.v Line: 47
+Warning (10230): Verilog HDL assignment warning at jt10_adpcm_div.v(48): truncated value with size 16 to match size of target (11) File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt12/adpcm/jt10_adpcm_div.v Line: 48
+Info (12128): Elaborating entity "jt12_acc" for hierarchy "core_top:ic|system:system|jt12:fm|jt12_top:u_jt12|jt12_acc:gen_pcm_acc.accumulator_block[0].u_acc" File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt12/jt12_top.v Line: 663
+Info (12128): Elaborating entity "jt12_single_acc" for hierarchy "core_top:ic|system:system|jt12:fm|jt12_top:u_jt12|jt12_acc:gen_pcm_acc.accumulator_block[0].u_acc|jt12_single_acc:u_acc" File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt12/jt12_acc.v Line: 96
+Info (12128): Elaborating entity "genesis_fm_lpf" for hierarchy "core_top:ic|system:system|genesis_fm_lpf:fm_lpf_l" File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/system.sv Line: 1419
+Info (12128): Elaborating entity "iir_2nd_order" for hierarchy "core_top:ic|system:system|genesis_fm_lpf:fm_lpf_l|iir_2nd_order:fm2" File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/genesis_lpf.v Line: 101
+Info (12128): Elaborating entity "jt12_genmix" for hierarchy "core_top:ic|system:system|jt12_genmix:genmix" File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/system.sv Line: 1445
+Info (12128): Elaborating entity "jt12_interpol" for hierarchy "core_top:ic|system:system|jt12_genmix:genmix|jt12_interpol:u_psg1" File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt12/mixer/jt12_genmix.v Line: 97
+Info (12128): Elaborating entity "jt12_comb" for hierarchy "core_top:ic|system:system|jt12_genmix:genmix|jt12_interpol:u_psg1|jt12_comb:comb_gen[0].u_comb" File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt12/mixer/jt12_interpol.v Line: 52
+Info (12128): Elaborating entity "jt12_decim" for hierarchy "core_top:ic|system:system|jt12_genmix:genmix|jt12_decim:u_psg2" File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt12/mixer/jt12_genmix.v Line: 108
+Info (12128): Elaborating entity "jt12_comb" for hierarchy "core_top:ic|system:system|jt12_genmix:genmix|jt12_decim:u_psg2|jt12_comb:com_gen[0].u_comb" File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt12/mixer/jt12_decim.v Line: 77
+Info (12128): Elaborating entity "jt12_decim" for hierarchy "core_top:ic|system:system|jt12_genmix:genmix|jt12_decim:u_psg3" File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt12/mixer/jt12_genmix.v Line: 119
+Info (12128): Elaborating entity "jt12_comb" for hierarchy "core_top:ic|system:system|jt12_genmix:genmix|jt12_decim:u_psg3|jt12_comb:com_gen[0].u_comb" File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt12/mixer/jt12_decim.v Line: 77
+Info (12128): Elaborating entity "jt12_fm_uprate" for hierarchy "core_top:ic|system:system|jt12_genmix:genmix|jt12_fm_uprate:u_left" File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt12/mixer/jt12_genmix.v Line: 165
+Info (12128): Elaborating entity "jt12_interpol" for hierarchy "core_top:ic|system:system|jt12_genmix:genmix|jt12_fm_uprate:u_left|jt12_interpol:u_fm2" File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt12/mixer/jt12_fm_uprate.v Line: 60
+Info (12128): Elaborating entity "jt12_comb" for hierarchy "core_top:ic|system:system|jt12_genmix:genmix|jt12_fm_uprate:u_left|jt12_interpol:u_fm2|jt12_comb:comb_gen[0].u_comb" File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt12/mixer/jt12_interpol.v Line: 52
+Info (12128): Elaborating entity "jt12_interpol" for hierarchy "core_top:ic|system:system|jt12_genmix:genmix|jt12_fm_uprate:u_left|jt12_interpol:u_fm3" File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt12/mixer/jt12_fm_uprate.v Line: 71
+Info (12128): Elaborating entity "jt12_comb" for hierarchy "core_top:ic|system:system|jt12_genmix:genmix|jt12_fm_uprate:u_left|jt12_interpol:u_fm3|jt12_comb:comb_gen[0].u_comb" File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt12/mixer/jt12_interpol.v Line: 52
+Info (12128): Elaborating entity "jt12_interpol" for hierarchy "core_top:ic|system:system|jt12_genmix:genmix|jt12_fm_uprate:u_left|jt12_interpol:u_fm4" File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt12/mixer/jt12_fm_uprate.v Line: 82
+Info (12128): Elaborating entity "jt12_comb" for hierarchy "core_top:ic|system:system|jt12_genmix:genmix|jt12_fm_uprate:u_left|jt12_interpol:u_fm4|jt12_comb:comb_gen[0].u_comb" File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt12/mixer/jt12_interpol.v Line: 52
+Info (12128): Elaborating entity "jt12_interpol" for hierarchy "core_top:ic|system:system|jt12_genmix:genmix|jt12_fm_uprate:u_left|jt12_interpol:u_fm5" File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt12/mixer/jt12_fm_uprate.v Line: 93
+Info (12128): Elaborating entity "genesis_lpf" for hierarchy "core_top:ic|system:system|genesis_lpf:lpf_right" File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/system.sv Line: 1454
+Info (12128): Elaborating entity "iir_1st_order" for hierarchy "core_top:ic|system:system|genesis_lpf:lpf_right|iir_1st_order:lpf6db" File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/genesis_lpf.v Line: 76
+Info (12128): Elaborating entity "mf_pllbase" for hierarchy "core_top:ic|mf_pllbase:mp1" File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/core_top.sv Line: 1259
+Info (12128): Elaborating entity "mf_pllbase_0002" for hierarchy "core_top:ic|mf_pllbase:mp1|mf_pllbase_0002:mf_pllbase_inst" File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/mf_pllbase.v Line: 30
+Info (12128): Elaborating entity "altera_pll" for hierarchy "core_top:ic|mf_pllbase:mp1|mf_pllbase_0002:mf_pllbase_inst|altera_pll:altera_pll_i" File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/mf_pllbase/mf_pllbase_0002.v Line: 100
+Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "wire_to_nowhere_64" into its bus
+Info (12130): Elaborated megafunction instantiation "core_top:ic|mf_pllbase:mp1|mf_pllbase_0002:mf_pllbase_inst|altera_pll:altera_pll_i" File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/mf_pllbase/mf_pllbase_0002.v Line: 100
+Info (12133): Instantiated megafunction "core_top:ic|mf_pllbase:mp1|mf_pllbase_0002:mf_pllbase_inst|altera_pll:altera_pll_i" with the following parameter: File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/mf_pllbase/mf_pllbase_0002.v Line: 100
+    Info (12134): Parameter "fractional_vco_multiplier" = "false"
+    Info (12134): Parameter "reference_clock_frequency" = "74.25 MHz"
+    Info (12134): Parameter "operation_mode" = "direct"
+    Info (12134): Parameter "number_of_clocks" = "6"
+    Info (12134): Parameter "output_clock_frequency0" = "53.693181 MHz"
+    Info (12134): Parameter "phase_shift0" = "0 ps"
+    Info (12134): Parameter "duty_cycle0" = "50"
+    Info (12134): Parameter "output_clock_frequency1" = "107.386363 MHz"
+    Info (12134): Parameter "phase_shift1" = "0 ps"
+    Info (12134): Parameter "duty_cycle1" = "50"
+    Info (12134): Parameter "output_clock_frequency2" = "6.711647 MHz"
+    Info (12134): Parameter "phase_shift2" = "0 ps"
+    Info (12134): Parameter "duty_cycle2" = "50"
+    Info (12134): Parameter "output_clock_frequency3" = "6.711647 MHz"
+    Info (12134): Parameter "phase_shift3" = "37249 ps"
+    Info (12134): Parameter "duty_cycle3" = "50"
+    Info (12134): Parameter "output_clock_frequency4" = "5.369318 MHz"
+    Info (12134): Parameter "phase_shift4" = "0 ps"
+    Info (12134): Parameter "duty_cycle4" = "50"
+    Info (12134): Parameter "output_clock_frequency5" = "5.369318 MHz"
+    Info (12134): Parameter "phase_shift5" = "46561 ps"
+    Info (12134): Parameter "duty_cycle5" = "50"
+    Info (12134): Parameter "output_clock_frequency6" = "0 MHz"
+    Info (12134): Parameter "phase_shift6" = "0 ps"
+    Info (12134): Parameter "duty_cycle6" = "50"
+    Info (12134): Parameter "output_clock_frequency7" = "0 MHz"
+    Info (12134): Parameter "phase_shift7" = "0 ps"
+    Info (12134): Parameter "duty_cycle7" = "50"
+    Info (12134): Parameter "output_clock_frequency8" = "0 MHz"
+    Info (12134): Parameter "phase_shift8" = "0 ps"
+    Info (12134): Parameter "duty_cycle8" = "50"
+    Info (12134): Parameter "output_clock_frequency9" = "0 MHz"
+    Info (12134): Parameter "phase_shift9" = "0 ps"
+    Info (12134): Parameter "duty_cycle9" = "50"
+    Info (12134): Parameter "output_clock_frequency10" = "0 MHz"
+    Info (12134): Parameter "phase_shift10" = "0 ps"
+    Info (12134): Parameter "duty_cycle10" = "50"
+    Info (12134): Parameter "output_clock_frequency11" = "0 MHz"
+    Info (12134): Parameter "phase_shift11" = "0 ps"
+    Info (12134): Parameter "duty_cycle11" = "50"
+    Info (12134): Parameter "output_clock_frequency12" = "0 MHz"
+    Info (12134): Parameter "phase_shift12" = "0 ps"
+    Info (12134): Parameter "duty_cycle12" = "50"
+    Info (12134): Parameter "output_clock_frequency13" = "0 MHz"
+    Info (12134): Parameter "phase_shift13" = "0 ps"
+    Info (12134): Parameter "duty_cycle13" = "50"
+    Info (12134): Parameter "output_clock_frequency14" = "0 MHz"
+    Info (12134): Parameter "phase_shift14" = "0 ps"
+    Info (12134): Parameter "duty_cycle14" = "50"
+    Info (12134): Parameter "output_clock_frequency15" = "0 MHz"
+    Info (12134): Parameter "phase_shift15" = "0 ps"
+    Info (12134): Parameter "duty_cycle15" = "50"
+    Info (12134): Parameter "output_clock_frequency16" = "0 MHz"
+    Info (12134): Parameter "phase_shift16" = "0 ps"
+    Info (12134): Parameter "duty_cycle16" = "50"
+    Info (12134): Parameter "output_clock_frequency17" = "0 MHz"
+    Info (12134): Parameter "phase_shift17" = "0 ps"
+    Info (12134): Parameter "duty_cycle17" = "50"
+    Info (12134): Parameter "pll_type" = "General"
+    Info (12134): Parameter "pll_subtype" = "General"
+Info (11170): Starting IP generation for the debug fabric: alt_sld_fab.
+Info (11172): 2026.07.08.02:02:48 Progress: Loading sld09e0bd25/alt_sld_fab_wrapper_hw.tcl
+Info (11172): Alt_sld_fab.alt_sld_fab: SLD fabric agents which did not specify prefer_host were connected to JTAG
+Info (11172): Alt_sld_fab: Generating alt_sld_fab "alt_sld_fab" for QUARTUS_SYNTH
+Info (11172): Alt_sld_fab: "alt_sld_fab" instantiated alt_sld_fab "alt_sld_fab"
+Info (11172): Presplit: "alt_sld_fab" instantiated altera_super_splitter "presplit"
+Info (11172): Splitter: "alt_sld_fab" instantiated altera_sld_splitter "splitter"
+Info (11172): Sldfabric: "alt_sld_fab" instantiated altera_sld_jtag_hub "sldfabric"
+Info (11172): Ident: "alt_sld_fab" instantiated altera_connection_identification_hub "ident"
+Info (11172): Alt_sld_fab: Done "alt_sld_fab" with 6 modules, 6 files
+Info (11171): Finished IP generation for the debug fabric: alt_sld_fab.
+Info (12021): Found 1 design units, including 1 entities, in source file db/ip/sld09e0bd25/alt_sld_fab.v
+    Info (12023): Found entity 1: alt_sld_fab File: /work/build/openfpga_genesis_analysis_work/src/fpga/db/ip/sld09e0bd25/alt_sld_fab.v Line: 9
+Info (12021): Found 1 design units, including 1 entities, in source file db/ip/sld09e0bd25/submodules/alt_sld_fab_alt_sld_fab.v
+    Info (12023): Found entity 1: alt_sld_fab_alt_sld_fab File: /work/build/openfpga_genesis_analysis_work/src/fpga/db/ip/sld09e0bd25/submodules/alt_sld_fab_alt_sld_fab.v Line: 9
+Info (12021): Found 1 design units, including 1 entities, in source file db/ip/sld09e0bd25/submodules/alt_sld_fab_alt_sld_fab_ident.sv
+    Info (12023): Found entity 1: alt_sld_fab_alt_sld_fab_ident File: /work/build/openfpga_genesis_analysis_work/src/fpga/db/ip/sld09e0bd25/submodules/alt_sld_fab_alt_sld_fab_ident.sv Line: 33
+Info (12021): Found 1 design units, including 1 entities, in source file db/ip/sld09e0bd25/submodules/alt_sld_fab_alt_sld_fab_presplit.sv
+    Info (12023): Found entity 1: alt_sld_fab_alt_sld_fab_presplit File: /work/build/openfpga_genesis_analysis_work/src/fpga/db/ip/sld09e0bd25/submodules/alt_sld_fab_alt_sld_fab_presplit.sv Line: 3
+Info (12021): Found 2 design units, including 1 entities, in source file db/ip/sld09e0bd25/submodules/alt_sld_fab_alt_sld_fab_sldfabric.vhd
+    Info (12022): Found design unit 1: alt_sld_fab_alt_sld_fab_sldfabric-rtl File: /work/build/openfpga_genesis_analysis_work/src/fpga/db/ip/sld09e0bd25/submodules/alt_sld_fab_alt_sld_fab_sldfabric.vhd Line: 102
+    Info (12023): Found entity 1: alt_sld_fab_alt_sld_fab_sldfabric File: /work/build/openfpga_genesis_analysis_work/src/fpga/db/ip/sld09e0bd25/submodules/alt_sld_fab_alt_sld_fab_sldfabric.vhd Line: 11
+Info (12021): Found 1 design units, including 1 entities, in source file db/ip/sld09e0bd25/submodules/alt_sld_fab_alt_sld_fab_splitter.sv
+    Info (12023): Found entity 1: alt_sld_fab_alt_sld_fab_splitter File: /work/build/openfpga_genesis_analysis_work/src/fpga/db/ip/sld09e0bd25/submodules/alt_sld_fab_alt_sld_fab_splitter.sv Line: 3
+Warning (12241): 48 hierarchies have connectivity warnings - see the Connectivity Checks report folder
+Info (144001): Generated suppressed messages file /work/build/openfpga_genesis_analysis_work/src/fpga/output_files/ap_core.map.smsg
+Info: Quartus Prime Analysis & Elaboration was successful. 0 errors, 72 warnings
+    Info: Peak virtual memory: 1826 megabytes
+    Info: Processing ended: Wed Jul  8 02:02:56 2026
+    Info: Elapsed time: 00:00:38
+    Info: Total CPU time (on all processors): 00:01:28

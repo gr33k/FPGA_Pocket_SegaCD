@@ -1,229 +1,32 @@
-# Next activation path after Task 6Q
+# Next activation path after Task 7I
 
-## Task 7A status (current lane blocker)
+## Task 7I status (current lane blocker resolved)
 
-Task 7A confirmed the repository is now blocked by Quartus availability, not runner safety.
+Task 7I has moved the repository from "analysis hard-stop" to "analysis-pass + warning triage":
 
-## Task 7B status (current blocker refinement)
+- Prebuilt Docker lane executed `openFPGA-Genesis` elaboration successfully.
+- Quartus command completed with exit code `0`.
+- No fatal errors were recorded.
+- No fitter/synthesis/assembler/bitstream steps were run.
 
-- NAS validation confirmed that no Quartus installer package is currently staged in checked installer directories and no `quartus_map` executable is present.
-- First 7B result is intentionally hard-stop: no analysis pass can run until toolchain binary exists on NAS.
-- 7B blocker outputs:
-  - `docs/TASK7B_QUARTUS_INSTALL_STATUS.md`
-  - `docs/OPENFPGA_GENESIS_FIRST_ANALYSIS_ERRORS.md` (no analyses yet; explicit no-run reason captured)
-- Next action:
-  1. Install or copy a Quartus Lite installer to the NAS workflow path and complete the documented install path.
-  2. Validate `quartus_map` and rerun analysis-only gating.
-  3. If analysis runs, classify the first real errors; if not, keep this task active and do not progress implementation.
+## Why this matters
 
-## Task 7C status (attempted install/analysis hard-stop)
+- We now have verified a real Quartus elaboration path end-to-end.
+- The next blocker is no longer tool availability; it is interpretation of the current warning set and what must be cleaned up before attempting fitter/further compile steps.
 
-- Attempted NAS install workflow check using staged-installer path requirements.
-- No installer package was found in `/root/fpga/installers` (searched common installer patterns), so Task 7C could not install Quartus.
-- `quartus_map` remains unavailable on the NAS build host.
-- Analysis-only runner was not executed; no fitter/assembler/timing/bitstream step run.
-- Next action remains:
-  1. Stage a valid Quartus Prime Lite installer under `/root/fpga/installers`.
-  2. Re-run staged install and validate `quartus_map`.
-  3. Re-run `tools/run_openfpga_genesis_analysis_only.sh` and classify first real Quartus analysis errors.
+## Immediate next steps
 
-## Task 7D status (same hard-stop)
-
-- Hard-stop remains: no staged Quartus installer was found, so analysis-only run did not start.
-- Installer check used:
-  - `/root/fpga/installers`
-  - patterns `*quartus*.run`, `*Quartus*.run`, `*quartus*.sh`, `*Quartus*.sh`, `*Quartus*.tar`, `*Quartus*.tar.gz`
-- `quartus_map` not available.
-- No fitter/assembler/timing/bitstream run.
-- Next action remains unchanged:
-  1. Stage a valid Quartus Prime Lite installer in `/root/fpga/installers` (preferably 21.1.1 Lite).
- 2. Install outside the repo.
-  3. Rerun Task 7D installer+analysis flow.
-
-## Task 7E status (Dockerized install/run flow)
-
-- New Dockerized path introduced:
-  1. `tools/docker_install_quartus_lite.sh`
-  2. `tools/docker_run_openfpga_genesis_analysis_only.sh`
-  3. `tools/check_docker_quartus_install_flow.sh`
-- Hard stop still applies: no installer staged in `/root/fpga/installers`.
-- Installer is still required (Docker does not provide Intel binary payloads).
-- When staged, run:
-  - `tools/docker_install_quartus_lite.sh`
-  - `tools/docker_run_openfpga_genesis_analysis_only.sh`
-- Keep scope at analysis/elaboration only.
-- No fitter/assembler/timing/bitstream actions are part of this task.
-
-## Task 6Z status (historical)
-
-Task 6Z added a Quartus-gated analysis-only runner for the `openFPGA-Genesis` lane.
-
-Task 6ZA finished that runner safety cleanup:
-
-- `tools/run_openfpga_genesis_analysis_only.sh` now treats `third_party/openFPGA-Genesis` as read-only input and always runs Quartus in:
-  - `build/openfpga_genesis_analysis_work/src/fpga`
-- `tools/check_openfpga_genesis_analysis_runner.sh` verifies:
-  - no `rm -rf` against `UPSTREAM_DIR`
-  - no `cd` into `UPSTREAM_DIR` for Quartus execution
-  - no forbidden Quartus invocations (`quartus_fit/asm/sta/cpf`)
-  - use of `build/openfpga_genesis_analysis_work`
-
-Current behavior:
-
-- `ap_core` / `apf_top` assumptions are still sourced from `third_party/openFPGA-Genesis/src/fpga/ap_core.qsf`.
-- Runner status is tracked in `docs/OPENFPGA_GENESIS_ANALYSIS_ONLY_STATUS.md`.
-- Runner check report is tracked in `docs/OPENFPGA_GENESIS_ANALYSIS_RUNNER_CHECK.md`.
-- `docs/OPENFPGA_GENESIS_ANALYSIS_ONLY_LOG.txt` is generated if Quartus runs.
-- `third_party/openFPGA-Genesis` remains read-only.
-
-Blocking condition remains:
-
-- `quartus_map` is not available on local host or NAS.
-- The next run should stay analysis-only and must not run fitter/assembler/timing/bitstream generation.
-
-Next:
-
-1. Install or restore Quartus Lite (or place a verified installer into the documented NAS/docker flow), then export `quartus_map` into PATH.
-2. Rerun `./tools/run_openfpga_genesis_analysis_only.sh`.
-3. Keep this task at analysis/elaboration only until source closure is clear.
-4. If analysis fails, classify first errors under `docs/OPENFPGA_GENESIS_FIRST_ANALYSIS_ERRORS.md`.
-5. Continue staged package/SD host workflow only after the first analysis/elaboration pass is complete.
-
-Current milestone target remains blocked by missing local Quartus execution, so we
-keep this stage as package/layout scaffolding with an explicit host handoff.
-
-## Immediate next steps (once Quartus-capable host is available)
-
-1. Validate skeleton check remains PASS:
-   - `tools/check_openfpga_package_skeleton.sh`
-2. Run dry-run Pocket SD staging check:
-   - `DRY_RUN=1 tools/stage_pocket_sd_skeleton.sh`
-   - `POCKET_SD_ROOT=/Volumes/POCKET DRY_RUN=1 tools/stage_pocket_sd_skeleton.sh`
-3. Run deterministic package copy and staged check when ready:
-   - `POCKET_SD_ROOT=/Volumes/POCKET DRY_RUN=0 tools/stage_pocket_sd_skeleton.sh`
-   - `POCKET_SD_ROOT=/Volumes/POCKET tools/check_pocket_sd_staging.sh`
-4. Run external Quartus handoff and capture first analysis/elaboration result:
-   - `tools/check_genesis_only_project_flow.sh`
-   - `tools/validate_local_quartus_toolchain.sh`
-   - `tools/run_quartus_analysis_only_if_available.sh`
-   - use `docs/QUARTUS_BUILD_HOST_HANDOFF.md` before host transfer.
-5. Add deterministic package copy step from `apf/` sources into
-   `openfpga/FPGA_Pocket_SegaCD/apf/` for release packaging.
-6. Add Quartus build/project hook to emit expected outputs into
-   `openfpga/FPGA_Pocket_SegaCD/build/` (still no generated outputs committed
-   until green-lit).
-7. Restore/extend source-closure docs with exact manifest after real compile pass.
-
-## Task 6S to 6T handoff
-
-1. Use Docker workflow on Fedora NAS:
-   - `tools/check_quartus_docker_workflow.sh`
-   - `tools/run_quartus_docker_dryrun.sh`
-   - `docs/FEDORA_NAS_DOCKER_QUARTUS_WORKFLOW.md`
-2. Validate toolchain path and run analysis/elaboration only from that host.
-3. Capture first Quartus analysis errors and resume according to Task 6T/6L guidance.
-
-## Task 6U next activation path
-
-Main implementation path pivots to Pocket-native Genesis.
-
-Next task after 6U:
-- decide whether to fork `opengateware/openFPGA-Genesis` directly, vendor a source snapshot with attribution, or wrap it as a submodule build source
-- preserve attribution and license notices
-- avoid editing upstream submodule files directly
-- get Genesis-only building as close to upstream Pocket Genesis as possible
-- no Sega CD or 32X until Genesis boots
-
-The NAS Docker/Quartus path remains hard-stopped until a Quartus Lite Linux installer is available.
-
-## Task 6V target follow-on
-
-After this strategy lock:
-
-1. Add/pin `third_party/openFPGA-Genesis` as the single upstream runtime source lane.
-2. Keep `third_party/Genesis_MiSTer` as reference-only and non-active.
-3. Rebuild the runtime-active source manifest from openFPGA core paths.
-4. Run Quartus analysis/elaboration against the new active lane only once toolchain is available.
-
-## Task 6W immediate follow-on
-
-1. Keep `third_party/openFPGA-Genesis` as the active implementation lane.
-2. Keep `third_party/Genesis_MiSTer` reference-only.
-3. Build the source activation plan using:
-   - `docs/OPENFPGA_GENESIS_SOURCE_MANIFEST.md`
-   - `docs/OPENFPGA_GENESIS_INTEGRATION_DELTA.md`
-4. Do not activate Sega CD or 32X in this lane.
-5. After Quartus installer is staged on NAS, run analysis/elaboration only on the
-   openFPGA-Genesis path and classify first-pass failures.
-
-## Task 6Y immediate follow-on (sanity-fixed lane only)
-
-1. Keep candidate QSF planning aligned to upstream `ap_core.qsf` assumptions:
-   - `TOP_LEVEL_ENTITY apf_top`
-   - `DEVICE 5CEBA4F23C8`
-2. Keep `files_openfpga_genesis_runtime.candidate.qsf` passive (no synthesis entry).
-3. Do not activate `Genesis_MiSTer`, Sega CD, or 32X.
-4. Re-run checkers on NAS and confirm no stale environment-specific report paths remain.
-5. Next real blocker handling once checks are green: Quartus installer availability and first real analysis/elaboration errors.
+1. Collect warning evidence into a dedicated classification pass:
+   - `docs/OPENFPGA_GENESIS_ANALYSIS_ONLY_LOG.txt` (connectivity and truncation warnings)
+   - `docs/OPENFPGA_GENESIS_ANALYSIS_ONLY_STATUS.md` (exit + command)
+2. Decide what warning classes block progress for this milestone:
+   - width truncation warnings in `jt10_adpcm_div.v`
+   - `12241` connectivity warnings
+3. Keep scope to analysis/smoke until a clear path is set, then transition to fit-path evaluation only with explicit compile safety guardrails.
 
 ## Hard constraints
 
 - No Sega-CD/32X at this stage.
 - No save state support yet.
 - No host-per-read ROM streaming.
-
-## Task 7G status
-
-- Added URL staging helper for Quartus installer flow:
-  - `tools/stage_quartus_installer_from_url.sh`
-  - `tools/check_quartus_installer_staging_helper.sh`
-- Added helper status/check docs:
-  - `docs/QUARTUS_INSTALLER_STAGING_STATUS.md`
-  - `docs/QUARTUS_INSTALLER_STAGING_HELPER_CHECK.md`
-- Next path now supports two installer staging options:
-  1. Manually copy installer with `scp` into `/root/fpga/installers`, then run existing Docker install + analysis flow.
-  2. Export `QUARTUS_INSTALLER_URL` (optionally `QUARTUS_INSTALLER_NAME`, `QUARTUS_INSTALLER_SHA256`) and run `tools/stage_quartus_installer_from_url.sh`.
-- After staging is complete (via scp or URL helper): run
-  - `tools/docker_install_quartus_lite.sh`
-  - `tools/docker_run_openfpga_genesis_analysis_only.sh`
-- No Quartus compile or analysis has run yet because staging/install is still pending.
-
-## Task 7F blocker snapshot
-
-### Result
-- NAS run date: 2026-07-07
-- Installer found in `/root/fpga/installers`: **No**
-- Installer path pattern checks: **No matches**
-- `docs/DOCKER_QUARTUS_INSTALL_STATUS.md`: installer not found / install not attempted
-- `quartus_map`: not checked (installer stage hard-stop)
-- Docker analysis attempted: **No**
-- Failsafe: hold on hard-stop; no fitter/assembler/timing/bitstream run
-
-### Next action
-1. Stage a valid Quartus Lite installer in `/root/fpga/installers` (Linux host package).
-2. Re-run:
-   - `tools/docker_install_quartus_lite.sh`
-   - `tools/docker_run_openfpga_genesis_analysis_only.sh`
-3. Classify first Quartus analysis error only if analysis executes.
-4. Keep `third_party/openFPGA-Genesis` and `third_party/Genesis_MiSTer` clean/read-only unless a later integration task requires edits.
-
-## Task 7H status (prebuilt-Docker fallback)
-
-- Added prebuilt Docker analysis wrappers to allow Quartus checks without a local installer:
-  - `tools/docker_run_openfpga_genesis_analysis_prebuilt.sh`
-  - `tools/check_prebuilt_quartus_docker_analysis.sh`
-- Wrapper behavior:
-  - runs a prebuilt image (`theypsilon/quartus-lite-c5:19.1-heavy`) with fallback (`no2chem/quartuslite:latest`)
-  - executes `tools/run_openfpga_genesis_analysis_only.sh` in-container
-  - executes `tools/check_openfpga_genesis_analysis_runner.sh` in-container
-  - does not run fitter/assembler/timing/bitstream steps
-- This path now has confirmed execution:
-  - prebuilt analysis wrapper ran with default image and completed
-  - `tools/check_prebuilt_quartus_docker_analysis.sh` passes
-  - `docs/PREBUILT_QUARTUS_DOCKER_ANALYSIS_STATUS.md` records successful `analysis result: completed`
-- Next:
-  1. Classify any Quartus errors in `docs/OPENFPGA_GENESIS_FIRST_ANALYSIS_ERRORS.md` if they appear in the next real analysis pass.
-  2. If needed, rerun with explicit fallback image:
-     - `QUARTUS_PREBUILT_IMAGE=no2chem/quartuslite:latest tools/docker_run_openfpga_genesis_analysis_prebuilt.sh`
-
-Next blocking point remains: Task 7I (post-analysis-error classification and next action).
+- No fit/asm/sta/packaging run in analysis-only status proofs.

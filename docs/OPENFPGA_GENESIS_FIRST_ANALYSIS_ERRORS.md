@@ -1,44 +1,31 @@
-# Task 7D: openFPGA Genesis first-analysis errors
+# Task 7I: openFPGA Genesis first-analysis errors
 
 ## Status
 
-- Analysis-elaboration did not run.
-- Blocker: no staged Quartus Lite installer and no `quartus_map` available on NAS (Task 7D hard stop).
+- Prebuilt-Docker analysis path executed successfully for the first time.
+- No Quartus compile-time **errors** were observed in the first Quartus elaboration pass.
+- `analysis exit: 0` was recorded in `docs/OPENFPGA_GENESIS_ANALYSIS_ONLY_STATUS.md`.
+- Result summary: **0 errors, 72 warnings**.
 
-## Local status
+## Evidence
 
-- `command -v quartus_map`: no output.
-- Local install search found no `quartus_map` binary in checked paths.
+- Quartus command used:
+  - `/opt/intelFPGA_lite/quartus/bin/quartus_map --read_settings_files=on --write_settings_files=off ap_core -c ap_core --analysis_and_elaboration`
+- Quartus binary used:
+  - `/opt/intelFPGA_lite/quartus/bin/quartus_map`
+- Version: Quartus Prime Lite Edition 19.1.0
+- Analysis output includes:
+  - `Info: Quartus Prime Analysis & Elaboration was successful. 0 errors, 72 warnings`
+  - `Warning (12241): 48 hierarchies have connectivity warnings - see the Connectivity Checks report folder`
+  - `Warning (10230): Verilog HDL assignment warning ... truncated value with size ...`
 
-## NAS status
+## Interpretation
 
-- `command -v quartus_map`: no output.
-- `find /opt /root/fpga /Data /mnt /srv -path "*quartus/bin/quartus_map"` returned no hits.
-- Installer search under:
-  - `/root/fpga/installers`
-  - `/Data`
-  - `/mnt`
-  - `/srv`
-  - `/opt`
-  found no installer (`*.run`, `*.sh`, `*.tar`, `*.tar.gz`).
-- Targeted NAS install staging check also scanned:
-  - `/root/fpga/installers` (maxdepth 2)
-  - No installer package found for Quartus Lite.
-
-## Task 7D execution summary
-
-- `find /root/fpga/installers -maxdepth 2 ...` did not return an installer filename.
-- No Quartus installation could be attempted from a staged package.
-- `tools/run_openfpga_genesis_analysis_only.sh` was therefore not executed.
-
-## Error evidence
-
-- No Quartus compile was executed, so there are no Quartus diagnostics to classify yet.
+- The first full prebuilt analysis pass is now functional on APF prebuilt container lane.
+- There are no fatal elaboration blockers in this run.
+- The warnings are now the first concrete signals to classify next, but they are not compile-fatal.
 
 ## Recommended next action
 
-1. Place Quartus Prime Lite installer into `/root/fpga/installers`.
-2. Re-run documented install flow, then:
-   - `tools/run_openfpga_genesis_analysis_only.sh`
-   - `tools/check_openfpga_genesis_analysis_runner.sh`
-3. If Quartus runs and fails, capture first meaningful errors into this file and classify the primary root cause.
+- Track warning cleanup in the next task pass only if those warnings are expected to block downstream `quartus_fit` and device fit-time behavior.
+- Keep in mind this remains analysis-only; no fitter/asm/sta/bitstream steps were run.

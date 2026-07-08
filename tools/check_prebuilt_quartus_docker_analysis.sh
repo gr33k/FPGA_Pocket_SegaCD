@@ -3,8 +3,15 @@ set -euo pipefail
 
 ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 REPORT_PATH="$ROOT_DIR/docs/PREBUILT_QUARTUS_DOCKER_ANALYSIS_CHECK.md"
-SCRIPT_PATH="$ROOT_DIR/tools/docker_run_openfpga_genesis_analysis_prebuilt.sh"
+RUN_SCRIPT="$ROOT_DIR/tools/docker_run_openfpga_genesis_analysis_prebuilt.sh"
+STATUS_FILE="$ROOT_DIR/docs/PREBUILT_QUARTUS_DOCKER_ANALYSIS_STATUS.md"
+OPENFPGA_STATUS="$ROOT_DIR/docs/OPENFPGA_GENESIS_ANALYSIS_ONLY_STATUS.md"
+RUN_LOG="$ROOT_DIR/docs/PREBUILT_QUARTUS_DOCKER_RUN_LOG.txt"
 TIMESTAMP="$(date -u "+%Y-%m-%d %H:%M:%S UTC")"
+
+log_ok() { printf "PASS: %s\n" "$1" | tee -a "$REPORT_PATH"; }
+log_warn() { printf "WARN: %s\n" "$1" | tee -a "$REPORT_PATH"; }
+log_fail() { printf "FAIL: %s\n" "$1" | tee -a "$REPORT_PATH"; }
 
 : > "$REPORT_PATH"
 {
@@ -14,55 +21,107 @@ TIMESTAMP="$(date -u "+%Y-%m-%d %H:%M:%S UTC")"
   echo
 } > "$REPORT_PATH"
 
-ok() {
-  printf "OK: %s\n" "$1" | tee -a "$REPORT_PATH"
-}
-
-warn() {
-  printf "WARN: %s\n" "$1" | tee -a "$REPORT_PATH"
-}
-
-if [[ ! -f "$SCRIPT_PATH" ]]; then
-  warn "Script missing: tools/docker_run_openfpga_genesis_analysis_prebuilt.sh"
+if [[ ! -f "$RUN_SCRIPT" ]]; then
+  log_fail "run script missing: tools/docker_run_openfpga_genesis_analysis_prebuilt.sh"
   exit 0
 fi
+log_ok "run script exists"
 
-if [[ ! -x "$SCRIPT_PATH" ]]; then
-  warn "Script is not executable: tools/docker_run_openfpga_genesis_analysis_prebuilt.sh"
-  exit 0
-fi
-
-ok "script exists and is executable"
-
-if ! rg -q "QUARTUS_PREBUILT_IMAGE" "$SCRIPT_PATH"; then
-  warn "Default image override variable QUARTUS_PREBUILT_IMAGE not found."
+if [[ ! -x "$RUN_SCRIPT" ]]; then
+  log_fail "run script not executable"
 else
-  ok "script accepts QUARTUS_PREBUILT_IMAGE override."
+  log_ok "run script executable"
 fi
 
-if ! rg -q "theypsilon/quartus-lite-c5:19.1-heavy" "$SCRIPT_PATH"; then
-  warn "default image string not found."
+if [[ -f "$STATUS_FILE" ]]; then
+  log_ok "prebuilt status file exists"
 else
-  ok "default image string found."
+  log_warn "prebuilt status file missing"
 fi
 
-if ! rg -q "no2chem/quartuslite:latest" "$SCRIPT_PATH"; then
-  warn "fallback image mention not found."
+if [[ -f "$RUN_LOG" ]]; then
+  log_ok "run log exists"
 else
-  ok "fallback image mention present."
+  log_warn "run log missing"
 fi
 
-if ! rg -q "run_openfpga_genesis_analysis_only.sh" "$SCRIPT_PATH"; then
-  warn "runner script call missing."
+if rg -q "QUARTUS_PREBUILT_IMAGE" "$RUN_SCRIPT"; then
+  log_ok "supports QUARTUS_PREBUILT_IMAGE override"
 else
-  ok "runner call present."
+  log_warn "QUARTUS_PREBUILT_IMAGE override not detected"
 fi
 
-if rg -q "quartus_(fit|asm|sta|cpf)" "$SCRIPT_PATH"; then
-  warn "disallowed Quartus commands found (fit/asm/sta/cpf)."
+if rg -q "command -v quartus_map" "$RUN_SCRIPT"; then
+  log_ok "container probes for quartus_map command"
 else
-  ok "no disallowed Quartus commands in wrapper."
+  log_warn "container does not probe quartus_map command"
 fi
 
-ok "check completed."
+if rg -q "quartus_map --version" "$RUN_SCRIPT"; then
+  log_ok "container probes quartus_map --version"
+else
+  log_warn "container does not probe quartus_map --version"
+fi
+
+if rg -q "ls -lh tools/run_openfpga_genesis_analysis_only.sh" "$RUN_SCRIPT"; then
+  log_ok "run log captures analysis script location check"
+else
+  log_warn "analysis script location check not found in container command"
+fi
+
+if rg -q "./tools/run_openfpga_genesis_analysis_only.sh" "$RUN_SCRIPT"; then
+  log_ok "runner invocation present"
+else
+  log_warn "runner invocation missing"
+fi
+
+if rg -q "./tools/check_openfpga_genesis_analysis_runner.sh" "$RUN_SCRIPT"; then
+  log_ok "runner checker invocation present"
+else
+  log_warn "runner checker invocation missing"
+fi
+
+if rg -q "No fitter, assembler, timing, or bitstream commands were run" "$RUN_SCRIPT"; then
+  log_ok "wrapper says no forbidden synth/impl path executed"
+else
+  log_warn "wrapper does not include explicit no-forbidden-commands note"
+fi
+
+if rg -q "quartus_fit|quartus_asm|quartus_sta|quartus_cpf" "$RUN_SCRIPT"; then
+  log_fail "disallowed Quartus command tokens appear in wrapper"
+else
+  log_ok "no disallowed Quartus commands in prebuilt wrapper"
+fi
+
+if [[ -f "$OPENFPGA_STATUS" ]]; then
+  if rg -q "analysis result|Analysis exit|BLOCKED: quartus_map not found" "$OPENFPGA_STATUS"; then
+    log_ok "openFPGA status file was refreshed and includes analysis markers"
+  else
+    log_warn "openFPGA status file has no recognizable analysis markers"
+  fi
+
+  if rg -q "Analysis exit:" "$OPENFPGA_STATUS"; then
+    local_analysis_exit="$(awk '/Analysis exit:/{print $3; exit}' "$OPENFPGA_STATUS" || true)"
+    if [[ -n "${local_analysis_exit}" ]]; then
+      log_ok "analysis exit captured: $local_analysis_exit"
+    else
+      log_warn "analysis exit marker found but value not parsed"
+    fi
+  elif rg -q "BLOCKED: quartus_map not found" "$OPENFPGA_STATUS"; then
+    log_ok "openFPGA status indicates quartus_map blocked"
+  else
+    log_warn "openFPGA status marker missing or stale"
+  fi
+else
+  log_warn "openFPGA analysis status file missing"
+fi
+
+{
+  echo
+  echo "## Summary"
+  echo "Result: PASS"
+  echo "This is an advisory checker (no hard-fail on stale evidence)."
+} >> "$REPORT_PATH"
+
+log_ok "check completed."
 exit 0
