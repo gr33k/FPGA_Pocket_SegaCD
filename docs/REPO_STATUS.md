@@ -44,6 +44,25 @@ Date: 2026-07-08
 - Fitter artifacts were cleaned and `docs/OPENFPGA_GENESIS_FITTER_SMOKE_CLEANUP.md` records removed paths.
 - No changes made to third_party code.
 
+## Task 7P status
+
+- Completed the first post-fitter report review and risk classification.
+- Added/updated:
+  - `tools/classify_openfpga_genesis_fitter_smoke_warnings.sh`
+  - `tools/extract_openfpga_genesis_fitter_resource_summary.sh`
+  - `tools/finalize_openfpga_genesis_post_fitter_gate.sh`
+  - `tools/check_openfpga_genesis_post_fitter_review.sh`
+- New post-fitter artifacts are now present:
+  - `docs/OPENFPGA_GENESIS_FITTER_WARNING_SUMMARY.md`
+  - `docs/OPENFPGA_GENESIS_FITTER_RESOURCE_SUMMARY.md`
+  - `docs/OPENFPGA_GENESIS_POST_FITTER_GATE.md`
+  - `docs/OPENFPGA_GENESIS_POST_FITTER_REVIEW_STATUS.md`
+  - `docs/OPENFPGA_GENESIS_POST_FITTER_REVIEW_CHECK.md`
+- Warning classification now reports `REVIEW_FITTER_WARNINGS_FIRST` with 21 timing-review-risk warnings and 105 unknown classes requiring follow-up review.
+- `docs/OPENFPGA_GENESIS_POST_FITTER_REVIEW_CHECK.md` currently reports PASS for the doc-only check constraints.
+- No assembler, timing, bitstream generation, or Pocket runtime correctness claims were made.
+- No Sega-CD/32X, no save states, and no host-per-read ROM streaming at this milestone.
+
 ## Safety constraints
 
 - No Sega-CD, no 32X, no save states, and no host-per-read ROM streaming at this milestone.
