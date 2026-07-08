@@ -1,39 +1,1113 @@
-# Quartus connectivity warning evidence
-Generated: 2026-07-08 04:12:45 UTC
+# Quartus connectivity and warning capture
+Generated: 2026-07-08 04:43:35 UTC
 Work dir: /work/build/openfpga_genesis_analysis_work/src/fpga
-Pattern: Warning \(12241\)|Connectivity|connectivity|no driver|never assigned|default initial value|constant value overflow|Warning \(10259\)|Warning \(10030\)|Warning \(10858\)
-
-Analysis status captured: yes
+Analysis ran: yes
 Analysis exit code: 0
+Quartus version: Quartus Prime Analysis & Synthesis
+Exact command: /opt/intelFPGA_lite/quartus/bin/quartus_map --read_settings_files=on --write_settings_files=off ap_core -c ap_core --analysis_and_elaboration
+Generated file inventory count: 592
+Report inventory file: /work/docs/OPENFPGA_GENESIS_QUARTUS_REPORT_INVENTORY.txt
+Connectivity evidence file: /work/docs/OPENFPGA_GENESIS_CONNECTIVITY_WARNINGS.txt
+Log fallback used: yes
 
 ## Report inventory
-- /work/build/openfpga_genesis_analysis_work/src/fpga/db/ap_core.lpc.txt
-- /work/build/openfpga_genesis_analysis_work/src/fpga/db/ap_core.smart_action.txt
+# Quartus report inventory
+Total files: 1351
+Generated: 2026-07-08 04:43:35 UTC
+Work dir: /work/build/openfpga_genesis_analysis_work/src/fpga
+- build/openfpga_genesis_analysis_work/src/fpga/.gitignore | size=740 bytes | type=ASCII text, with CRLF line terminators
+- build/openfpga_genesis_analysis_work/src/fpga/ap_core.qpf | size=1356 bytes | type=ASCII text, with CRLF line terminators
+- build/openfpga_genesis_analysis_work/src/fpga/ap_core.qsf | size=46979 bytes | type=ASCII text, with CRLF line terminators
+- build/openfpga_genesis_analysis_work/src/fpga/ap_core_assignment_defaults.qdf | size=55110 bytes | type=ASCII text
+- build/openfpga_genesis_analysis_work/src/fpga/apf/apf.qip | size=647 bytes | type=ASCII text, with CRLF line terminators
+- build/openfpga_genesis_analysis_work/src/fpga/apf/apf_constraints.sdc | size=536 bytes | type=ASCII text, with CRLF line terminators
+- build/openfpga_genesis_analysis_work/src/fpga/apf/apf_top.v | size=16311 bytes | type=UTF-8 Unicode text, with CRLF line terminators
+- build/openfpga_genesis_analysis_work/src/fpga/apf/build_id.mif | size=202 bytes | type=ASCII text, with CRLF line terminators
+- build/openfpga_genesis_analysis_work/src/fpga/apf/build_id_gen.tcl | size=7201 bytes | type=ASCII text
+- build/openfpga_genesis_analysis_work/src/fpga/apf/common.v | size=5513 bytes | type=UTF-8 Unicode text, with CRLF line terminators
+- build/openfpga_genesis_analysis_work/src/fpga/apf/io_bridge_peripheral.v | size=10934 bytes | type=UTF-8 Unicode text
+- build/openfpga_genesis_analysis_work/src/fpga/apf/io_pad_controller.v | size=9431 bytes | type=UTF-8 Unicode text
+- build/openfpga_genesis_analysis_work/src/fpga/apf/mf_datatable.qip | size=270 bytes | type=ASCII text, with CRLF line terminators
+- build/openfpga_genesis_analysis_work/src/fpga/apf/mf_datatable.v | size=11118 bytes | type=assembler source text
+- build/openfpga_genesis_analysis_work/src/fpga/apf/mf_ddio_bidir_12.ppf | size=757 bytes | type=XML document text
+- build/openfpga_genesis_analysis_work/src/fpga/apf/mf_ddio_bidir_12.qip | size=371 bytes | type=ASCII text, with CRLF line terminators
+- build/openfpga_genesis_analysis_work/src/fpga/apf/mf_ddio_bidir_12.v | size=5522 bytes | type=ASCII text, with CRLF line terminators
+- build/openfpga_genesis_analysis_work/src/fpga/core/core_bridge_cmd.v | size=14932 bytes | type=ASCII text, with CRLF line terminators
+- build/openfpga_genesis_analysis_work/src/fpga/core/core_constraints.sdc | size=2337 bytes | type=ASCII text, with CRLF line terminators
+- build/openfpga_genesis_analysis_work/src/fpga/core/core_top.sv | size=34376 bytes | type=ASCII text
+- build/openfpga_genesis_analysis_work/src/fpga/core/data_loader.sv | size=7379 bytes | type=ASCII text
+- build/openfpga_genesis_analysis_work/src/fpga/core/data_unloader.sv | size=8110 bytes | type=ASCII text
+- build/openfpga_genesis_analysis_work/src/fpga/core/mf_pllbase.bsf | size=5918 bytes | type=ASCII text, with CRLF line terminators
+- build/openfpga_genesis_analysis_work/src/fpga/core/mf_pllbase.ppf | size=741 bytes | type=XML document text
+- build/openfpga_genesis_analysis_work/src/fpga/core/mf_pllbase.qip | size=57304 bytes | type=ASCII text, with very long lines
+- build/openfpga_genesis_analysis_work/src/fpga/core/mf_pllbase.sip | size=536 bytes | type=ASCII text
+- build/openfpga_genesis_analysis_work/src/fpga/core/mf_pllbase.spd | size=193 bytes | type=XML document text
+- build/openfpga_genesis_analysis_work/src/fpga/core/mf_pllbase.v | size=17864 bytes | type=exported SGML document, ASCII text, with CRLF line terminators
+- build/openfpga_genesis_analysis_work/src/fpga/core/mf_pllbase/mf_pllbase_0002.qip | size=319 bytes | type=ASCII text
+- build/openfpga_genesis_analysis_work/src/fpga/core/mf_pllbase/mf_pllbase_0002.v | size=2514 bytes | type=ASCII text, with CRLF line terminators
+- build/openfpga_genesis_analysis_work/src/fpga/core/mf_pllbase_sim.f | size=29 bytes | type=ASCII text
+- build/openfpga_genesis_analysis_work/src/fpga/core/mf_pllbase_sim/aldec/rivierapro_setup.tcl | size=12560 bytes | type=HTML document, ASCII text
+- build/openfpga_genesis_analysis_work/src/fpga/core/mf_pllbase_sim/cadence/cds.lib | size=1297 bytes | type=ASCII text
+- build/openfpga_genesis_analysis_work/src/fpga/core/mf_pllbase_sim/cadence/hdl.var | size=18 bytes | type=ASCII text
+- build/openfpga_genesis_analysis_work/src/fpga/core/mf_pllbase_sim/cadence/ncsim_setup.sh | size=9562 bytes | type=HTML document, ASCII text
+- build/openfpga_genesis_analysis_work/src/fpga/core/mf_pllbase_sim/mentor/msim_setup.tcl | size=12684 bytes | type=HTML document, ASCII text
+- build/openfpga_genesis_analysis_work/src/fpga/core/mf_pllbase_sim/mf_pllbase.vo | size=19094 bytes | type=ASCII text, with CRLF line terminators
+- build/openfpga_genesis_analysis_work/src/fpga/core/mf_pllbase_sim/synopsys/vcs/vcs_setup.sh | size=6356 bytes | type=HTML document, ASCII text
+- build/openfpga_genesis_analysis_work/src/fpga/core/mf_pllbase_sim/synopsys/vcsmx/synopsys_sim.setup | size=616 bytes | type=ASCII text
+- build/openfpga_genesis_analysis_work/src/fpga/core/mf_pllbase_sim/synopsys/vcsmx/vcsmx_setup.sh | size=9639 bytes | type=HTML document, ASCII text
+- build/openfpga_genesis_analysis_work/src/fpga/core/pin_ddio_clk.ppf | size=496 bytes | type=XML document text
+- build/openfpga_genesis_analysis_work/src/fpga/core/pin_ddio_clk.qip | size=455 bytes | type=ASCII text, with CRLF line terminators
+- build/openfpga_genesis_analysis_work/src/fpga/core/pin_ddio_clk.v | size=4458 bytes | type=ASCII text, with CRLF line terminators
+- build/openfpga_genesis_analysis_work/src/fpga/core/rtl/EEPROM_STM95.sv | size=4141 bytes | type=Ruby module source, ASCII text
+- build/openfpga_genesis_analysis_work/src/fpga/core/rtl/FX68K/fx68k.qip | size=367 bytes | type=ASCII text
+- build/openfpga_genesis_analysis_work/src/fpga/core/rtl/FX68K/fx68k.sdc | size=847 bytes | type=ASCII text
+- build/openfpga_genesis_analysis_work/src/fpga/core/rtl/FX68K/fx68k.sv | size=77104 bytes | type=ASCII text
+- build/openfpga_genesis_analysis_work/src/fpga/core/rtl/FX68K/fx68kAlu.sv | size=20373 bytes | type=ASCII text
+- build/openfpga_genesis_analysis_work/src/fpga/core/rtl/FX68K/microrom.mem | size=18432 bytes | type=ASCII text
+- build/openfpga_genesis_analysis_work/src/fpga/core/rtl/FX68K/nanorom.mem | size=23184 bytes | type=ASCII text
+- build/openfpga_genesis_analysis_work/src/fpga/core/rtl/FX68K/uaddrPla.sv | size=128909 bytes | type=ASCII text
+- build/openfpga_genesis_analysis_work/src/fpga/core/rtl/SVP/SSP160x.vhd | size=22639 bytes | type=ASCII text
+- build/openfpga_genesis_analysis_work/src/fpga/core/rtl/SVP/SSP160x_PKG.vhd | size=2787 bytes | type=ASCII text
+- build/openfpga_genesis_analysis_work/src/fpga/core/rtl/SVP/SVP.qip | size=252 bytes | type=ASCII text
+- build/openfpga_genesis_analysis_work/src/fpga/core/rtl/SVP/SVP.vhd | size=14948 bytes | type=ASCII text
+- build/openfpga_genesis_analysis_work/src/fpga/core/rtl/T80/T80.qip | size=497 bytes | type=ASCII text
+- build/openfpga_genesis_analysis_work/src/fpga/core/rtl/T80/T80.vhd | size=35266 bytes | type=ASCII text
+- build/openfpga_genesis_analysis_work/src/fpga/core/rtl/T80/T80_ALU.vhd | size=12080 bytes | type=ASCII text
+- build/openfpga_genesis_analysis_work/src/fpga/core/rtl/T80/T80_MCode.vhd | size=53810 bytes | type=ASCII text
+- build/openfpga_genesis_analysis_work/src/fpga/core/rtl/T80/T80_Reg.vhd | size=5074 bytes | type=ASCII text
+- build/openfpga_genesis_analysis_work/src/fpga/core/rtl/T80/T80pa.vhd | size=6629 bytes | type=ASCII text
+- build/openfpga_genesis_analysis_work/src/fpga/core/rtl/T80/T80s.vhd | size=5379 bytes | type=ASCII text
+- build/openfpga_genesis_analysis_work/src/fpga/core/rtl/audio_iir_filter.v | size=5256 bytes | type=ASCII text
+- build/openfpga_genesis_analysis_work/src/fpga/core/rtl/bram.vhd | size=9257 bytes | type=ASCII text
+- build/openfpga_genesis_analysis_work/src/fpga/core/rtl/cheatcodes.sv | size=3601 bytes | type=Ruby module source, ASCII text
+- build/openfpga_genesis_analysis_work/src/fpga/core/rtl/cofi.sv | size=1196 bytes | type=ASCII text
+- build/openfpga_genesis_analysis_work/src/fpga/core/rtl/fourway.v | size=4761 bytes | type=ASCII text
+- build/openfpga_genesis_analysis_work/src/fpga/core/rtl/gen_io.sv | size=9304 bytes | type=ASCII text
+- build/openfpga_genesis_analysis_work/src/fpga/core/rtl/genesis_lpf.v | size=3209 bytes | type=ASCII text
+- build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt12/LICENSE | size=35141 bytes | type=Pascal source, ASCII text
+- build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt12/README.md | size=2183 bytes | type=ASCII text, with very long lines
+- build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt12/adpcm/gen_lingain.py | size=257 bytes | type=Python script, ASCII text executable
+- build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt12/adpcm/jt10_adpcm.v | size=3560 bytes | type=ASCII text
+- build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt12/adpcm/jt10_adpcm_acc.v | size=2711 bytes | type=ASCII text
+- build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt12/adpcm/jt10_adpcm_cnt.v | size=6029 bytes | type=ASCII text
+- build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt12/adpcm/jt10_adpcm_comb.v | size=4051 bytes | type=ASCII text
+- build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt12/adpcm/jt10_adpcm_dbrom.v | size=2423 bytes | type=ASCII text
+- build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt12/adpcm/jt10_adpcm_div.v | size=1828 bytes | type=ASCII text
+- build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt12/adpcm/jt10_adpcm_drvA.v | size=9582 bytes | type=ASCII text
+- build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt12/adpcm/jt10_adpcm_drvB.v | size=3894 bytes | type=ASCII text
+- build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt12/adpcm/jt10_adpcm_dt.v | size=3934 bytes | type=ASCII text
+- build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt12/adpcm/jt10_adpcm_gain.v | size=5174 bytes | type=ASCII text
+- build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt12/adpcm/jt10_adpcma_lut.v | size=11418 bytes | type=ASCII text
+- build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt12/adpcm/jt10_adpcmb.v | size=3929 bytes | type=ASCII text
+- build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt12/adpcm/jt10_adpcmb_cnt.v | size=3277 bytes | type=ASCII text
+- build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt12/adpcm/jt10_adpcmb_gain.v | size=1296 bytes | type=ASCII text
+- build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt12/adpcm/jt10_adpcmb_interpol.v | size=2652 bytes | type=ASCII text
+- build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt12/adpcm/jt10_cen_burst.v | size=1640 bytes | type=ASCII text
+- build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt12/alt/eg_cnt.v | size=3671 bytes | type=ASCII text
+- build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt12/alt/eg_comb.v | size=5816 bytes | type=ASCII text
+- build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt12/alt/eg_mux.v | size=3683 bytes | type=ASCII text
+- build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt12/alt/eg_step.v | size=1961 bytes | type=ASCII text
+- build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt12/alt/eg_step_ram.v | size=1917 bytes | type=ASCII text
+- build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt12/dac/jt12_dac.v | size=1369 bytes | type=ASCII text
+- build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt12/dac/jt12_dac2.v | size=1546 bytes | type=ASCII text
+- build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt12/jt03.qip | size=3430 bytes | type=ASCII text
+- build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt12/jt03.v | size=3541 bytes | type=ASCII text
+- build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt12/jt03.yaml | size=590 bytes | type=ASCII text
+- build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt12/jt03_acc.v | size=2033 bytes | type=ASCII text
+- build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt12/jt03_fm.qip | size=2885 bytes | type=ASCII text
+- build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt12/jt10.qip | size=5617 bytes | type=ASCII text
+- build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt12/jt10.v | size=3688 bytes | type=ASCII text
+- build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt12/jt10_acc.v | size=5397 bytes | type=ASCII text
+- build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt12/jt12.qip | size=3728 bytes | type=ASCII text
+- build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt12/jt12.v | size=2796 bytes | type=ASCII text
+- build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt12/jt12.vhd | size=1315 bytes | type=ASCII text
+- build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt12/jt12_acc.v | size=4127 bytes | type=ASCII text
+- build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt12/jt12_csr.v | size=2860 bytes | type=ASCII text
+- build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt12/jt12_div.v | size=4421 bytes | type=ASCII text
+- build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt12/jt12_dout.v | size=1517 bytes | type=ASCII text
+- build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt12/jt12_eg.v | size=6025 bytes | type=ASCII text
+- build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt12/jt12_eg_cnt.v | size=1322 bytes | type=ASCII text
+- build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt12/jt12_eg_comb.v | size=4080 bytes | type=ASCII text
+- build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt12/jt12_eg_ctrl.v | size=3036 bytes | type=ASCII text
+- build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt12/jt12_eg_final.v | size=1641 bytes | type=ASCII text
+- build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt12/jt12_eg_pure.v | size=2284 bytes | type=ASCII text
+- build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt12/jt12_eg_step.v | size=3296 bytes | type=ASCII text
+- build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt12/jt12_exprom.v | size=11403 bytes | type=ASCII text
+- build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt12/jt12_kon.v | size=4156 bytes | type=ASCII text
+- build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt12/jt12_lfo.v | size=4670 bytes | type=ASCII text
+- build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt12/jt12_logsin.v | size=8284 bytes | type=ASCII text
+- build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt12/jt12_mmr.v | size=18749 bytes | type=ASCII text
+- build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt12/jt12_mmr_sim.vh | size=21535 bytes | type=ASCII text
+- build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt12/jt12_mod.v | size=5582 bytes | type=ASCII text
+- build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt12/jt12_op.v | size=9597 bytes | type=ASCII text
+- build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt12/jt12_pcm.v | size=2829 bytes | type=ASCII text
+- build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt12/jt12_pcm_interpol.v | size=3262 bytes | type=ASCII text
+- build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt12/jt12_pg.v | size=3005 bytes | type=ASCII text
+- build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt12/jt12_pg_comb.v | size=2568 bytes | type=ASCII text
+- build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt12/jt12_pg_dt.v | size=2786 bytes | type=ASCII text
+- build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt12/jt12_pg_inc.v | size=1687 bytes | type=ASCII text
+- build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt12/jt12_pg_sum.v | size=1585 bytes | type=ASCII text
+- build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt12/jt12_pm.v | size=5589 bytes | type=ASCII text
+- build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt12/jt12_reg.v | size=12134 bytes | type=ASCII text
+- build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt12/jt12_rst.v | size=1028 bytes | type=ASCII text
+- build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt12/jt12_sh.v | size=1208 bytes | type=ASCII text
+- build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt12/jt12_sh24.v | size=1994 bytes | type=ASCII text
+- build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt12/jt12_sh_rst.v | size=1438 bytes | type=ASCII text
+- build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt12/jt12_single_acc.v | size=1990 bytes | type=ASCII text
+- build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt12/jt12_sumch.v | size=1352 bytes | type=ASCII text
+- build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt12/jt12_timers.v | size=3544 bytes | type=ASCII text
+- build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt12/jt12_top.v | size=22657 bytes | type=ASCII text
+- build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt12/mixer/jt12_comb.v | size=1627 bytes | type=ASCII text
+- build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt12/mixer/jt12_decim.v | size=2628 bytes | type=ASCII text
+- build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt12/mixer/jt12_fm_uprate.v | size=2528 bytes | type=ASCII text
+- build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt12/mixer/jt12_genmix.v | size=5408 bytes | type=ASCII text
+- build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt12/mixer/jt12_interpol.v | size=2753 bytes | type=ASCII text
+- build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt12/mixer/jt12_mixer.v | size=2727 bytes | type=ASCII text
+- build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt89/jt89.qip | size=525 bytes | type=ASCII text
+- build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt89/jt89.v | size=4298 bytes | type=ASCII text
+- build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt89/jt89.vhd | size=462 bytes | type=ASCII text
+- build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt89/jt89_mixer.v | size=2064 bytes | type=ASCII text
+- build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt89/jt89_noise.v | size=2126 bytes | type=ASCII text
+- build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt89/jt89_tone.v | size=1764 bytes | type=ASCII text
+- build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt89/jt89_vol.v | size=1714 bytes | type=ASCII text
+- build/openfpga_genesis_analysis_work/src/fpga/core/rtl/lightgun.sv | size=4710 bytes | type=ASCII text
+- build/openfpga_genesis_analysis_work/src/fpga/core/rtl/miracle.sv | size=11821 bytes | type=ASCII text
+- build/openfpga_genesis_analysis_work/src/fpga/core/rtl/mlab.vhd | size=1518 bytes | type=ASCII text
+- build/openfpga_genesis_analysis_work/src/fpga/core/rtl/multitap.sv | size=4587 bytes | type=ASCII text
+- build/openfpga_genesis_analysis_work/src/fpga/core/rtl/sdram.sv | size=6726 bytes | type=ASCII text
+- build/openfpga_genesis_analysis_work/src/fpga/core/rtl/system.sv | size=32626 bytes | type=ASCII text
+- build/openfpga_genesis_analysis_work/src/fpga/core/rtl/teamplayer.sv | size=4914 bytes | type=ASCII text
+- build/openfpga_genesis_analysis_work/src/fpga/core/rtl/vdp.vhd | size=112892 bytes | type=UTF-8 Unicode text
+- build/openfpga_genesis_analysis_work/src/fpga/core/rtl/vdp_common.vhd | size=4839 bytes | type=ASCII text
+- build/openfpga_genesis_analysis_work/src/fpga/core/sound_i2s.sv | size=5260 bytes | type=ASCII text
+- build/openfpga_genesis_analysis_work/src/fpga/core/stp1.stp | size=988181 bytes | type=HTML document, ASCII text, with very long lines, with CRLF line terminators
+- build/openfpga_genesis_analysis_work/src/fpga/core/sync_fifo.sv | size=2871 bytes | type=ASCII text
+- build/openfpga_genesis_analysis_work/src/fpga/db/a_graycounter_3ub.tdf | size=2400 bytes | type=ASCII text
+- build/openfpga_genesis_analysis_work/src/fpga/db/a_graycounter_3ub.tdf | size=2400 bytes | type=ASCII text
+- build/openfpga_genesis_analysis_work/src/fpga/db/a_graycounter_7g6.tdf | size=2314 bytes | type=ASCII text
+- build/openfpga_genesis_analysis_work/src/fpga/db/a_graycounter_7g6.tdf | size=2314 bytes | type=ASCII text
+- build/openfpga_genesis_analysis_work/src/fpga/db/alt_synch_pipe_b9l.tdf | size=2558 bytes | type=ASCII text, with very long lines
+- build/openfpga_genesis_analysis_work/src/fpga/db/alt_synch_pipe_b9l.tdf | size=2558 bytes | type=ASCII text, with very long lines
+- build/openfpga_genesis_analysis_work/src/fpga/db/alt_synch_pipe_c9l.tdf | size=2558 bytes | type=ASCII text, with very long lines
+- build/openfpga_genesis_analysis_work/src/fpga/db/alt_synch_pipe_c9l.tdf | size=2558 bytes | type=ASCII text, with very long lines
+- build/openfpga_genesis_analysis_work/src/fpga/db/alt_synch_pipe_d9l.tdf | size=2558 bytes | type=ASCII text, with very long lines
+- build/openfpga_genesis_analysis_work/src/fpga/db/alt_synch_pipe_d9l.tdf | size=2558 bytes | type=ASCII text, with very long lines
+- build/openfpga_genesis_analysis_work/src/fpga/db/alt_synch_pipe_e9l.tdf | size=2558 bytes | type=ASCII text, with very long lines
+- build/openfpga_genesis_analysis_work/src/fpga/db/alt_synch_pipe_e9l.tdf | size=2558 bytes | type=ASCII text, with very long lines
+- build/openfpga_genesis_analysis_work/src/fpga/db/alt_synch_pipe_f9l.tdf | size=2558 bytes | type=ASCII text, with very long lines
+- build/openfpga_genesis_analysis_work/src/fpga/db/alt_synch_pipe_f9l.tdf | size=2558 bytes | type=ASCII text, with very long lines
+- build/openfpga_genesis_analysis_work/src/fpga/db/altsyncram_2ia1.tdf | size=39591 bytes | type=ASCII text, with very long lines
+- build/openfpga_genesis_analysis_work/src/fpga/db/altsyncram_2ia1.tdf | size=39591 bytes | type=ASCII text, with very long lines
+- build/openfpga_genesis_analysis_work/src/fpga/db/altsyncram_4c34.tdf | size=16833 bytes | type=ASCII text, with very long lines
+- build/openfpga_genesis_analysis_work/src/fpga/db/altsyncram_4c34.tdf | size=16833 bytes | type=ASCII text, with very long lines
+- build/openfpga_genesis_analysis_work/src/fpga/db/altsyncram_9i34.tdf | size=192191 bytes | type=ASCII text, with very long lines
+- build/openfpga_genesis_analysis_work/src/fpga/db/altsyncram_9i34.tdf | size=192191 bytes | type=ASCII text, with very long lines
+- build/openfpga_genesis_analysis_work/src/fpga/db/altsyncram_af34.tdf | size=28775 bytes | type=ASCII text, with very long lines
+- build/openfpga_genesis_analysis_work/src/fpga/db/altsyncram_af34.tdf | size=28775 bytes | type=ASCII text, with very long lines
+- build/openfpga_genesis_analysis_work/src/fpga/db/altsyncram_fpv2.tdf | size=26168 bytes | type=ASCII text, with very long lines
+- build/openfpga_genesis_analysis_work/src/fpga/db/altsyncram_fpv2.tdf | size=26168 bytes | type=ASCII text, with very long lines
+- build/openfpga_genesis_analysis_work/src/fpga/db/altsyncram_i234.tdf | size=15461 bytes | type=ASCII text, with very long lines
+- build/openfpga_genesis_analysis_work/src/fpga/db/altsyncram_i234.tdf | size=15461 bytes | type=ASCII text, with very long lines
+- build/openfpga_genesis_analysis_work/src/fpga/db/altsyncram_k534.tdf | size=15491 bytes | type=ASCII text, with very long lines
+- build/openfpga_genesis_analysis_work/src/fpga/db/altsyncram_k534.tdf | size=15491 bytes | type=ASCII text, with very long lines
+- build/openfpga_genesis_analysis_work/src/fpga/db/altsyncram_kf34.tdf | size=50160 bytes | type=ASCII text, with very long lines
+- build/openfpga_genesis_analysis_work/src/fpga/db/altsyncram_kf34.tdf | size=50160 bytes | type=ASCII text, with very long lines
+- build/openfpga_genesis_analysis_work/src/fpga/db/altsyncram_l534.tdf | size=51614 bytes | type=ASCII text, with very long lines
+- build/openfpga_genesis_analysis_work/src/fpga/db/altsyncram_l534.tdf | size=51614 bytes | type=ASCII text, with very long lines
+- build/openfpga_genesis_analysis_work/src/fpga/db/altsyncram_ltk2.tdf | size=54274 bytes | type=ASCII text, with very long lines
+- build/openfpga_genesis_analysis_work/src/fpga/db/altsyncram_ltk2.tdf | size=54274 bytes | type=ASCII text, with very long lines
+- build/openfpga_genesis_analysis_work/src/fpga/db/altsyncram_m0i1.tdf | size=5352 bytes | type=ASCII text, with very long lines
+- build/openfpga_genesis_analysis_work/src/fpga/db/altsyncram_m0i1.tdf | size=5352 bytes | type=ASCII text, with very long lines
+- build/openfpga_genesis_analysis_work/src/fpga/db/altsyncram_m234.tdf | size=18021 bytes | type=ASCII text, with very long lines
+- build/openfpga_genesis_analysis_work/src/fpga/db/altsyncram_m234.tdf | size=18021 bytes | type=ASCII text, with very long lines
+- build/openfpga_genesis_analysis_work/src/fpga/db/altsyncram_m534.tdf | size=16775 bytes | type=ASCII text, with very long lines
+- build/openfpga_genesis_analysis_work/src/fpga/db/altsyncram_m534.tdf | size=16775 bytes | type=ASCII text, with very long lines
+- build/openfpga_genesis_analysis_work/src/fpga/db/altsyncram_o0i1.tdf | size=8266 bytes | type=ASCII text, with very long lines
+- build/openfpga_genesis_analysis_work/src/fpga/db/altsyncram_o0i1.tdf | size=8266 bytes | type=ASCII text, with very long lines
+- build/openfpga_genesis_analysis_work/src/fpga/db/altsyncram_o534.tdf | size=16775 bytes | type=ASCII text, with very long lines
+- build/openfpga_genesis_analysis_work/src/fpga/db/altsyncram_o534.tdf | size=16775 bytes | type=ASCII text, with very long lines
+- build/openfpga_genesis_analysis_work/src/fpga/db/altsyncram_r624.tdf | size=4090 bytes | type=ASCII text, with very long lines
+- build/openfpga_genesis_analysis_work/src/fpga/db/altsyncram_r624.tdf | size=4090 bytes | type=ASCII text, with very long lines
+- build/openfpga_genesis_analysis_work/src/fpga/db/altsyncram_s0i1.tdf | size=6602 bytes | type=ASCII text, with very long lines
+- build/openfpga_genesis_analysis_work/src/fpga/db/altsyncram_s0i1.tdf | size=6602 bytes | type=ASCII text, with very long lines
+- build/openfpga_genesis_analysis_work/src/fpga/db/altsyncram_s434.tdf | size=20630 bytes | type=ASCII text, with very long lines
+- build/openfpga_genesis_analysis_work/src/fpga/db/altsyncram_s434.tdf | size=20630 bytes | type=ASCII text, with very long lines
+- build/openfpga_genesis_analysis_work/src/fpga/db/ap_core.(0).cnf.cdb | size=14354 bytes | type=data
+- build/openfpga_genesis_analysis_work/src/fpga/db/ap_core.(0).cnf.cdb | size=14354 bytes | type=data
+- build/openfpga_genesis_analysis_work/src/fpga/db/ap_core.(0).cnf.hdb | size=6732 bytes | type=data
+- build/openfpga_genesis_analysis_work/src/fpga/db/ap_core.(0).cnf.hdb | size=6732 bytes | type=data
+- build/openfpga_genesis_analysis_work/src/fpga/db/ap_core.(1).cnf.cdb | size=2478 bytes | type=data
+- build/openfpga_genesis_analysis_work/src/fpga/db/ap_core.(1).cnf.cdb | size=2478 bytes | type=data
+- build/openfpga_genesis_analysis_work/src/fpga/db/ap_core.(1).cnf.hdb | size=1388 bytes | type=data
+- build/openfpga_genesis_analysis_work/src/fpga/db/ap_core.(1).cnf.hdb | size=1388 bytes | type=data
+- build/openfpga_genesis_analysis_work/src/fpga/db/ap_core.(10).cnf.cdb | size=2768 bytes | type=data
+- build/openfpga_genesis_analysis_work/src/fpga/db/ap_core.(10).cnf.cdb | size=2768 bytes | type=data
+- build/openfpga_genesis_analysis_work/src/fpga/db/ap_core.(10).cnf.hdb | size=822 bytes | type=data
+- build/openfpga_genesis_analysis_work/src/fpga/db/ap_core.(10).cnf.hdb | size=822 bytes | type=data
+- build/openfpga_genesis_analysis_work/src/fpga/db/ap_core.(100).cnf.cdb | size=2616 bytes | type=data
+- build/openfpga_genesis_analysis_work/src/fpga/db/ap_core.(100).cnf.cdb | size=2616 bytes | type=data
+- build/openfpga_genesis_analysis_work/src/fpga/db/ap_core.(100).cnf.hdb | size=850 bytes | type=data
+- build/openfpga_genesis_analysis_work/src/fpga/db/ap_core.(100).cnf.hdb | size=850 bytes | type=data
+- build/openfpga_genesis_analysis_work/src/fpga/db/ap_core.(101).cnf.cdb | size=3634 bytes | type=data
+- build/openfpga_genesis_analysis_work/src/fpga/db/ap_core.(101).cnf.cdb | size=3634 bytes | type=data
+- build/openfpga_genesis_analysis_work/src/fpga/db/ap_core.(101).cnf.hdb | size=1765 bytes | type=data
+- build/openfpga_genesis_analysis_work/src/fpga/db/ap_core.(101).cnf.hdb | size=1765 bytes | type=data
+- build/openfpga_genesis_analysis_work/src/fpga/db/ap_core.(102).cnf.cdb | size=6182 bytes | type=data
+- build/openfpga_genesis_analysis_work/src/fpga/db/ap_core.(102).cnf.cdb | size=6182 bytes | type=data
+- build/openfpga_genesis_analysis_work/src/fpga/db/ap_core.(102).cnf.hdb | size=2076 bytes | type=data
+- build/openfpga_genesis_analysis_work/src/fpga/db/ap_core.(102).cnf.hdb | size=2076 bytes | type=data
+- build/openfpga_genesis_analysis_work/src/fpga/db/ap_core.(103).cnf.cdb | size=2848 bytes | type=data
+- build/openfpga_genesis_analysis_work/src/fpga/db/ap_core.(103).cnf.cdb | size=2848 bytes | type=data
+- build/openfpga_genesis_analysis_work/src/fpga/db/ap_core.(103).cnf.hdb | size=814 bytes | type=data
+- build/openfpga_genesis_analysis_work/src/fpga/db/ap_core.(103).cnf.hdb | size=814 bytes | type=data
+- build/openfpga_genesis_analysis_work/src/fpga/db/ap_core.(104).cnf.cdb | size=4338 bytes | type=data
+- build/openfpga_genesis_analysis_work/src/fpga/db/ap_core.(104).cnf.cdb | size=4338 bytes | type=data
+- build/openfpga_genesis_analysis_work/src/fpga/db/ap_core.(104).cnf.hdb | size=1147 bytes | type=data
+- build/openfpga_genesis_analysis_work/src/fpga/db/ap_core.(104).cnf.hdb | size=1147 bytes | type=data
+- build/openfpga_genesis_analysis_work/src/fpga/db/ap_core.(105).cnf.cdb | size=2136 bytes | type=data
+- build/openfpga_genesis_analysis_work/src/fpga/db/ap_core.(105).cnf.cdb | size=2136 bytes | type=data
+- build/openfpga_genesis_analysis_work/src/fpga/db/ap_core.(105).cnf.hdb | size=1208 bytes | type=data
+- build/openfpga_genesis_analysis_work/src/fpga/db/ap_core.(105).cnf.hdb | size=1208 bytes | type=data
+- build/openfpga_genesis_analysis_work/src/fpga/db/ap_core.(106).cnf.cdb | size=3808 bytes | type=data
+- build/openfpga_genesis_analysis_work/src/fpga/db/ap_core.(106).cnf.cdb | size=3808 bytes | type=data
+- build/openfpga_genesis_analysis_work/src/fpga/db/ap_core.(106).cnf.hdb | size=1517 bytes | type=data
 
-No detailed connectivity detail was captured before cleanup because no report files in the work dir matched warning/file search patterns.
-Reason: rg returned no hits for the connectivity terms before artifact cleanup.
-Inspection list used: output_files/*.rpt, output_files/*.summary, output_files/*.map.*, *.rpt, *.summary, db/*.rpt, db/*.txt
+## Matched report excerpts
+## /work/build/openfpga_genesis_analysis_work/src/fpga/output_files/ap_core.map.smsg
+```text
+1:Warning (10268): Verilog HDL information at core_top.sv(459): always construct contains both blocking and non-blocking assignments File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/core_top.sv Line: 459
+5:Info (10281): Verilog HDL Declaration information at sdram.sv(77): object "MODE" differs only in case from object "mode" in the same scope File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/sdram.sv Line: 77
+```
+## /work/build/openfpga_genesis_analysis_work/src/fpga/output_files/ap_core.map.rpt
+```text
+318:310. Port Connectivity Checks: "core_top:ic|mf_pllbase:mp1"
+319:311. Port Connectivity Checks: "core_top:ic|system:system|genesis_lpf:lpf_right|iir_1st_order:lpf6db"
+320:312. Port Connectivity Checks: "core_top:ic|system:system|jt12_genmix:genmix|jt12_fm_uprate:u_left|jt12_interpol:u_fm5"
+321:313. Port Connectivity Checks: "core_top:ic|system:system|jt12_genmix:genmix|jt12_decim:u_psg3|jt12_comb:com_gen[0].u_comb"
+322:314. Port Connectivity Checks: "core_top:ic|system:system|jt12_genmix:genmix|jt12_decim:u_psg2|jt12_comb:com_gen[2].u_comb"
+323:315. Port Connectivity Checks: "core_top:ic|system:system|genesis_fm_lpf:fm_lpf_l|iir_2nd_order:fm2"
+324:316. Port Connectivity Checks: "core_top:ic|system:system|jt12:fm|jt12_top:u_jt12|jt12_acc:gen_pcm_acc.accumulator_block[3].u_acc"
+325:317. Port Connectivity Checks: "core_top:ic|system:system|jt12:fm|jt12_top:u_jt12|jt12_pcm_interpol:gen_pcm_acc.u_pcm|jt10_adpcm_div:u_div"
+326:318. Port Connectivity Checks: "core_top:ic|system:system|jt12:fm|jt12_top:u_jt12|jt12_pcm_interpol:gen_pcm_acc.u_pcm"
+327:319. Port Connectivity Checks: "core_top:ic|system:system|jt12:fm|jt12_top:u_jt12|jt12_op:u_op"
+328:320. Port Connectivity Checks: "core_top:ic|system:system|jt12:fm|jt12_top:u_jt12|jt12_eg:u_eg|jt12_eg_comb:u_comb"
+329:321. Port Connectivity Checks: "core_top:ic|system:system|jt12:fm|jt12_top:u_jt12|jt12_lfo:gen_lfo.u_lfo"
+330:322. Port Connectivity Checks: "core_top:ic|system:system|jt12:fm|jt12_top:u_jt12|jt12_timers:u_timers|jt12_timer:timer_B"
+331:323. Port Connectivity Checks: "core_top:ic|system:system|jt12:fm|jt12_top:u_jt12|jt12_mmr:u_mmr|jt12_reg:u_reg|jt12_sumch:u_opch_V"
+332:324. Port Connectivity Checks: "core_top:ic|system:system|jt12:fm|jt12_top:u_jt12|jt12_mmr:u_mmr"
+333:325. Port Connectivity Checks: "core_top:ic|system:system|jt12:fm|jt12_top:u_jt12|jt12_dout:u_dout"
+334:326. Port Connectivity Checks: "core_top:ic|system:system|jt12:fm|jt12_top:u_jt12"
+335:327. Port Connectivity Checks: "core_top:ic|system:system|jt12:fm"
+336:328. Port Connectivity Checks: "core_top:ic|system:system|dpram:ramZ80"
+337:329. Port Connectivity Checks: "core_top:ic|system:system|T80s:Z80|T80:u0"
+338:330. Port Connectivity Checks: "core_top:ic|system:system|T80s:Z80"
+339:331. Port Connectivity Checks: "core_top:ic|system:system|dpram:ram68k_l"
+340:332. Port Connectivity Checks: "core_top:ic|system:system|dpram:ram68k_u"
+341:333. Port Connectivity Checks: "core_top:ic|system:system|SVP:svp|spram:IRAM"
+342:334. Port Connectivity Checks: "core_top:ic|system:system|SVP:svp|SSP160x:SSP160x|mlab:RAMB"
+343:335. Port Connectivity Checks: "core_top:ic|system:system|SVP:svp|SSP160x:SSP160x|mlab:RAMA"
+344:336. Port Connectivity Checks: "core_top:ic|system:system|SVP:svp|SSP160x:SSP160x"
+345:337. Port Connectivity Checks: "core_top:ic|system:system|SVP:svp"
+346:338. Port Connectivity Checks: "core_top:ic|system:system|STM95XXX:pier_eeprom"
+347:339. Port Connectivity Checks: "core_top:ic|system:system|dpram_dif:sram"
+348:340. Port Connectivity Checks: "core_top:ic|system:system|multitap:multitap|pad_io:jcart_l"
+349:341. Port Connectivity Checks: "core_top:ic|system:system|multitap:multitap|pad_io:jcart_u"
+350:342. Port Connectivity Checks: "core_top:ic|system:system|multitap:multitap|teamplayer:teamplayer"
+351:343. Port Connectivity Checks: "core_top:ic|system:system|multitap:multitap|fourway:fourway|pad_io:pad4"
+352:344. Port Connectivity Checks: "core_top:ic|system:system|multitap:multitap|fourway:fourway|pad_io:pad3"
+353:345. Port Connectivity Checks: "core_top:ic|system:system|multitap:multitap|fourway:fourway|pad_io:pad2"
+354:346. Port Connectivity Checks: "core_top:ic|system:system|multitap:multitap|fourway:fourway|pad_io:pad1"
+355:347. Port Connectivity Checks: "core_top:ic|system:system|multitap:multitap|fourway:fourway"
+356:348. Port Connectivity Checks: "core_top:ic|system:system|multitap:multitap|gen_io:io|pad_io:pad2"
+357:349. Port Connectivity Checks: "core_top:ic|system:system|multitap:multitap|gen_io:io|pad_io:pad1"
+358:350. Port Connectivity Checks: "core_top:ic|system:system|multitap:multitap"
+359:351. Port Connectivity Checks: "core_top:ic|system:system|jt89:psg|jt89_tone:u_tone2"
+360:352. Port Connectivity Checks: "core_top:ic|system:system|jt89:psg|jt89_tone:u_tone1"
+361:353. Port Connectivity Checks: "core_top:ic|system:system|jt89:psg|jt89_tone:u_tone0"
+362:354. Port Connectivity Checks: "core_top:ic|system:system|jt89:psg"
+363:355. Port Connectivity Checks: "core_top:ic|system:system|vdp:vdp|DualPortRAM:vsram1"
+364:356. Port Connectivity Checks: "core_top:ic|system:system|vdp:vdp|DualPortRAM:vsram0|dpram_dif:ram"
+365:357. Port Connectivity Checks: "core_top:ic|system:system|vdp:vdp|DualPortRAM:vsram0"
+366:358. Port Connectivity Checks: "core_top:ic|system:system|vdp:vdp|DualPortRAM:cram|dpram_dif:ram"
+367:359. Port Connectivity Checks: "core_top:ic|system:system|vdp:vdp|DualPortRAM:cram"
+368:360. Port Connectivity Checks: "core_top:ic|system:system|vdp:vdp|DualPortRAM:obj_spinfo|dpram_dif:ram"
+369:361. Port Connectivity Checks: "core_top:ic|system:system|vdp:vdp|DualPortRAM:obj_spinfo"
+370:362. Port Connectivity Checks: "core_top:ic|system:system|vdp:vdp|DualPortRAM:obj_visinfo|dpram_dif:ram"
+371:363. Port Connectivity Checks: "core_top:ic|system:system|vdp:vdp|DualPortRAM:obj_visinfo"
+372:364. Port Connectivity Checks: "core_top:ic|system:system|vdp:vdp|obj_cache:obj_cache|dpram_dif:ram3"
+373:365. Port Connectivity Checks: "core_top:ic|system:system|vdp:vdp|obj_cache:obj_cache|dpram_dif:ram2"
+374:366. Port Connectivity Checks: "core_top:ic|system:system|vdp:vdp|obj_cache:obj_cache|dpram_dif:ram1"
+375:367. Port Connectivity Checks: "core_top:ic|system:system|vdp:vdp|obj_cache:obj_cache|dpram_dif:ram0"
+376:368. Port Connectivity Checks: "core_top:ic|system:system|vdp:vdp|obj_cache:obj_cache"
+377:369. Port Connectivity Checks: "core_top:ic|system:system|vdp:vdp|DualPortRAM:obj_ci2"
+378:370. Port Connectivity Checks: "core_top:ic|system:system|vdp:vdp|DualPortRAM:obj_ci|dpram_dif:ram"
+379:371. Port Connectivity Checks: "core_top:ic|system:system|vdp:vdp|DualPortRAM:obj_ci"
+380:372. Port Connectivity Checks: "core_top:ic|system:system|vdp:vdp|DualPortRAM:bga_ci"
+381:373. Port Connectivity Checks: "core_top:ic|system:system|vdp:vdp|DualPortRAM:bgb_ci|dpram_dif:ram"
+382:374. Port Connectivity Checks: "core_top:ic|system:system|vdp:vdp|DualPortRAM:bgb_ci"
+383:375. Port Connectivity Checks: "core_top:ic|system:system|vdp:vdp"
+384:376. Port Connectivity Checks: "core_top:ic|system:system|dpram:vram_u2"
+385:377. Port Connectivity Checks: "core_top:ic|system:system|dpram:vram_l2"
+386:378. Port Connectivity Checks: "core_top:ic|system:system|dpram:vram_u1"
+387:379. Port Connectivity Checks: "core_top:ic|system:system|dpram:vram_l1"
+388:380. Port Connectivity Checks: "core_top:ic|system:system|CODES:codes"
+389:381. Port Connectivity Checks: "core_top:ic|system:system|fx68k:M68K|irdDecode:irdDecode|onehotEncoder4:irdLines"
+390:382. Port Connectivity Checks: "core_top:ic|system:system|fx68k:M68K|excUnit:excUnit"
+391:383. Port Connectivity Checks: "core_top:ic|system:system|fx68k:M68K|sequencer:sequencer"
+392:384. Port Connectivity Checks: "core_top:ic|system:system|fx68k:M68K|uaddrDecode:uaddrDecode"
+393:385. Port Connectivity Checks: "core_top:ic|system:system|fx68k:M68K"
+394:386. Port Connectivity Checks: "core_top:ic|system:system"
+395:387. Port Connectivity Checks: "core_top:ic|synch_3:pause_s"
+396:388. Port Connectivity Checks: "core_top:ic|lightgun:lightgun"
+397:389. Port Connectivity Checks: "core_top:ic|synch_3:joy1_s"
+398:390. Port Connectivity Checks: "core_top:ic|synch_3:cont4_s"
+399:391. Port Connectivity Checks: "core_top:ic|synch_3:cont3_s"
+400:392. Port Connectivity Checks: "core_top:ic|synch_3:cont2_s"
+401:393. Port Connectivity Checks: "core_top:ic|synch_3:cont1_s"
+402:394. Port Connectivity Checks: "core_top:ic|sdram:sdram"
+403:395. Port Connectivity Checks: "core_top:ic|synch_3:sv4"
+404:396. Port Connectivity Checks: "core_top:ic|synch_3:sv3"
+405:397. Port Connectivity Checks: "core_top:ic|synch_3:sv2"
+406:398. Port Connectivity Checks: "core_top:ic|synch_3:cart_download_s"
+407:399. Port Connectivity Checks: "core_top:ic|data_loader:save_data_loader"
+408:400. Port Connectivity Checks: "core_top:ic|data_unloader:save_data_unloader"
+409:401. Port Connectivity Checks: "core_top:ic|core_bridge_cmd:icb|mf_datatable:idt"
+410:402. Port Connectivity Checks: "core_top:ic|core_bridge_cmd:icb|synch_3:s01"
+411:403. Port Connectivity Checks: "core_top:ic|core_bridge_cmd:icb"
+412:404. Port Connectivity Checks: "core_top:ic"
+413:405. Port Connectivity Checks: "io_bridge_peripheral:ibs|synch_3:s03"
+414:406. Port Connectivity Checks: "io_bridge_peripheral:ibs|synch_3:s02"
+415:407. Port Connectivity Checks: "io_bridge_peripheral:ibs|synch_3:s01"
+416:408. Port Connectivity Checks: "io_bridge_peripheral:ibs|synch_3:s00"
+417:409. Port Connectivity Checks: "io_bridge_peripheral:ibs"
+418:410. Port Connectivity Checks: "io_pad_controller:ipm|synch_3:s01"
+419:411. Port Connectivity Checks: "io_pad_controller:ipm|synch_3:s00"
+420:412. Port Connectivity Checks: "io_pad_controller:ipm"
+421:413. Port Connectivity Checks: "mf_ddio_bidir_12:isclk"
+422:414. Port Connectivity Checks: "mf_ddio_bidir_12:iscc"
+423:415. Port Connectivity Checks: "mf_ddio_bidir_12:isco"
+5995:; Report Connectivity Checks                                                      ; On                 ; On                 ;
+6018:; Port Connectivity Checks: "core_top:ic|mf_pllbase:mp1"                                                                                                                                                          ;
+6028:; Port Connectivity Checks: "core_top:ic|system:system|genesis_lpf:lpf_right|iir_1st_order:lpf6db" ;
+6047:; Port Connectivity Checks: "core_top:ic|system:system|jt12_genmix:genmix|jt12_fm_uprate:u_left|jt12_interpol:u_fm5" ;
+6056:; Port Connectivity Checks: "core_top:ic|system:system|jt12_genmix:genmix|jt12_decim:u_psg3|jt12_comb:com_gen[0].u_comb"  ;
+6065:; Port Connectivity Checks: "core_top:ic|system:system|jt12_genmix:genmix|jt12_decim:u_psg2|jt12_comb:com_gen[2].u_comb"  ;
+6074:; Port Connectivity Checks: "core_top:ic|system:system|genesis_fm_lpf:fm_lpf_l|iir_2nd_order:fm2" ;
+6117:; Port Connectivity Checks: "core_top:ic|system:system|jt12:fm|jt12_top:u_jt12|jt12_acc:gen_pcm_acc.accumulator_block[3].u_acc" ;
+6127:; Port Connectivity Checks: "core_top:ic|system:system|jt12:fm|jt12_top:u_jt12|jt12_pcm_interpol:gen_pcm_acc.u_pcm|jt10_adpcm_div:u_div" ;
+6138:; Port Connectivity Checks: "core_top:ic|system:system|jt12:fm|jt12_top:u_jt12|jt12_pcm_interpol:gen_pcm_acc.u_pcm"    ;
+6149:; Port Connectivity Checks: "core_top:ic|system:system|jt12:fm|jt12_top:u_jt12|jt12_op:u_op"                            ;
+6159:; Port Connectivity Checks: "core_top:ic|system:system|jt12:fm|jt12_top:u_jt12|jt12_eg:u_eg|jt12_eg_comb:u_comb"             ;
+6168:; Port Connectivity Checks: "core_top:ic|system:system|jt12:fm|jt12_top:u_jt12|jt12_lfo:gen_lfo.u_lfo" ;
+6177:; Port Connectivity Checks: "core_top:ic|system:system|jt12:fm|jt12_top:u_jt12|jt12_timers:u_timers|jt12_timer:timer_B" ;
+6186:; Port Connectivity Checks: "core_top:ic|system:system|jt12:fm|jt12_top:u_jt12|jt12_mmr:u_mmr|jt12_reg:u_reg|jt12_sumch:u_opch_V" ;
+6195:; Port Connectivity Checks: "core_top:ic|system:system|jt12:fm|jt12_top:u_jt12|jt12_mmr:u_mmr"                         ;
+6230:; Port Connectivity Checks: "core_top:ic|system:system|jt12:fm|jt12_top:u_jt12|jt12_dout:u_dout" ;
+6239:; Port Connectivity Checks: "core_top:ic|system:system|jt12:fm|jt12_top:u_jt12"                                                                                                   ;
+6268:; Port Connectivity Checks: "core_top:ic|system:system|jt12:fm"                                                                                                                                                       ;
+6280:; Port Connectivity Checks: "core_top:ic|system:system|dpram:ramZ80"                                                                                                           ;
+6296:; Port Connectivity Checks: "core_top:ic|system:system|T80s:Z80|T80:u0"                                            ;
+6309:; Port Connectivity Checks: "core_top:ic|system:system|T80s:Z80"                                                                                                            ;
+6323:; Port Connectivity Checks: "core_top:ic|system:system|dpram:ram68k_l"                                                                                                        ;
+6337:; Port Connectivity Checks: "core_top:ic|system:system|dpram:ram68k_u"                                                                                                        ;
+6351:; Port Connectivity Checks: "core_top:ic|system:system|SVP:svp|spram:IRAM" ;
+6361:; Port Connectivity Checks: "core_top:ic|system:system|SVP:svp|SSP160x:SSP160x|mlab:RAMB" ;
+6370:; Port Connectivity Checks: "core_top:ic|system:system|SVP:svp|SSP160x:SSP160x|mlab:RAMA" ;
+6379:; Port Connectivity Checks: "core_top:ic|system:system|SVP:svp|SSP160x:SSP160x"                                      ;
+6389:; Port Connectivity Checks: "core_top:ic|system:system|SVP:svp"                                                                                                                                                               ;
+6400:; Port Connectivity Checks: "core_top:ic|system:system|STM95XXX:pier_eeprom" ;
+6409:; Port Connectivity Checks: "core_top:ic|system:system|dpram_dif:sram"                                                                                                                ;
+6422:; Port Connectivity Checks: "core_top:ic|system:system|multitap:multitap|pad_io:jcart_l" ;
+6432:; Port Connectivity Checks: "core_top:ic|system:system|multitap:multitap|pad_io:jcart_u" ;
+6441:; Port Connectivity Checks: "core_top:ic|system:system|multitap:multitap|teamplayer:teamplayer" ;
+6450:; Port Connectivity Checks: "core_top:ic|system:system|multitap:multitap|fourway:fourway|pad_io:pad4"                                                                        ;
+6460:; Port Connectivity Checks: "core_top:ic|system:system|multitap:multitap|fourway:fourway|pad_io:pad3"                                                                        ;
+6470:; Port Connectivity Checks: "core_top:ic|system:system|multitap:multitap|fourway:fourway|pad_io:pad2"                                                                        ;
+6480:; Port Connectivity Checks: "core_top:ic|system:system|multitap:multitap|fourway:fourway|pad_io:pad1"                                                                        ;
+6490:; Port Connectivity Checks: "core_top:ic|system:system|multitap:multitap|fourway:fourway" ;
+6499:; Port Connectivity Checks: "core_top:ic|system:system|multitap:multitap|gen_io:io|pad_io:pad2"                                          ;
+6508:; Port Connectivity Checks: "core_top:ic|system:system|multitap:multitap|gen_io:io|pad_io:pad1"                                          ;
+6517:; Port Connectivity Checks: "core_top:ic|system:system|multitap:multitap"                                                                                                             ;
+6528:; Port Connectivity Checks: "core_top:ic|system:system|jt89:psg|jt89_tone:u_tone2"                               ;
+6537:; Port Connectivity Checks: "core_top:ic|system:system|jt89:psg|jt89_tone:u_tone1" ;
+6546:; Port Connectivity Checks: "core_top:ic|system:system|jt89:psg|jt89_tone:u_tone0" ;
+6555:; Port Connectivity Checks: "core_top:ic|system:system|jt89:psg"                                                                       ;
+6564:; Port Connectivity Checks: "core_top:ic|system:system|vdp:vdp|DualPortRAM:vsram1" ;
+6574:; Port Connectivity Checks: "core_top:ic|system:system|vdp:vdp|DualPortRAM:vsram0|dpram_dif:ram" ;
+6586:; Port Connectivity Checks: "core_top:ic|system:system|vdp:vdp|DualPortRAM:vsram0" ;
+6596:; Port Connectivity Checks: "core_top:ic|system:system|vdp:vdp|DualPortRAM:cram|dpram_dif:ram" ;
+6608:; Port Connectivity Checks: "core_top:ic|system:system|vdp:vdp|DualPortRAM:cram" ;
+6618:; Port Connectivity Checks: "core_top:ic|system:system|vdp:vdp|DualPortRAM:obj_spinfo|dpram_dif:ram" ;
+6630:; Port Connectivity Checks: "core_top:ic|system:system|vdp:vdp|DualPortRAM:obj_spinfo"                             ;
+6641:; Port Connectivity Checks: "core_top:ic|system:system|vdp:vdp|DualPortRAM:obj_visinfo|dpram_dif:ram" ;
+6653:; Port Connectivity Checks: "core_top:ic|system:system|vdp:vdp|DualPortRAM:obj_visinfo"                            ;
+6664:; Port Connectivity Checks: "core_top:ic|system:system|vdp:vdp|obj_cache:obj_cache|dpram_dif:ram3"                   ;
+6679:; Port Connectivity Checks: "core_top:ic|system:system|vdp:vdp|obj_cache:obj_cache|dpram_dif:ram2"                   ;
+6694:; Port Connectivity Checks: "core_top:ic|system:system|vdp:vdp|obj_cache:obj_cache|dpram_dif:ram1"                   ;
+6709:; Port Connectivity Checks: "core_top:ic|system:system|vdp:vdp|obj_cache:obj_cache|dpram_dif:ram0"                   ;
+6724:; Port Connectivity Checks: "core_top:ic|system:system|vdp:vdp|obj_cache:obj_cache"                                   ;
+6735:; Port Connectivity Checks: "core_top:ic|system:system|vdp:vdp|DualPortRAM:obj_ci2"                                ;
+6746:; Port Connectivity Checks: "core_top:ic|system:system|vdp:vdp|DualPortRAM:obj_ci|dpram_dif:ram" ;
+6758:; Port Connectivity Checks: "core_top:ic|system:system|vdp:vdp|DualPortRAM:obj_ci"                                 ;
+6769:; Port Connectivity Checks: "core_top:ic|system:system|vdp:vdp|DualPortRAM:bga_ci"                                 ;
+6780:; Port Connectivity Checks: "core_top:ic|system:system|vdp:vdp|DualPortRAM:bgb_ci|dpram_dif:ram" ;
+6792:; Port Connectivity Checks: "core_top:ic|system:system|vdp:vdp|DualPortRAM:bgb_ci"                                 ;
+6803:; Port Connectivity Checks: "core_top:ic|system:system|vdp:vdp"                                                                                                                                                            ;
+6816:; Port Connectivity Checks: "core_top:ic|system:system|dpram:vram_u2"                                                                                                        ;
+6829:; Port Connectivity Checks: "core_top:ic|system:system|dpram:vram_l2"                                                                                                        ;
+6842:; Port Connectivity Checks: "core_top:ic|system:system|dpram:vram_u1"                                                                                                        ;
+6855:; Port Connectivity Checks: "core_top:ic|system:system|dpram:vram_l1"                                                                                                        ;
+6868:; Port Connectivity Checks: "core_top:ic|system:system|CODES:codes" ;
+6877:; Port Connectivity Checks: "core_top:ic|system:system|fx68k:M68K|irdDecode:irdDecode|onehotEncoder4:irdLines"         ;
+6887:; Port Connectivity Checks: "core_top:ic|system:system|fx68k:M68K|excUnit:excUnit"                                      ;
+6896:; Port Connectivity Checks: "core_top:ic|system:system|fx68k:M68K|sequencer:sequencer" ;
+6906:; Port Connectivity Checks: "core_top:ic|system:system|fx68k:M68K|uaddrDecode:uaddrDecode" ;
+6915:; Port Connectivity Checks: "core_top:ic|system:system|fx68k:M68K"                                                                                                                                                   ;
+6931:; Port Connectivity Checks: "core_top:ic|system:system"                                                                                                                              ;
+6964:; Port Connectivity Checks: "core_top:ic|synch_3:pause_s"                                                                             ;
+6974:; Port Connectivity Checks: "core_top:ic|lightgun:lightgun"                                                                                                                  ;
+6985:; Port Connectivity Checks: "core_top:ic|synch_3:joy1_s"                                                                                   ;
+6996:; Port Connectivity Checks: "core_top:ic|synch_3:cont4_s"                                                                                                                       ;
+7009:; Port Connectivity Checks: "core_top:ic|synch_3:cont3_s"                                                                                                                       ;
+7022:; Port Connectivity Checks: "core_top:ic|synch_3:cont2_s"                                                                                                                       ;
+7035:; Port Connectivity Checks: "core_top:ic|synch_3:cont1_s"                                                                                                                       ;
+7048:; Port Connectivity Checks: "core_top:ic|sdram:sdram"                                                                                                                                                                ;
+7070:; Port Connectivity Checks: "core_top:ic|synch_3:sv4"                                                                                 ;
+7081:; Port Connectivity Checks: "core_top:ic|synch_3:sv3"                                                                                 ;
+7092:; Port Connectivity Checks: "core_top:ic|synch_3:sv2"                                                                                 ;
+7102:; Port Connectivity Checks: "core_top:ic|synch_3:cart_download_s"                                                                     ;
+7112:; Port Connectivity Checks: "core_top:ic|data_loader:save_data_loader"                                                     ;
+7122:; Port Connectivity Checks: "core_top:ic|data_unloader:save_data_unloader"                                                ;
+7133:; Port Connectivity Checks: "core_top:ic|core_bridge_cmd:icb|mf_datatable:idt"                                                                                                                                     ;
+7143:; Port Connectivity Checks: "core_top:ic|core_bridge_cmd:icb|synch_3:s01"                                                             ;
+7153:; Port Connectivity Checks: "core_top:ic|core_bridge_cmd:icb"                                                                         ;
+7172:; Port Connectivity Checks: "core_top:ic"                                                                                                                                                                            ;
+7184:; Port Connectivity Checks: "io_bridge_peripheral:ibs|synch_3:s03"                                                                    ;
+7194:; Port Connectivity Checks: "io_bridge_peripheral:ibs|synch_3:s02"                                               ;
+7204:; Port Connectivity Checks: "io_bridge_peripheral:ibs|synch_3:s01"                                                                    ;
+7214:; Port Connectivity Checks: "io_bridge_peripheral:ibs|synch_3:s00"                                                                    ;
+7225:; Port Connectivity Checks: "io_bridge_peripheral:ibs"                                                                                          ;
+7234:; Port Connectivity Checks: "io_pad_controller:ipm|synch_3:s01"                                                  ;
+7243:; Port Connectivity Checks: "io_pad_controller:ipm|synch_3:s00"                                                                       ;
+7253:; Port Connectivity Checks: "io_pad_controller:ipm"                                                                                                ;
+7266:; Port Connectivity Checks: "mf_ddio_bidir_12:isclk"                                                                                                                                 ;
+7283:; Port Connectivity Checks: "mf_ddio_bidir_12:iscc"                                                                                                                                  ;
+7298:; Port Connectivity Checks: "mf_ddio_bidir_12:isco"                                                                                                                            ;
+7343:Info (12021): Found 1 design units, including 1 entities, in source file core/core_top.sv
+7344:    Info (12023): Found entity 1: core_top File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/core_top.sv Line: 9
+7440:Info (12021): Found 1 design units, including 1 entities, in source file core/rtl/jt12/jt12_pm.v
+7441:    Info (12023): Found entity 1: jt12_pm File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt12/jt12_pm.v Line: 24
+7510:Info (12021): Found 1 design units, including 1 entities, in source file core/rtl/sdram.sv
+7511:    Info (12023): Found entity 1: sdram File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/sdram.sv Line: 21
+7568:Info (12021): Found 1 design units, including 1 entities, in source file core/core_bridge_cmd.v
+7569:    Info (12023): Found entity 1: core_bridge_cmd File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/core_bridge_cmd.v Line: 18
+7595:Warning (10036): Verilog HDL or VHDL warning at core_top.sv(454): object "cs_m30_map_enable" assigned a value but never read File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/core_top.sv Line: 454
+7596:Warning (10762): Verilog HDL Case Statement warning at core_top.sv(303): can't check case statement for completeness because the case expression has too many possible states File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/core_top.sv Line: 303
+7597:Warning (10230): Verilog HDL assignment warning at core_top.sv(460): truncated value with size 32 to match size of target (12) File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/core_top.sv Line: 460
+7598:Warning (10230): Verilog HDL assignment warning at core_top.sv(462): truncated value with size 32 to match size of target (16) File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/core_top.sv Line: 462
+7599:Warning (10762): Verilog HDL Case Statement warning at core_top.sv(466): can't check case statement for completeness because the case expression has too many possible states File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/core_top.sv Line: 466
+7600:Warning (10230): Verilog HDL assignment warning at core_top.sv(525): truncated value with size 32 to match size of target (10) File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/core_top.sv Line: 525
+7601:Warning (10230): Verilog HDL assignment warning at core_top.sv(536): truncated value with size 32 to match size of target (3) File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/core_top.sv Line: 536
+7602:Warning (10030): Net "rom_data2" at core_top.sv(870) has no driver or initial value, using a default initial value '0' File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/core_top.sv Line: 870
+7603:Warning (10030): Net "rom_rdack2" at core_top.sv(872) has no driver or initial value, using a default initial value '0' File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/core_top.sv Line: 872
+7604:Info (12128): Elaborating entity "core_bridge_cmd" for hierarchy "core_top:ic|core_bridge_cmd:icb" File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/core_top.sv Line: 427
+7605:Warning (10036): Verilog HDL or VHDL warning at core_bridge_cmd.v(109): object "host_24" assigned a value but never read File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/core_bridge_cmd.v Line: 109
+7606:Warning (10036): Verilog HDL or VHDL warning at core_bridge_cmd.v(110): object "host_28" assigned a value but never read File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/core_bridge_cmd.v Line: 110
+7607:Warning (10036): Verilog HDL or VHDL warning at core_bridge_cmd.v(111): object "host_2C" assigned a value but never read File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/core_bridge_cmd.v Line: 111
+7608:Warning (10858): Verilog HDL warning at core_bridge_cmd.v(116): object host_4C used but never assigned File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/core_bridge_cmd.v Line: 116
+7609:Warning (10858): Verilog HDL warning at core_bridge_cmd.v(137): object target_20 used but never assigned File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/core_bridge_cmd.v Line: 137
+7610:Warning (10858): Verilog HDL warning at core_bridge_cmd.v(138): object target_24 used but never assigned File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/core_bridge_cmd.v Line: 138
+7611:Warning (10858): Verilog HDL warning at core_bridge_cmd.v(139): object target_28 used but never assigned File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/core_bridge_cmd.v Line: 139
+7612:Warning (10858): Verilog HDL warning at core_bridge_cmd.v(140): object target_2C used but never assigned File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/core_bridge_cmd.v Line: 140
+7613:Warning (10036): Verilog HDL or VHDL warning at core_bridge_cmd.v(142): object "target_40" assigned a value but never read File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/core_bridge_cmd.v Line: 142
+7614:Warning (10036): Verilog HDL or VHDL warning at core_bridge_cmd.v(143): object "target_44" assigned a value but never read File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/core_bridge_cmd.v Line: 143
+7615:Warning (10036): Verilog HDL or VHDL warning at core_bridge_cmd.v(144): object "target_48" assigned a value but never read File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/core_bridge_cmd.v Line: 144
+7616:Warning (10036): Verilog HDL or VHDL warning at core_bridge_cmd.v(145): object "target_4C" assigned a value but never read File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/core_bridge_cmd.v Line: 145
+7617:Warning (10230): Verilog HDL assignment warning at core_bridge_cmd.v(182): truncated value with size 32 to match size of target (10) File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/core_bridge_cmd.v Line: 182
+7618:Warning (10762): Verilog HDL Case Statement warning at core_bridge_cmd.v(185): can't check case statement for completeness because the case expression has too many possible states File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/core_bridge_cmd.v Line: 185
+7619:Warning (10762): Verilog HDL Case Statement warning at core_bridge_cmd.v(220): can't check case statement for completeness because the case expression has too many possible states File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/core_bridge_cmd.v Line: 220
+7620:Warning (10030): Net "host_4C" at core_bridge_cmd.v(116) has no driver or initial value, using a default initial value '0' File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/core_bridge_cmd.v Line: 116
+7621:Warning (10030): Net "target_20" at core_bridge_cmd.v(137) has no driver or initial value, using a default initial value '0' File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/core_bridge_cmd.v Line: 137
+7622:Warning (10030): Net "target_24" at core_bridge_cmd.v(138) has no driver or initial value, using a default initial value '0' File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/core_bridge_cmd.v Line: 138
+7623:Warning (10030): Net "target_28" at core_bridge_cmd.v(139) has no driver or initial value, using a default initial value '0' File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/core_bridge_cmd.v Line: 139
+7624:Warning (10030): Net "target_2C" at core_bridge_cmd.v(140) has no driver or initial value, using a default initial value '0' File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/core_bridge_cmd.v Line: 140
+7625:Info (12128): Elaborating entity "mf_datatable" for hierarchy "core_top:ic|core_bridge_cmd:icb|mf_datatable:idt" File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/core_bridge_cmd.v Line: 442
+7661:Info (12128): Elaborating entity "data_unloader" for hierarchy "core_top:ic|data_unloader:save_data_unloader" File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/core_top.sv Line: 557
+7750:Info (12128): Elaborating entity "data_loader" for hierarchy "core_top:ic|data_loader:save_data_loader" File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/core_top.sv Line: 576
+7787:Info (12128): Elaborating entity "data_loader" for hierarchy "core_top:ic|data_loader:rom_loader" File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/core_top.sv Line: 670
+7794:Info (12128): Elaborating entity "sound_i2s" for hierarchy "core_top:ic|sound_i2s:sound_i2s" File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/core_top.sv Line: 691
+7830:Info (12128): Elaborating entity "synch_3" for hierarchy "core_top:ic|synch_3:sv2" File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/core_top.sv Line: 748
+7833:Info (12128): Elaborating entity "cofi" for hierarchy "core_top:ic|cofi:coffee" File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/core_top.sv Line: 821
+7834:Info (12128): Elaborating entity "sdram" for hierarchy "core_top:ic|sdram:sdram" File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/core_top.sv Line: 867
+7835:Warning (10259): Verilog HDL error at sdram.sv(82): constant value overflow File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/sdram.sv Line: 82
+7836:Info (10264): Verilog HDL Case Statement information at sdram.sv(203): all case item expressions in this case statement are onehot File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/sdram.sv Line: 203
+7837:Info (12128): Elaborating entity "altddio_out" for hierarchy "core_top:ic|sdram:sdram|altddio_out:sdramclk_ddr" File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/sdram.sv Line: 236
+7838:Info (12130): Elaborated megafunction instantiation "core_top:ic|sdram:sdram|altddio_out:sdramclk_ddr" File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/sdram.sv Line: 236
+7839:Info (12133): Instantiated megafunction "core_top:ic|sdram:sdram|altddio_out:sdramclk_ddr" with the following parameter: File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/sdram.sv Line: 236
+7851:Info (12128): Elaborating entity "synch_3" for hierarchy "core_top:ic|synch_3:cont1_s" File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/core_top.sv Line: 983
+7854:Info (12128): Elaborating entity "lightgun" for hierarchy "core_top:ic|lightgun:lightgun" File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/core_top.sv Line: 1122
+7857:Info (12128): Elaborating entity "system" for hierarchy "core_top:ic|system:system" File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/core_top.sv Line: 1231
+8707:Warning (10030): Net "lfo_sh1_lut.data_a" at jt12_pm.v(38) has no driver or initial value, using a default initial value '0' File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt12/jt12_pm.v Line: 38
+8708:Warning (10030): Net "lfo_sh1_lut.waddr_a" at jt12_pm.v(38) has no driver or initial value, using a default initial value '0' File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt12/jt12_pm.v Line: 38
+8709:Warning (10030): Net "lfo_sh2_lut.data_a" at jt12_pm.v(39) has no driver or initial value, using a default initial value '0' File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt12/jt12_pm.v Line: 39
+8710:Warning (10030): Net "lfo_sh2_lut.waddr_a" at jt12_pm.v(39) has no driver or initial value, using a default initial value '0' File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt12/jt12_pm.v Line: 39
+8711:Warning (10030): Net "lfo_sh1_lut.we_a" at jt12_pm.v(38) has no driver or initial value, using a default initial value '0' File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt12/jt12_pm.v Line: 38
+8712:Warning (10030): Net "lfo_sh2_lut.we_a" at jt12_pm.v(39) has no driver or initial value, using a default initial value '0' File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt12/jt12_pm.v Line: 39
+8764:Info (12128): Elaborating entity "mf_pllbase" for hierarchy "core_top:ic|mf_pllbase:mp1" File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/core_top.sv Line: 1259
+8854:Warning (12241): 48 hierarchies have connectivity warnings - see the Connectivity Checks report folder
+```
+## /work/build/openfpga_genesis_analysis_work/src/fpga/db/ap_core.map.qmsg
+```text
+6:{ "Warning" "WVRFX_L3_VERI_MIXED_BLOCKING_NONBLOCKING_ASSIGNMENT" "core_top.sv(459) " "Verilog HDL information at core_top.sv(459): always construct contains both blocking and non-blocking assignments" {  } { { "core/core_top.sv" "" { Text "/work/build/openfpga_genesis_analysis_work/src/fpga/core/core_top.sv" 459 0 0 } }  } 0 10268 "Verilog HDL information at %1!s!: always construct contains both blocking and non-blocking assignments" 1 0 "Design Software" 0 -1 1783485827531 ""}
+7:{ "Info" "ISGN_NUM_OF_DESIGN_UNITS_AND_ENTITIES" "core/core_top.sv 1 1 " "Found 1 design units, including 1 entities, in source file core/core_top.sv" { { "Info" "ISGN_ENTITY_NAME" "1 core_top " "Found entity 1: core_top" {  } { { "core/core_top.sv" "" { Text "/work/build/openfpga_genesis_analysis_work/src/fpga/core/core_top.sv" 9 -1 0 } }  } 0 12023 "Found entity %1!d!: %2!s!" 0 0 "Design Software" 0 -1 1783485827536 ""}  } {  } 0 12021 "Found %2!llu! design units, including %3!llu! entities, in source file %1!s!" 0 0 "Design Software" 0 -1 1783485827536 ""}
+51:{ "Info" "ISGN_NUM_OF_DESIGN_UNITS_AND_ENTITIES" "core/rtl/jt12/jt12_pm.v 1 1 " "Found 1 design units, including 1 entities, in source file core/rtl/jt12/jt12_pm.v" { { "Info" "ISGN_ENTITY_NAME" "1 jt12_pm " "Found entity 1: jt12_pm" {  } { { "core/rtl/jt12/jt12_pm.v" "" { Text "/work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt12/jt12_pm.v" 24 -1 0 } }  } 0 12023 "Found entity %1!d!: %2!s!" 0 0 "Design Software" 0 -1 1783485828132 ""}  } {  } 0 12021 "Found %2!llu! design units, including %3!llu! entities, in source file %1!s!" 0 0 "Design Software" 0 -1 1783485828132 ""}
+79:{ "Info" "IVRFX_L3_VERI_OBJ_DIFF_ONLY_IN_CASE" "MODE mode sdram.sv(77) " "Verilog HDL Declaration information at sdram.sv(77): object \"MODE\" differs only in case from object \"mode\" in the same scope" {  } { { "core/rtl/sdram.sv" "" { Text "/work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/sdram.sv" 77 0 0 } }  } 0 10281 "Verilog HDL Declaration information at %3!s!: object \"%1!s!\" differs only in case from object \"%2!s!\" in the same scope" 1 0 "Design Software" 0 -1 1783485828197 ""}
+80:{ "Info" "ISGN_NUM_OF_DESIGN_UNITS_AND_ENTITIES" "core/rtl/sdram.sv 1 1 " "Found 1 design units, including 1 entities, in source file core/rtl/sdram.sv" { { "Info" "ISGN_ENTITY_NAME" "1 sdram " "Found entity 1: sdram" {  } { { "core/rtl/sdram.sv" "" { Text "/work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/sdram.sv" 21 -1 0 } }  } 0 12023 "Found entity %1!d!: %2!s!" 0 0 "Design Software" 0 -1 1783485828198 ""}  } {  } 0 12021 "Found %2!llu! design units, including %3!llu! entities, in source file %1!s!" 0 0 "Design Software" 0 -1 1783485828198 ""}
+103:{ "Info" "ISGN_NUM_OF_DESIGN_UNITS_AND_ENTITIES" "core/core_bridge_cmd.v 1 1 " "Found 1 design units, including 1 entities, in source file core/core_bridge_cmd.v" { { "Info" "ISGN_ENTITY_NAME" "1 core_bridge_cmd " "Found entity 1: core_bridge_cmd" {  } { { "core/core_bridge_cmd.v" "" { Text "/work/build/openfpga_genesis_analysis_work/src/fpga/core/core_bridge_cmd.v" 18 -1 0 } }  } 0 12023 "Found entity %1!d!: %2!s!" 0 0 "Design Software" 0 -1 1783485828226 ""}  } {  } 0 12021 "Found %2!llu! design units, including %3!llu! entities, in source file %1!s!" 0 0 "Design Software" 0 -1 1783485828226 ""}
+117:{ "Warning" "WVRFX_L2_HDL_OBJECT_ASSIGNED_NOT_READ" "cs_m30_map_enable core_top.sv(454) " "Verilog HDL or VHDL warning at core_top.sv(454): object \"cs_m30_map_enable\" assigned a value but never read" {  } { { "core/core_top.sv" "" { Text "/work/build/openfpga_genesis_analysis_work/src/fpga/core/core_top.sv" 454 0 0 } }  } 0 10036 "Verilog HDL or VHDL warning at %2!s!: object \"%1!s!\" assigned a value but never read" 0 0 "Design Software" 0 -1 1783485829296 "|apf_top|core_top:ic"}
+118:{ "Warning" "WVRFX_VERI_CANT_ANALYZE_CASE_STATEMENT" "core_top.sv(303) " "Verilog HDL Case Statement warning at core_top.sv(303): can't check case statement for completeness because the case expression has too many possible states" {  } { { "core/core_top.sv" "" { Text "/work/build/openfpga_genesis_analysis_work/src/fpga/core/core_top.sv" 303 0 0 } }  } 0 10762 "Verilog HDL Case Statement warning at %1!s!: can't check case statement for completeness because the case expression has too many possible states" 0 0 "Design Software" 0 -1 1783485829298 "|apf_top|core_top:ic"}
+119:{ "Warning" "WVRFX_L2_VERI_EXPRESSION_TRUNCATED_TO_FIT" "32 12 core_top.sv(460) " "Verilog HDL assignment warning at core_top.sv(460): truncated value with size 32 to match size of target (12)" {  } { { "core/core_top.sv" "" { Text "/work/build/openfpga_genesis_analysis_work/src/fpga/core/core_top.sv" 460 0 0 } }  } 0 10230 "Verilog HDL assignment warning at %3!s!: truncated value with size %1!d! to match size of target (%2!d!)" 0 0 "Design Software" 0 -1 1783485829300 "|apf_top|core_top:ic"}
+120:{ "Warning" "WVRFX_L2_VERI_EXPRESSION_TRUNCATED_TO_FIT" "32 16 core_top.sv(462) " "Verilog HDL assignment warning at core_top.sv(462): truncated value with size 32 to match size of target (16)" {  } { { "core/core_top.sv" "" { Text "/work/build/openfpga_genesis_analysis_work/src/fpga/core/core_top.sv" 462 0 0 } }  } 0 10230 "Verilog HDL assignment warning at %3!s!: truncated value with size %1!d! to match size of target (%2!d!)" 0 0 "Design Software" 0 -1 1783485829300 "|apf_top|core_top:ic"}
+121:{ "Warning" "WVRFX_VERI_CANT_ANALYZE_CASE_STATEMENT" "core_top.sv(466) " "Verilog HDL Case Statement warning at core_top.sv(466): can't check case statement for completeness because the case expression has too many possible states" {  } { { "core/core_top.sv" "" { Text "/work/build/openfpga_genesis_analysis_work/src/fpga/core/core_top.sv" 466 0 0 } }  } 0 10762 "Verilog HDL Case Statement warning at %1!s!: can't check case statement for completeness because the case expression has too many possible states" 0 0 "Design Software" 0 -1 1783485829301 "|apf_top|core_top:ic"}
+122:{ "Warning" "WVRFX_L2_VERI_EXPRESSION_TRUNCATED_TO_FIT" "32 10 core_top.sv(525) " "Verilog HDL assignment warning at core_top.sv(525): truncated value with size 32 to match size of target (10)" {  } { { "core/core_top.sv" "" { Text "/work/build/openfpga_genesis_analysis_work/src/fpga/core/core_top.sv" 525 0 0 } }  } 0 10230 "Verilog HDL assignment warning at %3!s!: truncated value with size %1!d! to match size of target (%2!d!)" 0 0 "Design Software" 0 -1 1783485829302 "|apf_top|core_top:ic"}
+123:{ "Warning" "WVRFX_L2_VERI_EXPRESSION_TRUNCATED_TO_FIT" "32 3 core_top.sv(536) " "Verilog HDL assignment warning at core_top.sv(536): truncated value with size 32 to match size of target (3)" {  } { { "core/core_top.sv" "" { Text "/work/build/openfpga_genesis_analysis_work/src/fpga/core/core_top.sv" 536 0 0 } }  } 0 10230 "Verilog HDL assignment warning at %3!s!: truncated value with size %1!d! to match size of target (%2!d!)" 0 0 "Design Software" 0 -1 1783485829302 "|apf_top|core_top:ic"}
+124:{ "Warning" "WVRFX_VDB_DRIVERLESS_NET" "rom_data2 0 core_top.sv(870) " "Net \"rom_data2\" at core_top.sv(870) has no driver or initial value, using a default initial value '0'" {  } { { "core/core_top.sv" "" { Text "/work/build/openfpga_genesis_analysis_work/src/fpga/core/core_top.sv" 870 0 0 } }  } 0 10030 "Net \"%1!s!\" at %3!s! has no driver or initial value, using a default initial value '%2!c!'" 0 0 "Design Software" 0 -1 1783485829324 "|apf_top|core_top:ic"}
+125:{ "Warning" "WVRFX_VDB_DRIVERLESS_NET" "rom_rdack2 0 core_top.sv(872) " "Net \"rom_rdack2\" at core_top.sv(872) has no driver or initial value, using a default initial value '0'" {  } { { "core/core_top.sv" "" { Text "/work/build/openfpga_genesis_analysis_work/src/fpga/core/core_top.sv" 872 0 0 } }  } 0 10030 "Net \"%1!s!\" at %3!s! has no driver or initial value, using a default initial value '%2!c!'" 0 0 "Design Software" 0 -1 1783485829325 "|apf_top|core_top:ic"}
+126:{ "Info" "ISGN_START_ELABORATION_HIERARCHY" "core_bridge_cmd core_top:ic\|core_bridge_cmd:icb " "Elaborating entity \"core_bridge_cmd\" for hierarchy \"core_top:ic\|core_bridge_cmd:icb\"" {  } { { "core/core_top.sv" "icb" { Text "/work/build/openfpga_genesis_analysis_work/src/fpga/core/core_top.sv" 427 0 0 } }  } 0 12128 "Elaborating entity \"%1!s!\" for hierarchy \"%2!s!\"" 0 0 "Design Software" 0 -1 1783485829395 ""}
+127:{ "Warning" "WVRFX_L2_HDL_OBJECT_ASSIGNED_NOT_READ" "host_24 core_bridge_cmd.v(109) " "Verilog HDL or VHDL warning at core_bridge_cmd.v(109): object \"host_24\" assigned a value but never read" {  } { { "core/core_bridge_cmd.v" "" { Text "/work/build/openfpga_genesis_analysis_work/src/fpga/core/core_bridge_cmd.v" 109 0 0 } }  } 0 10036 "Verilog HDL or VHDL warning at %2!s!: object \"%1!s!\" assigned a value but never read" 0 0 "Design Software" 0 -1 1783485829397 "|apf_top|core_top:ic|core_bridge_cmd:icb"}
+128:{ "Warning" "WVRFX_L2_HDL_OBJECT_ASSIGNED_NOT_READ" "host_28 core_bridge_cmd.v(110) " "Verilog HDL or VHDL warning at core_bridge_cmd.v(110): object \"host_28\" assigned a value but never read" {  } { { "core/core_bridge_cmd.v" "" { Text "/work/build/openfpga_genesis_analysis_work/src/fpga/core/core_bridge_cmd.v" 110 0 0 } }  } 0 10036 "Verilog HDL or VHDL warning at %2!s!: object \"%1!s!\" assigned a value but never read" 0 0 "Design Software" 0 -1 1783485829398 "|apf_top|core_top:ic|core_bridge_cmd:icb"}
+129:{ "Warning" "WVRFX_L2_HDL_OBJECT_ASSIGNED_NOT_READ" "host_2C core_bridge_cmd.v(111) " "Verilog HDL or VHDL warning at core_bridge_cmd.v(111): object \"host_2C\" assigned a value but never read" {  } { { "core/core_bridge_cmd.v" "" { Text "/work/build/openfpga_genesis_analysis_work/src/fpga/core/core_bridge_cmd.v" 111 0 0 } }  } 0 10036 "Verilog HDL or VHDL warning at %2!s!: object \"%1!s!\" assigned a value but never read" 0 0 "Design Software" 0 -1 1783485829398 "|apf_top|core_top:ic|core_bridge_cmd:icb"}
+130:{ "Warning" "WVRFX_VERI_2106_UNCONVERTED" "host_4C core_bridge_cmd.v(116) " "Verilog HDL warning at core_bridge_cmd.v(116): object host_4C used but never assigned" {  } { { "core/core_bridge_cmd.v" "" { Text "/work/build/openfpga_genesis_analysis_work/src/fpga/core/core_bridge_cmd.v" 116 0 0 } }  } 0 10858 "Verilog HDL warning at %2!s!: object %1!s! used but never assigned" 0 0 "Design Software" 0 -1 1783485829398 "|apf_top|core_top:ic|core_bridge_cmd:icb"}
+131:{ "Warning" "WVRFX_VERI_2106_UNCONVERTED" "target_20 core_bridge_cmd.v(137) " "Verilog HDL warning at core_bridge_cmd.v(137): object target_20 used but never assigned" {  } { { "core/core_bridge_cmd.v" "" { Text "/work/build/openfpga_genesis_analysis_work/src/fpga/core/core_bridge_cmd.v" 137 0 0 } }  } 0 10858 "Verilog HDL warning at %2!s!: object %1!s! used but never assigned" 0 0 "Design Software" 0 -1 1783485829398 "|apf_top|core_top:ic|core_bridge_cmd:icb"}
+132:{ "Warning" "WVRFX_VERI_2106_UNCONVERTED" "target_24 core_bridge_cmd.v(138) " "Verilog HDL warning at core_bridge_cmd.v(138): object target_24 used but never assigned" {  } { { "core/core_bridge_cmd.v" "" { Text "/work/build/openfpga_genesis_analysis_work/src/fpga/core/core_bridge_cmd.v" 138 0 0 } }  } 0 10858 "Verilog HDL warning at %2!s!: object %1!s! used but never assigned" 0 0 "Design Software" 0 -1 1783485829398 "|apf_top|core_top:ic|core_bridge_cmd:icb"}
+133:{ "Warning" "WVRFX_VERI_2106_UNCONVERTED" "target_28 core_bridge_cmd.v(139) " "Verilog HDL warning at core_bridge_cmd.v(139): object target_28 used but never assigned" {  } { { "core/core_bridge_cmd.v" "" { Text "/work/build/openfpga_genesis_analysis_work/src/fpga/core/core_bridge_cmd.v" 139 0 0 } }  } 0 10858 "Verilog HDL warning at %2!s!: object %1!s! used but never assigned" 0 0 "Design Software" 0 -1 1783485829398 "|apf_top|core_top:ic|core_bridge_cmd:icb"}
+134:{ "Warning" "WVRFX_VERI_2106_UNCONVERTED" "target_2C core_bridge_cmd.v(140) " "Verilog HDL warning at core_bridge_cmd.v(140): object target_2C used but never assigned" {  } { { "core/core_bridge_cmd.v" "" { Text "/work/build/openfpga_genesis_analysis_work/src/fpga/core/core_bridge_cmd.v" 140 0 0 } }  } 0 10858 "Verilog HDL warning at %2!s!: object %1!s! used but never assigned" 0 0 "Design Software" 0 -1 1783485829398 "|apf_top|core_top:ic|core_bridge_cmd:icb"}
+135:{ "Warning" "WVRFX_L2_HDL_OBJECT_ASSIGNED_NOT_READ" "target_40 core_bridge_cmd.v(142) " "Verilog HDL or VHDL warning at core_bridge_cmd.v(142): object \"target_40\" assigned a value but never read" {  } { { "core/core_bridge_cmd.v" "" { Text "/work/build/openfpga_genesis_analysis_work/src/fpga/core/core_bridge_cmd.v" 142 0 0 } }  } 0 10036 "Verilog HDL or VHDL warning at %2!s!: object \"%1!s!\" assigned a value but never read" 0 0 "Design Software" 0 -1 1783485829398 "|apf_top|core_top:ic|core_bridge_cmd:icb"}
+136:{ "Warning" "WVRFX_L2_HDL_OBJECT_ASSIGNED_NOT_READ" "target_44 core_bridge_cmd.v(143) " "Verilog HDL or VHDL warning at core_bridge_cmd.v(143): object \"target_44\" assigned a value but never read" {  } { { "core/core_bridge_cmd.v" "" { Text "/work/build/openfpga_genesis_analysis_work/src/fpga/core/core_bridge_cmd.v" 143 0 0 } }  } 0 10036 "Verilog HDL or VHDL warning at %2!s!: object \"%1!s!\" assigned a value but never read" 0 0 "Design Software" 0 -1 1783485829398 "|apf_top|core_top:ic|core_bridge_cmd:icb"}
+137:{ "Warning" "WVRFX_L2_HDL_OBJECT_ASSIGNED_NOT_READ" "target_48 core_bridge_cmd.v(144) " "Verilog HDL or VHDL warning at core_bridge_cmd.v(144): object \"target_48\" assigned a value but never read" {  } { { "core/core_bridge_cmd.v" "" { Text "/work/build/openfpga_genesis_analysis_work/src/fpga/core/core_bridge_cmd.v" 144 0 0 } }  } 0 10036 "Verilog HDL or VHDL warning at %2!s!: object \"%1!s!\" assigned a value but never read" 0 0 "Design Software" 0 -1 1783485829398 "|apf_top|core_top:ic|core_bridge_cmd:icb"}
+138:{ "Warning" "WVRFX_L2_HDL_OBJECT_ASSIGNED_NOT_READ" "target_4C core_bridge_cmd.v(145) " "Verilog HDL or VHDL warning at core_bridge_cmd.v(145): object \"target_4C\" assigned a value but never read" {  } { { "core/core_bridge_cmd.v" "" { Text "/work/build/openfpga_genesis_analysis_work/src/fpga/core/core_bridge_cmd.v" 145 0 0 } }  } 0 10036 "Verilog HDL or VHDL warning at %2!s!: object \"%1!s!\" assigned a value but never read" 0 0 "Design Software" 0 -1 1783485829398 "|apf_top|core_top:ic|core_bridge_cmd:icb"}
+139:{ "Warning" "WVRFX_L2_VERI_EXPRESSION_TRUNCATED_TO_FIT" "32 10 core_bridge_cmd.v(182) " "Verilog HDL assignment warning at core_bridge_cmd.v(182): truncated value with size 32 to match size of target (10)" {  } { { "core/core_bridge_cmd.v" "" { Text "/work/build/openfpga_genesis_analysis_work/src/fpga/core/core_bridge_cmd.v" 182 0 0 } }  } 0 10230 "Verilog HDL assignment warning at %3!s!: truncated value with size %1!d! to match size of target (%2!d!)" 0 0 "Design Software" 0 -1 1783485829400 "|apf_top|core_top:ic|core_bridge_cmd:icb"}
+140:{ "Warning" "WVRFX_VERI_CANT_ANALYZE_CASE_STATEMENT" "core_bridge_cmd.v(185) " "Verilog HDL Case Statement warning at core_bridge_cmd.v(185): can't check case statement for completeness because the case expression has too many possible states" {  } { { "core/core_bridge_cmd.v" "" { Text "/work/build/openfpga_genesis_analysis_work/src/fpga/core/core_bridge_cmd.v" 185 0 0 } }  } 0 10762 "Verilog HDL Case Statement warning at %1!s!: can't check case statement for completeness because the case expression has too many possible states" 0 0 "Design Software" 0 -1 1783485829422 "|apf_top|core_top:ic|core_bridge_cmd:icb"}
+141:{ "Warning" "WVRFX_VERI_CANT_ANALYZE_CASE_STATEMENT" "core_bridge_cmd.v(220) " "Verilog HDL Case Statement warning at core_bridge_cmd.v(220): can't check case statement for completeness because the case expression has too many possible states" {  } { { "core/core_bridge_cmd.v" "" { Text "/work/build/openfpga_genesis_analysis_work/src/fpga/core/core_bridge_cmd.v" 220 0 0 } }  } 0 10762 "Verilog HDL Case Statement warning at %1!s!: can't check case statement for completeness because the case expression has too many possible states" 0 0 "Design Software" 0 -1 1783485829429 "|apf_top|core_top:ic|core_bridge_cmd:icb"}
+142:{ "Warning" "WVRFX_VDB_DRIVERLESS_NET" "host_4C 0 core_bridge_cmd.v(116) " "Net \"host_4C\" at core_bridge_cmd.v(116) has no driver or initial value, using a default initial value '0'" {  } { { "core/core_bridge_cmd.v" "" { Text "/work/build/openfpga_genesis_analysis_work/src/fpga/core/core_bridge_cmd.v" 116 0 0 } }  } 0 10030 "Net \"%1!s!\" at %3!s! has no driver or initial value, using a default initial value '%2!c!'" 0 0 "Design Software" 0 -1 1783485829456 "|apf_top|core_top:ic|core_bridge_cmd:icb"}
+143:{ "Warning" "WVRFX_VDB_DRIVERLESS_NET" "target_20 0 core_bridge_cmd.v(137) " "Net \"target_20\" at core_bridge_cmd.v(137) has no driver or initial value, using a default initial value '0'" {  } { { "core/core_bridge_cmd.v" "" { Text "/work/build/openfpga_genesis_analysis_work/src/fpga/core/core_bridge_cmd.v" 137 0 0 } }  } 0 10030 "Net \"%1!s!\" at %3!s! has no driver or initial value, using a default initial value '%2!c!'" 0 0 "Design Software" 0 -1 1783485829456 "|apf_top|core_top:ic|core_bridge_cmd:icb"}
+144:{ "Warning" "WVRFX_VDB_DRIVERLESS_NET" "target_24 0 core_bridge_cmd.v(138) " "Net \"target_24\" at core_bridge_cmd.v(138) has no driver or initial value, using a default initial value '0'" {  } { { "core/core_bridge_cmd.v" "" { Text "/work/build/openfpga_genesis_analysis_work/src/fpga/core/core_bridge_cmd.v" 138 0 0 } }  } 0 10030 "Net \"%1!s!\" at %3!s! has no driver or initial value, using a default initial value '%2!c!'" 0 0 "Design Software" 0 -1 1783485829456 "|apf_top|core_top:ic|core_bridge_cmd:icb"}
+145:{ "Warning" "WVRFX_VDB_DRIVERLESS_NET" "target_28 0 core_bridge_cmd.v(139) " "Net \"target_28\" at core_bridge_cmd.v(139) has no driver or initial value, using a default initial value '0'" {  } { { "core/core_bridge_cmd.v" "" { Text "/work/build/openfpga_genesis_analysis_work/src/fpga/core/core_bridge_cmd.v" 139 0 0 } }  } 0 10030 "Net \"%1!s!\" at %3!s! has no driver or initial value, using a default initial value '%2!c!'" 0 0 "Design Software" 0 -1 1783485829456 "|apf_top|core_top:ic|core_bridge_cmd:icb"}
+146:{ "Warning" "WVRFX_VDB_DRIVERLESS_NET" "target_2C 0 core_bridge_cmd.v(140) " "Net \"target_2C\" at core_bridge_cmd.v(140) has no driver or initial value, using a default initial value '0'" {  } { { "core/core_bridge_cmd.v" "" { Text "/work/build/openfpga_genesis_analysis_work/src/fpga/core/core_bridge_cmd.v" 140 0 0 } }  } 0 10030 "Net \"%1!s!\" at %3!s! has no driver or initial value, using a default initial value '%2!c!'" 0 0 "Design Software" 0 -1 1783485829456 "|apf_top|core_top:ic|core_bridge_cmd:icb"}
+147:{ "Info" "ISGN_START_ELABORATION_HIERARCHY" "mf_datatable core_top:ic\|core_bridge_cmd:icb\|mf_datatable:idt " "Elaborating entity \"mf_datatable\" for hierarchy \"core_top:ic\|core_bridge_cmd:icb\|mf_datatable:idt\"" {  } { { "core/core_bridge_cmd.v" "idt" { Text "/work/build/openfpga_genesis_analysis_work/src/fpga/core/core_bridge_cmd.v" 442 0 0 } }  } 0 12128 "Elaborating entity \"%1!s!\" for hierarchy \"%2!s!\"" 0 0 "Design Software" 0 -1 1783485829549 ""}
+154:{ "Info" "ISGN_START_ELABORATION_HIERARCHY" "data_unloader core_top:ic\|data_unloader:save_data_unloader " "Elaborating entity \"data_unloader\" for hierarchy \"core_top:ic\|data_unloader:save_data_unloader\"" {  } { { "core/core_top.sv" "save_data_unloader" { Text "/work/build/openfpga_genesis_analysis_work/src/fpga/core/core_top.sv" 557 0 0 } }  } 0 12128 "Elaborating entity \"%1!s!\" for hierarchy \"%2!s!\"" 0 0 "Design Software" 0 -1 1783485829741 ""}
+203:{ "Info" "ISGN_START_ELABORATION_HIERARCHY" "data_loader core_top:ic\|data_loader:save_data_loader " "Elaborating entity \"data_loader\" for hierarchy \"core_top:ic\|data_loader:save_data_loader\"" {  } { { "core/core_top.sv" "save_data_loader" { Text "/work/build/openfpga_genesis_analysis_work/src/fpga/core/core_top.sv" 576 0 0 } }  } 0 12128 "Elaborating entity \"%1!s!\" for hierarchy \"%2!s!\"" 0 0 "Design Software" 0 -1 1783485831055 ""}
+223:{ "Info" "ISGN_START_ELABORATION_HIERARCHY" "data_loader core_top:ic\|data_loader:rom_loader " "Elaborating entity \"data_loader\" for hierarchy \"core_top:ic\|data_loader:rom_loader\"" {  } { { "core/core_top.sv" "rom_loader" { Text "/work/build/openfpga_genesis_analysis_work/src/fpga/core/core_top.sv" 670 0 0 } }  } 0 12128 "Elaborating entity \"%1!s!\" for hierarchy \"%2!s!\"" 0 0 "Design Software" 0 -1 1783485831588 ""}
+230:{ "Info" "ISGN_START_ELABORATION_HIERARCHY" "sound_i2s core_top:ic\|sound_i2s:sound_i2s " "Elaborating entity \"sound_i2s\" for hierarchy \"core_top:ic\|sound_i2s:sound_i2s\"" {  } { { "core/core_top.sv" "sound_i2s" { Text "/work/build/openfpga_genesis_analysis_work/src/fpga/core/core_top.sv" 691 0 0 } }  } 0 12128 "Elaborating entity \"%1!s!\" for hierarchy \"%2!s!\"" 0 0 "Design Software" 0 -1 1783485831915 ""}
+249:{ "Info" "ISGN_START_ELABORATION_HIERARCHY" "synch_3 core_top:ic\|synch_3:sv2 " "Elaborating entity \"synch_3\" for hierarchy \"core_top:ic\|synch_3:sv2\"" {  } { { "core/core_top.sv" "sv2" { Text "/work/build/openfpga_genesis_analysis_work/src/fpga/core/core_top.sv" 748 0 0 } }  } 0 12128 "Elaborating entity \"%1!s!\" for hierarchy \"%2!s!\"" 0 0 "Design Software" 0 -1 1783485832432 ""}
+252:{ "Info" "ISGN_START_ELABORATION_HIERARCHY" "cofi core_top:ic\|cofi:coffee " "Elaborating entity \"cofi\" for hierarchy \"core_top:ic\|cofi:coffee\"" {  } { { "core/core_top.sv" "coffee" { Text "/work/build/openfpga_genesis_analysis_work/src/fpga/core/core_top.sv" 821 0 0 } }  } 0 12128 "Elaborating entity \"%1!s!\" for hierarchy \"%2!s!\"" 0 0 "Design Software" 0 -1 1783485832437 ""}
+253:{ "Info" "ISGN_START_ELABORATION_HIERARCHY" "sdram core_top:ic\|sdram:sdram " "Elaborating entity \"sdram\" for hierarchy \"core_top:ic\|sdram:sdram\"" {  } { { "core/core_top.sv" "sdram" { Text "/work/build/openfpga_genesis_analysis_work/src/fpga/core/core_top.sv" 867 0 0 } }  } 0 12128 "Elaborating entity \"%1!s!\" for hierarchy \"%2!s!\"" 0 0 "Design Software" 0 -1 1783485832445 ""}
+254:{ "Warning" "WVRFX_VERI_CONST_VALUE_OVERFLOW" "sdram.sv(82) " "Verilog HDL error at sdram.sv(82): constant value overflow" {  } { { "core/rtl/sdram.sv" "" { Text "/work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/sdram.sv" 82 0 0 } }  } 0 10259 "Verilog HDL error at %1!s!: constant value overflow" 0 0 "Design Software" 0 -1 1783485832446 "|apf_top|core_top:ic|sdram:sdram"}
+255:{ "Info" "IVRFX_VERI_ALMOST_ONEHOT_CASE_STATEMENT" "sdram.sv(203) " "Verilog HDL Case Statement information at sdram.sv(203): all case item expressions in this case statement are onehot" {  } { { "core/rtl/sdram.sv" "" { Text "/work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/sdram.sv" 203 0 0 } }  } 0 10264 "Verilog HDL Case Statement information at %1!s!: all case item expressions in this case statement are onehot" 0 0 "Design Software" 0 -1 1783485832451 "|apf_top|core_top:ic|sdram:sdram"}
+256:{ "Info" "ISGN_START_ELABORATION_HIERARCHY" "altddio_out core_top:ic\|sdram:sdram\|altddio_out:sdramclk_ddr " "Elaborating entity \"altddio_out\" for hierarchy \"core_top:ic\|sdram:sdram\|altddio_out:sdramclk_ddr\"" {  } { { "core/rtl/sdram.sv" "sdramclk_ddr" { Text "/work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/sdram.sv" 236 0 0 } }  } 0 12128 "Elaborating entity \"%1!s!\" for hierarchy \"%2!s!\"" 0 0 "Design Software" 0 -1 1783485832489 ""}
+257:{ "Info" "ISGN_ELABORATION_HEADER" "core_top:ic\|sdram:sdram\|altddio_out:sdramclk_ddr " "Elaborated megafunction instantiation \"core_top:ic\|sdram:sdram\|altddio_out:sdramclk_ddr\"" {  } { { "core/rtl/sdram.sv" "" { Text "/work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/sdram.sv" 236 0 0 } }  } 0 12130 "Elaborated megafunction instantiation \"%1!s!\"" 0 0 "Design Software" 0 -1 1783485832496 ""}
+258:{ "Info" "ISGN_MEGAFN_PARAM_TOP" "core_top:ic\|sdram:sdram\|altddio_out:sdramclk_ddr " "Instantiated megafunction \"core_top:ic\|sdram:sdram\|altddio_out:sdramclk_ddr\" with the following parameter:" { { "Info" "ISGN_MEGAFN_PARAM_SUB" "extend_oe_disable OFF " "Parameter \"extend_oe_disable\" = \"OFF\"" {  } {  } 0 12134 "Parameter \"%1!s!\" = \"%2!s!\"" 0 0 "Design Software" 0 -1 1783485832496 ""} { "Info" "ISGN_MEGAFN_PARAM_SUB" "intended_device_family Cyclone V " "Parameter \"intended_device_family\" = \"Cyclone V\"" {  } {  } 0 12134 "Parameter \"%1!s!\" = \"%2!s!\"" 0 0 "Design Software" 0 -1 1783485832496 ""} { "Info" "ISGN_MEGAFN_PARAM_SUB" "invert_output OFF " "Parameter \"invert_output\" = \"OFF\"" {  } {  } 0 12134 "Parameter \"%1!s!\" = \"%2!s!\"" 0 0 "Design Software" 0 -1 1783485832496 ""} { "Info" "ISGN_MEGAFN_PARAM_SUB" "lpm_hint UNUSED " "Parameter \"lpm_hint\" = \"UNUSED\"" {  } {  } 0 12134 "Parameter \"%1!s!\" = \"%2!s!\"" 0 0 "Design Software" 0 -1 1783485832496 ""} { "Info" "ISGN_MEGAFN_PARAM_SUB" "lpm_type altddio_out " "Parameter \"lpm_type\" = \"altddio_out\"" {  } {  } 0 12134 "Parameter \"%1!s!\" = \"%2!s!\"" 0 0 "Design Software" 0 -1 1783485832496 ""} { "Info" "ISGN_MEGAFN_PARAM_SUB" "oe_reg UNREGISTERED " "Parameter \"oe_reg\" = \"UNREGISTERED\"" {  } {  } 0 12134 "Parameter \"%1!s!\" = \"%2!s!\"" 0 0 "Design Software" 0 -1 1783485832496 ""} { "Info" "ISGN_MEGAFN_PARAM_SUB" "power_up_high OFF " "Parameter \"power_up_high\" = \"OFF\"" {  } {  } 0 12134 "Parameter \"%1!s!\" = \"%2!s!\"" 0 0 "Design Software" 0 -1 1783485832496 ""} { "Info" "ISGN_MEGAFN_PARAM_SUB" "width 1 " "Parameter \"width\" = \"1\"" {  } {  } 0 12134 "Parameter \"%1!s!\" = \"%2!s!\"" 0 0 "Design Software" 0 -1 1783485832496 ""}  } { { "core/rtl/sdram.sv" "" { Text "/work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/sdram.sv" 236 0 0 } }  } 0 12133 "Instantiated megafunction \"%1!s!\" with the following parameter:" 0 0 "Design Software" 0 -1 1783485832496 ""}
+261:{ "Info" "ISGN_START_ELABORATION_HIERARCHY" "synch_3 core_top:ic\|synch_3:cont1_s " "Elaborating entity \"synch_3\" for hierarchy \"core_top:ic\|synch_3:cont1_s\"" {  } { { "core/core_top.sv" "cont1_s" { Text "/work/build/openfpga_genesis_analysis_work/src/fpga/core/core_top.sv" 983 0 0 } }  } 0 12128 "Elaborating entity \"%1!s!\" for hierarchy \"%2!s!\"" 0 0 "Design Software" 0 -1 1783485832545 ""}
+264:{ "Info" "ISGN_START_ELABORATION_HIERARCHY" "lightgun core_top:ic\|lightgun:lightgun " "Elaborating entity \"lightgun\" for hierarchy \"core_top:ic\|lightgun:lightgun\"" {  } { { "core/core_top.sv" "lightgun" { Text "/work/build/openfpga_genesis_analysis_work/src/fpga/core/core_top.sv" 1122 0 0 } }  } 0 12128 "Elaborating entity \"%1!s!\" for hierarchy \"%2!s!\"" 0 0 "Design Software" 0 -1 1783485832556 ""}
+267:{ "Info" "ISGN_START_ELABORATION_HIERARCHY" "system core_top:ic\|system:system " "Elaborating entity \"system\" for hierarchy \"core_top:ic\|system:system\"" {  } { { "core/core_top.sv" "system" { Text "/work/build/openfpga_genesis_analysis_work/src/fpga/core/core_top.sv" 1231 0 0 } }  } 0 12128 "Elaborating entity \"%1!s!\" for hierarchy \"%2!s!\"" 0 0 "Design Software" 0 -1 1783485832588 ""}
+394:{ "Warning" "WTDFX_UNREFERENCED_NODE" "outclock " "Variable or input pin \"outclock\" is defined but never used." {  } { { "db/dpram_f092.tdf" "" { Text "/work/build/openfpga_genesis_analysis_work/src/fpga/db/dpram_f092.tdf" 34 2 0 } } { "altdpram.tdf" "" { Text "/opt/intelFPGA_lite/quartus/libraries/megafunctions/altdpram.tdf" 203 3 0 } } { "core/rtl/mlab.vhd" "" { Text "/work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/mlab.vhd" 29 0 0 } } { "core/rtl/SVP/SSP160x.vhd" "" { Text "/work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/SVP/SSP160x.vhd" 697 0 0 } } { "core/rtl/SVP/SVP.vhd" "" { Text "/work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/SVP/SVP.vhd" 173 0 0 } } { "core/rtl/system.sv" "" { Text "/work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/system.sv" 725 0 0 } } { "core/core_top.sv" "" { Text "/work/build/openfpga_genesis_analysis_work/src/fpga/core/core_top.sv" 1231 0 0 } } { "apf/apf_top.v" "" { Text "/work/build/openfpga_genesis_analysis_work/src/fpga/apf/apf_top.v" 472 0 0 } }  } 0 287013 "Variable or input pin \"%1!s!\" is defined but never used." 0 0 "Design Software" 0 -1 1783485838558 "|apf_top|core_top:ic|system:system|SVP:svp|SSP160x:SSP160x|mlab:RAMA|altdpram:altdpram_component|dpram_f092:auto_generated"}
+460:{ "Warning" "WVRFX_VDB_DRIVERLESS_NET" "lfo_sh1_lut.data_a 0 jt12_pm.v(38) " "Net \"lfo_sh1_lut.data_a\" at jt12_pm.v(38) has no driver or initial value, using a default initial value '0'" {  } { { "core/rtl/jt12/jt12_pm.v" "" { Text "/work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt12/jt12_pm.v" 38 0 0 } }  } 0 10030 "Net \"%1!s!\" at %3!s! has no driver or initial value, using a default initial value '%2!c!'" 0 0 "Design Software" 0 -1 1783485840895 "|apf_top|core_top:ic|system:system|jt12:fm|jt12_top:u_jt12|jt12_pg:u_pg|jt12_pg_comb:u_comb|jt12_pm:u_pm"}
+461:{ "Warning" "WVRFX_VDB_DRIVERLESS_NET" "lfo_sh1_lut.waddr_a 0 jt12_pm.v(38) " "Net \"lfo_sh1_lut.waddr_a\" at jt12_pm.v(38) has no driver or initial value, using a default initial value '0'" {  } { { "core/rtl/jt12/jt12_pm.v" "" { Text "/work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt12/jt12_pm.v" 38 0 0 } }  } 0 10030 "Net \"%1!s!\" at %3!s! has no driver or initial value, using a default initial value '%2!c!'" 0 0 "Design Software" 0 -1 1783485840895 "|apf_top|core_top:ic|system:system|jt12:fm|jt12_top:u_jt12|jt12_pg:u_pg|jt12_pg_comb:u_comb|jt12_pm:u_pm"}
+462:{ "Warning" "WVRFX_VDB_DRIVERLESS_NET" "lfo_sh2_lut.data_a 0 jt12_pm.v(39) " "Net \"lfo_sh2_lut.data_a\" at jt12_pm.v(39) has no driver or initial value, using a default initial value '0'" {  } { { "core/rtl/jt12/jt12_pm.v" "" { Text "/work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt12/jt12_pm.v" 39 0 0 } }  } 0 10030 "Net \"%1!s!\" at %3!s! has no driver or initial value, using a default initial value '%2!c!'" 0 0 "Design Software" 0 -1 1783485840895 "|apf_top|core_top:ic|system:system|jt12:fm|jt12_top:u_jt12|jt12_pg:u_pg|jt12_pg_comb:u_comb|jt12_pm:u_pm"}
+463:{ "Warning" "WVRFX_VDB_DRIVERLESS_NET" "lfo_sh2_lut.waddr_a 0 jt12_pm.v(39) " "Net \"lfo_sh2_lut.waddr_a\" at jt12_pm.v(39) has no driver or initial value, using a default initial value '0'" {  } { { "core/rtl/jt12/jt12_pm.v" "" { Text "/work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt12/jt12_pm.v" 39 0 0 } }  } 0 10030 "Net \"%1!s!\" at %3!s! has no driver or initial value, using a default initial value '%2!c!'" 0 0 "Design Software" 0 -1 1783485840895 "|apf_top|core_top:ic|system:system|jt12:fm|jt12_top:u_jt12|jt12_pg:u_pg|jt12_pg_comb:u_comb|jt12_pm:u_pm"}
+464:{ "Warning" "WVRFX_VDB_DRIVERLESS_NET" "lfo_sh1_lut.we_a 0 jt12_pm.v(38) " "Net \"lfo_sh1_lut.we_a\" at jt12_pm.v(38) has no driver or initial value, using a default initial value '0'" {  } { { "core/rtl/jt12/jt12_pm.v" "" { Text "/work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt12/jt12_pm.v" 38 0 0 } }  } 0 10030 "Net \"%1!s!\" at %3!s! has no driver or initial value, using a default initial value '%2!c!'" 0 0 "Design Software" 0 -1 1783485840895 "|apf_top|core_top:ic|system:system|jt12:fm|jt12_top:u_jt12|jt12_pg:u_pg|jt12_pg_comb:u_comb|jt12_pm:u_pm"}
+465:{ "Warning" "WVRFX_VDB_DRIVERLESS_NET" "lfo_sh2_lut.we_a 0 jt12_pm.v(39) " "Net \"lfo_sh2_lut.we_a\" at jt12_pm.v(39) has no driver or initial value, using a default initial value '0'" {  } { { "core/rtl/jt12/jt12_pm.v" "" { Text "/work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt12/jt12_pm.v" 39 0 0 } }  } 0 10030 "Net \"%1!s!\" at %3!s! has no driver or initial value, using a default initial value '%2!c!'" 0 0 "Design Software" 0 -1 1783485840895 "|apf_top|core_top:ic|system:system|jt12:fm|jt12_top:u_jt12|jt12_pg:u_pg|jt12_pg_comb:u_comb|jt12_pm:u_pm"}
+517:{ "Info" "ISGN_START_ELABORATION_HIERARCHY" "mf_pllbase core_top:ic\|mf_pllbase:mp1 " "Elaborating entity \"mf_pllbase\" for hierarchy \"core_top:ic\|mf_pllbase:mp1\"" {  } { { "core/core_top.sv" "mp1" { Text "/work/build/openfpga_genesis_analysis_work/src/fpga/core/core_top.sv" 1259 0 0 } }  } 0 12128 "Elaborating entity \"%1!s!\" for hierarchy \"%2!s!\"" 0 0 "Design Software" 0 -1 1783485841446 ""}
+540:{ "Warning" "WSGN_CONNECTIVITY_WARNINGS" "48 " "48 hierarchies have connectivity warnings - see the Connectivity Checks report folder" {  } {  } 0 12241 "%1!d! hierarchies have connectivity warnings - see the Connectivity Checks report folder" 0 0 "Design Software" 0 -1 1783485856515 ""}
+```
+## /work/build/openfpga_genesis_analysis_work/src/fpga/db/altsyncram_ltk2.tdf
+```text
+22:WITH ( CLK0_CORE_CLOCK_ENABLE, CLK0_INPUT_CLOCK_ENABLE, CLK0_OUTPUT_CLOCK_ENABLE, CLK1_CORE_CLOCK_ENABLE, CLK1_INPUT_CLOCK_ENABLE, CLK1_OUTPUT_CLOCK_ENABLE, CONNECTIVITY_CHECKING, DATA_INTERLEAVE_OFFSET_IN_BITS, DATA_INTERLEAVE_WIDTH_IN_BITS, DONT_POWER_OPTIMIZE, ENABLE_ECC, INIT_FILE, INIT_FILE_LAYOUT, LOGICAL_RAM_NAME, mem_init0, mem_init1, mem_init10, mem_init11, mem_init12, mem_init13, mem_init14, mem_init15, mem_init16, mem_init17, mem_init18, mem_init19, mem_init2, mem_init20, mem_init21, mem_init22, mem_init23, mem_init24, mem_init25, mem_init26, mem_init27, mem_init28, mem_init29, mem_init3, mem_init30, mem_init31, mem_init32, mem_init33, mem_init34, mem_init35, mem_init36, mem_init37, mem_init38, mem_init39, mem_init4, mem_init40, mem_init41, mem_init42, mem_init43, mem_init44, mem_init45, mem_init46, mem_init47, mem_init48, mem_init49, mem_init5, mem_init50, mem_init51, mem_init52, mem_init53, mem_init54, mem_init55, mem_init56, mem_init57, mem_init58, mem_init59, mem_init6, mem_init60, mem_init61, mem_init62, mem_init63, mem_init64, mem_init65, mem_init66, mem_init67, mem_init68, mem_init69, mem_init7, mem_init70, mem_init71, mem_init8, mem_init9, MIXED_PORT_FEED_THROUGH_MODE, OPERATION_MODE, PORT_A_ADDRESS_CLEAR, PORT_A_ADDRESS_WIDTH = 1, PORT_A_BYTE_ENABLE_MASK_WIDTH = 1, PORT_A_BYTE_SIZE, PORT_A_DATA_OUT_CLEAR, PORT_A_DATA_OUT_CLOCK, PORT_A_DATA_WIDTH = 1, PORT_A_FIRST_ADDRESS, PORT_A_FIRST_BIT_NUMBER, PORT_A_LAST_ADDRESS, PORT_A_LOGICAL_RAM_DEPTH, PORT_A_LOGICAL_RAM_WIDTH, PORT_A_READ_DURING_WRITE_MODE, PORT_B_ADDRESS_CLEAR, PORT_B_ADDRESS_CLOCK, PORT_B_ADDRESS_WIDTH = 1, PORT_B_BYTE_ENABLE_CLOCK, PORT_B_BYTE_ENABLE_MASK_WIDTH = 1, PORT_B_BYTE_SIZE, PORT_B_DATA_IN_CLOCK, PORT_B_DATA_OUT_CLEAR, PORT_B_DATA_OUT_CLOCK, PORT_B_DATA_WIDTH = 1, PORT_B_FIRST_ADDRESS, PORT_B_FIRST_BIT_NUMBER, PORT_B_LAST_ADDRESS, PORT_B_LOGICAL_RAM_DEPTH, PORT_B_LOGICAL_RAM_WIDTH, PORT_B_READ_DURING_WRITE_MODE, PORT_B_READ_ENABLE_CLOCK, PORT_B_WRITE_ENABLE_CLOCK, POWER_UP_UNINITIALIZED, RAM_BLOCK_TYPE, WIDTH_ECCSTATUS = 3)
+50:			CONNECTIVITY_CHECKING = "OFF",
+91:			CONNECTIVITY_CHECKING = "OFF",
+132:			CONNECTIVITY_CHECKING = "OFF",
+173:			CONNECTIVITY_CHECKING = "OFF",
+214:			CONNECTIVITY_CHECKING = "OFF",
+255:			CONNECTIVITY_CHECKING = "OFF",
+296:			CONNECTIVITY_CHECKING = "OFF",
+337:			CONNECTIVITY_CHECKING = "OFF",
+378:			CONNECTIVITY_CHECKING = "OFF",
+419:			CONNECTIVITY_CHECKING = "OFF",
+460:			CONNECTIVITY_CHECKING = "OFF",
+501:			CONNECTIVITY_CHECKING = "OFF",
+542:			CONNECTIVITY_CHECKING = "OFF",
+583:			CONNECTIVITY_CHECKING = "OFF",
+624:			CONNECTIVITY_CHECKING = "OFF",
+665:			CONNECTIVITY_CHECKING = "OFF",
+706:			CONNECTIVITY_CHECKING = "OFF",
+747:			CONNECTIVITY_CHECKING = "OFF",
+788:			CONNECTIVITY_CHECKING = "OFF",
+829:			CONNECTIVITY_CHECKING = "OFF",
+870:			CONNECTIVITY_CHECKING = "OFF",
+911:			CONNECTIVITY_CHECKING = "OFF",
+952:			CONNECTIVITY_CHECKING = "OFF",
+993:			CONNECTIVITY_CHECKING = "OFF",
+1034:			CONNECTIVITY_CHECKING = "OFF",
+1075:			CONNECTIVITY_CHECKING = "OFF",
+1116:			CONNECTIVITY_CHECKING = "OFF",
+1157:			CONNECTIVITY_CHECKING = "OFF",
+1198:			CONNECTIVITY_CHECKING = "OFF",
+1239:			CONNECTIVITY_CHECKING = "OFF",
+1280:			CONNECTIVITY_CHECKING = "OFF",
+1321:			CONNECTIVITY_CHECKING = "OFF",
+```
+## /work/build/openfpga_genesis_analysis_work/src/fpga/db/altsyncram_2ia1.tdf
+```text
+22:WITH ( CLK0_CORE_CLOCK_ENABLE, CLK0_INPUT_CLOCK_ENABLE, CLK0_OUTPUT_CLOCK_ENABLE, CLK1_CORE_CLOCK_ENABLE, CLK1_INPUT_CLOCK_ENABLE, CLK1_OUTPUT_CLOCK_ENABLE, CONNECTIVITY_CHECKING, DATA_INTERLEAVE_OFFSET_IN_BITS, DATA_INTERLEAVE_WIDTH_IN_BITS, DONT_POWER_OPTIMIZE, ENABLE_ECC, INIT_FILE, INIT_FILE_LAYOUT, LOGICAL_RAM_NAME, mem_init0, mem_init1, mem_init10, mem_init11, mem_init12, mem_init13, mem_init14, mem_init15, mem_init16, mem_init17, mem_init18, mem_init19, mem_init2, mem_init20, mem_init21, mem_init22, mem_init23, mem_init24, mem_init25, mem_init26, mem_init27, mem_init28, mem_init29, mem_init3, mem_init30, mem_init31, mem_init32, mem_init33, mem_init34, mem_init35, mem_init36, mem_init37, mem_init38, mem_init39, mem_init4, mem_init40, mem_init41, mem_init42, mem_init43, mem_init44, mem_init45, mem_init46, mem_init47, mem_init48, mem_init49, mem_init5, mem_init50, mem_init51, mem_init52, mem_init53, mem_init54, mem_init55, mem_init56, mem_init57, mem_init58, mem_init59, mem_init6, mem_init60, mem_init61, mem_init62, mem_init63, mem_init64, mem_init65, mem_init66, mem_init67, mem_init68, mem_init69, mem_init7, mem_init70, mem_init71, mem_init8, mem_init9, MIXED_PORT_FEED_THROUGH_MODE, OPERATION_MODE, PORT_A_ADDRESS_CLEAR, PORT_A_ADDRESS_WIDTH = 1, PORT_A_BYTE_ENABLE_MASK_WIDTH = 1, PORT_A_BYTE_SIZE, PORT_A_DATA_OUT_CLEAR, PORT_A_DATA_OUT_CLOCK, PORT_A_DATA_WIDTH = 1, PORT_A_FIRST_ADDRESS, PORT_A_FIRST_BIT_NUMBER, PORT_A_LAST_ADDRESS, PORT_A_LOGICAL_RAM_DEPTH, PORT_A_LOGICAL_RAM_WIDTH, PORT_A_READ_DURING_WRITE_MODE, PORT_B_ADDRESS_CLEAR, PORT_B_ADDRESS_CLOCK, PORT_B_ADDRESS_WIDTH = 1, PORT_B_BYTE_ENABLE_CLOCK, PORT_B_BYTE_ENABLE_MASK_WIDTH = 1, PORT_B_BYTE_SIZE, PORT_B_DATA_IN_CLOCK, PORT_B_DATA_OUT_CLEAR, PORT_B_DATA_OUT_CLOCK, PORT_B_DATA_WIDTH = 1, PORT_B_FIRST_ADDRESS, PORT_B_FIRST_BIT_NUMBER, PORT_B_LAST_ADDRESS, PORT_B_LOGICAL_RAM_DEPTH, PORT_B_LOGICAL_RAM_WIDTH, PORT_B_READ_DURING_WRITE_MODE, PORT_B_READ_ENABLE_CLOCK, PORT_B_WRITE_ENABLE_CLOCK, POWER_UP_UNINITIALIZED, RAM_BLOCK_TYPE, WIDTH_ECCSTATUS = 3)
+48:			CONNECTIVITY_CHECKING = "OFF",
+80:			CONNECTIVITY_CHECKING = "OFF",
+112:			CONNECTIVITY_CHECKING = "OFF",
+144:			CONNECTIVITY_CHECKING = "OFF",
+176:			CONNECTIVITY_CHECKING = "OFF",
+208:			CONNECTIVITY_CHECKING = "OFF",
+240:			CONNECTIVITY_CHECKING = "OFF",
+272:			CONNECTIVITY_CHECKING = "OFF",
+304:			CONNECTIVITY_CHECKING = "OFF",
+336:			CONNECTIVITY_CHECKING = "OFF",
+368:			CONNECTIVITY_CHECKING = "OFF",
+400:			CONNECTIVITY_CHECKING = "OFF",
+432:			CONNECTIVITY_CHECKING = "OFF",
+464:			CONNECTIVITY_CHECKING = "OFF",
+496:			CONNECTIVITY_CHECKING = "OFF",
+528:			CONNECTIVITY_CHECKING = "OFF",
+560:			CONNECTIVITY_CHECKING = "OFF",
+592:			CONNECTIVITY_CHECKING = "OFF",
+624:			CONNECTIVITY_CHECKING = "OFF",
+656:			CONNECTIVITY_CHECKING = "OFF",
+688:			CONNECTIVITY_CHECKING = "OFF",
+720:			CONNECTIVITY_CHECKING = "OFF",
+752:			CONNECTIVITY_CHECKING = "OFF",
+784:			CONNECTIVITY_CHECKING = "OFF",
+816:			CONNECTIVITY_CHECKING = "OFF",
+848:			CONNECTIVITY_CHECKING = "OFF",
+880:			CONNECTIVITY_CHECKING = "OFF",
+912:			CONNECTIVITY_CHECKING = "OFF",
+944:			CONNECTIVITY_CHECKING = "OFF",
+976:			CONNECTIVITY_CHECKING = "OFF",
+1008:			CONNECTIVITY_CHECKING = "OFF",
+1040:			CONNECTIVITY_CHECKING = "OFF",
+```
+## /work/build/openfpga_genesis_analysis_work/src/fpga/db/altsyncram_m534.tdf
+```text
+22:WITH ( CLK0_CORE_CLOCK_ENABLE, CLK0_INPUT_CLOCK_ENABLE, CLK0_OUTPUT_CLOCK_ENABLE, CLK1_CORE_CLOCK_ENABLE, CLK1_INPUT_CLOCK_ENABLE, CLK1_OUTPUT_CLOCK_ENABLE, CONNECTIVITY_CHECKING, DATA_INTERLEAVE_OFFSET_IN_BITS, DATA_INTERLEAVE_WIDTH_IN_BITS, DONT_POWER_OPTIMIZE, ENABLE_ECC, INIT_FILE, INIT_FILE_LAYOUT, LOGICAL_RAM_NAME, mem_init0, mem_init1, mem_init10, mem_init11, mem_init12, mem_init13, mem_init14, mem_init15, mem_init16, mem_init17, mem_init18, mem_init19, mem_init2, mem_init20, mem_init21, mem_init22, mem_init23, mem_init24, mem_init25, mem_init26, mem_init27, mem_init28, mem_init29, mem_init3, mem_init30, mem_init31, mem_init32, mem_init33, mem_init34, mem_init35, mem_init36, mem_init37, mem_init38, mem_init39, mem_init4, mem_init40, mem_init41, mem_init42, mem_init43, mem_init44, mem_init45, mem_init46, mem_init47, mem_init48, mem_init49, mem_init5, mem_init50, mem_init51, mem_init52, mem_init53, mem_init54, mem_init55, mem_init56, mem_init57, mem_init58, mem_init59, mem_init6, mem_init60, mem_init61, mem_init62, mem_init63, mem_init64, mem_init65, mem_init66, mem_init67, mem_init68, mem_init69, mem_init7, mem_init70, mem_init71, mem_init8, mem_init9, MIXED_PORT_FEED_THROUGH_MODE, OPERATION_MODE, PORT_A_ADDRESS_CLEAR, PORT_A_ADDRESS_WIDTH = 1, PORT_A_BYTE_ENABLE_MASK_WIDTH = 1, PORT_A_BYTE_SIZE, PORT_A_DATA_OUT_CLEAR, PORT_A_DATA_OUT_CLOCK, PORT_A_DATA_WIDTH = 1, PORT_A_FIRST_ADDRESS, PORT_A_FIRST_BIT_NUMBER, PORT_A_LAST_ADDRESS, PORT_A_LOGICAL_RAM_DEPTH, PORT_A_LOGICAL_RAM_WIDTH, PORT_A_READ_DURING_WRITE_MODE, PORT_B_ADDRESS_CLEAR, PORT_B_ADDRESS_CLOCK, PORT_B_ADDRESS_WIDTH = 1, PORT_B_BYTE_ENABLE_CLOCK, PORT_B_BYTE_ENABLE_MASK_WIDTH = 1, PORT_B_BYTE_SIZE, PORT_B_DATA_IN_CLOCK, PORT_B_DATA_OUT_CLEAR, PORT_B_DATA_OUT_CLOCK, PORT_B_DATA_WIDTH = 1, PORT_B_FIRST_ADDRESS, PORT_B_FIRST_BIT_NUMBER, PORT_B_LAST_ADDRESS, PORT_B_LOGICAL_RAM_DEPTH, PORT_B_LOGICAL_RAM_WIDTH, PORT_B_READ_DURING_WRITE_MODE, PORT_B_READ_ENABLE_CLOCK, PORT_B_WRITE_ENABLE_CLOCK, POWER_UP_UNINITIALIZED, RAM_BLOCK_TYPE, WIDTH_ECCSTATUS = 3)
+50:			CONNECTIVITY_CHECKING = "OFF",
+85:			CONNECTIVITY_CHECKING = "OFF",
+120:			CONNECTIVITY_CHECKING = "OFF",
+155:			CONNECTIVITY_CHECKING = "OFF",
+190:			CONNECTIVITY_CHECKING = "OFF",
+225:			CONNECTIVITY_CHECKING = "OFF",
+260:			CONNECTIVITY_CHECKING = "OFF",
+295:			CONNECTIVITY_CHECKING = "OFF",
+```
+## /work/build/openfpga_genesis_analysis_work/src/fpga/db/altsyncram_k534.tdf
+```text
+22:WITH ( CLK0_CORE_CLOCK_ENABLE, CLK0_INPUT_CLOCK_ENABLE, CLK0_OUTPUT_CLOCK_ENABLE, CLK1_CORE_CLOCK_ENABLE, CLK1_INPUT_CLOCK_ENABLE, CLK1_OUTPUT_CLOCK_ENABLE, CONNECTIVITY_CHECKING, DATA_INTERLEAVE_OFFSET_IN_BITS, DATA_INTERLEAVE_WIDTH_IN_BITS, DONT_POWER_OPTIMIZE, ENABLE_ECC, INIT_FILE, INIT_FILE_LAYOUT, LOGICAL_RAM_NAME, mem_init0, mem_init1, mem_init10, mem_init11, mem_init12, mem_init13, mem_init14, mem_init15, mem_init16, mem_init17, mem_init18, mem_init19, mem_init2, mem_init20, mem_init21, mem_init22, mem_init23, mem_init24, mem_init25, mem_init26, mem_init27, mem_init28, mem_init29, mem_init3, mem_init30, mem_init31, mem_init32, mem_init33, mem_init34, mem_init35, mem_init36, mem_init37, mem_init38, mem_init39, mem_init4, mem_init40, mem_init41, mem_init42, mem_init43, mem_init44, mem_init45, mem_init46, mem_init47, mem_init48, mem_init49, mem_init5, mem_init50, mem_init51, mem_init52, mem_init53, mem_init54, mem_init55, mem_init56, mem_init57, mem_init58, mem_init59, mem_init6, mem_init60, mem_init61, mem_init62, mem_init63, mem_init64, mem_init65, mem_init66, mem_init67, mem_init68, mem_init69, mem_init7, mem_init70, mem_init71, mem_init8, mem_init9, MIXED_PORT_FEED_THROUGH_MODE, OPERATION_MODE, PORT_A_ADDRESS_CLEAR, PORT_A_ADDRESS_WIDTH = 1, PORT_A_BYTE_ENABLE_MASK_WIDTH = 1, PORT_A_BYTE_SIZE, PORT_A_DATA_OUT_CLEAR, PORT_A_DATA_OUT_CLOCK, PORT_A_DATA_WIDTH = 1, PORT_A_FIRST_ADDRESS, PORT_A_FIRST_BIT_NUMBER, PORT_A_LAST_ADDRESS, PORT_A_LOGICAL_RAM_DEPTH, PORT_A_LOGICAL_RAM_WIDTH, PORT_A_READ_DURING_WRITE_MODE, PORT_B_ADDRESS_CLEAR, PORT_B_ADDRESS_CLOCK, PORT_B_ADDRESS_WIDTH = 1, PORT_B_BYTE_ENABLE_CLOCK, PORT_B_BYTE_ENABLE_MASK_WIDTH = 1, PORT_B_BYTE_SIZE, PORT_B_DATA_IN_CLOCK, PORT_B_DATA_OUT_CLEAR, PORT_B_DATA_OUT_CLOCK, PORT_B_DATA_WIDTH = 1, PORT_B_FIRST_ADDRESS, PORT_B_FIRST_BIT_NUMBER, PORT_B_LAST_ADDRESS, PORT_B_LOGICAL_RAM_DEPTH, PORT_B_LOGICAL_RAM_WIDTH, PORT_B_READ_DURING_WRITE_MODE, PORT_B_READ_ENABLE_CLOCK, PORT_B_WRITE_ENABLE_CLOCK, POWER_UP_UNINITIALIZED, RAM_BLOCK_TYPE, WIDTH_ECCSTATUS = 3)
+50:			CONNECTIVITY_CHECKING = "OFF",
+85:			CONNECTIVITY_CHECKING = "OFF",
+120:			CONNECTIVITY_CHECKING = "OFF",
+155:			CONNECTIVITY_CHECKING = "OFF",
+190:			CONNECTIVITY_CHECKING = "OFF",
+225:			CONNECTIVITY_CHECKING = "OFF",
+260:			CONNECTIVITY_CHECKING = "OFF",
+```
+## /work/build/openfpga_genesis_analysis_work/src/fpga/db/altsyncram_o534.tdf
+```text
+22:WITH ( CLK0_CORE_CLOCK_ENABLE, CLK0_INPUT_CLOCK_ENABLE, CLK0_OUTPUT_CLOCK_ENABLE, CLK1_CORE_CLOCK_ENABLE, CLK1_INPUT_CLOCK_ENABLE, CLK1_OUTPUT_CLOCK_ENABLE, CONNECTIVITY_CHECKING, DATA_INTERLEAVE_OFFSET_IN_BITS, DATA_INTERLEAVE_WIDTH_IN_BITS, DONT_POWER_OPTIMIZE, ENABLE_ECC, INIT_FILE, INIT_FILE_LAYOUT, LOGICAL_RAM_NAME, mem_init0, mem_init1, mem_init10, mem_init11, mem_init12, mem_init13, mem_init14, mem_init15, mem_init16, mem_init17, mem_init18, mem_init19, mem_init2, mem_init20, mem_init21, mem_init22, mem_init23, mem_init24, mem_init25, mem_init26, mem_init27, mem_init28, mem_init29, mem_init3, mem_init30, mem_init31, mem_init32, mem_init33, mem_init34, mem_init35, mem_init36, mem_init37, mem_init38, mem_init39, mem_init4, mem_init40, mem_init41, mem_init42, mem_init43, mem_init44, mem_init45, mem_init46, mem_init47, mem_init48, mem_init49, mem_init5, mem_init50, mem_init51, mem_init52, mem_init53, mem_init54, mem_init55, mem_init56, mem_init57, mem_init58, mem_init59, mem_init6, mem_init60, mem_init61, mem_init62, mem_init63, mem_init64, mem_init65, mem_init66, mem_init67, mem_init68, mem_init69, mem_init7, mem_init70, mem_init71, mem_init8, mem_init9, MIXED_PORT_FEED_THROUGH_MODE, OPERATION_MODE, PORT_A_ADDRESS_CLEAR, PORT_A_ADDRESS_WIDTH = 1, PORT_A_BYTE_ENABLE_MASK_WIDTH = 1, PORT_A_BYTE_SIZE, PORT_A_DATA_OUT_CLEAR, PORT_A_DATA_OUT_CLOCK, PORT_A_DATA_WIDTH = 1, PORT_A_FIRST_ADDRESS, PORT_A_FIRST_BIT_NUMBER, PORT_A_LAST_ADDRESS, PORT_A_LOGICAL_RAM_DEPTH, PORT_A_LOGICAL_RAM_WIDTH, PORT_A_READ_DURING_WRITE_MODE, PORT_B_ADDRESS_CLEAR, PORT_B_ADDRESS_CLOCK, PORT_B_ADDRESS_WIDTH = 1, PORT_B_BYTE_ENABLE_CLOCK, PORT_B_BYTE_ENABLE_MASK_WIDTH = 1, PORT_B_BYTE_SIZE, PORT_B_DATA_IN_CLOCK, PORT_B_DATA_OUT_CLEAR, PORT_B_DATA_OUT_CLOCK, PORT_B_DATA_WIDTH = 1, PORT_B_FIRST_ADDRESS, PORT_B_FIRST_BIT_NUMBER, PORT_B_LAST_ADDRESS, PORT_B_LOGICAL_RAM_DEPTH, PORT_B_LOGICAL_RAM_WIDTH, PORT_B_READ_DURING_WRITE_MODE, PORT_B_READ_ENABLE_CLOCK, PORT_B_WRITE_ENABLE_CLOCK, POWER_UP_UNINITIALIZED, RAM_BLOCK_TYPE, WIDTH_ECCSTATUS = 3)
+50:			CONNECTIVITY_CHECKING = "OFF",
+85:			CONNECTIVITY_CHECKING = "OFF",
+120:			CONNECTIVITY_CHECKING = "OFF",
+155:			CONNECTIVITY_CHECKING = "OFF",
+190:			CONNECTIVITY_CHECKING = "OFF",
+225:			CONNECTIVITY_CHECKING = "OFF",
+260:			CONNECTIVITY_CHECKING = "OFF",
+295:			CONNECTIVITY_CHECKING = "OFF",
+```
+## /work/build/openfpga_genesis_analysis_work/src/fpga/db/altsyncram_af34.tdf
+```text
+26:WITH ( CLK0_CORE_CLOCK_ENABLE, CLK0_INPUT_CLOCK_ENABLE, CLK0_OUTPUT_CLOCK_ENABLE, CLK1_CORE_CLOCK_ENABLE, CLK1_INPUT_CLOCK_ENABLE, CLK1_OUTPUT_CLOCK_ENABLE, CONNECTIVITY_CHECKING, DATA_INTERLEAVE_OFFSET_IN_BITS, DATA_INTERLEAVE_WIDTH_IN_BITS, DONT_POWER_OPTIMIZE, ENABLE_ECC, INIT_FILE, INIT_FILE_LAYOUT, LOGICAL_RAM_NAME, mem_init0, mem_init1, mem_init10, mem_init11, mem_init12, mem_init13, mem_init14, mem_init15, mem_init16, mem_init17, mem_init18, mem_init19, mem_init2, mem_init20, mem_init21, mem_init22, mem_init23, mem_init24, mem_init25, mem_init26, mem_init27, mem_init28, mem_init29, mem_init3, mem_init30, mem_init31, mem_init32, mem_init33, mem_init34, mem_init35, mem_init36, mem_init37, mem_init38, mem_init39, mem_init4, mem_init40, mem_init41, mem_init42, mem_init43, mem_init44, mem_init45, mem_init46, mem_init47, mem_init48, mem_init49, mem_init5, mem_init50, mem_init51, mem_init52, mem_init53, mem_init54, mem_init55, mem_init56, mem_init57, mem_init58, mem_init59, mem_init6, mem_init60, mem_init61, mem_init62, mem_init63, mem_init64, mem_init65, mem_init66, mem_init67, mem_init68, mem_init69, mem_init7, mem_init70, mem_init71, mem_init8, mem_init9, MIXED_PORT_FEED_THROUGH_MODE, OPERATION_MODE, PORT_A_ADDRESS_CLEAR, PORT_A_ADDRESS_WIDTH = 1, PORT_A_BYTE_ENABLE_MASK_WIDTH = 1, PORT_A_BYTE_SIZE, PORT_A_DATA_OUT_CLEAR, PORT_A_DATA_OUT_CLOCK, PORT_A_DATA_WIDTH = 1, PORT_A_FIRST_ADDRESS, PORT_A_FIRST_BIT_NUMBER, PORT_A_LAST_ADDRESS, PORT_A_LOGICAL_RAM_DEPTH, PORT_A_LOGICAL_RAM_WIDTH, PORT_A_READ_DURING_WRITE_MODE, PORT_B_ADDRESS_CLEAR, PORT_B_ADDRESS_CLOCK, PORT_B_ADDRESS_WIDTH = 1, PORT_B_BYTE_ENABLE_CLOCK, PORT_B_BYTE_ENABLE_MASK_WIDTH = 1, PORT_B_BYTE_SIZE, PORT_B_DATA_IN_CLOCK, PORT_B_DATA_OUT_CLEAR, PORT_B_DATA_OUT_CLOCK, PORT_B_DATA_WIDTH = 1, PORT_B_FIRST_ADDRESS, PORT_B_FIRST_BIT_NUMBER, PORT_B_LAST_ADDRESS, PORT_B_LOGICAL_RAM_DEPTH, PORT_B_LOGICAL_RAM_WIDTH, PORT_B_READ_DURING_WRITE_MODE, PORT_B_READ_ENABLE_CLOCK, PORT_B_WRITE_ENABLE_CLOCK, POWER_UP_UNINITIALIZED, RAM_BLOCK_TYPE, WIDTH_ECCSTATUS = 3)
+60:			CONNECTIVITY_CHECKING = "OFF",
+95:			CONNECTIVITY_CHECKING = "OFF",
+130:			CONNECTIVITY_CHECKING = "OFF",
+165:			CONNECTIVITY_CHECKING = "OFF",
+200:			CONNECTIVITY_CHECKING = "OFF",
+235:			CONNECTIVITY_CHECKING = "OFF",
+270:			CONNECTIVITY_CHECKING = "OFF",
+305:			CONNECTIVITY_CHECKING = "OFF",
+340:			CONNECTIVITY_CHECKING = "OFF",
+375:			CONNECTIVITY_CHECKING = "OFF",
+410:			CONNECTIVITY_CHECKING = "OFF",
+445:			CONNECTIVITY_CHECKING = "OFF",
+480:			CONNECTIVITY_CHECKING = "OFF",
+515:			CONNECTIVITY_CHECKING = "OFF",
+550:			CONNECTIVITY_CHECKING = "OFF",
+585:			CONNECTIVITY_CHECKING = "OFF",
+```
+## /work/build/openfpga_genesis_analysis_work/src/fpga/db/altsyncram_i234.tdf
+```text
+22:WITH ( CLK0_CORE_CLOCK_ENABLE, CLK0_INPUT_CLOCK_ENABLE, CLK0_OUTPUT_CLOCK_ENABLE, CLK1_CORE_CLOCK_ENABLE, CLK1_INPUT_CLOCK_ENABLE, CLK1_OUTPUT_CLOCK_ENABLE, CONNECTIVITY_CHECKING, DATA_INTERLEAVE_OFFSET_IN_BITS, DATA_INTERLEAVE_WIDTH_IN_BITS, DONT_POWER_OPTIMIZE, ENABLE_ECC, INIT_FILE, INIT_FILE_LAYOUT, LOGICAL_RAM_NAME, mem_init0, mem_init1, mem_init10, mem_init11, mem_init12, mem_init13, mem_init14, mem_init15, mem_init16, mem_init17, mem_init18, mem_init19, mem_init2, mem_init20, mem_init21, mem_init22, mem_init23, mem_init24, mem_init25, mem_init26, mem_init27, mem_init28, mem_init29, mem_init3, mem_init30, mem_init31, mem_init32, mem_init33, mem_init34, mem_init35, mem_init36, mem_init37, mem_init38, mem_init39, mem_init4, mem_init40, mem_init41, mem_init42, mem_init43, mem_init44, mem_init45, mem_init46, mem_init47, mem_init48, mem_init49, mem_init5, mem_init50, mem_init51, mem_init52, mem_init53, mem_init54, mem_init55, mem_init56, mem_init57, mem_init58, mem_init59, mem_init6, mem_init60, mem_init61, mem_init62, mem_init63, mem_init64, mem_init65, mem_init66, mem_init67, mem_init68, mem_init69, mem_init7, mem_init70, mem_init71, mem_init8, mem_init9, MIXED_PORT_FEED_THROUGH_MODE, OPERATION_MODE, PORT_A_ADDRESS_CLEAR, PORT_A_ADDRESS_WIDTH = 1, PORT_A_BYTE_ENABLE_MASK_WIDTH = 1, PORT_A_BYTE_SIZE, PORT_A_DATA_OUT_CLEAR, PORT_A_DATA_OUT_CLOCK, PORT_A_DATA_WIDTH = 1, PORT_A_FIRST_ADDRESS, PORT_A_FIRST_BIT_NUMBER, PORT_A_LAST_ADDRESS, PORT_A_LOGICAL_RAM_DEPTH, PORT_A_LOGICAL_RAM_WIDTH, PORT_A_READ_DURING_WRITE_MODE, PORT_B_ADDRESS_CLEAR, PORT_B_ADDRESS_CLOCK, PORT_B_ADDRESS_WIDTH = 1, PORT_B_BYTE_ENABLE_CLOCK, PORT_B_BYTE_ENABLE_MASK_WIDTH = 1, PORT_B_BYTE_SIZE, PORT_B_DATA_IN_CLOCK, PORT_B_DATA_OUT_CLEAR, PORT_B_DATA_OUT_CLOCK, PORT_B_DATA_WIDTH = 1, PORT_B_FIRST_ADDRESS, PORT_B_FIRST_BIT_NUMBER, PORT_B_LAST_ADDRESS, PORT_B_LOGICAL_RAM_DEPTH, PORT_B_LOGICAL_RAM_WIDTH, PORT_B_READ_DURING_WRITE_MODE, PORT_B_READ_ENABLE_CLOCK, PORT_B_WRITE_ENABLE_CLOCK, POWER_UP_UNINITIALIZED, RAM_BLOCK_TYPE, WIDTH_ECCSTATUS = 3)
+50:			CONNECTIVITY_CHECKING = "OFF",
+85:			CONNECTIVITY_CHECKING = "OFF",
+120:			CONNECTIVITY_CHECKING = "OFF",
+155:			CONNECTIVITY_CHECKING = "OFF",
+190:			CONNECTIVITY_CHECKING = "OFF",
+225:			CONNECTIVITY_CHECKING = "OFF",
+260:			CONNECTIVITY_CHECKING = "OFF",
+```
+## /work/build/openfpga_genesis_analysis_work/src/fpga/db/altsyncram_9i34.tdf
+```text
+28:WITH ( CLK0_CORE_CLOCK_ENABLE, CLK0_INPUT_CLOCK_ENABLE, CLK0_OUTPUT_CLOCK_ENABLE, CLK1_CORE_CLOCK_ENABLE, CLK1_INPUT_CLOCK_ENABLE, CLK1_OUTPUT_CLOCK_ENABLE, CONNECTIVITY_CHECKING, DATA_INTERLEAVE_OFFSET_IN_BITS, DATA_INTERLEAVE_WIDTH_IN_BITS, DONT_POWER_OPTIMIZE, ENABLE_ECC, INIT_FILE, INIT_FILE_LAYOUT, LOGICAL_RAM_NAME, mem_init0, mem_init1, mem_init10, mem_init11, mem_init12, mem_init13, mem_init14, mem_init15, mem_init16, mem_init17, mem_init18, mem_init19, mem_init2, mem_init20, mem_init21, mem_init22, mem_init23, mem_init24, mem_init25, mem_init26, mem_init27, mem_init28, mem_init29, mem_init3, mem_init30, mem_init31, mem_init32, mem_init33, mem_init34, mem_init35, mem_init36, mem_init37, mem_init38, mem_init39, mem_init4, mem_init40, mem_init41, mem_init42, mem_init43, mem_init44, mem_init45, mem_init46, mem_init47, mem_init48, mem_init49, mem_init5, mem_init50, mem_init51, mem_init52, mem_init53, mem_init54, mem_init55, mem_init56, mem_init57, mem_init58, mem_init59, mem_init6, mem_init60, mem_init61, mem_init62, mem_init63, mem_init64, mem_init65, mem_init66, mem_init67, mem_init68, mem_init69, mem_init7, mem_init70, mem_init71, mem_init8, mem_init9, MIXED_PORT_FEED_THROUGH_MODE, OPERATION_MODE, PORT_A_ADDRESS_CLEAR, PORT_A_ADDRESS_WIDTH = 1, PORT_A_BYTE_ENABLE_MASK_WIDTH = 1, PORT_A_BYTE_SIZE, PORT_A_DATA_OUT_CLEAR, PORT_A_DATA_OUT_CLOCK, PORT_A_DATA_WIDTH = 1, PORT_A_FIRST_ADDRESS, PORT_A_FIRST_BIT_NUMBER, PORT_A_LAST_ADDRESS, PORT_A_LOGICAL_RAM_DEPTH, PORT_A_LOGICAL_RAM_WIDTH, PORT_A_READ_DURING_WRITE_MODE, PORT_B_ADDRESS_CLEAR, PORT_B_ADDRESS_CLOCK, PORT_B_ADDRESS_WIDTH = 1, PORT_B_BYTE_ENABLE_CLOCK, PORT_B_BYTE_ENABLE_MASK_WIDTH = 1, PORT_B_BYTE_SIZE, PORT_B_DATA_IN_CLOCK, PORT_B_DATA_OUT_CLEAR, PORT_B_DATA_OUT_CLOCK, PORT_B_DATA_WIDTH = 1, PORT_B_FIRST_ADDRESS, PORT_B_FIRST_BIT_NUMBER, PORT_B_LAST_ADDRESS, PORT_B_LOGICAL_RAM_DEPTH, PORT_B_LOGICAL_RAM_WIDTH, PORT_B_READ_DURING_WRITE_MODE, PORT_B_READ_ENABLE_CLOCK, PORT_B_WRITE_ENABLE_CLOCK, POWER_UP_UNINITIALIZED, RAM_BLOCK_TYPE, WIDTH_ECCSTATUS = 3)
+62:			CONNECTIVITY_CHECKING = "OFF",
+99:			CONNECTIVITY_CHECKING = "OFF",
+136:			CONNECTIVITY_CHECKING = "OFF",
+173:			CONNECTIVITY_CHECKING = "OFF",
+210:			CONNECTIVITY_CHECKING = "OFF",
+247:			CONNECTIVITY_CHECKING = "OFF",
+284:			CONNECTIVITY_CHECKING = "OFF",
+321:			CONNECTIVITY_CHECKING = "OFF",
+358:			CONNECTIVITY_CHECKING = "OFF",
+395:			CONNECTIVITY_CHECKING = "OFF",
+432:			CONNECTIVITY_CHECKING = "OFF",
+469:			CONNECTIVITY_CHECKING = "OFF",
+506:			CONNECTIVITY_CHECKING = "OFF",
+543:			CONNECTIVITY_CHECKING = "OFF",
+580:			CONNECTIVITY_CHECKING = "OFF",
+617:			CONNECTIVITY_CHECKING = "OFF",
+654:			CONNECTIVITY_CHECKING = "OFF",
+691:			CONNECTIVITY_CHECKING = "OFF",
+728:			CONNECTIVITY_CHECKING = "OFF",
+765:			CONNECTIVITY_CHECKING = "OFF",
+802:			CONNECTIVITY_CHECKING = "OFF",
+839:			CONNECTIVITY_CHECKING = "OFF",
+876:			CONNECTIVITY_CHECKING = "OFF",
+913:			CONNECTIVITY_CHECKING = "OFF",
+950:			CONNECTIVITY_CHECKING = "OFF",
+987:			CONNECTIVITY_CHECKING = "OFF",
+1024:			CONNECTIVITY_CHECKING = "OFF",
+1061:			CONNECTIVITY_CHECKING = "OFF",
+1098:			CONNECTIVITY_CHECKING = "OFF",
+1135:			CONNECTIVITY_CHECKING = "OFF",
+1172:			CONNECTIVITY_CHECKING = "OFF",
+1209:			CONNECTIVITY_CHECKING = "OFF",
+1246:			CONNECTIVITY_CHECKING = "OFF",
+1283:			CONNECTIVITY_CHECKING = "OFF",
+1320:			CONNECTIVITY_CHECKING = "OFF",
+1357:			CONNECTIVITY_CHECKING = "OFF",
+1394:			CONNECTIVITY_CHECKING = "OFF",
+1431:			CONNECTIVITY_CHECKING = "OFF",
+1468:			CONNECTIVITY_CHECKING = "OFF",
+1505:			CONNECTIVITY_CHECKING = "OFF",
+1542:			CONNECTIVITY_CHECKING = "OFF",
+1579:			CONNECTIVITY_CHECKING = "OFF",
+1616:			CONNECTIVITY_CHECKING = "OFF",
+1653:			CONNECTIVITY_CHECKING = "OFF",
+1690:			CONNECTIVITY_CHECKING = "OFF",
+1727:			CONNECTIVITY_CHECKING = "OFF",
+1764:			CONNECTIVITY_CHECKING = "OFF",
+1801:			CONNECTIVITY_CHECKING = "OFF",
+1838:			CONNECTIVITY_CHECKING = "OFF",
+1875:			CONNECTIVITY_CHECKING = "OFF",
+1912:			CONNECTIVITY_CHECKING = "OFF",
+1949:			CONNECTIVITY_CHECKING = "OFF",
+1986:			CONNECTIVITY_CHECKING = "OFF",
+2023:			CONNECTIVITY_CHECKING = "OFF",
+2060:			CONNECTIVITY_CHECKING = "OFF",
+2097:			CONNECTIVITY_CHECKING = "OFF",
+2134:			CONNECTIVITY_CHECKING = "OFF",
+2171:			CONNECTIVITY_CHECKING = "OFF",
+2208:			CONNECTIVITY_CHECKING = "OFF",
+2245:			CONNECTIVITY_CHECKING = "OFF",
+2282:			CONNECTIVITY_CHECKING = "OFF",
+2319:			CONNECTIVITY_CHECKING = "OFF",
+2356:			CONNECTIVITY_CHECKING = "OFF",
+2393:			CONNECTIVITY_CHECKING = "OFF",
+2430:			CONNECTIVITY_CHECKING = "OFF",
+2467:			CONNECTIVITY_CHECKING = "OFF",
+2504:			CONNECTIVITY_CHECKING = "OFF",
+2541:			CONNECTIVITY_CHECKING = "OFF",
+2578:			CONNECTIVITY_CHECKING = "OFF",
+2615:			CONNECTIVITY_CHECKING = "OFF",
+2652:			CONNECTIVITY_CHECKING = "OFF",
+2689:			CONNECTIVITY_CHECKING = "OFF",
+2726:			CONNECTIVITY_CHECKING = "OFF",
+2763:			CONNECTIVITY_CHECKING = "OFF",
+2800:			CONNECTIVITY_CHECKING = "OFF",
+2837:			CONNECTIVITY_CHECKING = "OFF",
+2874:			CONNECTIVITY_CHECKING = "OFF",
+2911:			CONNECTIVITY_CHECKING = "OFF",
+2948:			CONNECTIVITY_CHECKING = "OFF",
+2985:			CONNECTIVITY_CHECKING = "OFF",
+3022:			CONNECTIVITY_CHECKING = "OFF",
+3059:			CONNECTIVITY_CHECKING = "OFF",
+3096:			CONNECTIVITY_CHECKING = "OFF",
+3133:			CONNECTIVITY_CHECKING = "OFF",
+3170:			CONNECTIVITY_CHECKING = "OFF",
+3207:			CONNECTIVITY_CHECKING = "OFF",
+3244:			CONNECTIVITY_CHECKING = "OFF",
+3281:			CONNECTIVITY_CHECKING = "OFF",
+3318:			CONNECTIVITY_CHECKING = "OFF",
+3355:			CONNECTIVITY_CHECKING = "OFF",
+3392:			CONNECTIVITY_CHECKING = "OFF",
+3429:			CONNECTIVITY_CHECKING = "OFF",
+3466:			CONNECTIVITY_CHECKING = "OFF",
+3503:			CONNECTIVITY_CHECKING = "OFF",
+3540:			CONNECTIVITY_CHECKING = "OFF",
+3577:			CONNECTIVITY_CHECKING = "OFF",
+3614:			CONNECTIVITY_CHECKING = "OFF",
+3651:			CONNECTIVITY_CHECKING = "OFF",
+3688:			CONNECTIVITY_CHECKING = "OFF",
+3725:			CONNECTIVITY_CHECKING = "OFF",
+3762:			CONNECTIVITY_CHECKING = "OFF",
+3799:			CONNECTIVITY_CHECKING = "OFF",
+3836:			CONNECTIVITY_CHECKING = "OFF",
+3873:			CONNECTIVITY_CHECKING = "OFF",
+3910:			CONNECTIVITY_CHECKING = "OFF",
+3947:			CONNECTIVITY_CHECKING = "OFF",
+3984:			CONNECTIVITY_CHECKING = "OFF",
+4021:			CONNECTIVITY_CHECKING = "OFF",
+4058:			CONNECTIVITY_CHECKING = "OFF",
+4095:			CONNECTIVITY_CHECKING = "OFF",
+4132:			CONNECTIVITY_CHECKING = "OFF",
+4169:			CONNECTIVITY_CHECKING = "OFF",
+4206:			CONNECTIVITY_CHECKING = "OFF",
+4243:			CONNECTIVITY_CHECKING = "OFF",
+4280:			CONNECTIVITY_CHECKING = "OFF",
+4317:			CONNECTIVITY_CHECKING = "OFF",
+4354:			CONNECTIVITY_CHECKING = "OFF",
+4391:			CONNECTIVITY_CHECKING = "OFF",
+4428:			CONNECTIVITY_CHECKING = "OFF",
+4465:			CONNECTIVITY_CHECKING = "OFF",
+4502:			CONNECTIVITY_CHECKING = "OFF",
+4539:			CONNECTIVITY_CHECKING = "OFF",
+4576:			CONNECTIVITY_CHECKING = "OFF",
+4613:			CONNECTIVITY_CHECKING = "OFF",
+4650:			CONNECTIVITY_CHECKING = "OFF",
+4687:			CONNECTIVITY_CHECKING = "OFF",
+4724:			CONNECTIVITY_CHECKING = "OFF",
+4761:			CONNECTIVITY_CHECKING = "OFF",
+```
+## /work/build/openfpga_genesis_analysis_work/src/fpga/db/altsyncram_l534.tdf
+```text
+22:WITH ( CLK0_CORE_CLOCK_ENABLE, CLK0_INPUT_CLOCK_ENABLE, CLK0_OUTPUT_CLOCK_ENABLE, CLK1_CORE_CLOCK_ENABLE, CLK1_INPUT_CLOCK_ENABLE, CLK1_OUTPUT_CLOCK_ENABLE, CONNECTIVITY_CHECKING, DATA_INTERLEAVE_OFFSET_IN_BITS, DATA_INTERLEAVE_WIDTH_IN_BITS, DONT_POWER_OPTIMIZE, ENABLE_ECC, INIT_FILE, INIT_FILE_LAYOUT, LOGICAL_RAM_NAME, mem_init0, mem_init1, mem_init10, mem_init11, mem_init12, mem_init13, mem_init14, mem_init15, mem_init16, mem_init17, mem_init18, mem_init19, mem_init2, mem_init20, mem_init21, mem_init22, mem_init23, mem_init24, mem_init25, mem_init26, mem_init27, mem_init28, mem_init29, mem_init3, mem_init30, mem_init31, mem_init32, mem_init33, mem_init34, mem_init35, mem_init36, mem_init37, mem_init38, mem_init39, mem_init4, mem_init40, mem_init41, mem_init42, mem_init43, mem_init44, mem_init45, mem_init46, mem_init47, mem_init48, mem_init49, mem_init5, mem_init50, mem_init51, mem_init52, mem_init53, mem_init54, mem_init55, mem_init56, mem_init57, mem_init58, mem_init59, mem_init6, mem_init60, mem_init61, mem_init62, mem_init63, mem_init64, mem_init65, mem_init66, mem_init67, mem_init68, mem_init69, mem_init7, mem_init70, mem_init71, mem_init8, mem_init9, MIXED_PORT_FEED_THROUGH_MODE, OPERATION_MODE, PORT_A_ADDRESS_CLEAR, PORT_A_ADDRESS_WIDTH = 1, PORT_A_BYTE_ENABLE_MASK_WIDTH = 1, PORT_A_BYTE_SIZE, PORT_A_DATA_OUT_CLEAR, PORT_A_DATA_OUT_CLOCK, PORT_A_DATA_WIDTH = 1, PORT_A_FIRST_ADDRESS, PORT_A_FIRST_BIT_NUMBER, PORT_A_LAST_ADDRESS, PORT_A_LOGICAL_RAM_DEPTH, PORT_A_LOGICAL_RAM_WIDTH, PORT_A_READ_DURING_WRITE_MODE, PORT_B_ADDRESS_CLEAR, PORT_B_ADDRESS_CLOCK, PORT_B_ADDRESS_WIDTH = 1, PORT_B_BYTE_ENABLE_CLOCK, PORT_B_BYTE_ENABLE_MASK_WIDTH = 1, PORT_B_BYTE_SIZE, PORT_B_DATA_IN_CLOCK, PORT_B_DATA_OUT_CLEAR, PORT_B_DATA_OUT_CLOCK, PORT_B_DATA_WIDTH = 1, PORT_B_FIRST_ADDRESS, PORT_B_FIRST_BIT_NUMBER, PORT_B_LAST_ADDRESS, PORT_B_LOGICAL_RAM_DEPTH, PORT_B_LOGICAL_RAM_WIDTH, PORT_B_READ_DURING_WRITE_MODE, PORT_B_READ_ENABLE_CLOCK, PORT_B_WRITE_ENABLE_CLOCK, POWER_UP_UNINITIALIZED, RAM_BLOCK_TYPE, WIDTH_ECCSTATUS = 3)
+50:			CONNECTIVITY_CHECKING = "OFF",
+85:			CONNECTIVITY_CHECKING = "OFF",
+120:			CONNECTIVITY_CHECKING = "OFF",
+155:			CONNECTIVITY_CHECKING = "OFF",
+190:			CONNECTIVITY_CHECKING = "OFF",
+225:			CONNECTIVITY_CHECKING = "OFF",
+260:			CONNECTIVITY_CHECKING = "OFF",
+295:			CONNECTIVITY_CHECKING = "OFF",
+330:			CONNECTIVITY_CHECKING = "OFF",
+365:			CONNECTIVITY_CHECKING = "OFF",
+400:			CONNECTIVITY_CHECKING = "OFF",
+435:			CONNECTIVITY_CHECKING = "OFF",
+470:			CONNECTIVITY_CHECKING = "OFF",
+505:			CONNECTIVITY_CHECKING = "OFF",
+540:			CONNECTIVITY_CHECKING = "OFF",
+575:			CONNECTIVITY_CHECKING = "OFF",
+610:			CONNECTIVITY_CHECKING = "OFF",
+645:			CONNECTIVITY_CHECKING = "OFF",
+680:			CONNECTIVITY_CHECKING = "OFF",
+715:			CONNECTIVITY_CHECKING = "OFF",
+750:			CONNECTIVITY_CHECKING = "OFF",
+785:			CONNECTIVITY_CHECKING = "OFF",
+820:			CONNECTIVITY_CHECKING = "OFF",
+855:			CONNECTIVITY_CHECKING = "OFF",
+890:			CONNECTIVITY_CHECKING = "OFF",
+925:			CONNECTIVITY_CHECKING = "OFF",
+960:			CONNECTIVITY_CHECKING = "OFF",
+995:			CONNECTIVITY_CHECKING = "OFF",
+1030:			CONNECTIVITY_CHECKING = "OFF",
+1065:			CONNECTIVITY_CHECKING = "OFF",
+1100:			CONNECTIVITY_CHECKING = "OFF",
+1135:			CONNECTIVITY_CHECKING = "OFF",
+1170:			CONNECTIVITY_CHECKING = "OFF",
+1205:			CONNECTIVITY_CHECKING = "OFF",
+1240:			CONNECTIVITY_CHECKING = "OFF",
+```
+## /work/build/openfpga_genesis_analysis_work/src/fpga/db/altsyncram_m234.tdf
+```text
+22:WITH ( CLK0_CORE_CLOCK_ENABLE, CLK0_INPUT_CLOCK_ENABLE, CLK0_OUTPUT_CLOCK_ENABLE, CLK1_CORE_CLOCK_ENABLE, CLK1_INPUT_CLOCK_ENABLE, CLK1_OUTPUT_CLOCK_ENABLE, CONNECTIVITY_CHECKING, DATA_INTERLEAVE_OFFSET_IN_BITS, DATA_INTERLEAVE_WIDTH_IN_BITS, DONT_POWER_OPTIMIZE, ENABLE_ECC, INIT_FILE, INIT_FILE_LAYOUT, LOGICAL_RAM_NAME, mem_init0, mem_init1, mem_init10, mem_init11, mem_init12, mem_init13, mem_init14, mem_init15, mem_init16, mem_init17, mem_init18, mem_init19, mem_init2, mem_init20, mem_init21, mem_init22, mem_init23, mem_init24, mem_init25, mem_init26, mem_init27, mem_init28, mem_init29, mem_init3, mem_init30, mem_init31, mem_init32, mem_init33, mem_init34, mem_init35, mem_init36, mem_init37, mem_init38, mem_init39, mem_init4, mem_init40, mem_init41, mem_init42, mem_init43, mem_init44, mem_init45, mem_init46, mem_init47, mem_init48, mem_init49, mem_init5, mem_init50, mem_init51, mem_init52, mem_init53, mem_init54, mem_init55, mem_init56, mem_init57, mem_init58, mem_init59, mem_init6, mem_init60, mem_init61, mem_init62, mem_init63, mem_init64, mem_init65, mem_init66, mem_init67, mem_init68, mem_init69, mem_init7, mem_init70, mem_init71, mem_init8, mem_init9, MIXED_PORT_FEED_THROUGH_MODE, OPERATION_MODE, PORT_A_ADDRESS_CLEAR, PORT_A_ADDRESS_WIDTH = 1, PORT_A_BYTE_ENABLE_MASK_WIDTH = 1, PORT_A_BYTE_SIZE, PORT_A_DATA_OUT_CLEAR, PORT_A_DATA_OUT_CLOCK, PORT_A_DATA_WIDTH = 1, PORT_A_FIRST_ADDRESS, PORT_A_FIRST_BIT_NUMBER, PORT_A_LAST_ADDRESS, PORT_A_LOGICAL_RAM_DEPTH, PORT_A_LOGICAL_RAM_WIDTH, PORT_A_READ_DURING_WRITE_MODE, PORT_B_ADDRESS_CLEAR, PORT_B_ADDRESS_CLOCK, PORT_B_ADDRESS_WIDTH = 1, PORT_B_BYTE_ENABLE_CLOCK, PORT_B_BYTE_ENABLE_MASK_WIDTH = 1, PORT_B_BYTE_SIZE, PORT_B_DATA_IN_CLOCK, PORT_B_DATA_OUT_CLEAR, PORT_B_DATA_OUT_CLOCK, PORT_B_DATA_WIDTH = 1, PORT_B_FIRST_ADDRESS, PORT_B_FIRST_BIT_NUMBER, PORT_B_LAST_ADDRESS, PORT_B_LOGICAL_RAM_DEPTH, PORT_B_LOGICAL_RAM_WIDTH, PORT_B_READ_DURING_WRITE_MODE, PORT_B_READ_ENABLE_CLOCK, PORT_B_WRITE_ENABLE_CLOCK, POWER_UP_UNINITIALIZED, RAM_BLOCK_TYPE, WIDTH_ECCSTATUS = 3)
+50:			CONNECTIVITY_CHECKING = "OFF",
+85:			CONNECTIVITY_CHECKING = "OFF",
+120:			CONNECTIVITY_CHECKING = "OFF",
+155:			CONNECTIVITY_CHECKING = "OFF",
+190:			CONNECTIVITY_CHECKING = "OFF",
+225:			CONNECTIVITY_CHECKING = "OFF",
+260:			CONNECTIVITY_CHECKING = "OFF",
+295:			CONNECTIVITY_CHECKING = "OFF",
+330:			CONNECTIVITY_CHECKING = "OFF",
+```
+## /work/build/openfpga_genesis_analysis_work/src/fpga/db/altsyncram_s434.tdf
+```text
+22:WITH ( CLK0_CORE_CLOCK_ENABLE, CLK0_INPUT_CLOCK_ENABLE, CLK0_OUTPUT_CLOCK_ENABLE, CLK1_CORE_CLOCK_ENABLE, CLK1_INPUT_CLOCK_ENABLE, CLK1_OUTPUT_CLOCK_ENABLE, CONNECTIVITY_CHECKING, DATA_INTERLEAVE_OFFSET_IN_BITS, DATA_INTERLEAVE_WIDTH_IN_BITS, DONT_POWER_OPTIMIZE, ENABLE_ECC, INIT_FILE, INIT_FILE_LAYOUT, LOGICAL_RAM_NAME, mem_init0, mem_init1, mem_init10, mem_init11, mem_init12, mem_init13, mem_init14, mem_init15, mem_init16, mem_init17, mem_init18, mem_init19, mem_init2, mem_init20, mem_init21, mem_init22, mem_init23, mem_init24, mem_init25, mem_init26, mem_init27, mem_init28, mem_init29, mem_init3, mem_init30, mem_init31, mem_init32, mem_init33, mem_init34, mem_init35, mem_init36, mem_init37, mem_init38, mem_init39, mem_init4, mem_init40, mem_init41, mem_init42, mem_init43, mem_init44, mem_init45, mem_init46, mem_init47, mem_init48, mem_init49, mem_init5, mem_init50, mem_init51, mem_init52, mem_init53, mem_init54, mem_init55, mem_init56, mem_init57, mem_init58, mem_init59, mem_init6, mem_init60, mem_init61, mem_init62, mem_init63, mem_init64, mem_init65, mem_init66, mem_init67, mem_init68, mem_init69, mem_init7, mem_init70, mem_init71, mem_init8, mem_init9, MIXED_PORT_FEED_THROUGH_MODE, OPERATION_MODE, PORT_A_ADDRESS_CLEAR, PORT_A_ADDRESS_WIDTH = 1, PORT_A_BYTE_ENABLE_MASK_WIDTH = 1, PORT_A_BYTE_SIZE, PORT_A_DATA_OUT_CLEAR, PORT_A_DATA_OUT_CLOCK, PORT_A_DATA_WIDTH = 1, PORT_A_FIRST_ADDRESS, PORT_A_FIRST_BIT_NUMBER, PORT_A_LAST_ADDRESS, PORT_A_LOGICAL_RAM_DEPTH, PORT_A_LOGICAL_RAM_WIDTH, PORT_A_READ_DURING_WRITE_MODE, PORT_B_ADDRESS_CLEAR, PORT_B_ADDRESS_CLOCK, PORT_B_ADDRESS_WIDTH = 1, PORT_B_BYTE_ENABLE_CLOCK, PORT_B_BYTE_ENABLE_MASK_WIDTH = 1, PORT_B_BYTE_SIZE, PORT_B_DATA_IN_CLOCK, PORT_B_DATA_OUT_CLEAR, PORT_B_DATA_OUT_CLOCK, PORT_B_DATA_WIDTH = 1, PORT_B_FIRST_ADDRESS, PORT_B_FIRST_BIT_NUMBER, PORT_B_LAST_ADDRESS, PORT_B_LOGICAL_RAM_DEPTH, PORT_B_LOGICAL_RAM_WIDTH, PORT_B_READ_DURING_WRITE_MODE, PORT_B_READ_ENABLE_CLOCK, PORT_B_WRITE_ENABLE_CLOCK, POWER_UP_UNINITIALIZED, RAM_BLOCK_TYPE, WIDTH_ECCSTATUS = 3)
+50:			CONNECTIVITY_CHECKING = "OFF",
+85:			CONNECTIVITY_CHECKING = "OFF",
+120:			CONNECTIVITY_CHECKING = "OFF",
+155:			CONNECTIVITY_CHECKING = "OFF",
+190:			CONNECTIVITY_CHECKING = "OFF",
+225:			CONNECTIVITY_CHECKING = "OFF",
+260:			CONNECTIVITY_CHECKING = "OFF",
+295:			CONNECTIVITY_CHECKING = "OFF",
+330:			CONNECTIVITY_CHECKING = "OFF",
+365:			CONNECTIVITY_CHECKING = "OFF",
+400:			CONNECTIVITY_CHECKING = "OFF",
+```
+## /work/build/openfpga_genesis_analysis_work/src/fpga/db/altsyncram_fpv2.tdf
+```text
+22:WITH ( CLK0_CORE_CLOCK_ENABLE, CLK0_INPUT_CLOCK_ENABLE, CLK0_OUTPUT_CLOCK_ENABLE, CLK1_CORE_CLOCK_ENABLE, CLK1_INPUT_CLOCK_ENABLE, CLK1_OUTPUT_CLOCK_ENABLE, CONNECTIVITY_CHECKING, DATA_INTERLEAVE_OFFSET_IN_BITS, DATA_INTERLEAVE_WIDTH_IN_BITS, DONT_POWER_OPTIMIZE, ENABLE_ECC, INIT_FILE, INIT_FILE_LAYOUT, LOGICAL_RAM_NAME, mem_init0, mem_init1, mem_init10, mem_init11, mem_init12, mem_init13, mem_init14, mem_init15, mem_init16, mem_init17, mem_init18, mem_init19, mem_init2, mem_init20, mem_init21, mem_init22, mem_init23, mem_init24, mem_init25, mem_init26, mem_init27, mem_init28, mem_init29, mem_init3, mem_init30, mem_init31, mem_init32, mem_init33, mem_init34, mem_init35, mem_init36, mem_init37, mem_init38, mem_init39, mem_init4, mem_init40, mem_init41, mem_init42, mem_init43, mem_init44, mem_init45, mem_init46, mem_init47, mem_init48, mem_init49, mem_init5, mem_init50, mem_init51, mem_init52, mem_init53, mem_init54, mem_init55, mem_init56, mem_init57, mem_init58, mem_init59, mem_init6, mem_init60, mem_init61, mem_init62, mem_init63, mem_init64, mem_init65, mem_init66, mem_init67, mem_init68, mem_init69, mem_init7, mem_init70, mem_init71, mem_init8, mem_init9, MIXED_PORT_FEED_THROUGH_MODE, OPERATION_MODE, PORT_A_ADDRESS_CLEAR, PORT_A_ADDRESS_WIDTH = 1, PORT_A_BYTE_ENABLE_MASK_WIDTH = 1, PORT_A_BYTE_SIZE, PORT_A_DATA_OUT_CLEAR, PORT_A_DATA_OUT_CLOCK, PORT_A_DATA_WIDTH = 1, PORT_A_FIRST_ADDRESS, PORT_A_FIRST_BIT_NUMBER, PORT_A_LAST_ADDRESS, PORT_A_LOGICAL_RAM_DEPTH, PORT_A_LOGICAL_RAM_WIDTH, PORT_A_READ_DURING_WRITE_MODE, PORT_B_ADDRESS_CLEAR, PORT_B_ADDRESS_CLOCK, PORT_B_ADDRESS_WIDTH = 1, PORT_B_BYTE_ENABLE_CLOCK, PORT_B_BYTE_ENABLE_MASK_WIDTH = 1, PORT_B_BYTE_SIZE, PORT_B_DATA_IN_CLOCK, PORT_B_DATA_OUT_CLEAR, PORT_B_DATA_OUT_CLOCK, PORT_B_DATA_WIDTH = 1, PORT_B_FIRST_ADDRESS, PORT_B_FIRST_BIT_NUMBER, PORT_B_LAST_ADDRESS, PORT_B_LOGICAL_RAM_DEPTH, PORT_B_LOGICAL_RAM_WIDTH, PORT_B_READ_DURING_WRITE_MODE, PORT_B_READ_ENABLE_CLOCK, PORT_B_WRITE_ENABLE_CLOCK, POWER_UP_UNINITIALIZED, RAM_BLOCK_TYPE, WIDTH_ECCSTATUS = 3)
+48:			CONNECTIVITY_CHECKING = "OFF",
+82:			CONNECTIVITY_CHECKING = "OFF",
+116:			CONNECTIVITY_CHECKING = "OFF",
+150:			CONNECTIVITY_CHECKING = "OFF",
+184:			CONNECTIVITY_CHECKING = "OFF",
+218:			CONNECTIVITY_CHECKING = "OFF",
+252:			CONNECTIVITY_CHECKING = "OFF",
+286:			CONNECTIVITY_CHECKING = "OFF",
+320:			CONNECTIVITY_CHECKING = "OFF",
+354:			CONNECTIVITY_CHECKING = "OFF",
+388:			CONNECTIVITY_CHECKING = "OFF",
+422:			CONNECTIVITY_CHECKING = "OFF",
+456:			CONNECTIVITY_CHECKING = "OFF",
+490:			CONNECTIVITY_CHECKING = "OFF",
+524:			CONNECTIVITY_CHECKING = "OFF",
+558:			CONNECTIVITY_CHECKING = "OFF",
+```
+## /work/build/openfpga_genesis_analysis_work/src/fpga/db/altsyncram_kf34.tdf
+```text
+26:WITH ( CLK0_CORE_CLOCK_ENABLE, CLK0_INPUT_CLOCK_ENABLE, CLK0_OUTPUT_CLOCK_ENABLE, CLK1_CORE_CLOCK_ENABLE, CLK1_INPUT_CLOCK_ENABLE, CLK1_OUTPUT_CLOCK_ENABLE, CONNECTIVITY_CHECKING, DATA_INTERLEAVE_OFFSET_IN_BITS, DATA_INTERLEAVE_WIDTH_IN_BITS, DONT_POWER_OPTIMIZE, ENABLE_ECC, INIT_FILE, INIT_FILE_LAYOUT, LOGICAL_RAM_NAME, mem_init0, mem_init1, mem_init10, mem_init11, mem_init12, mem_init13, mem_init14, mem_init15, mem_init16, mem_init17, mem_init18, mem_init19, mem_init2, mem_init20, mem_init21, mem_init22, mem_init23, mem_init24, mem_init25, mem_init26, mem_init27, mem_init28, mem_init29, mem_init3, mem_init30, mem_init31, mem_init32, mem_init33, mem_init34, mem_init35, mem_init36, mem_init37, mem_init38, mem_init39, mem_init4, mem_init40, mem_init41, mem_init42, mem_init43, mem_init44, mem_init45, mem_init46, mem_init47, mem_init48, mem_init49, mem_init5, mem_init50, mem_init51, mem_init52, mem_init53, mem_init54, mem_init55, mem_init56, mem_init57, mem_init58, mem_init59, mem_init6, mem_init60, mem_init61, mem_init62, mem_init63, mem_init64, mem_init65, mem_init66, mem_init67, mem_init68, mem_init69, mem_init7, mem_init70, mem_init71, mem_init8, mem_init9, MIXED_PORT_FEED_THROUGH_MODE, OPERATION_MODE, PORT_A_ADDRESS_CLEAR, PORT_A_ADDRESS_WIDTH = 1, PORT_A_BYTE_ENABLE_MASK_WIDTH = 1, PORT_A_BYTE_SIZE, PORT_A_DATA_OUT_CLEAR, PORT_A_DATA_OUT_CLOCK, PORT_A_DATA_WIDTH = 1, PORT_A_FIRST_ADDRESS, PORT_A_FIRST_BIT_NUMBER, PORT_A_LAST_ADDRESS, PORT_A_LOGICAL_RAM_DEPTH, PORT_A_LOGICAL_RAM_WIDTH, PORT_A_READ_DURING_WRITE_MODE, PORT_B_ADDRESS_CLEAR, PORT_B_ADDRESS_CLOCK, PORT_B_ADDRESS_WIDTH = 1, PORT_B_BYTE_ENABLE_CLOCK, PORT_B_BYTE_ENABLE_MASK_WIDTH = 1, PORT_B_BYTE_SIZE, PORT_B_DATA_IN_CLOCK, PORT_B_DATA_OUT_CLEAR, PORT_B_DATA_OUT_CLOCK, PORT_B_DATA_WIDTH = 1, PORT_B_FIRST_ADDRESS, PORT_B_FIRST_BIT_NUMBER, PORT_B_LAST_ADDRESS, PORT_B_LOGICAL_RAM_DEPTH, PORT_B_LOGICAL_RAM_WIDTH, PORT_B_READ_DURING_WRITE_MODE, PORT_B_READ_ENABLE_CLOCK, PORT_B_WRITE_ENABLE_CLOCK, POWER_UP_UNINITIALIZED, RAM_BLOCK_TYPE, WIDTH_ECCSTATUS = 3)
+60:			CONNECTIVITY_CHECKING = "OFF",
+95:			CONNECTIVITY_CHECKING = "OFF",
+130:			CONNECTIVITY_CHECKING = "OFF",
+165:			CONNECTIVITY_CHECKING = "OFF",
+200:			CONNECTIVITY_CHECKING = "OFF",
+235:			CONNECTIVITY_CHECKING = "OFF",
+270:			CONNECTIVITY_CHECKING = "OFF",
+305:			CONNECTIVITY_CHECKING = "OFF",
+340:			CONNECTIVITY_CHECKING = "OFF",
+375:			CONNECTIVITY_CHECKING = "OFF",
+410:			CONNECTIVITY_CHECKING = "OFF",
+445:			CONNECTIVITY_CHECKING = "OFF",
+480:			CONNECTIVITY_CHECKING = "OFF",
+515:			CONNECTIVITY_CHECKING = "OFF",
+550:			CONNECTIVITY_CHECKING = "OFF",
+585:			CONNECTIVITY_CHECKING = "OFF",
+620:			CONNECTIVITY_CHECKING = "OFF",
+655:			CONNECTIVITY_CHECKING = "OFF",
+690:			CONNECTIVITY_CHECKING = "OFF",
+725:			CONNECTIVITY_CHECKING = "OFF",
+760:			CONNECTIVITY_CHECKING = "OFF",
+795:			CONNECTIVITY_CHECKING = "OFF",
+830:			CONNECTIVITY_CHECKING = "OFF",
+865:			CONNECTIVITY_CHECKING = "OFF",
+900:			CONNECTIVITY_CHECKING = "OFF",
+935:			CONNECTIVITY_CHECKING = "OFF",
+970:			CONNECTIVITY_CHECKING = "OFF",
+1005:			CONNECTIVITY_CHECKING = "OFF",
+1040:			CONNECTIVITY_CHECKING = "OFF",
+1075:			CONNECTIVITY_CHECKING = "OFF",
+1110:			CONNECTIVITY_CHECKING = "OFF",
+1145:			CONNECTIVITY_CHECKING = "OFF",
+```
+## /work/build/openfpga_genesis_analysis_work/src/fpga/db/altsyncram_4c34.tdf
+```text
+22:WITH ( CLK0_CORE_CLOCK_ENABLE, CLK0_INPUT_CLOCK_ENABLE, CLK0_OUTPUT_CLOCK_ENABLE, CLK1_CORE_CLOCK_ENABLE, CLK1_INPUT_CLOCK_ENABLE, CLK1_OUTPUT_CLOCK_ENABLE, CONNECTIVITY_CHECKING, DATA_INTERLEAVE_OFFSET_IN_BITS, DATA_INTERLEAVE_WIDTH_IN_BITS, DONT_POWER_OPTIMIZE, ENABLE_ECC, INIT_FILE, INIT_FILE_LAYOUT, LOGICAL_RAM_NAME, mem_init0, mem_init1, mem_init10, mem_init11, mem_init12, mem_init13, mem_init14, mem_init15, mem_init16, mem_init17, mem_init18, mem_init19, mem_init2, mem_init20, mem_init21, mem_init22, mem_init23, mem_init24, mem_init25, mem_init26, mem_init27, mem_init28, mem_init29, mem_init3, mem_init30, mem_init31, mem_init32, mem_init33, mem_init34, mem_init35, mem_init36, mem_init37, mem_init38, mem_init39, mem_init4, mem_init40, mem_init41, mem_init42, mem_init43, mem_init44, mem_init45, mem_init46, mem_init47, mem_init48, mem_init49, mem_init5, mem_init50, mem_init51, mem_init52, mem_init53, mem_init54, mem_init55, mem_init56, mem_init57, mem_init58, mem_init59, mem_init6, mem_init60, mem_init61, mem_init62, mem_init63, mem_init64, mem_init65, mem_init66, mem_init67, mem_init68, mem_init69, mem_init7, mem_init70, mem_init71, mem_init8, mem_init9, MIXED_PORT_FEED_THROUGH_MODE, OPERATION_MODE, PORT_A_ADDRESS_CLEAR, PORT_A_ADDRESS_WIDTH = 1, PORT_A_BYTE_ENABLE_MASK_WIDTH = 1, PORT_A_BYTE_SIZE, PORT_A_DATA_OUT_CLEAR, PORT_A_DATA_OUT_CLOCK, PORT_A_DATA_WIDTH = 1, PORT_A_FIRST_ADDRESS, PORT_A_FIRST_BIT_NUMBER, PORT_A_LAST_ADDRESS, PORT_A_LOGICAL_RAM_DEPTH, PORT_A_LOGICAL_RAM_WIDTH, PORT_A_READ_DURING_WRITE_MODE, PORT_B_ADDRESS_CLEAR, PORT_B_ADDRESS_CLOCK, PORT_B_ADDRESS_WIDTH = 1, PORT_B_BYTE_ENABLE_CLOCK, PORT_B_BYTE_ENABLE_MASK_WIDTH = 1, PORT_B_BYTE_SIZE, PORT_B_DATA_IN_CLOCK, PORT_B_DATA_OUT_CLEAR, PORT_B_DATA_OUT_CLOCK, PORT_B_DATA_WIDTH = 1, PORT_B_FIRST_ADDRESS, PORT_B_FIRST_BIT_NUMBER, PORT_B_LAST_ADDRESS, PORT_B_LOGICAL_RAM_DEPTH, PORT_B_LOGICAL_RAM_WIDTH, PORT_B_READ_DURING_WRITE_MODE, PORT_B_READ_ENABLE_CLOCK, PORT_B_WRITE_ENABLE_CLOCK, POWER_UP_UNINITIALIZED, RAM_BLOCK_TYPE, WIDTH_ECCSTATUS = 3)
+50:			CONNECTIVITY_CHECKING = "OFF",
+85:			CONNECTIVITY_CHECKING = "OFF",
+120:			CONNECTIVITY_CHECKING = "OFF",
+155:			CONNECTIVITY_CHECKING = "OFF",
+190:			CONNECTIVITY_CHECKING = "OFF",
+225:			CONNECTIVITY_CHECKING = "OFF",
+260:			CONNECTIVITY_CHECKING = "OFF",
+295:			CONNECTIVITY_CHECKING = "OFF",
+```
 
 ## Quartus log evidence
 ```text
+23:Info (12021): Found 1 design units, including 1 entities, in source file core/core_top.sv
+24:    Info (12023): Found entity 1: core_top File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/core_top.sv Line: 9
+120:Info (12021): Found 1 design units, including 1 entities, in source file core/rtl/jt12/jt12_pm.v
+121:    Info (12023): Found entity 1: jt12_pm File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt12/jt12_pm.v Line: 24
+190:Info (12021): Found 1 design units, including 1 entities, in source file core/rtl/sdram.sv
+191:    Info (12023): Found entity 1: sdram File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/sdram.sv Line: 21
+248:Info (12021): Found 1 design units, including 1 entities, in source file core/core_bridge_cmd.v
+249:    Info (12023): Found entity 1: core_bridge_cmd File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/core_bridge_cmd.v Line: 18
+275:Warning (10036): Verilog HDL or VHDL warning at core_top.sv(454): object "cs_m30_map_enable" assigned a value but never read File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/core_top.sv Line: 454
+276:Warning (10762): Verilog HDL Case Statement warning at core_top.sv(303): can't check case statement for completeness because the case expression has too many possible states File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/core_top.sv Line: 303
+277:Warning (10230): Verilog HDL assignment warning at core_top.sv(460): truncated value with size 32 to match size of target (12) File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/core_top.sv Line: 460
+278:Warning (10230): Verilog HDL assignment warning at core_top.sv(462): truncated value with size 32 to match size of target (16) File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/core_top.sv Line: 462
+279:Warning (10762): Verilog HDL Case Statement warning at core_top.sv(466): can't check case statement for completeness because the case expression has too many possible states File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/core_top.sv Line: 466
+280:Warning (10230): Verilog HDL assignment warning at core_top.sv(525): truncated value with size 32 to match size of target (10) File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/core_top.sv Line: 525
+281:Warning (10230): Verilog HDL assignment warning at core_top.sv(536): truncated value with size 32 to match size of target (3) File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/core_top.sv Line: 536
 282:Warning (10030): Net "rom_data2" at core_top.sv(870) has no driver or initial value, using a default initial value '0' File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/core_top.sv Line: 870
 283:Warning (10030): Net "rom_rdack2" at core_top.sv(872) has no driver or initial value, using a default initial value '0' File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/core_top.sv Line: 872
+284:Info (12128): Elaborating entity "core_bridge_cmd" for hierarchy "core_top:ic|core_bridge_cmd:icb" File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/core_top.sv Line: 427
+285:Warning (10036): Verilog HDL or VHDL warning at core_bridge_cmd.v(109): object "host_24" assigned a value but never read File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/core_bridge_cmd.v Line: 109
+286:Warning (10036): Verilog HDL or VHDL warning at core_bridge_cmd.v(110): object "host_28" assigned a value but never read File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/core_bridge_cmd.v Line: 110
+287:Warning (10036): Verilog HDL or VHDL warning at core_bridge_cmd.v(111): object "host_2C" assigned a value but never read File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/core_bridge_cmd.v Line: 111
 288:Warning (10858): Verilog HDL warning at core_bridge_cmd.v(116): object host_4C used but never assigned File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/core_bridge_cmd.v Line: 116
 289:Warning (10858): Verilog HDL warning at core_bridge_cmd.v(137): object target_20 used but never assigned File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/core_bridge_cmd.v Line: 137
 290:Warning (10858): Verilog HDL warning at core_bridge_cmd.v(138): object target_24 used but never assigned File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/core_bridge_cmd.v Line: 138
 291:Warning (10858): Verilog HDL warning at core_bridge_cmd.v(139): object target_28 used but never assigned File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/core_bridge_cmd.v Line: 139
 292:Warning (10858): Verilog HDL warning at core_bridge_cmd.v(140): object target_2C used but never assigned File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/core_bridge_cmd.v Line: 140
+293:Warning (10036): Verilog HDL or VHDL warning at core_bridge_cmd.v(142): object "target_40" assigned a value but never read File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/core_bridge_cmd.v Line: 142
+294:Warning (10036): Verilog HDL or VHDL warning at core_bridge_cmd.v(143): object "target_44" assigned a value but never read File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/core_bridge_cmd.v Line: 143
+295:Warning (10036): Verilog HDL or VHDL warning at core_bridge_cmd.v(144): object "target_48" assigned a value but never read File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/core_bridge_cmd.v Line: 144
+296:Warning (10036): Verilog HDL or VHDL warning at core_bridge_cmd.v(145): object "target_4C" assigned a value but never read File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/core_bridge_cmd.v Line: 145
+297:Warning (10230): Verilog HDL assignment warning at core_bridge_cmd.v(182): truncated value with size 32 to match size of target (10) File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/core_bridge_cmd.v Line: 182
+298:Warning (10762): Verilog HDL Case Statement warning at core_bridge_cmd.v(185): can't check case statement for completeness because the case expression has too many possible states File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/core_bridge_cmd.v Line: 185
+299:Warning (10762): Verilog HDL Case Statement warning at core_bridge_cmd.v(220): can't check case statement for completeness because the case expression has too many possible states File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/core_bridge_cmd.v Line: 220
 300:Warning (10030): Net "host_4C" at core_bridge_cmd.v(116) has no driver or initial value, using a default initial value '0' File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/core_bridge_cmd.v Line: 116
 301:Warning (10030): Net "target_20" at core_bridge_cmd.v(137) has no driver or initial value, using a default initial value '0' File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/core_bridge_cmd.v Line: 137
 302:Warning (10030): Net "target_24" at core_bridge_cmd.v(138) has no driver or initial value, using a default initial value '0' File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/core_bridge_cmd.v Line: 138
 303:Warning (10030): Net "target_28" at core_bridge_cmd.v(139) has no driver or initial value, using a default initial value '0' File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/core_bridge_cmd.v Line: 139
 304:Warning (10030): Net "target_2C" at core_bridge_cmd.v(140) has no driver or initial value, using a default initial value '0' File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/core_bridge_cmd.v Line: 140
+305:Info (12128): Elaborating entity "mf_datatable" for hierarchy "core_top:ic|core_bridge_cmd:icb|mf_datatable:idt" File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/core_bridge_cmd.v Line: 442
+341:Info (12128): Elaborating entity "data_unloader" for hierarchy "core_top:ic|data_unloader:save_data_unloader" File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/core_top.sv Line: 557
+430:Info (12128): Elaborating entity "data_loader" for hierarchy "core_top:ic|data_loader:save_data_loader" File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/core_top.sv Line: 576
+467:Info (12128): Elaborating entity "data_loader" for hierarchy "core_top:ic|data_loader:rom_loader" File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/core_top.sv Line: 670
+474:Info (12128): Elaborating entity "sound_i2s" for hierarchy "core_top:ic|sound_i2s:sound_i2s" File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/core_top.sv Line: 691
+510:Info (12128): Elaborating entity "synch_3" for hierarchy "core_top:ic|synch_3:sv2" File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/core_top.sv Line: 748
+513:Info (12128): Elaborating entity "cofi" for hierarchy "core_top:ic|cofi:coffee" File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/core_top.sv Line: 821
+514:Info (12128): Elaborating entity "sdram" for hierarchy "core_top:ic|sdram:sdram" File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/core_top.sv Line: 867
 515:Warning (10259): Verilog HDL error at sdram.sv(82): constant value overflow File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/sdram.sv Line: 82
+516:Info (10264): Verilog HDL Case Statement information at sdram.sv(203): all case item expressions in this case statement are onehot File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/sdram.sv Line: 203
+517:Info (12128): Elaborating entity "altddio_out" for hierarchy "core_top:ic|sdram:sdram|altddio_out:sdramclk_ddr" File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/sdram.sv Line: 236
+518:Info (12130): Elaborated megafunction instantiation "core_top:ic|sdram:sdram|altddio_out:sdramclk_ddr" File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/sdram.sv Line: 236
+519:Info (12133): Instantiated megafunction "core_top:ic|sdram:sdram|altddio_out:sdramclk_ddr" with the following parameter: File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/sdram.sv Line: 236
+531:Info (12128): Elaborating entity "synch_3" for hierarchy "core_top:ic|synch_3:cont1_s" File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/core_top.sv Line: 983
+534:Info (12128): Elaborating entity "lightgun" for hierarchy "core_top:ic|lightgun:lightgun" File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/core_top.sv Line: 1122
+537:Info (12128): Elaborating entity "system" for hierarchy "core_top:ic|system:system" File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/core_top.sv Line: 1231
 1387:Warning (10030): Net "lfo_sh1_lut.data_a" at jt12_pm.v(38) has no driver or initial value, using a default initial value '0' File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt12/jt12_pm.v Line: 38
 1388:Warning (10030): Net "lfo_sh1_lut.waddr_a" at jt12_pm.v(38) has no driver or initial value, using a default initial value '0' File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt12/jt12_pm.v Line: 38
 1389:Warning (10030): Net "lfo_sh2_lut.data_a" at jt12_pm.v(39) has no driver or initial value, using a default initial value '0' File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt12/jt12_pm.v Line: 39
 1390:Warning (10030): Net "lfo_sh2_lut.waddr_a" at jt12_pm.v(39) has no driver or initial value, using a default initial value '0' File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt12/jt12_pm.v Line: 39
 1391:Warning (10030): Net "lfo_sh1_lut.we_a" at jt12_pm.v(38) has no driver or initial value, using a default initial value '0' File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt12/jt12_pm.v Line: 38
 1392:Warning (10030): Net "lfo_sh2_lut.we_a" at jt12_pm.v(39) has no driver or initial value, using a default initial value '0' File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt12/jt12_pm.v Line: 39
+1444:Info (12128): Elaborating entity "mf_pllbase" for hierarchy "core_top:ic|mf_pllbase:mp1" File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/core_top.sv Line: 1259
 1534:Warning (12241): 48 hierarchies have connectivity warnings - see the Connectivity Checks report folder
 ```
+
+Matched report terms in generated files: 17
+Matched files:
+ - /work/build/openfpga_genesis_analysis_work/src/fpga/output_files/ap_core.map.smsg
+ - /work/build/openfpga_genesis_analysis_work/src/fpga/output_files/ap_core.map.rpt
+ - /work/build/openfpga_genesis_analysis_work/src/fpga/db/ap_core.map.qmsg
+ - /work/build/openfpga_genesis_analysis_work/src/fpga/db/altsyncram_ltk2.tdf
+ - /work/build/openfpga_genesis_analysis_work/src/fpga/db/altsyncram_2ia1.tdf
+ - /work/build/openfpga_genesis_analysis_work/src/fpga/db/altsyncram_m534.tdf
+ - /work/build/openfpga_genesis_analysis_work/src/fpga/db/altsyncram_k534.tdf
+ - /work/build/openfpga_genesis_analysis_work/src/fpga/db/altsyncram_o534.tdf
+ - /work/build/openfpga_genesis_analysis_work/src/fpga/db/altsyncram_af34.tdf
+ - /work/build/openfpga_genesis_analysis_work/src/fpga/db/altsyncram_i234.tdf
+ - /work/build/openfpga_genesis_analysis_work/src/fpga/db/altsyncram_9i34.tdf
+ - /work/build/openfpga_genesis_analysis_work/src/fpga/db/altsyncram_l534.tdf
+ - /work/build/openfpga_genesis_analysis_work/src/fpga/db/altsyncram_m234.tdf
+ - /work/build/openfpga_genesis_analysis_work/src/fpga/db/altsyncram_s434.tdf
+ - /work/build/openfpga_genesis_analysis_work/src/fpga/db/altsyncram_fpv2.tdf
+ - /work/build/openfpga_genesis_analysis_work/src/fpga/db/altsyncram_kf34.tdf
+ - /work/build/openfpga_genesis_analysis_work/src/fpga/db/altsyncram_4c34.tdf

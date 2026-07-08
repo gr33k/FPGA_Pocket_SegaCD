@@ -1,6 +1,6 @@
 # openFPGA Genesis warning source review
 
-Generated: 2026-07-08 04:13:59 UTC
+Generated: 2026-07-08 04:44:56 UTC
 Source warning summary: /Data/dockerprojects/FPGA_Pocket_SegaCD/docs/OPENFPGA_GENESIS_ANALYSIS_WARNING_SUMMARY.md
 Source analysis log: /Data/dockerprojects/FPGA_Pocket_SegaCD/docs/OPENFPGA_GENESIS_ANALYSIS_ONLY_LOG.txt
 Source tree reviewed: /Data/dockerprojects/FPGA_Pocket_SegaCD/third_party/openFPGA-Genesis/src/fpga
