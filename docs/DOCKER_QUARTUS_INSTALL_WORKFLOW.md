@@ -88,6 +88,40 @@ Outputs:
 
 - `docs/DOCKER_OPENFPGA_GENESIS_ANALYSIS_STATUS.md`
 
+## Option C (prebuilt Quartus image analysis path)
+
+When host-based install is not available, run a prebuilt Quartus image in Docker.
+
+```sh
+chmod +x tools/check_prebuilt_quartus_docker_analysis.sh
+chmod +x tools/docker_run_openfpga_genesis_analysis_prebuilt.sh
+
+tools/check_prebuilt_quartus_docker_analysis.sh
+tools/docker_run_openfpga_genesis_analysis_prebuilt.sh
+```
+
+Defaults:
+
+- `QUARTUS_PREBUILT_IMAGE` defaults to `theypsilon/quartus-lite-c5:19.1-heavy`
+- `QUARTUS_PREBUILT_IMAGE_FALLBACK` defaults to `no2chem/quartuslite:latest`
+
+To force one image:
+
+```sh
+QUARTUS_PREBUILT_IMAGE=no2chem/quartuslite:latest tools/docker_run_openfpga_genesis_analysis_prebuilt.sh
+```
+
+Expected:
+
+- no local installer staging required
+- analysis and checker run only through `tools/run_openfpga_genesis_analysis_only.sh`
+- no fitter/assembler/timing/bitstream command execution in these wrappers
+
+Outputs:
+
+- `docs/PREBUILT_QUARTUS_DOCKER_ANALYSIS_CHECK.md`
+- `docs/PREBUILT_QUARTUS_DOCKER_ANALYSIS_STATUS.md`
+
 ## Safety rules
 
 - No fitter, assembler, timing, or bitstream generation.

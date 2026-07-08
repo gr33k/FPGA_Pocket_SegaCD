@@ -226,3 +226,22 @@ Deferred:
 - No `third_party` runtime changes were made in this task.
 - No source files were compiled or modified.
 - No forbidden Quartus output artifacts were produced.
+
+## Task 7H status (prebuilt Quartus image fallback)
+
+- Added non-installer prebuilt analysis flow:
+  - `tools/docker_run_openfpga_genesis_analysis_prebuilt.sh`
+  - `tools/check_prebuilt_quartus_docker_analysis.sh`
+- Added status/check outputs for this path:
+  - `docs/PREBUILT_QUARTUS_DOCKER_ANALYSIS_STATUS.md`
+  - `docs/PREBUILT_QUARTUS_DOCKER_ANALYSIS_CHECK.md`
+- Safety posture preserved:
+  - analysis-only behavior remains delegated to `tools/run_openfpga_genesis_analysis_only.sh`.
+  - no fitter/assembler/timing/bitstream commands introduced in these wrappers.
+- Prebuilt lane is confirmed runnable:
+  - default image `theypsilon/quartus-lite-c5:19.1-heavy` pulled successfully from registry.
+  - `tools/docker_run_openfpga_genesis_analysis_prebuilt.sh` completed with analysis-only run.
+  - `docs/PREBUILT_QUARTUS_DOCKER_ANALYSIS_STATUS.md` now records:
+    - `analysis result: completed (runner executed in container)`
+- This status now removes the Docker execution blocker for prebuilt image flow.
+- Next milestone remains first Quartus design issue capture in `docs/OPENFPGA_GENESIS_FIRST_ANALYSIS_ERRORS.md` for next-task classification.

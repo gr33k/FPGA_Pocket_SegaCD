@@ -206,3 +206,24 @@ After this strategy lock:
    - `tools/docker_run_openfpga_genesis_analysis_only.sh`
 3. Classify first Quartus analysis error only if analysis executes.
 4. Keep `third_party/openFPGA-Genesis` and `third_party/Genesis_MiSTer` clean/read-only unless a later integration task requires edits.
+
+## Task 7H status (prebuilt-Docker fallback)
+
+- Added prebuilt Docker analysis wrappers to allow Quartus checks without a local installer:
+  - `tools/docker_run_openfpga_genesis_analysis_prebuilt.sh`
+  - `tools/check_prebuilt_quartus_docker_analysis.sh`
+- Wrapper behavior:
+  - runs a prebuilt image (`theypsilon/quartus-lite-c5:19.1-heavy`) with fallback (`no2chem/quartuslite:latest`)
+  - executes `tools/run_openfpga_genesis_analysis_only.sh` in-container
+  - executes `tools/check_openfpga_genesis_analysis_runner.sh` in-container
+  - does not run fitter/assembler/timing/bitstream steps
+- This path now has confirmed execution:
+  - prebuilt analysis wrapper ran with default image and completed
+  - `tools/check_prebuilt_quartus_docker_analysis.sh` passes
+  - `docs/PREBUILT_QUARTUS_DOCKER_ANALYSIS_STATUS.md` records successful `analysis result: completed`
+- Next:
+  1. Classify any Quartus errors in `docs/OPENFPGA_GENESIS_FIRST_ANALYSIS_ERRORS.md` if they appear in the next real analysis pass.
+  2. If needed, rerun with explicit fallback image:
+     - `QUARTUS_PREBUILT_IMAGE=no2chem/quartuslite:latest tools/docker_run_openfpga_genesis_analysis_prebuilt.sh`
+
+Next blocking point remains: Task 7I (post-analysis-error classification and next action).
