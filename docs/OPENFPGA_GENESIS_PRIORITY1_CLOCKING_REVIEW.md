@@ -1,5 +1,5 @@
 # openFPGA Genesis Priority-1 clocking review
-Generated: 2026-07-08 16:57:27 UTC
+Generated: 2026-07-08 17:30:54 UTC
 Inputs checked:
 - docs/OPENFPGA_GENESIS_FITTER_WARNING_SUMMARY.md
 - docs/OPENFPGA_GENESIS_FITTER_SMOKE_FIT_LOG.txt
@@ -49,8 +49,8 @@ No Quartus fitter/assembler/timing/bitstream steps are run by this script.
 
 ### PLL_RESET_NOT_CONNECTED
 - total instances: 7
-- sample: - docs/OPENFPGA_GENESIS_FITTER_SMOKE_MAP_LOG.txt:Warning: RST port on the PLL is not properly connected on instance core_top:ic|mf_pllbase:mp1|mf_pllbase_0002:mf_pllbase_inst|altera_pll:altera_pll_i|general[1].gpll. The reset port on the PLL should be connected. If the PLL loses lock for any reason, you might need to manually reset the PLL in order to re-establish lock to the reference clock. File: /opt/intelFPGA_lite/quartus/libraries/megafunctions/altera_pll.v Line: 749
-docs/OPENFPGA_GENESIS_FITTER_SMOKE_FIT_LOG.txt:Warning: RST port on the PLL is not properly connected on instance core_top:ic|mf_pllbase:mp1|mf_pllbase_0002:mf_pllbase_inst|altera_pll:altera_pll_i|general[1].gpll. The reset port on the PLL should be connected. If the PLL loses lock for any reason, you might need to manually reset the PLL in order to re-establish lock to the reference clock. File: /opt/intelFPGA_lite/quartus/libraries/megafunctions/altera_pll.v Line: 749
+- sample: - docs/OPENFPGA_GENESIS_FITTER_SMOKE_FIT_LOG.txt:Warning: RST port on the PLL is not properly connected on instance core_top:ic|mf_pllbase:mp1|mf_pllbase_0002:mf_pllbase_inst|altera_pll:altera_pll_i|general[1].gpll. The reset port on the PLL should be connected. If the PLL loses lock for any reason, you might need to manually reset the PLL in order to re-establish lock to the reference clock. File: /opt/intelFPGA_lite/quartus/libraries/megafunctions/altera_pll.v Line: 749
+docs/OPENFPGA_GENESIS_FITTER_SMOKE_MAP_LOG.txt:Warning: RST port on the PLL is not properly connected on instance core_top:ic|mf_pllbase:mp1|mf_pllbase_0002:mf_pllbase_inst|altera_pll:altera_pll_i|general[1].gpll. The reset port on the PLL should be connected. If the PLL loses lock for any reason, you might need to manually reset the PLL in order to re-establish lock to the reference clock. File: /opt/intelFPGA_lite/quartus/libraries/megafunctions/altera_pll.v Line: 749
 - source: - source not found in checked docs/source snapshots
 - status: needs review before timing gate
 - next action: Document PLL reset plan and whether deterministic recovery is required for this milestone.

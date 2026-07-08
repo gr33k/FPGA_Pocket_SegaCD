@@ -1,6 +1,6 @@
 # Task 6Y openFPGA source plan check
 
-Generated: 2026-07-08T16:14:17Z
+Generated: 2026-07-08T17:31:00Z
 Advisory check only; exits 0 even if WARNs exist.
 
 PASS: Upstream path exists: ./third_party/openFPGA-Genesis

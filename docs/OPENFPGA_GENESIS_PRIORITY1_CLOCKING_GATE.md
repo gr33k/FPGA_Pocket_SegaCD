@@ -1,5 +1,5 @@
 # openFPGA Genesis Priority-1 clocking gate
-Generated: 2026-07-08 16:57:28 UTC
+Generated: 2026-07-08 17:30:54 UTC
 
 ## Inputs
 - Priority-1 clocking review: docs/OPENFPGA_GENESIS_PRIORITY1_CLOCKING_REVIEW.md

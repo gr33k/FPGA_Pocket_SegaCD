@@ -1,5 +1,5 @@
 # openFPGA Genesis timing-review blocker order
-Generated: 2026-07-08 16:57:02 UTC
+Generated: 2026-07-08 17:30:54 UTC
 Reason: prioritize what must be reviewed before timing-review-only gate
 
 Inputs:
@@ -28,7 +28,7 @@ active_timing_blocker_count: 118
 ### CODE_16406
 - count: 1
 - reason: PLL/clock pin behavior is timing-sensitive in scaffolded top-level
-- source: - third_party/openFPGA-Genesis/src/fpga/ap_core.qsf:91:set_location_assignment PIN_H16 -to clk_74b
+- source: - third_party/openFPGA-Genesis/src/fpga/apf/apf_top.v:49:input   wire            clk_74b, // mainclk1 
 - recommended next task: keep as manual timing-review item for first clocking cleanup
 - requires: APF pin-plan + QSF review
 - blocks_timing_gate_now: yes
@@ -36,7 +36,7 @@ active_timing_blocker_count: 118
 ### CODE_16407
 - count: 1
 - reason: PLL/clock pin behavior is timing-sensitive in scaffolded top-level
-- source: - third_party/openFPGA-Genesis/src/fpga/ap_core.qsf:91:set_location_assignment PIN_H16 -to clk_74b
+- source: - third_party/openFPGA-Genesis/src/fpga/apf/apf_top.v:49:input   wire            clk_74b, // mainclk1 
 - recommended next task: keep as manual timing-review item for first clocking cleanup
 - requires: APF pin-plan + QSF review
 - blocks_timing_gate_now: yes

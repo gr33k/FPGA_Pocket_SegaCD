@@ -1,5 +1,5 @@
 # openFPGA Genesis fitter smoke check
-Generated: 2026-07-08 16:15:18 UTC
+Generated: 2026-07-08 17:30:55 UTC
 Status: pass
 Runner: tools/run_openfpga_genesis_fitter_smoke.sh
 Gate check: tools/check_openfpga_genesis_fitter_gate_ready.sh
@@ -21,5 +21,5 @@ Pocket boot claimed: no
 Runtime correctness claimed: no
 
 Notes:
- - smoke-work-root-cleaned
+ - smoke-work-dir-cleaned
 
