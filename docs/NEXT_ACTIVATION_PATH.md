@@ -1,32 +1,18 @@
-# Next activation path after Task 7I
+# Next activation path after Task 7J
 
-## Task 7I status (current lane blocker resolved)
+## Current task status
 
-Task 7I has moved the repository from "analysis hard-stop" to "analysis-pass + warning triage":
+- Task 7J is active: warning triage and fitter-readiness gate.
+- Warning classification run: `tools/classify_openfpga_genesis_analysis_warnings.sh`
+- Current decision: `REVIEW_WARNINGS_FIRST`.
 
-- Prebuilt Docker lane executed `openFPGA-Genesis` elaboration successfully.
-- Quartus command completed with exit code `0`.
-- No fatal errors were recorded.
-- No fitter/synthesis/assembler/bitstream steps were run.
+## Decision branch for Task 7J
 
-## Why this matters
+- If gate remains `READY_FOR_FITTER_GATE`, next task may be a controlled fitter gate.
+- If gate remains `REVIEW_WARNINGS_FIRST`, the next task is warning-review only (no fitter).
+- If gate becomes `BLOCKED_BEFORE_FITTER`, keep fitter blocked and stop until blocker resolution.
 
-- We now have verified a real Quartus elaboration path end-to-end.
-- The next blocker is no longer tool availability; it is interpretation of the current warning set and what must be cleaned up before attempting fitter/further compile steps.
+## Current milestone note
 
-## Immediate next steps
-
-1. Collect warning evidence into a dedicated classification pass:
-   - `docs/OPENFPGA_GENESIS_ANALYSIS_ONLY_LOG.txt` (connectivity and truncation warnings)
-   - `docs/OPENFPGA_GENESIS_ANALYSIS_ONLY_STATUS.md` (exit + command)
-2. Decide what warning classes block progress for this milestone:
-   - width truncation warnings in `jt10_adpcm_div.v`
-   - `12241` connectivity warnings
-3. Keep scope to analysis/smoke until a clear path is set, then transition to fit-path evaluation only with explicit compile safety guardrails.
-
-## Hard constraints
-
-- No Sega-CD/32X at this stage.
-- No save state support yet.
-- No host-per-read ROM streaming.
-- No fit/asm/sta/packaging run in analysis-only status proofs.
+- No fitter/assembler/timing/bitstream run has been executed yet.
+- This branch stays Genesis-only and keeps Sega-CD/32X/save-state/CD path deferred.
