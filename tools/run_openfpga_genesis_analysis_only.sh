@@ -15,6 +15,17 @@ RUN_TIMESTAMP="$(date -u '+%Y-%m-%d %H:%M:%S UTC')"
 clean_generated_dirs=("output_files" "db" "incremental_db" "greybox_tmp" "simulation")
 clean_generated_items=()
 
+PATTERN_RE='Warning \(12241\)|Connectivity|connectivity|no driver|never assigned|default initial value|constant value overflow|Warning \(10259\)|Warning \(10030\)|Warning \(10858\)'
+SEARCH_PATH_PATTERNS=(
+  "output_files/*.rpt"
+  "output_files/*.summary"
+  "output_files/*.map.*"
+  "*.rpt"
+  "*.summary"
+  "db/*.rpt"
+  "db/*.txt"
+)
+
 collect_quartus_map_candidates() {
   local candidate=""
   local all_candidates=""
@@ -91,41 +102,99 @@ cleanup_generated_outputs() {
   fi
 }
 
+collect_candidate_report_files() {
+  local -n out_arr=$1
+  local base_dir="$WORK_FPGA_DIR"
+  local pattern
+  shopt -s nullglob
+  for pattern in "${SEARCH_PATH_PATTERNS[@]}"; do
+    for f in "$base_dir/$pattern"; do
+      [[ -f "$f" ]] && out_arr+=("$f")
+    done
+  done
+
+  for f in "$base_dir"/output_files/*/*.rpt "$base_dir"/output_files/*/*.txt "$base_dir"/db/*.rpt "$base_dir"/db/*.txt; do
+    [[ -f "$f" ]] && out_arr+=("$f")
+  done
+  shopt -u nullglob
+
+  local deduped
+  deduped="$(printf '%s\n' "${out_arr[@]}" | awk 'NF && !seen[$0]++')"
+  mapfile -t out_arr <<< "$deduped"
+}
+
 capture_connectivity_reports() {
-  local match_file
-  local matches=()
-  local output_path="$CONNECTIVITY_WARNINGS_PATH"
-  local pattern='Connectivity|connectivity|Warning \(12241\)|no driver|never assigned|default initial value'
+  local -a report_files=()
+  local f
+  local -a matches=()
+  collect_candidate_report_files report_files
 
-  mapfile -t matches < <(rg -Il -e "$pattern" "$WORK_FPGA_DIR" 2>/dev/null || true)
-
-  if [[ "${#matches[@]}" -eq 0 ]]; then
-    printf '%s\n' "No detailed connectivity report found before cleanup." > "$output_path"
-    append_status "No connectivity report files matched the capture search before cleanup."
-    return 0
-  fi
+  mkdir -p "$(dirname "$CONNECTIVITY_WARNINGS_PATH")"
 
   {
     echo "# Quartus connectivity warning evidence"
     echo "Generated: $RUN_TIMESTAMP"
+    echo "Work dir: $WORK_FPGA_DIR"
+    echo "Pattern: $PATTERN_RE"
     echo
-    echo "Source search path: $WORK_FPGA_DIR"
-    echo "Pattern: $pattern"
+    echo "Analysis status captured: ${ANALYSIS_RAN}"
+    echo "Analysis exit code: ${ANALYSIS_EXIT}"
     echo
-  } > "$output_path"
+    echo "## Report inventory"
+    if [[ ${#report_files[@]} -eq 0 ]]; then
+      echo "- No files matched search inventory patterns"
+    else
+      for f in "${report_files[@]}"; do
+        echo "- $f"
+      done
+    fi
+    echo
+  } > "$CONNECTIVITY_WARNINGS_PATH"
 
-  for match_file in "${matches[@]}"; do
-    [[ -f "$match_file" ]] || continue
+  for f in "${report_files[@]}"; do
+    [[ -f "$f" ]] || continue
+    mapfile -t matches < <(rg -n -e "$PATTERN_RE" "$f" 2>/dev/null || true)
+    [[ ${#matches[@]} -eq 0 ]] && continue
+
     {
-      echo "## ${match_file}"
+      echo "## ${f}"
+      echo
+      echo "### Matched lines"
+      for line in "${matches[@]}"; do
+        echo "$line"
+      done
+      echo
       echo '```text'
-      sed -n '1,200p' "$match_file"
+      rg -n -e "$PATTERN_RE" "$f" 2>/dev/null || true
       echo '```'
       echo
-    } >> "$output_path"
+    } >> "$CONNECTIVITY_WARNINGS_PATH"
   done
 
-  append_status "Captured connectivity evidence into: $output_path"
+  if ! rg -q -e "$PATTERN_RE" "${report_files[@]}" 2>/dev/null; then
+    {
+      echo "No detailed connectivity detail was captured before cleanup because no report files in the work dir matched warning/file search patterns."
+      echo "Reason: rg returned no hits for the connectivity terms before artifact cleanup."
+      echo "Inspection list used: output_files/*.rpt, output_files/*.summary, output_files/*.map.*, *.rpt, *.summary, db/*.rpt, db/*.txt"
+    } >> "$CONNECTIVITY_WARNINGS_PATH"
+  fi
+
+  if [[ -f "$LOG_PATH" ]]; then
+    mapfile -t log_matches < <(grep -nE "Warning \\(12241\\)|Warning \\(10259\\)|Warning \\(10030\\)|Warning \\(10858\\)|Connectivity Checks|connectivity|Connectivity|no driver|never assigned|default initial value|constant value overflow" "$LOG_PATH" || true)
+    if [[ ${#log_matches[@]} -gt 0 ]]; then
+      {
+        echo
+        echo "## Quartus log evidence"
+        echo '```text'
+        printf '%s\n' "${log_matches[@]}"
+        echo '```'
+      } >> "$CONNECTIVITY_WARNINGS_PATH"
+    fi
+  fi
+
+
+
+  append_status "Captured connectivity evidence into: $CONNECTIVITY_WARNINGS_PATH"
 }
 
 write_header() {
@@ -149,7 +218,7 @@ append_status "Upstream qsf: $UPSTREAM_QSF"
 append_status "Work dir: $WORK_FPGA_DIR"
 
 if [[ -f "$UPSTREAM_QPF" ]]; then
-  append_status "PROJECT_REVISION found: $(grep -Eo 'PROJECT_REVISION\s*=\s*"[^"]+"' "$UPSTREAM_QPF" || true)"
+  append_status "PROJECT_REVISION found: $(grep -Eo 'PROJECT_REVISION\\s*=\\s*\"[^\"]+\"' "$UPSTREAM_QPF" || true)"
 else
   append_status "WARNING: upstream qpf missing: $UPSTREAM_QPF"
 fi
@@ -165,6 +234,9 @@ fi
 append_status
 append_status "Discovery:"
 selected_quartus_map="$(collect_quartus_map_candidates || true)"
+ANALYSIS_EXIT="n/a"
+ANALYSIS_RAN="no"
+
 if [[ -n "$selected_quartus_map" && -x "$selected_quartus_map" ]]; then
   append_status "Selected quartus_map: $selected_quartus_map"
   : > "$LOG_PATH"
@@ -177,23 +249,38 @@ if [[ -n "$selected_quartus_map" && -x "$selected_quartus_map" ]]; then
   if (cd "$WORK_FPGA_DIR" && "${command_line[@]}" > "$LOG_PATH" 2>&1); then
     append_status "BLOCKER: none"
     append_status "Analysis exit: 0"
+    ANALYSIS_EXIT="0"
   else
-    analysis_exit=$?
-    append_status "Analysis exit: $analysis_exit"
+    ANALYSIS_EXIT=$?
+    append_status "Analysis exit: $ANALYSIS_EXIT"
   fi
+
+  ANALYSIS_RAN="yes"
+  append_status "Analysis ran: yes"
   capture_connectivity_reports
   append_status "Log file: $LOG_PATH"
   cleanup_generated_outputs
 else
-  append_status "BLOCKED: quartus_map not found"
+  append_status "BLOCKER: quartus_map not found"
   append_status "No quartus_map available from PATH or known install locations."
   : > "$LOG_PATH"
   append_status "No work directory was created because Quartus was unavailable."
+  ANALYSIS_RAN="no"
+  echo "No detailed connectivity report found before cleanup." > "$CONNECTIVITY_WARNINGS_PATH"
+  append_status "Connectivity evidence skipped because Quartus did not run."
+  echo "No connectivity capture reason: Quartus analysis not executed in this run." >> "$CONNECTIVITY_WARNINGS_PATH"
+  echo "No connectivity capture reason: Work dir did not exist because analysis was blocked." >> "$CONNECTIVITY_WARNINGS_PATH"
 fi
 
 append_status
 append_status "Safety confirmation: no quartus_fit/asm/sta/cpf invocation."
 append_status "No synthesis/fitter/assembler/timing/bitstream generation was requested."
 append_status "No APF packaging was requested."
+
+if [[ "$ANALYSIS_RAN" == "yes" ]]; then
+  append_status "Analysis status: complete (pre-fit/elab only)"
+else
+  append_status "Analysis status: blocked (tool missing)"
+fi
 
 exit 0

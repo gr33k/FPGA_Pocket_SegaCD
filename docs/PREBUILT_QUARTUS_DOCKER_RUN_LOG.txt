@@ -1,4 +1,44 @@
 # Prebuilt Quartus Docker run log
-Generated: 2026-07-08 02:19:03 UTC
-Host cwd: /Users/phassold/Projects/FPGA_Pocket_SegaCD
+Generated: 2026-07-08 04:12:42 UTC
+Host cwd: /Data/dockerprojects/FPGA_Pocket_SegaCD
 ===== wrapper start =====
+stdin: is not a tty
+command -v quartus_map => /opt/intelFPGA_lite/quartus/bin/quartus_map
+
+Quartus Prime Analysis & Synthesis
+Version 19.1.0 Build 670 09/22/2019 SJ Lite Edition
+Copyright (C) 2019  Intel Corporation. All rights reserved.
+pwd in container: /work
+
+-rwxr-xr-x. 1 root root 9.4K Jul  8 04:12 tools/run_openfpga_genesis_analysis_only.sh
+runner invocation: ./tools/run_openfpga_genesis_analysis_only.sh
+checker invocation: ./tools/check_openfpga_genesis_analysis_runner.sh
+PASS: Runner executable: /work/tools/run_openfpga_genesis_analysis_only.sh
+PASS: Runner contains --analysis_and_elaboration
+PASS: Runner uses build/openfpga_genesis_analysis_work
+PASS: Runner references upstream project path third_party/openFPGA-Genesis/src/fpga
+PASS: Runner has connectivity capture helpers
+PASS: Runner inspects output_files/db-style report paths
+PASS: Runner references cleanup directory output_files
+PASS: Runner avoids deleting UPSTREAM_DIR
+PASS: Runner does not cd into UPSTREAM_DIR
+./tools/check_openfpga_genesis_analysis_runner.sh: line 89: rg: command not found
+./tools/check_openfpga_genesis_analysis_runner.sh: line 89: rg: command not found
+PASS: Runner does not reference forbidden tool token as command: quartus_fit
+./tools/check_openfpga_genesis_analysis_runner.sh: line 89: rg: command not found
+./tools/check_openfpga_genesis_analysis_runner.sh: line 89: rg: command not found
+PASS: Runner does not reference forbidden tool token as command: quartus_asm
+./tools/check_openfpga_genesis_analysis_runner.sh: line 89: rg: command not found
+./tools/check_openfpga_genesis_analysis_runner.sh: line 89: rg: command not found
+PASS: Runner does not reference forbidden tool token as command: quartus_sta
+./tools/check_openfpga_genesis_analysis_runner.sh: line 89: rg: command not found
+./tools/check_openfpga_genesis_analysis_runner.sh: line 89: rg: command not found
+PASS: Runner does not reference forbidden tool token as command: quartus_cpf
+PASS: Status file exists: /work/docs/OPENFPGA_GENESIS_ANALYSIS_ONLY_STATUS.md
+PASS: Connectivity warning evidence file exists: /work/docs/OPENFPGA_GENESIS_CONNECTIVITY_WARNINGS.txt
+./tools/check_openfpga_genesis_analysis_runner.sh: line 104: rg: command not found
+PASS: Connectivity capture includes detailed report content.
+./tools/check_openfpga_genesis_analysis_runner.sh: line 109: rg: command not found
+WARN: Connectivity evidence has minimal structure.
+PASS: Check complete: /work/docs/OPENFPGA_GENESIS_ANALYSIS_RUNNER_CHECK.md
+checker completed.

@@ -1,15 +1,15 @@
 # openFPGA Genesis warning source review
 
-Generated: 2026-07-08 02:19:54 UTC
-Source warning summary: /Users/phassold/Projects/FPGA_Pocket_SegaCD/docs/OPENFPGA_GENESIS_ANALYSIS_WARNING_SUMMARY.md
-Source analysis log: /Users/phassold/Projects/FPGA_Pocket_SegaCD/docs/OPENFPGA_GENESIS_ANALYSIS_ONLY_LOG.txt
-Source tree reviewed: /Users/phassold/Projects/FPGA_Pocket_SegaCD/third_party/openFPGA-Genesis/src/fpga
+Generated: 2026-07-08 04:13:59 UTC
+Source warning summary: /Data/dockerprojects/FPGA_Pocket_SegaCD/docs/OPENFPGA_GENESIS_ANALYSIS_WARNING_SUMMARY.md
+Source analysis log: /Data/dockerprojects/FPGA_Pocket_SegaCD/docs/OPENFPGA_GENESIS_ANALYSIS_ONLY_LOG.txt
+Source tree reviewed: /Data/dockerprojects/FPGA_Pocket_SegaCD/third_party/openFPGA-Genesis/src/fpga
 
 ## Warning code 10030
 - Total reviewed examples: 3
 - Example 1
   - message: Net "rom_data2" at core_top.sv(870) has no driver or initial value, using a default initial value '0'
-  - source: `/Users/phassold/Projects/FPGA_Pocket_SegaCD/third_party/openFPGA-Genesis/src/fpga/core/core_top.sv`
+  - source: `/Data/dockerprojects/FPGA_Pocket_SegaCD/third_party/openFPGA-Genesis/src/fpga/core/core_top.sv`
   - line: 870
   - excerpt:
     ```verilog
@@ -36,7 +36,7 @@ Source tree reviewed: /Users/phassold/Projects/FPGA_Pocket_SegaCD/third_party/op
   - likely safe for first fitter smoke gate: yes
 - Example 2
   - message: Net "rom_rdack2" at core_top.sv(872) has no driver or initial value, using a default initial value '0'
-  - source: `/Users/phassold/Projects/FPGA_Pocket_SegaCD/third_party/openFPGA-Genesis/src/fpga/core/core_top.sv`
+  - source: `/Data/dockerprojects/FPGA_Pocket_SegaCD/third_party/openFPGA-Genesis/src/fpga/core/core_top.sv`
   - line: 872
   - excerpt:
     ```verilog
@@ -63,7 +63,7 @@ Source tree reviewed: /Users/phassold/Projects/FPGA_Pocket_SegaCD/third_party/op
   - likely safe for first fitter smoke gate: yes
 - Example 3
   - message: Net "host_4C" at core_bridge_cmd.v(116) has no driver or initial value, using a default initial value '0'
-  - source: `/Users/phassold/Projects/FPGA_Pocket_SegaCD/third_party/openFPGA-Genesis/src/fpga/core/core_bridge_cmd.v`
+  - source: `/Data/dockerprojects/FPGA_Pocket_SegaCD/third_party/openFPGA-Genesis/src/fpga/core/core_bridge_cmd.v`
   - line: 116
   - excerpt:
     ```verilog
@@ -96,7 +96,7 @@ Source tree reviewed: /Users/phassold/Projects/FPGA_Pocket_SegaCD/third_party/op
 - Total reviewed examples: 3
 - Example 1
   - message: Verilog HDL or VHDL warning at core_top.sv(454): object "cs_m30_map_enable" assigned a value but never read
-  - source: `/Users/phassold/Projects/FPGA_Pocket_SegaCD/third_party/openFPGA-Genesis/src/fpga/core/core_top.sv`
+  - source: `/Data/dockerprojects/FPGA_Pocket_SegaCD/third_party/openFPGA-Genesis/src/fpga/core/core_top.sv`
   - line: 454
   - excerpt:
     ```verilog
@@ -123,7 +123,7 @@ Source tree reviewed: /Users/phassold/Projects/FPGA_Pocket_SegaCD/third_party/op
   - likely safe for first fitter smoke gate: needs more evidence
 - Example 2
   - message: Verilog HDL or VHDL warning at core_bridge_cmd.v(109): object "host_24" assigned a value but never read
-  - source: `/Users/phassold/Projects/FPGA_Pocket_SegaCD/third_party/openFPGA-Genesis/src/fpga/core/core_bridge_cmd.v`
+  - source: `/Data/dockerprojects/FPGA_Pocket_SegaCD/third_party/openFPGA-Genesis/src/fpga/core/core_bridge_cmd.v`
   - line: 109
   - excerpt:
     ```verilog
@@ -150,7 +150,7 @@ Source tree reviewed: /Users/phassold/Projects/FPGA_Pocket_SegaCD/third_party/op
   - likely safe for first fitter smoke gate: yes
 - Example 3
   - message: Verilog HDL or VHDL warning at core_bridge_cmd.v(110): object "host_28" assigned a value but never read
-  - source: `/Users/phassold/Projects/FPGA_Pocket_SegaCD/third_party/openFPGA-Genesis/src/fpga/core/core_bridge_cmd.v`
+  - source: `/Data/dockerprojects/FPGA_Pocket_SegaCD/third_party/openFPGA-Genesis/src/fpga/core/core_bridge_cmd.v`
   - line: 110
   - excerpt:
     ```verilog
@@ -183,7 +183,7 @@ Source tree reviewed: /Users/phassold/Projects/FPGA_Pocket_SegaCD/third_party/op
 - Total reviewed examples: 3
 - Example 1
   - message: Verilog HDL assignment warning at core_top.sv(460): truncated value with size 32 to match size of target (12)
-  - source: `/Users/phassold/Projects/FPGA_Pocket_SegaCD/third_party/openFPGA-Genesis/src/fpga/core/core_top.sv`
+  - source: `/Data/dockerprojects/FPGA_Pocket_SegaCD/third_party/openFPGA-Genesis/src/fpga/core/core_top.sv`
   - line: 460
   - excerpt:
     ```verilog
@@ -210,7 +210,7 @@ Source tree reviewed: /Users/phassold/Projects/FPGA_Pocket_SegaCD/third_party/op
   - likely safe for first fitter smoke gate: needs more evidence
 - Example 2
   - message: Verilog HDL assignment warning at core_top.sv(462): truncated value with size 32 to match size of target (16)
-  - source: `/Users/phassold/Projects/FPGA_Pocket_SegaCD/third_party/openFPGA-Genesis/src/fpga/core/core_top.sv`
+  - source: `/Data/dockerprojects/FPGA_Pocket_SegaCD/third_party/openFPGA-Genesis/src/fpga/core/core_top.sv`
   - line: 462
   - excerpt:
     ```verilog
@@ -237,7 +237,7 @@ Source tree reviewed: /Users/phassold/Projects/FPGA_Pocket_SegaCD/third_party/op
   - likely safe for first fitter smoke gate: needs more evidence
 - Example 3
   - message: Verilog HDL assignment warning at core_top.sv(525): truncated value with size 32 to match size of target (10)
-  - source: `/Users/phassold/Projects/FPGA_Pocket_SegaCD/third_party/openFPGA-Genesis/src/fpga/core/core_top.sv`
+  - source: `/Data/dockerprojects/FPGA_Pocket_SegaCD/third_party/openFPGA-Genesis/src/fpga/core/core_top.sv`
   - line: 525
   - excerpt:
     ```verilog
@@ -270,7 +270,7 @@ Source tree reviewed: /Users/phassold/Projects/FPGA_Pocket_SegaCD/third_party/op
 - Total reviewed examples: 1
 - Example 1
   - message: Verilog HDL error at sdram.sv(82): constant value overflow
-  - source: `/Users/phassold/Projects/FPGA_Pocket_SegaCD/third_party/openFPGA-Genesis/src/fpga/core/rtl/sdram.sv`
+  - source: `/Data/dockerprojects/FPGA_Pocket_SegaCD/third_party/openFPGA-Genesis/src/fpga/core/rtl/sdram.sv`
   - line: 82
   - excerpt:
     ```verilog
@@ -303,7 +303,7 @@ Source tree reviewed: /Users/phassold/Projects/FPGA_Pocket_SegaCD/third_party/op
 - Total reviewed examples: 3
 - Example 1
   - message: Verilog HDL Case Statement warning at core_top.sv(303): can't check case statement for completeness because the case expression has too many possible states
-  - source: `/Users/phassold/Projects/FPGA_Pocket_SegaCD/third_party/openFPGA-Genesis/src/fpga/core/core_top.sv`
+  - source: `/Data/dockerprojects/FPGA_Pocket_SegaCD/third_party/openFPGA-Genesis/src/fpga/core/core_top.sv`
   - line: 303
   - excerpt:
     ```verilog
@@ -330,7 +330,7 @@ Source tree reviewed: /Users/phassold/Projects/FPGA_Pocket_SegaCD/third_party/op
   - likely safe for first fitter smoke gate: needs more evidence
 - Example 2
   - message: Verilog HDL Case Statement warning at core_top.sv(466): can't check case statement for completeness because the case expression has too many possible states
-  - source: `/Users/phassold/Projects/FPGA_Pocket_SegaCD/third_party/openFPGA-Genesis/src/fpga/core/core_top.sv`
+  - source: `/Data/dockerprojects/FPGA_Pocket_SegaCD/third_party/openFPGA-Genesis/src/fpga/core/core_top.sv`
   - line: 466
   - excerpt:
     ```verilog
@@ -357,7 +357,7 @@ Source tree reviewed: /Users/phassold/Projects/FPGA_Pocket_SegaCD/third_party/op
   - likely safe for first fitter smoke gate: needs more evidence
 - Example 3
   - message: Verilog HDL Case Statement warning at core_bridge_cmd.v(185): can't check case statement for completeness because the case expression has too many possible states
-  - source: `/Users/phassold/Projects/FPGA_Pocket_SegaCD/third_party/openFPGA-Genesis/src/fpga/core/core_bridge_cmd.v`
+  - source: `/Data/dockerprojects/FPGA_Pocket_SegaCD/third_party/openFPGA-Genesis/src/fpga/core/core_bridge_cmd.v`
   - line: 185
   - excerpt:
     ```verilog
@@ -390,7 +390,7 @@ Source tree reviewed: /Users/phassold/Projects/FPGA_Pocket_SegaCD/third_party/op
 - Total reviewed examples: 3
 - Example 1
   - message: Verilog HDL warning at core_bridge_cmd.v(116): object host_4C used but never assigned
-  - source: `/Users/phassold/Projects/FPGA_Pocket_SegaCD/third_party/openFPGA-Genesis/src/fpga/core/core_bridge_cmd.v`
+  - source: `/Data/dockerprojects/FPGA_Pocket_SegaCD/third_party/openFPGA-Genesis/src/fpga/core/core_bridge_cmd.v`
   - line: 116
   - excerpt:
     ```verilog
@@ -417,7 +417,7 @@ Source tree reviewed: /Users/phassold/Projects/FPGA_Pocket_SegaCD/third_party/op
   - likely safe for first fitter smoke gate: yes
 - Example 2
   - message: Verilog HDL warning at core_bridge_cmd.v(137): object target_20 used but never assigned
-  - source: `/Users/phassold/Projects/FPGA_Pocket_SegaCD/third_party/openFPGA-Genesis/src/fpga/core/core_bridge_cmd.v`
+  - source: `/Data/dockerprojects/FPGA_Pocket_SegaCD/third_party/openFPGA-Genesis/src/fpga/core/core_bridge_cmd.v`
   - line: 137
   - excerpt:
     ```verilog
@@ -444,7 +444,7 @@ Source tree reviewed: /Users/phassold/Projects/FPGA_Pocket_SegaCD/third_party/op
   - likely safe for first fitter smoke gate: yes
 - Example 3
   - message: Verilog HDL warning at core_bridge_cmd.v(138): object target_24 used but never assigned
-  - source: `/Users/phassold/Projects/FPGA_Pocket_SegaCD/third_party/openFPGA-Genesis/src/fpga/core/core_bridge_cmd.v`
+  - source: `/Data/dockerprojects/FPGA_Pocket_SegaCD/third_party/openFPGA-Genesis/src/fpga/core/core_bridge_cmd.v`
   - line: 138
   - excerpt:
     ```verilog
@@ -482,7 +482,7 @@ Source tree reviewed: /Users/phassold/Projects/FPGA_Pocket_SegaCD/third_party/op
 - Total reviewed examples: 1
 - Example 1
   - message: Addresses ranging from 0 to 223 are not initialized
-  - source: `/Users/phassold/Projects/FPGA_Pocket_SegaCD/third_party/openFPGA-Genesis/src/fpga/apf/build_id.mif`
+  - source: `/Data/dockerprojects/FPGA_Pocket_SegaCD/third_party/openFPGA-Genesis/src/fpga/apf/build_id.mif`
   - line: 1
   - excerpt:
     ```verilog
@@ -507,7 +507,7 @@ Source tree reviewed: /Users/phassold/Projects/FPGA_Pocket_SegaCD/third_party/op
 - Total reviewed examples: 1
 - Example 1
   - message: 253 out of 256 addresses are uninitialized. The Quartus Prime software will initialize them to "0". There are 2 warnings found, and 2 warnings are reported.
-  - source: `/Users/phassold/Projects/FPGA_Pocket_SegaCD/third_party/openFPGA-Genesis/src/fpga/apf/build_id.mif`
+  - source: `/Data/dockerprojects/FPGA_Pocket_SegaCD/third_party/openFPGA-Genesis/src/fpga/apf/build_id.mif`
   - line: 1
   - excerpt:
     ```verilog

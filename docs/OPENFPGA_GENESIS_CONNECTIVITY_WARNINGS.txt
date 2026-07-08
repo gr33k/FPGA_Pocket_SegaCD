@@ -1,1 +1,39 @@
-No detailed connectivity report found before cleanup (analysis run unavailable in this environment: docker/quartus not available). Quartus analysis was previously successful with 72 warnings and no errors.
+# Quartus connectivity warning evidence
+Generated: 2026-07-08 04:12:45 UTC
+Work dir: /work/build/openfpga_genesis_analysis_work/src/fpga
+Pattern: Warning \(12241\)|Connectivity|connectivity|no driver|never assigned|default initial value|constant value overflow|Warning \(10259\)|Warning \(10030\)|Warning \(10858\)
+
+Analysis status captured: yes
+Analysis exit code: 0
+
+## Report inventory
+- /work/build/openfpga_genesis_analysis_work/src/fpga/db/ap_core.lpc.txt
+- /work/build/openfpga_genesis_analysis_work/src/fpga/db/ap_core.smart_action.txt
+
+No detailed connectivity detail was captured before cleanup because no report files in the work dir matched warning/file search patterns.
+Reason: rg returned no hits for the connectivity terms before artifact cleanup.
+Inspection list used: output_files/*.rpt, output_files/*.summary, output_files/*.map.*, *.rpt, *.summary, db/*.rpt, db/*.txt
+
+## Quartus log evidence
+```text
+282:Warning (10030): Net "rom_data2" at core_top.sv(870) has no driver or initial value, using a default initial value '0' File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/core_top.sv Line: 870
+283:Warning (10030): Net "rom_rdack2" at core_top.sv(872) has no driver or initial value, using a default initial value '0' File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/core_top.sv Line: 872
+288:Warning (10858): Verilog HDL warning at core_bridge_cmd.v(116): object host_4C used but never assigned File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/core_bridge_cmd.v Line: 116
+289:Warning (10858): Verilog HDL warning at core_bridge_cmd.v(137): object target_20 used but never assigned File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/core_bridge_cmd.v Line: 137
+290:Warning (10858): Verilog HDL warning at core_bridge_cmd.v(138): object target_24 used but never assigned File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/core_bridge_cmd.v Line: 138
+291:Warning (10858): Verilog HDL warning at core_bridge_cmd.v(139): object target_28 used but never assigned File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/core_bridge_cmd.v Line: 139
+292:Warning (10858): Verilog HDL warning at core_bridge_cmd.v(140): object target_2C used but never assigned File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/core_bridge_cmd.v Line: 140
+300:Warning (10030): Net "host_4C" at core_bridge_cmd.v(116) has no driver or initial value, using a default initial value '0' File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/core_bridge_cmd.v Line: 116
+301:Warning (10030): Net "target_20" at core_bridge_cmd.v(137) has no driver or initial value, using a default initial value '0' File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/core_bridge_cmd.v Line: 137
+302:Warning (10030): Net "target_24" at core_bridge_cmd.v(138) has no driver or initial value, using a default initial value '0' File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/core_bridge_cmd.v Line: 138
+303:Warning (10030): Net "target_28" at core_bridge_cmd.v(139) has no driver or initial value, using a default initial value '0' File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/core_bridge_cmd.v Line: 139
+304:Warning (10030): Net "target_2C" at core_bridge_cmd.v(140) has no driver or initial value, using a default initial value '0' File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/core_bridge_cmd.v Line: 140
+515:Warning (10259): Verilog HDL error at sdram.sv(82): constant value overflow File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/sdram.sv Line: 82
+1387:Warning (10030): Net "lfo_sh1_lut.data_a" at jt12_pm.v(38) has no driver or initial value, using a default initial value '0' File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt12/jt12_pm.v Line: 38
+1388:Warning (10030): Net "lfo_sh1_lut.waddr_a" at jt12_pm.v(38) has no driver or initial value, using a default initial value '0' File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt12/jt12_pm.v Line: 38
+1389:Warning (10030): Net "lfo_sh2_lut.data_a" at jt12_pm.v(39) has no driver or initial value, using a default initial value '0' File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt12/jt12_pm.v Line: 39
+1390:Warning (10030): Net "lfo_sh2_lut.waddr_a" at jt12_pm.v(39) has no driver or initial value, using a default initial value '0' File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt12/jt12_pm.v Line: 39
+1391:Warning (10030): Net "lfo_sh1_lut.we_a" at jt12_pm.v(38) has no driver or initial value, using a default initial value '0' File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt12/jt12_pm.v Line: 38
+1392:Warning (10030): Net "lfo_sh2_lut.we_a" at jt12_pm.v(39) has no driver or initial value, using a default initial value '0' File: /work/build/openfpga_genesis_analysis_work/src/fpga/core/rtl/jt12/jt12_pm.v Line: 39
+1534:Warning (12241): 48 hierarchies have connectivity warnings - see the Connectivity Checks report folder
+```
