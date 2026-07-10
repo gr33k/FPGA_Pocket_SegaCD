@@ -8,7 +8,11 @@ ARTIFACTS="$ROOT_DIR/docs/FIRST_GENESIS_BUILD_ARTIFACTS.md"
 PACKAGE="$ROOT_DIR/docs/FIRST_GENESIS_OPENFPGA_PACKAGE_STATUS.md"
 GUIDE="$ROOT_DIR/docs/FIRST_GENESIS_SD_STAGING_GUIDE.md"
 ROM_PLAN="$ROOT_DIR/docs/FIRST_GENESIS_ROM_TEST_PLAN.md"
+IDENTITY_DOC="$ROOT_DIR/docs/FIRST_GENESIS_PACKAGE_IDENTITY.md"
 TIMESTAMP="$(date -u '+%Y-%m-%d %H:%M:%S UTC')"
+CORE_DIR="$ROOT_DIR/build/pocket_sd_genesis_first_boot/Cores/gr33k.Genesis"
+PLATFORM_JSON="$ROOT_DIR/build/pocket_sd_genesis_first_boot/Platforms/gr33k.Genesis.json"
+OLD_CORE_DIR="$ROOT_DIR/build/pocket_sd_genesis_first_boot/Cores/ericlewis.Genesis"
 
 ok() { echo "PASS: $1" >> "$REPORT"; }
 warn() { echo "WARN: $1" >> "$REPORT"; }
@@ -24,6 +28,10 @@ warn() { echo "WARN: $1" >> "$REPORT"; }
 [[ -f "$PACKAGE" ]] && ok "package status doc exists" || warn "package status doc missing"
 [[ -f "$GUIDE" ]] && ok "SD staging guide exists" || warn "SD staging guide missing"
 [[ -f "$ROM_PLAN" ]] && ok "ROM test plan exists" || warn "ROM test plan missing"
+[[ -f "$IDENTITY_DOC" ]] && ok "package identity doc exists" || warn "package identity doc missing"
+[[ -d "$CORE_DIR" ]] && ok "renamed core path staged" || warn "renamed core path missing"
+[[ -f "$PLATFORM_JSON" ]] && ok "renamed platform json staged" || warn "renamed platform json missing"
+[[ ! -e "$OLD_CORE_DIR" ]] && ok "old upstream core path not staged" || warn "old upstream core path still staged"
 
 if git -C "$ROOT_DIR" status --short -- build/genesis_first_boot_artifacts build/pocket_sd_genesis_first_boot | grep -q .; then
   warn "generated build artifacts appear in git status"

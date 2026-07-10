@@ -10,6 +10,10 @@ GUIDE_DOC="$ROOT_DIR/docs/FIRST_GENESIS_SD_STAGING_GUIDE.md"
 ROM_DOC="$ROOT_DIR/docs/FIRST_GENESIS_ROM_TEST_PLAN.md"
 TIMESTAMP="$(date -u '+%Y-%m-%d %H:%M:%S UTC')"
 RESULT=""
+CORE_ID="gr33k.Genesis"
+UPSTREAM_CORE_ID="ericlewis.Genesis"
+PLATFORM_FILE="gr33k.Genesis.json"
+UPSTREAM_PLATFORM_FILE="genesis.json"
 
 pick_artifact() {
   local choice=""
@@ -33,7 +37,7 @@ artifact="$(pick_artifact)"
   echo
 } > "$PACKAGE_DOC"
 
-if [[ ! -d "$UPSTREAM_DIR/dist/Cores/ericlewis.Genesis" || ! -f "$UPSTREAM_DIR/dist/Platforms/genesis.json" ]]; then
+if [[ ! -d "$UPSTREAM_DIR/dist/Cores/$UPSTREAM_CORE_ID" || ! -f "$UPSTREAM_DIR/dist/Platforms/$UPSTREAM_PLATFORM_FILE" ]]; then
   echo "Result: PACKAGE_STAGING_FAILED" >> "$PACKAGE_DOC"
   echo "Missing upstream dist package skeleton under third_party/openFPGA-Genesis/dist" >> "$PACKAGE_DOC"
   exit 0
@@ -47,15 +51,15 @@ fi
 
 rm -rf "$STAGE_ROOT"
 mkdir -p "$STAGE_ROOT/Cores" "$STAGE_ROOT/Platforms"
-cp -R "$UPSTREAM_DIR/dist/Cores/ericlewis.Genesis" "$STAGE_ROOT/Cores/"
-cp -R "$UPSTREAM_DIR/dist/Platforms/." "$STAGE_ROOT/Platforms/"
+cp -R "$UPSTREAM_DIR/dist/Cores/$UPSTREAM_CORE_ID" "$STAGE_ROOT/Cores/$CORE_ID"
+cp -f "$UPSTREAM_DIR/dist/Platforms/$UPSTREAM_PLATFORM_FILE" "$STAGE_ROOT/Platforms/$PLATFORM_FILE"
 
 artifact_name="$(basename "$artifact")"
 if [[ "$artifact_name" == *.rbf_r ]]; then
-  cp -f "$artifact" "$STAGE_ROOT/Cores/ericlewis.Genesis/bitstream.rbf_r"
+  cp -f "$artifact" "$STAGE_ROOT/Cores/$CORE_ID/bitstream.rbf_r"
   RESULT="READY_FOR_POCKET_SD_SMOKE_TEST"
 elif [[ "$artifact_name" == *.rbf ]]; then
-  cp -f "$artifact" "$STAGE_ROOT/Cores/ericlewis.Genesis/bitstream.rbf"
+  cp -f "$artifact" "$STAGE_ROOT/Cores/$CORE_ID/bitstream.rbf"
   RESULT="CONVERSION_REQUIRED"
 else
   RESULT="CONVERSION_REQUIRED"
@@ -66,8 +70,9 @@ fi
   echo "Upstream metadata source: third_party/openFPGA-Genesis/dist"
   echo "Artifact source: ${artifact#$ROOT_DIR/}"
   echo "Stage root: build/pocket_sd_genesis_first_boot"
-  echo "Core path: build/pocket_sd_genesis_first_boot/Cores/ericlewis.Genesis"
-  echo "Platform path: build/pocket_sd_genesis_first_boot/Platforms"
+  echo "Core path: build/pocket_sd_genesis_first_boot/Cores/$CORE_ID"
+  echo "Platform path: build/pocket_sd_genesis_first_boot/Platforms/$PLATFORM_FILE"
+  echo "Upstream attribution source: dist/Cores/$UPSTREAM_CORE_ID and dist/Platforms/$UPSTREAM_PLATFORM_FILE"
   if [[ "$RESULT" == "CONVERSION_REQUIRED" ]]; then
     echo "Package skeleton staged, but final openFPGA-ready artifact format still needs conversion to bitstream.rbf_r."
   fi
@@ -86,10 +91,12 @@ fi
   echo "Copy the contents of build/pocket_sd_genesis_first_boot/ onto the Pocket SD card root so that Cores/ and Platforms/ land in the expected openFPGA layout."
   echo
   echo "## Candidate paths"
-  echo "- build/pocket_sd_genesis_first_boot/Cores/ericlewis.Genesis"
-  echo "- build/pocket_sd_genesis_first_boot/Platforms/genesis.json"
+  echo "- build/pocket_sd_genesis_first_boot/Cores/$CORE_ID"
+  echo "- build/pocket_sd_genesis_first_boot/Platforms/$PLATFORM_FILE"
   echo
   echo "## Notes"
+  echo "- Package identity renamed from $UPSTREAM_CORE_ID to $CORE_ID to avoid upstream-name conflicts."
+  echo "- Upstream attribution is preserved via the reused metadata source and project docs."
   echo "- No ROM is bundled."
   echo "- No Sega CD or 32X assets are staged."
   echo "- This is a first boot candidate only."
