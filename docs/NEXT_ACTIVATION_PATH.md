@@ -1,50 +1,46 @@
-# Next activation path after Task 8A
+# Next activation path after Task 8C-fix
 
 ## Current milestone status
 
-- Task 8A completed successfully.
-- First Genesis-only boot candidate result: `READY_FOR_POCKET_SD_SMOKE_TEST`.
-- Generated artifacts exist in ignored build staging:
-  - `build/genesis_first_boot_artifacts/bitstream.rbf_r`
-  - `build/genesis_first_boot_artifacts/ap_core.rbf`
-  - `build/genesis_first_boot_artifacts/ap_core.sof`
-- Staged openFPGA SD candidate exists at:
-  - `build/pocket_sd_genesis_first_boot/`
-- No ROM is bundled.
-- No Pocket boot claim has been made.
-- No runtime correctness claim has been made.
+- Package identity has been rebranded for this project:
+  - `Cores/gr33k.SegaCD`
+  - platform id: `gr33k_segacd`
+  - `Platforms/gr33k_segacd.json`
+  - displayed author: `Gr33k`
+  - displayed name: `Sega CD`
+- Current implementation is still Genesis only.
+- Hardware state reported so far:
+  - core loads on Pocket
+  - core menu/settings work
+  - Genesis ROM launch currently black screens
+- No runtime correctness claim is made.
 
 ## Immediate next human action
 
-- Copy the contents of `build/pocket_sd_genesis_first_boot/` to the Pocket SD card root.
-- Test one known-good Genesis `.bin` or `.gen` ROM only.
-- First checks:
-  - core appears in Pocket menu
+- Retest the renamed package on Pocket so the console list reflects `Gr33k / Sega CD`.
+- Use one known-good Genesis ROM only.
+- Record the first exact result in this order:
+  - core visible under new name
   - ROM browser opens
-  - ROM loads
-  - video syncs
-  - controls respond
-  - audio is present
-- Record the exact first failure if boot does not succeed.
+  - ROM selected
+  - ROM load begins
+  - video output / black screen
+  - controls
+  - audio
 
-## If hardware boot fails
+## If black screen persists
 
-- Use the staged candidate and Task 8A logs first:
-  - `docs/FIRST_GENESIS_BOOT_CANDIDATE_STATUS.md`
-  - `docs/FIRST_GENESIS_MAP_LOG.txt`
-  - `docs/FIRST_GENESIS_FIT_LOG.txt`
-  - `docs/FIRST_GENESIS_TIMING_SMOKE_LOG.txt`
-  - `docs/FIRST_GENESIS_ASSEMBLER_LOG.txt`
-- Then debug in this order:
-  - packaging/layout issue
-  - ROM-loading behavior
-  - video sync/output behavior
-  - control mapping
-  - audio path
+Use these docs first:
+- `docs/GENESIS_RUNTIME_SMOKE_DEBUG_PLAN.md`
+- `docs/GENESIS_BLACK_SCREEN_DEBUG_CHECKLIST.md`
+- `docs/FIRST_GENESIS_BOOT_CANDIDATE_STATUS.md`
+- `docs/FIRST_GENESIS_OPENFPGA_PACKAGE_STATUS.md`
 
-## Constraints carried forward
-
-- Keep Genesis-only scope until a real hardware boot succeeds.
-- Do not enable Sega CD or 32X yet.
-- Do not bundle ROMs or BIOS files.
-- Do not claim runtime correctness until Pocket hardware proves it.
+Debug in this order:
+- ROM load / preload completion
+- reset release
+- PLL lock
+- CPU execution
+- video / VDP activity
+- audio activity
+- input path

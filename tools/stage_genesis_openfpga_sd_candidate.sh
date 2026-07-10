@@ -10,10 +10,15 @@ GUIDE_DOC="$ROOT_DIR/docs/FIRST_GENESIS_SD_STAGING_GUIDE.md"
 ROM_DOC="$ROOT_DIR/docs/FIRST_GENESIS_ROM_TEST_PLAN.md"
 TIMESTAMP="$(date -u '+%Y-%m-%d %H:%M:%S UTC')"
 RESULT=""
-CORE_ID="gr33k.Genesis"
+CORE_ID="gr33k.SegaCD"
 UPSTREAM_CORE_ID="ericlewis.Genesis"
-PLATFORM_FILE="gr33k.Genesis.json"
+PLATFORM_ID="gr33k_segacd"
+PLATFORM_FILE="gr33k_segacd.json"
 UPSTREAM_PLATFORM_FILE="genesis.json"
+DISPLAY_NAME="Sega CD"
+DISPLAY_AUTHOR="Gr33k"
+DISPLAY_DESCRIPTION="Genesis-based FPGA core with future Sega CD/32X expansion path."
+PROJECT_URL="https://github.com/gr33k/FPGA_Pocket_SegaCD"
 
 pick_artifact() {
   local choice=""
@@ -54,6 +59,29 @@ mkdir -p "$STAGE_ROOT/Cores" "$STAGE_ROOT/Platforms"
 cp -R "$UPSTREAM_DIR/dist/Cores/$UPSTREAM_CORE_ID" "$STAGE_ROOT/Cores/$CORE_ID"
 cp -f "$UPSTREAM_DIR/dist/Platforms/$UPSTREAM_PLATFORM_FILE" "$STAGE_ROOT/Platforms/$PLATFORM_FILE"
 
+CORE_JSON="$STAGE_ROOT/Cores/$CORE_ID/core.json"
+PLATFORM_JSON="$STAGE_ROOT/Platforms/$PLATFORM_FILE"
+python3 - <<PY
+import json
+from pathlib import Path
+core_path = Path(r'''$CORE_JSON''')
+platform_path = Path(r'''$PLATFORM_JSON''')
+core = json.loads(core_path.read_text())
+meta = core['core']['metadata']
+meta['platform_ids'] = ['$PLATFORM_ID']
+meta['shortname'] = '$DISPLAY_NAME'
+meta['description'] = '$DISPLAY_DESCRIPTION'
+meta['author'] = '$DISPLAY_AUTHOR'
+meta['url'] = '$PROJECT_URL'
+core_path.write_text(json.dumps(core, indent=4) + "\n")
+platform = json.loads(platform_path.read_text())
+platform['platform']['name'] = '$DISPLAY_NAME'
+platform['platform']['year'] = 1991
+platform['platform']['category'] = 'Console'
+platform['platform']['manufacturer'] = 'Sega'
+platform_path.write_text(json.dumps(platform, indent=2) + "\n")
+PY
+
 artifact_name="$(basename "$artifact")"
 if [[ "$artifact_name" == *.rbf_r ]]; then
   cp -f "$artifact" "$STAGE_ROOT/Cores/$CORE_ID/bitstream.rbf_r"
@@ -72,6 +100,10 @@ fi
   echo "Stage root: build/pocket_sd_genesis_first_boot"
   echo "Core path: build/pocket_sd_genesis_first_boot/Cores/$CORE_ID"
   echo "Platform path: build/pocket_sd_genesis_first_boot/Platforms/$PLATFORM_FILE"
+  echo "Display author: $DISPLAY_AUTHOR"
+  echo "Display name: $DISPLAY_NAME"
+  echo "Description: $DISPLAY_DESCRIPTION"
+  echo "Project URL: $PROJECT_URL"
   echo "Upstream attribution source: dist/Cores/$UPSTREAM_CORE_ID and dist/Platforms/$UPSTREAM_PLATFORM_FILE"
   if [[ "$RESULT" == "CONVERSION_REQUIRED" ]]; then
     echo "Package skeleton staged, but final openFPGA-ready artifact format still needs conversion to bitstream.rbf_r."
@@ -94,11 +126,17 @@ fi
   echo "- build/pocket_sd_genesis_first_boot/Cores/$CORE_ID"
   echo "- build/pocket_sd_genesis_first_boot/Platforms/$PLATFORM_FILE"
   echo
+  echo "## Display identity"
+  echo "- Author: $DISPLAY_AUTHOR"
+  echo "- Name: $DISPLAY_NAME"
+  echo "- Current implementation: Genesis only"
+  echo "- Future path: Sega CD / 32X investigation later"
+  echo
   echo "## Notes"
   echo "- Package identity renamed from $UPSTREAM_CORE_ID to $CORE_ID to avoid upstream-name conflicts."
   echo "- Upstream attribution is preserved via the reused metadata source and project docs."
   echo "- No ROM is bundled."
-  echo "- No Sega CD or 32X assets are staged."
+  echo "- No Sega CD or 32X assets are staged in this build."
   echo "- This is a first boot candidate only."
 } > "$GUIDE_DOC"
 
@@ -106,14 +144,14 @@ fi
   echo "# First Genesis ROM test plan"
   echo "Generated: $TIMESTAMP"
   echo
-  echo "- Test Genesis only."
-  echo "- Do not test Sega CD."
-  echo "- Do not test 32X."
+  echo "- Current displayed core identity: $DISPLAY_AUTHOR / $DISPLAY_NAME"
+  echo "- Current implementation is Genesis only."
+  echo "- Future Sega CD and 32X work is deferred."
   echo "- Use one small known-good Genesis .bin or .gen ROM."
   echo "- Do not copy the ROM into git or the staged package."
   echo
   echo "## First hardware checks"
-  echo "- Core appears in Pocket menu"
+  echo "- Core appears in Pocket menu with the renamed identity"
   echo "- ROM browser opens"
   echo "- ROM loads"
   echo "- Video syncs"
