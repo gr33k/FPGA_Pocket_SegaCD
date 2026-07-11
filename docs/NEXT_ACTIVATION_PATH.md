@@ -1,9 +1,12 @@
-# Next activation path after Task 9B
+# Next activation path after Task 9C
 
 - stay on branch: `feature/megacd-bringup`
 - do not relaunch the old pre-WordRAM0 fit
-- do not move `WORDRAM1` onto the same Pocket SRAM bus in the next step
-- next safe memory-reduction target: `CDC_RAM` or `PCM_RAM`
-- goal of the next step: reduce `M10K blocks` from `325` to `308` or lower
-- keep the known-good Genesis baseline on `main` untouched
-- only stage `tools/stage_megacd_bios_probe.sh` after a fresh assembler-generated `build/megacd_pocket_artifacts/bitstream.rbf_r` exists
+- WORDRAM0 remains external on Pocket SRAM
+- WORDRAM1 remains internal
+- PCM RAM remains internal
+- CDC RAM is now Pocket-local MLAB-backed
+- current result: `BIOS_PROBE_ARTIFACT_READY`
+- staged Pocket folder: `build/pocket_sd_megacd_bios_probe/`
+- next human action: copy the staged folder to the Pocket SD root, provide one Sega CD BIOS externally, and run the BIOS/no-disc hardware probe
+- do not claim disc service, CUE/CHD support, CDDA, or 32X

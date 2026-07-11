@@ -269,6 +269,15 @@ wire EXT_WORDRAM0_WR;
 wire wordram0_read_seen, wordram0_write_seen;
 wire [15:0] wordram0_last_addr;
 localparam wordram0_external_enabled = 1'b1;
+wire [13:0] EXT_CDC_RAM_A_RD;
+wire [12:0] EXT_CDC_RAM_A_WR;
+wire [7:0] EXT_CDC_RAM_DI;
+wire [15:0] EXT_CDC_RAM_DO;
+wire EXT_CDC_RAM_WE;
+wire cdc_ram_read_seen, cdc_ram_write_seen;
+wire [13:0] cdc_ram_last_read_addr;
+wire [12:0] cdc_ram_last_write_addr;
+localparam cdc_ram_mlab_enabled = 1'b1;
 wire [39:0] scd_cdd_stat, scd_cdd_comm;
 wire scd_cdd_send, scd_cdd_rec, scd_cdd_dm;
 wire [15:0] cdc_d;
@@ -320,6 +329,7 @@ MCD donor_mcd (
     .PRG_A(MCD_PRG_ADDR), .PRG_DI(MCD_PRG_DI), .PRG_DO(MCD_PRG_DO), .PRG_WRL_N(MCD_PRG_WRL_N), .PRG_WRH_N(MCD_PRG_WRH_N), .PRG_OE_N(MCD_PRG_OE_N), .PRG_RDY(~MCD_PRG_BUSY),
     .ROM_DI(GEN_MEM_DO), .ROM_CE_N(GEN_ROM_CE_N), .ROM_RDY(~GEN_MEM_BUSY), .BRAM_A(MCD_BRAM_ADDR), .BRAM_DI(MCD_BRAM_DI), .BRAM_DO(MCD_BRAM_DO), .BRAM_WE(MCD_BRAM_WE),
     .EXT_WORDRAM0_A(EXT_WORDRAM0_A), .EXT_WORDRAM0_DI(EXT_WORDRAM0_DI), .EXT_WORDRAM0_DO(EXT_WORDRAM0_DO), .EXT_WORDRAM0_WR(EXT_WORDRAM0_WR),
+    .EXT_CDC_RAM_A_RD(EXT_CDC_RAM_A_RD), .EXT_CDC_RAM_A_WR(EXT_CDC_RAM_A_WR), .EXT_CDC_RAM_DI(EXT_CDC_RAM_DI), .EXT_CDC_RAM_DO(EXT_CDC_RAM_DO), .EXT_CDC_RAM_WE(EXT_CDC_RAM_WE),
     .CDD_STAT(scd_cdd_stat), .CDD_COMM(scd_cdd_comm), .CDD_SEND(scd_cdd_send), .CDD_REC(scd_cdd_rec), .CDD_DM(scd_cdd_dm), .CDC_DATA(cdc_d), .CDC_DAT_WR(cdc_wr), .CDC_SC_WR(cdc_sub_wr), .CDC_CDDA_WR(cdc_cdda_wr), .CDDA_WR_READY(), .PCM_SL(MCD_PCM_SL), .PCM_SR(MCD_PCM_SR), .CDDA_SL(MCD_CDDA_SL), .CDDA_SR(MCD_CDDA_SR), .LED_RED(), .LED_GREEN(), .GG_RESET(1'b0), .GG_EN(1'b0), .GG_CODE(129'd0), .GG_AVAILABLE(), .DBG_S68K_A()
 );
 
@@ -339,6 +349,20 @@ pocket_wordram0_sram wordram0_sram (
     .sram_we_n(wordram0_sram_we_n),
     .sram_ub_n(wordram0_sram_ub_n),
     .sram_lb_n(wordram0_sram_lb_n)
+);
+
+megacd_cdc_ram_mlab cdc_ram_mlab (
+    .clock(clk_sys),
+    .reset(mcd_reset),
+    .read_addr(EXT_CDC_RAM_A_RD),
+    .read_data(EXT_CDC_RAM_DI),
+    .write_addr(EXT_CDC_RAM_A_WR),
+    .write_data(EXT_CDC_RAM_DO),
+    .write_en(EXT_CDC_RAM_WE),
+    .read_seen(cdc_ram_read_seen),
+    .write_seen(cdc_ram_write_seen),
+    .last_read_addr(cdc_ram_last_read_addr),
+    .last_write_addr(cdc_ram_last_write_addr)
 );
 
 wire [24:1] sdram_addr0 = {6'b100000, MCD_PRG_ADDR};
@@ -429,7 +453,8 @@ always @(posedge current_pix_clk) begin
 end
 
 wire [31:0] debug_status = {
-    22'd0,
+    21'd0,
+    cdc_ram_mlab_enabled,
     cdd_command_seen,
     sub68k_activity_seen,
     gen_activity_seen,
@@ -449,8 +474,10 @@ always @(*) begin
         32'h00E00004: bridge_rd_data = debug_status;
         32'h00E00008: bridge_rd_data = cart_bytes_seen;
         32'h00E0000C: bridge_rd_data = bios_bytes_seen;
-        32'h00E00010: bridge_rd_data = {26'd0, sub68k_activity_seen, MCD_RST_N, wordram0_external_enabled, wordram0_write_seen, wordram0_read_seen, 1'b0};
+        32'h00E00010: bridge_rd_data = {23'd0, cdc_ram_write_seen, cdc_ram_read_seen, cdc_ram_mlab_enabled, sub68k_activity_seen, MCD_RST_N, wordram0_external_enabled, wordram0_write_seen, wordram0_read_seen, 1'b0};
         32'h00E00014: bridge_rd_data = {16'd0, wordram0_last_addr};
+        32'h00E00018: bridge_rd_data = {18'd0, cdc_ram_last_read_addr};
+        32'h00E0001C: bridge_rd_data = {19'd0, cdc_ram_last_write_addr};
         32'hF8xxxxxx: bridge_rd_data = cmd_bridge_rd_data;
         default: bridge_rd_data = 32'd0;
     endcase

@@ -1,0 +1,420 @@
+[0;32mInfo: *******************************************************************
+[0m[0;32mInfo: Running Quartus Prime Timing Analyzer
+[0m[0;32m    Info: Version 19.1.0 Build 670 09/22/2019 SJ Lite Edition
+[0m[0;32m    Info: Copyright (C) 2019  Intel Corporation. All rights reserved.
+[0m[0;32m    Info: Your use of Intel Corporation's design tools, logic functions 
+[0m[0;32m    Info: and other software and tools, and any partner logic 
+[0m[0;32m    Info: functions, and any output files from any of the foregoing 
+[0m[0;32m    Info: (including device programming or simulation files), and any 
+[0m[0;32m    Info: associated documentation or information are expressly subject 
+[0m[0;32m    Info: to the terms and conditions of the Intel Program License 
+[0m[0;32m    Info: Subscription Agreement, the Intel Quartus Prime License Agreement,
+[0m[0;32m    Info: the Intel FPGA IP License Agreement, or other applicable license
+[0m[0;32m    Info: agreement, including, without limitation, that your use is for
+[0m[0;32m    Info: the sole purpose of programming logic devices manufactured by
+[0m[0;32m    Info: Intel and sold by Intel or its authorized distributors.  Please
+[0m[0;32m    Info: refer to the applicable agreement for further details, at
+[0m[0;32m    Info: https://fpgasoftware.intel.com/eula.
+[0m[0;32m    Info: Processing started: Sat Jul 11 07:26:58 2026
+[0m[0;32mInfo: Command: quartus_sta ap_core -c ap_core
+[0m[0;32mInfo: qsta_default_script.tcl version: #1
+[0m[0;32mInfo (293031): Detected changes in Quartus Prime Settings File (.qsf).
+[0m[0;32m    Info (293028): Assignment PLACEMENT_EFFORT_MULTIPLIER changed value from 4.0 to 1.0.
+[0m[0;32mInfo (20032): Parallel compilation is enabled and will use up to 4 processors
+[0m[0;32mInfo (21077): Low junction temperature is 0 degrees C
+[0m[0;32mInfo (21077): High junction temperature is 85 degrees C
+[0m[0;32mInfo (332164): Evaluating HDL-embedded SDC commands
+[0m[0;32m    Info (332165): Entity dcfifo_06o1
+[0m[0;32m        Info (332166): set_false_path -from *delayed_wrptr_g* -to *rs_dgwp|dffpipe_su8:dffpipe7|dffe8a* 
+[0m[0;32m    Info (332165): Entity dcfifo_vqk1
+[0m[0;32m        Info (332166): set_false_path -from *rdptr_g* -to *ws_dgrp|dffpipe_uu8:dffpipe9|dffe10a* 
+[0m[0;32m        Info (332166): set_false_path -from *delayed_wrptr_g* -to *rs_dgwp|dffpipe_tu8:dffpipe6|dffe7a* 
+[0m[0;32m    Info (332165): Entity sld_hub
+[0m[0;32m        Info (332166): create_clock -name altera_reserved_tck [get_ports {altera_reserved_tck}] -period 30MHz   
+[0m[0;32m        Info (332166): if { [string equal quartus_fit $::TimeQuestInfo(nameofexecutable)] } { set_max_delay -to [get_ports { altera_reserved_tdo } ] 0 }
+[0m[0;32m        Info (332166): set_clock_groups -asynchronous -group {altera_reserved_tck}
+[0m[0;32mInfo (332104): Reading SDC File: 'core/rtl/FX68K/fx68k.sdc'
+[0m[0;32mInfo (332104): Reading SDC File: 'apf/apf_constraints.sdc'
+[0m[0;32mInfo (332110): Deriving PLL clocks
+[0m[0;32m    Info (332110): create_generated_clock -source {ic|mp1|mf_pllbase_inst|altera_pll_i|general[0].gpll~FRACTIONAL_PLL|refclkin} -divide_by 11 -multiply_by 175 -duty_cycle 50.00 -name {ic|mp1|mf_pllbase_inst|altera_pll_i|general[0].gpll~FRACTIONAL_PLL|vcoph[0]} {ic|mp1|mf_pllbase_inst|altera_pll_i|general[0].gpll~FRACTIONAL_PLL|vcoph[0]}
+[0m[0;32m    Info (332110): create_generated_clock -source {ic|mp1|mf_pllbase_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|vco0ph[0]} -divide_by 22 -duty_cycle 50.00 -name {ic|mp1|mf_pllbase_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk} {ic|mp1|mf_pllbase_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk}
+[0m[0;32m    Info (332110): create_generated_clock -source {ic|mp1|mf_pllbase_inst|altera_pll_i|general[1].gpll~PLL_OUTPUT_COUNTER|vco0ph[0]} -divide_by 11 -duty_cycle 50.00 -name {ic|mp1|mf_pllbase_inst|altera_pll_i|general[1].gpll~PLL_OUTPUT_COUNTER|divclk} {ic|mp1|mf_pllbase_inst|altera_pll_i|general[1].gpll~PLL_OUTPUT_COUNTER|divclk}
+[0m[0;32m    Info (332110): create_generated_clock -source {ic|mp1|mf_pllbase_inst|altera_pll_i|general[3].gpll~PLL_OUTPUT_COUNTER|vco0ph[0]} -divide_by 176 -phase 90.00 -duty_cycle 50.00 -name {ic|mp1|mf_pllbase_inst|altera_pll_i|general[3].gpll~PLL_OUTPUT_COUNTER|divclk} {ic|mp1|mf_pllbase_inst|altera_pll_i|general[3].gpll~PLL_OUTPUT_COUNTER|divclk}
+[0m[0;32m    Info (332110): create_generated_clock -source {ic|mp1|mf_pllbase_inst|altera_pll_i|general[5].gpll~PLL_OUTPUT_COUNTER|vco0ph[0]} -divide_by 220 -phase 90.00 -duty_cycle 50.00 -name {ic|mp1|mf_pllbase_inst|altera_pll_i|general[5].gpll~PLL_OUTPUT_COUNTER|divclk} {ic|mp1|mf_pllbase_inst|altera_pll_i|general[5].gpll~PLL_OUTPUT_COUNTER|divclk}
+[0m[0;32m    Info (332110): create_generated_clock -source {ic|mp1|mf_pllbase_inst|altera_pll_i|general[2].gpll~PLL_OUTPUT_COUNTER|vco0ph[0]} -divide_by 176 -duty_cycle 50.00 -name {ic|mp1|mf_pllbase_inst|altera_pll_i|general[2].gpll~PLL_OUTPUT_COUNTER|divclk} {ic|mp1|mf_pllbase_inst|altera_pll_i|general[2].gpll~PLL_OUTPUT_COUNTER|divclk}
+[0m[0;32m    Info (332110): create_generated_clock -source {ic|mp1|mf_pllbase_inst|altera_pll_i|general[4].gpll~PLL_OUTPUT_COUNTER|vco0ph[0]} -divide_by 220 -duty_cycle 50.00 -name {ic|mp1|mf_pllbase_inst|altera_pll_i|general[4].gpll~PLL_OUTPUT_COUNTER|divclk} {ic|mp1|mf_pllbase_inst|altera_pll_i|general[4].gpll~PLL_OUTPUT_COUNTER|divclk}
+[0m[0;32mInfo (332104): Reading SDC File: 'core/core_constraints.sdc'
+[0m[0;32mInfo (332151): Clock uncertainty is not calculated until you update the timing netlist.
+[0m[0;36mWarning (332174): Ignored filter at core_constraints.sdc(27): ic|sdram|dout* could not be matched with a clock or keeper or register or port or pin or cell or partition File: /work/build/megacd_pocket_fit_probe/core/core_constraints.sdc Line: 27
+[0m[0;36mWarning (332174): Ignored filter at core_constraints.sdc(27): ic|system|data* could not be matched with a clock or keeper or register or port or pin or cell or partition File: /work/build/megacd_pocket_fit_probe/core/core_constraints.sdc Line: 27
+[0m[0;36mWarning (332049): Ignored set_multicycle_path at core_constraints.sdc(27): Argument <from> is not an object ID File: /work/build/megacd_pocket_fit_probe/core/core_constraints.sdc Line: 27
+[0m[0;32m    Info (332050): set_multicycle_path -from {ic|sdram|dout*} -to {ic|system|data*} -setup 2 File: /work/build/megacd_pocket_fit_probe/core/core_constraints.sdc Line: 27
+[0m[0;36mWarning (332049): Ignored set_multicycle_path at core_constraints.sdc(27): Argument <to> is not an object ID File: /work/build/megacd_pocket_fit_probe/core/core_constraints.sdc Line: 27
+[0m[0;36mWarning (332049): Ignored set_multicycle_path at core_constraints.sdc(28): Argument <from> is not an object ID File: /work/build/megacd_pocket_fit_probe/core/core_constraints.sdc Line: 28
+[0m[0;32m    Info (332050): set_multicycle_path -from {ic|sdram|dout*} -to {ic|system|data*} -hold 1 File: /work/build/megacd_pocket_fit_probe/core/core_constraints.sdc Line: 28
+[0m[0;36mWarning (332049): Ignored set_multicycle_path at core_constraints.sdc(28): Argument <to> is not an object ID File: /work/build/megacd_pocket_fit_probe/core/core_constraints.sdc Line: 28
+[0m[0;32mInfo (332104): Reading SDC File: 'core/core_constraints.sdc'
+[0m[0;32mInfo (332151): Clock uncertainty is not calculated until you update the timing netlist.
+[0m[0;36mWarning (332049): Ignored set_multicycle_path at core_constraints.sdc(27): Argument <from> is not an object ID File: /work/build/megacd_pocket_fit_probe/core/core_constraints.sdc Line: 27
+[0m[0;32m    Info (332050): set_multicycle_path -from {ic|sdram|dout*} -to {ic|system|data*} -setup 2 File: /work/build/megacd_pocket_fit_probe/core/core_constraints.sdc Line: 27
+[0m[0;36mWarning (332049): Ignored set_multicycle_path at core_constraints.sdc(27): Argument <to> is not an object ID File: /work/build/megacd_pocket_fit_probe/core/core_constraints.sdc Line: 27
+[0m[0;36mWarning (332049): Ignored set_multicycle_path at core_constraints.sdc(28): Argument <from> is not an object ID File: /work/build/megacd_pocket_fit_probe/core/core_constraints.sdc Line: 28
+[0m[0;32m    Info (332050): set_multicycle_path -from {ic|sdram|dout*} -to {ic|system|data*} -hold 1 File: /work/build/megacd_pocket_fit_probe/core/core_constraints.sdc Line: 28
+[0m[0;36mWarning (332049): Ignored set_multicycle_path at core_constraints.sdc(28): Argument <to> is not an object ID File: /work/build/megacd_pocket_fit_probe/core/core_constraints.sdc Line: 28
+[0m[0;32mInfo (332097): The following timing edges are non-unate.  The Timing Analyzer will assume pos-unate behavior for these edges in the clock network.
+[0m[0;32m    Info (332098): From: core_top:ic|gen:donor_gen|jt12:fm|jt12_top:u_jt12|jt12_mmr:u_mmr|jt12_reg:u_reg|jt12_csr:u_csr1|jt12_sh_rst:u_regch|altshift_taps:bits_rtl_0|shift_taps_vvv:auto_generated|altsyncram_ric1:altsyncram5|ram_block8a47~FITTER_CREATED_MLAB_CELL0CLKMUX_0  to: core_top:ic|gen:donor_gen|jt12:fm|jt12_top:u_jt12|jt12_mmr:u_mmr|jt12_reg:u_reg|jt12_csr:u_csr1|jt12_sh_rst:u_regch|altshift_taps:bits_rtl_0|shift_taps_vvv:auto_generated|altsyncram_ric1:altsyncram5|ram_block8a47~FITTER_CREATED_MLAB_CELL0MEMORYREGOUT
+[0m[0;32m    Info (332098): From: core_top:ic|gen:donor_gen|jt12:fm|jt12_top:u_jt12|jt12_mmr:u_mmr|jt12_reg:u_reg|jt12_csr:u_csr1|jt12_sh_rst:u_regch|altshift_taps:bits_rtl_0|shift_taps_vvv:auto_generated|altsyncram_ric1:altsyncram5|ram_block8a56~FITTER_CREATED_MLAB_CELL0CLKMUX_0  to: core_top:ic|gen:donor_gen|jt12:fm|jt12_top:u_jt12|jt12_mmr:u_mmr|jt12_reg:u_reg|jt12_csr:u_csr1|jt12_sh_rst:u_regch|altshift_taps:bits_rtl_0|shift_taps_vvv:auto_generated|altsyncram_ric1:altsyncram5|ram_block8a56~FITTER_CREATED_MLAB_CELL0MEMORYREGOUT
+[0m[0;32m    Info (332098): From: core_top:ic|gen:donor_gen|jt12:fm|jt12_top:u_jt12|jt12_mmr:u_mmr|jt12_reg:u_reg|jt12_csr:u_csr1|jt12_sh_rst:u_regch|altshift_taps:bits_rtl_0|shift_taps_vvv:auto_generated|altsyncram_ric1:altsyncram5|ram_block8a61~FITTER_CREATED_MLAB_CELL0CLKMUX_0  to: core_top:ic|gen:donor_gen|jt12:fm|jt12_top:u_jt12|jt12_mmr:u_mmr|jt12_reg:u_reg|jt12_csr:u_csr1|jt12_sh_rst:u_regch|altshift_taps:bits_rtl_0|shift_taps_vvv:auto_generated|altsyncram_ric1:altsyncram5|ram_block8a61~FITTER_CREATED_MLAB_CELL0MEMORYREGOUT
+[0m[0;32m    Info (332098): From: core_top:ic|gen:donor_gen|jt12:fm|jt12_top:u_jt12|jt12_mmr:u_mmr|jt12_reg:u_reg|jt12_csr:u_csr1|jt12_sh_rst:u_regch|altshift_taps:bits_rtl_0|shift_taps_vvv:auto_generated|altsyncram_ric1:altsyncram5|ram_block8a67~FITTER_CREATED_MLAB_CELL0CLKMUX_0  to: core_top:ic|gen:donor_gen|jt12:fm|jt12_top:u_jt12|jt12_mmr:u_mmr|jt12_reg:u_reg|jt12_csr:u_csr1|jt12_sh_rst:u_regch|altshift_taps:bits_rtl_0|shift_taps_vvv:auto_generated|altsyncram_ric1:altsyncram5|ram_block8a67~FITTER_CREATED_MLAB_CELL0MEMORYREGOUT
+[0m[0;32m    Info (332098): From: core_top:ic|gen:donor_gen|jt12:fm|jt12_top:u_jt12|jt12_mmr:u_mmr|jt12_reg:u_reg|jt12_csr:u_csr1|jt12_sh_rst:u_regch|altshift_taps:bits_rtl_1|shift_taps_vsv:auto_generated|altsyncram_rcc1:altsyncram5|ram_block8a0~FITTER_CREATED_MLAB_CELL0CLKMUX_0  to: core_top:ic|gen:donor_gen|jt12:fm|jt12_top:u_jt12|jt12_mmr:u_mmr|jt12_reg:u_reg|jt12_csr:u_csr1|jt12_sh_rst:u_regch|altshift_taps:bits_rtl_1|shift_taps_vsv:auto_generated|altsyncram_rcc1:altsyncram5|ram_block8a0~FITTER_CREATED_MLAB_CELL0MEMORYREGOUT
+[0m[0;32m    Info (332098): From: core_top:ic|gen:donor_gen|jt12:fm|jt12_top:u_jt12|jt12_mmr:u_mmr|jt12_reg:u_reg|jt12_csr:u_csr1|jt12_sh_rst:u_regch|altshift_taps:bits_rtl_1|shift_taps_vsv:auto_generated|altsyncram_rcc1:altsyncram5|ram_block8a1~FITTER_CREATED_MLAB_CELL0CLKMUX_0  to: core_top:ic|gen:donor_gen|jt12:fm|jt12_top:u_jt12|jt12_mmr:u_mmr|jt12_reg:u_reg|jt12_csr:u_csr1|jt12_sh_rst:u_regch|altshift_taps:bits_rtl_1|shift_taps_vsv:auto_generated|altsyncram_rcc1:altsyncram5|ram_block8a1~FITTER_CREATED_MLAB_CELL0MEMORYREGOUT
+[0m[0;32m    Info (332098): From: core_top:ic|gen:donor_gen|jt12:fm|jt12_top:u_jt12|jt12_mmr:u_mmr|jt12_reg:u_reg|jt12_csr:u_csr1|jt12_sh_rst:u_regch|altshift_taps:bits_rtl_1|shift_taps_vsv:auto_generated|altsyncram_rcc1:altsyncram5|ram_block8a2~FITTER_CREATED_MLAB_CELL0CLKMUX_0  to: core_top:ic|gen:donor_gen|jt12:fm|jt12_top:u_jt12|jt12_mmr:u_mmr|jt12_reg:u_reg|jt12_csr:u_csr1|jt12_sh_rst:u_regch|altshift_taps:bits_rtl_1|shift_taps_vsv:auto_generated|altsyncram_rcc1:altsyncram5|ram_block8a2~FITTER_CREATED_MLAB_CELL0MEMORYREGOUT
+[0m[0;32m    Info (332098): From: core_top:ic|gen:donor_gen|jt12:fm|jt12_top:u_jt12|jt12_mmr:u_mmr|jt12_reg:u_reg|jt12_csr:u_csr1|jt12_sh_rst:u_regch|altshift_taps:bits_rtl_1|shift_taps_vsv:auto_generated|altsyncram_rcc1:altsyncram5|ram_block8a3~FITTER_CREATED_MLAB_CELL0CLKMUX_0  to: core_top:ic|gen:donor_gen|jt12:fm|jt12_top:u_jt12|jt12_mmr:u_mmr|jt12_reg:u_reg|jt12_csr:u_csr1|jt12_sh_rst:u_regch|altshift_taps:bits_rtl_1|shift_taps_vsv:auto_generated|altsyncram_rcc1:altsyncram5|ram_block8a3~FITTER_CREATED_MLAB_CELL0MEMORYREGOUT
+[0m[0;32m    Info (332098): From: core_top:ic|gen:donor_gen|jt12:fm|jt12_top:u_jt12|jt12_op:u_op|jt12_sh:phasemod_sh|altshift_taps:bits_rtl_0|shift_taps_bgv:auto_generated|altsyncram_lr91:altsyncram4|ram_block5a11~FITTER_CREATED_MLAB_CELL0CLKMUX_0  to: core_top:ic|gen:donor_gen|jt12:fm|jt12_top:u_jt12|jt12_op:u_op|jt12_sh:phasemod_sh|altshift_taps:bits_rtl_0|shift_taps_bgv:auto_generated|altsyncram_lr91:altsyncram4|ram_block5a11~FITTER_CREATED_MLAB_CELL0MEMORYREGOUT
+[0m[0;32m    Info (332098): From: core_top:ic|gen:donor_gen|jt12:fm|jt12_top:u_jt12|jt12_op:u_op|jt12_sh:phasemod_sh|altshift_taps:bits_rtl_0|shift_taps_bgv:auto_generated|altsyncram_lr91:altsyncram4|ram_block5a13~FITTER_CREATED_MLAB_CELL0CLKMUX_0  to: core_top:ic|gen:donor_gen|jt12:fm|jt12_top:u_jt12|jt12_op:u_op|jt12_sh:phasemod_sh|altshift_taps:bits_rtl_0|shift_taps_bgv:auto_generated|altsyncram_lr91:altsyncram4|ram_block5a13~FITTER_CREATED_MLAB_CELL0MEMORYREGOUT
+[0m[0;32m    Info (332098): From: core_top:ic|gen:donor_gen|jt12:fm|jt12_top:u_jt12|jt12_op:u_op|jt12_sh:phasemod_sh|altshift_taps:bits_rtl_0|shift_taps_bgv:auto_generated|altsyncram_lr91:altsyncram4|ram_block5a14~FITTER_CREATED_MLAB_CELL0CLKMUX_0  to: core_top:ic|gen:donor_gen|jt12:fm|jt12_top:u_jt12|jt12_op:u_op|jt12_sh:phasemod_sh|altshift_taps:bits_rtl_0|shift_taps_bgv:auto_generated|altsyncram_lr91:altsyncram4|ram_block5a14~FITTER_CREATED_MLAB_CELL0MEMORYREGOUT
+[0m[0;32m    Info (332098): From: core_top:ic|gen:donor_gen|jt12:fm|jt12_top:u_jt12|jt12_op:u_op|jt12_sh:phasemod_sh|altshift_taps:bits_rtl_0|shift_taps_bgv:auto_generated|altsyncram_lr91:altsyncram4|ram_block5a18~FITTER_CREATED_MLAB_CELL0CLKMUX_0  to: core_top:ic|gen:donor_gen|jt12:fm|jt12_top:u_jt12|jt12_op:u_op|jt12_sh:phasemod_sh|altshift_taps:bits_rtl_0|shift_taps_bgv:auto_generated|altsyncram_lr91:altsyncram4|ram_block5a18~FITTER_CREATED_MLAB_CELL0MEMORYREGOUT
+[0m[0;32m    Info (332098): From: core_top:ic|gen:donor_gen|jt12:fm|jt12_top:u_jt12|jt12_op:u_op|jt12_sh:phasemod_sh|altshift_taps:bits_rtl_0|shift_taps_bgv:auto_generated|altsyncram_lr91:altsyncram4|ram_block5a25~FITTER_CREATED_MLAB_CELL0CLKMUX_0  to: core_top:ic|gen:donor_gen|jt12:fm|jt12_top:u_jt12|jt12_op:u_op|jt12_sh:phasemod_sh|altshift_taps:bits_rtl_0|shift_taps_bgv:auto_generated|altsyncram_lr91:altsyncram4|ram_block5a25~FITTER_CREATED_MLAB_CELL0MEMORYREGOUT
+[0m[0;32m    Info (332098): From: core_top:ic|gen:donor_gen|jt12:fm|jt12_top:u_jt12|jt12_op:u_op|jt12_sh:phasemod_sh|altshift_taps:bits_rtl_0|shift_taps_bgv:auto_generated|altsyncram_lr91:altsyncram4|ram_block5a27~FITTER_CREATED_MLAB_CELL0CLKMUX_0  to: core_top:ic|gen:donor_gen|jt12:fm|jt12_top:u_jt12|jt12_op:u_op|jt12_sh:phasemod_sh|altshift_taps:bits_rtl_0|shift_taps_bgv:auto_generated|altsyncram_lr91:altsyncram4|ram_block5a27~FITTER_CREATED_MLAB_CELL0MEMORYREGOUT
+[0m[0;32m    Info (332098): From: core_top:ic|gen:donor_gen|jt12:fm|jt12_top:u_jt12|jt12_op:u_op|jt12_sh:phasemod_sh|altshift_taps:bits_rtl_0|shift_taps_bgv:auto_generated|altsyncram_lr91:altsyncram4|ram_block5a28~FITTER_CREATED_MLAB_CELL0CLKMUX_0  to: core_top:ic|gen:donor_gen|jt12:fm|jt12_top:u_jt12|jt12_op:u_op|jt12_sh:phasemod_sh|altshift_taps:bits_rtl_0|shift_taps_bgv:auto_generated|altsyncram_lr91:altsyncram4|ram_block5a28~FITTER_CREATED_MLAB_CELL0MEMORYREGOUT
+[0m[0;32m    Info (332098): From: core_top:ic|gen:donor_gen|jt12:fm|jt12_top:u_jt12|jt12_op:u_op|jt12_sh:phasemod_sh|altshift_taps:bits_rtl_0|shift_taps_bgv:auto_generated|altsyncram_lr91:altsyncram4|ram_block5a32~FITTER_CREATED_MLAB_CELL0CLKMUX_0  to: core_top:ic|gen:donor_gen|jt12:fm|jt12_top:u_jt12|jt12_op:u_op|jt12_sh:phasemod_sh|altshift_taps:bits_rtl_0|shift_taps_bgv:auto_generated|altsyncram_lr91:altsyncram4|ram_block5a32~FITTER_CREATED_MLAB_CELL0MEMORYREGOUT
+[0m[0;32m    Info (332098): From: core_top:ic|gen:donor_gen|jt12:fm|jt12_top:u_jt12|jt12_op:u_op|jt12_sh:phasemod_sh|altshift_taps:bits_rtl_0|shift_taps_bgv:auto_generated|altsyncram_lr91:altsyncram4|ram_block5a39~FITTER_CREATED_MLAB_CELL0CLKMUX_0  to: core_top:ic|gen:donor_gen|jt12:fm|jt12_top:u_jt12|jt12_op:u_op|jt12_sh:phasemod_sh|altshift_taps:bits_rtl_0|shift_taps_bgv:auto_generated|altsyncram_lr91:altsyncram4|ram_block5a39~FITTER_CREATED_MLAB_CELL0MEMORYREGOUT
+[0m[0;32m    Info (332098): From: core_top:ic|gen:donor_gen|jt12:fm|jt12_top:u_jt12|jt12_op:u_op|jt12_sh:phasemod_sh|altshift_taps:bits_rtl_0|shift_taps_bgv:auto_generated|altsyncram_lr91:altsyncram4|ram_block5a41~FITTER_CREATED_MLAB_CELL0CLKMUX_0  to: core_top:ic|gen:donor_gen|jt12:fm|jt12_top:u_jt12|jt12_op:u_op|jt12_sh:phasemod_sh|altshift_taps:bits_rtl_0|shift_taps_bgv:auto_generated|altsyncram_lr91:altsyncram4|ram_block5a41~FITTER_CREATED_MLAB_CELL0MEMORYREGOUT
+[0m[0;32m    Info (332098): From: core_top:ic|gen:donor_gen|jt12:fm|jt12_top:u_jt12|jt12_op:u_op|jt12_sh:phasemod_sh|altshift_taps:bits_rtl_0|shift_taps_bgv:auto_generated|altsyncram_lr91:altsyncram4|ram_block5a42~FITTER_CREATED_MLAB_CELL0CLKMUX_0  to: core_top:ic|gen:donor_gen|jt12:fm|jt12_top:u_jt12|jt12_op:u_op|jt12_sh:phasemod_sh|altshift_taps:bits_rtl_0|shift_taps_bgv:auto_generated|altsyncram_lr91:altsyncram4|ram_block5a42~FITTER_CREATED_MLAB_CELL0MEMORYREGOUT
+[0m[0;32m    Info (332098): From: core_top:ic|gen:donor_gen|jt12:fm|jt12_top:u_jt12|jt12_op:u_op|jt12_sh:phasemod_sh|altshift_taps:bits_rtl_0|shift_taps_bgv:auto_generated|altsyncram_lr91:altsyncram4|ram_block5a46~FITTER_CREATED_MLAB_CELL0CLKMUX_0  to: core_top:ic|gen:donor_gen|jt12:fm|jt12_top:u_jt12|jt12_op:u_op|jt12_sh:phasemod_sh|altshift_taps:bits_rtl_0|shift_taps_bgv:auto_generated|altsyncram_lr91:altsyncram4|ram_block5a46~FITTER_CREATED_MLAB_CELL0MEMORYREGOUT
+[0m[0;32m    Info (332098): Cell: ic|mp1|mf_pllbase_inst|altera_pll_i|general[0].gpll~FRACTIONAL_PLL  from: refclkin  to: fbclk
+[0m[0;32m    Info (332098): Cell: ic|mp1|mf_pllbase_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER  from: vco0ph[0]  to: divclk
+[0m[0;32m    Info (332098): Cell: ic|mp1|mf_pllbase_inst|altera_pll_i|general[0].gpll~PLL_REFCLK_SELECT  from: clkin[0]  to: clkout
+[0m[0;32m    Info (332098): Cell: ic|mp1|mf_pllbase_inst|altera_pll_i|general[1].gpll~PLL_OUTPUT_COUNTER  from: vco0ph[0]  to: divclk
+[0m[0;32m    Info (332098): Cell: ic|mp1|mf_pllbase_inst|altera_pll_i|general[2].gpll~PLL_OUTPUT_COUNTER  from: vco0ph[0]  to: divclk
+[0m[0;32m    Info (332098): Cell: ic|mp1|mf_pllbase_inst|altera_pll_i|general[3].gpll~PLL_OUTPUT_COUNTER  from: vco0ph[0]  to: divclk
+[0m[0;32m    Info (332098): Cell: ic|mp1|mf_pllbase_inst|altera_pll_i|general[4].gpll~PLL_OUTPUT_COUNTER  from: vco0ph[0]  to: divclk
+[0m[0;32m    Info (332098): Cell: ic|mp1|mf_pllbase_inst|altera_pll_i|general[5].gpll~PLL_OUTPUT_COUNTER  from: vco0ph[0]  to: divclk
+[0m[0;32mInfo (332123): Deriving Clock Uncertainty. Please refer to report_sdc in the Timing Analyzer to see clock uncertainties.
+[0m[0;32mInfo: Found TIMING_ANALYZER_REPORT_SCRIPT_INCLUDE_DEFAULT_ANALYSIS = ON
+[0m[0;32mInfo: Analyzing Slow 1100mV 85C Model
+[0m[0;32mInfo (332146): Worst-case setup slack is 0.928
+[0m[0;32m    Info (332119):     Slack       End Point TNS Clock 
+[0m[0;32m    Info (332119): ========= =================== =====================
+[0m[0;32m    Info (332119):     0.928               0.000 ic|mp1|mf_pllbase_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk 
+[0m[0;32m    Info (332119):     1.669               0.000 ic|mp1|mf_pllbase_inst|altera_pll_i|general[1].gpll~PLL_OUTPUT_COUNTER|divclk 
+[0m[0;32m    Info (332119):     2.905               0.000 clk_74a 
+[0m[0;32m    Info (332119):     8.179               0.000 altera_reserved_tck 
+[0m[0;32m    Info (332119):    11.134               0.000 bridge_spiclk 
+[0m[0;32m    Info (332119):   145.804               0.000 ic|mp1|mf_pllbase_inst|altera_pll_i|general[2].gpll~PLL_OUTPUT_COUNTER|divclk 
+[0m[0;32m    Info (332119):   183.053               0.000 ic|mp1|mf_pllbase_inst|altera_pll_i|general[4].gpll~PLL_OUTPUT_COUNTER|divclk 
+[0m[0;32mInfo (332146): Worst-case hold slack is 0.218
+[0m[0;32m    Info (332119):     Slack       End Point TNS Clock 
+[0m[0;32m    Info (332119): ========= =================== =====================
+[0m[0;32m    Info (332119):     0.218               0.000 ic|mp1|mf_pllbase_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk 
+[0m[0;32m    Info (332119):     0.302               0.000 bridge_spiclk 
+[0m[0;32m    Info (332119):     0.352               0.000 clk_74a 
+[0m[0;32m    Info (332119):     0.401               0.000 ic|mp1|mf_pllbase_inst|altera_pll_i|general[2].gpll~PLL_OUTPUT_COUNTER|divclk 
+[0m[0;32m    Info (332119):     0.401               0.000 ic|mp1|mf_pllbase_inst|altera_pll_i|general[4].gpll~PLL_OUTPUT_COUNTER|divclk 
+[0m[0;32m    Info (332119):     0.543               0.000 ic|mp1|mf_pllbase_inst|altera_pll_i|general[1].gpll~PLL_OUTPUT_COUNTER|divclk 
+[0m[0;32m    Info (332119):     0.820               0.000 altera_reserved_tck 
+[0m[0;32mInfo (332146): Worst-case recovery slack is 7.099
+[0m[0;32m    Info (332119):     Slack       End Point TNS Clock 
+[0m[0;32m    Info (332119): ========= =================== =====================
+[0m[0;32m    Info (332119):     7.099               0.000 ic|mp1|mf_pllbase_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk 
+[0m[0;32m    Info (332119):    29.194               0.000 altera_reserved_tck 
+[0m[0;32mInfo (332146): Worst-case removal slack is 0.815
+[0m[0;32m    Info (332119):     Slack       End Point TNS Clock 
+[0m[0;32m    Info (332119): ========= =================== =====================
+[0m[0;32m    Info (332119):     0.815               0.000 ic|mp1|mf_pllbase_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk 
+[0m[0;32m    Info (332119):     1.169               0.000 altera_reserved_tck 
+[0m[0;32mInfo (332146): Worst-case minimum pulse width slack is 0.423
+[0m[0;32m    Info (332119):     Slack       End Point TNS Clock 
+[0m[0;32m    Info (332119): ========= =================== =====================
+[0m[0;32m    Info (332119):     0.423               0.000 ic|mp1|mf_pllbase_inst|altera_pll_i|general[0].gpll~FRACTIONAL_PLL|vcoph[0] 
+[0m[0;32m    Info (332119):     3.634               0.000 ic|mp1|mf_pllbase_inst|altera_pll_i|general[1].gpll~PLL_OUTPUT_COUNTER|divclk 
+[0m[0;32m    Info (332119):     5.398               0.000 clk_74a 
+[0m[0;32m    Info (332119):     5.758               0.000 bridge_spiclk 
+[0m[0;32m    Info (332119):     7.696               0.000 ic|mp1|mf_pllbase_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk 
+[0m[0;32m    Info (332119):    14.872               0.000 altera_reserved_tck 
+[0m[0;32m    Info (332119):    73.483               0.000 ic|mp1|mf_pllbase_inst|altera_pll_i|general[2].gpll~PLL_OUTPUT_COUNTER|divclk 
+[0m[0;32m    Info (332119):    73.631               0.000 ic|mp1|mf_pllbase_inst|altera_pll_i|general[3].gpll~PLL_OUTPUT_COUNTER|divclk 
+[0m[0;32m    Info (332119):    92.123               0.000 ic|mp1|mf_pllbase_inst|altera_pll_i|general[5].gpll~PLL_OUTPUT_COUNTER|divclk 
+[0m[0;32m    Info (332119):    92.179               0.000 ic|mp1|mf_pllbase_inst|altera_pll_i|general[4].gpll~PLL_OUTPUT_COUNTER|divclk 
+[0m[0;32mInfo (332114): Report Metastability: Found 60 synchronizer chains.
+[0m[0;32m    Info (332114): Worst-Case MTBF of Design is 1e+09 years or 3.15e+16 seconds.
+[0m[0;32m    Info (332114): Typical MTBF of Design is 1e+09 years or 3.15e+16 seconds.
+
+[0m[0;32m    Info (332114): Number of Synchronizer Chains Found: 60
+[0m[0;32m    Info (332114): Shortest Synchronizer Chain: 2 Registers
+[0m[0;32m    Info (332114): Fraction of Chains for which MTBFs Could Not be Calculated: 0.800
+[0m[0;32m    Info (332114): Worst Case Available Settling Time: 23.063 ns
+[0m[0;32m    Info (332114): Worst-Case MTBF values are calculated based on the worst-case silicon characteristics, with worst-case operating conditions.
+[0m[0;32m    Info (332114):   - Under worst-case conditions, an increase of 100ps in available settling time will increase MTBF values by a factor of 3.8
+[0m[0;32m    Info (332114): Typical MTBF values are calculated based on the nominal silicon characteristics, at nominal operating conditions.
+[0m[0;32m    Info (332114):   - Under typical conditions, an increase of 100ps in available settling time will increase MTBF values by a factor of 17.8
+[0m[0;32mInfo: Analyzing Slow 1100mV 0C Model
+[0m[0;32mInfo (334003): Started post-fitting delay annotation
+[0m[0;32mInfo (334004): Delay annotation completed successfully
+[0m[0;32mInfo (332097): The following timing edges are non-unate.  The Timing Analyzer will assume pos-unate behavior for these edges in the clock network.
+[0m[0;32m    Info (332098): From: core_top:ic|gen:donor_gen|jt12:fm|jt12_top:u_jt12|jt12_mmr:u_mmr|jt12_reg:u_reg|jt12_csr:u_csr1|jt12_sh_rst:u_regch|altshift_taps:bits_rtl_0|shift_taps_vvv:auto_generated|altsyncram_ric1:altsyncram5|ram_block8a47~FITTER_CREATED_MLAB_CELL0CLKMUX_0  to: core_top:ic|gen:donor_gen|jt12:fm|jt12_top:u_jt12|jt12_mmr:u_mmr|jt12_reg:u_reg|jt12_csr:u_csr1|jt12_sh_rst:u_regch|altshift_taps:bits_rtl_0|shift_taps_vvv:auto_generated|altsyncram_ric1:altsyncram5|ram_block8a47~FITTER_CREATED_MLAB_CELL0MEMORYREGOUT
+[0m[0;32m    Info (332098): From: core_top:ic|gen:donor_gen|jt12:fm|jt12_top:u_jt12|jt12_mmr:u_mmr|jt12_reg:u_reg|jt12_csr:u_csr1|jt12_sh_rst:u_regch|altshift_taps:bits_rtl_0|shift_taps_vvv:auto_generated|altsyncram_ric1:altsyncram5|ram_block8a56~FITTER_CREATED_MLAB_CELL0CLKMUX_0  to: core_top:ic|gen:donor_gen|jt12:fm|jt12_top:u_jt12|jt12_mmr:u_mmr|jt12_reg:u_reg|jt12_csr:u_csr1|jt12_sh_rst:u_regch|altshift_taps:bits_rtl_0|shift_taps_vvv:auto_generated|altsyncram_ric1:altsyncram5|ram_block8a56~FITTER_CREATED_MLAB_CELL0MEMORYREGOUT
+[0m[0;32m    Info (332098): From: core_top:ic|gen:donor_gen|jt12:fm|jt12_top:u_jt12|jt12_mmr:u_mmr|jt12_reg:u_reg|jt12_csr:u_csr1|jt12_sh_rst:u_regch|altshift_taps:bits_rtl_0|shift_taps_vvv:auto_generated|altsyncram_ric1:altsyncram5|ram_block8a61~FITTER_CREATED_MLAB_CELL0CLKMUX_0  to: core_top:ic|gen:donor_gen|jt12:fm|jt12_top:u_jt12|jt12_mmr:u_mmr|jt12_reg:u_reg|jt12_csr:u_csr1|jt12_sh_rst:u_regch|altshift_taps:bits_rtl_0|shift_taps_vvv:auto_generated|altsyncram_ric1:altsyncram5|ram_block8a61~FITTER_CREATED_MLAB_CELL0MEMORYREGOUT
+[0m[0;32m    Info (332098): From: core_top:ic|gen:donor_gen|jt12:fm|jt12_top:u_jt12|jt12_mmr:u_mmr|jt12_reg:u_reg|jt12_csr:u_csr1|jt12_sh_rst:u_regch|altshift_taps:bits_rtl_0|shift_taps_vvv:auto_generated|altsyncram_ric1:altsyncram5|ram_block8a67~FITTER_CREATED_MLAB_CELL0CLKMUX_0  to: core_top:ic|gen:donor_gen|jt12:fm|jt12_top:u_jt12|jt12_mmr:u_mmr|jt12_reg:u_reg|jt12_csr:u_csr1|jt12_sh_rst:u_regch|altshift_taps:bits_rtl_0|shift_taps_vvv:auto_generated|altsyncram_ric1:altsyncram5|ram_block8a67~FITTER_CREATED_MLAB_CELL0MEMORYREGOUT
+[0m[0;32m    Info (332098): From: core_top:ic|gen:donor_gen|jt12:fm|jt12_top:u_jt12|jt12_mmr:u_mmr|jt12_reg:u_reg|jt12_csr:u_csr1|jt12_sh_rst:u_regch|altshift_taps:bits_rtl_1|shift_taps_vsv:auto_generated|altsyncram_rcc1:altsyncram5|ram_block8a0~FITTER_CREATED_MLAB_CELL0CLKMUX_0  to: core_top:ic|gen:donor_gen|jt12:fm|jt12_top:u_jt12|jt12_mmr:u_mmr|jt12_reg:u_reg|jt12_csr:u_csr1|jt12_sh_rst:u_regch|altshift_taps:bits_rtl_1|shift_taps_vsv:auto_generated|altsyncram_rcc1:altsyncram5|ram_block8a0~FITTER_CREATED_MLAB_CELL0MEMORYREGOUT
+[0m[0;32m    Info (332098): From: core_top:ic|gen:donor_gen|jt12:fm|jt12_top:u_jt12|jt12_mmr:u_mmr|jt12_reg:u_reg|jt12_csr:u_csr1|jt12_sh_rst:u_regch|altshift_taps:bits_rtl_1|shift_taps_vsv:auto_generated|altsyncram_rcc1:altsyncram5|ram_block8a1~FITTER_CREATED_MLAB_CELL0CLKMUX_0  to: core_top:ic|gen:donor_gen|jt12:fm|jt12_top:u_jt12|jt12_mmr:u_mmr|jt12_reg:u_reg|jt12_csr:u_csr1|jt12_sh_rst:u_regch|altshift_taps:bits_rtl_1|shift_taps_vsv:auto_generated|altsyncram_rcc1:altsyncram5|ram_block8a1~FITTER_CREATED_MLAB_CELL0MEMORYREGOUT
+[0m[0;32m    Info (332098): From: core_top:ic|gen:donor_gen|jt12:fm|jt12_top:u_jt12|jt12_mmr:u_mmr|jt12_reg:u_reg|jt12_csr:u_csr1|jt12_sh_rst:u_regch|altshift_taps:bits_rtl_1|shift_taps_vsv:auto_generated|altsyncram_rcc1:altsyncram5|ram_block8a2~FITTER_CREATED_MLAB_CELL0CLKMUX_0  to: core_top:ic|gen:donor_gen|jt12:fm|jt12_top:u_jt12|jt12_mmr:u_mmr|jt12_reg:u_reg|jt12_csr:u_csr1|jt12_sh_rst:u_regch|altshift_taps:bits_rtl_1|shift_taps_vsv:auto_generated|altsyncram_rcc1:altsyncram5|ram_block8a2~FITTER_CREATED_MLAB_CELL0MEMORYREGOUT
+[0m[0;32m    Info (332098): From: core_top:ic|gen:donor_gen|jt12:fm|jt12_top:u_jt12|jt12_mmr:u_mmr|jt12_reg:u_reg|jt12_csr:u_csr1|jt12_sh_rst:u_regch|altshift_taps:bits_rtl_1|shift_taps_vsv:auto_generated|altsyncram_rcc1:altsyncram5|ram_block8a3~FITTER_CREATED_MLAB_CELL0CLKMUX_0  to: core_top:ic|gen:donor_gen|jt12:fm|jt12_top:u_jt12|jt12_mmr:u_mmr|jt12_reg:u_reg|jt12_csr:u_csr1|jt12_sh_rst:u_regch|altshift_taps:bits_rtl_1|shift_taps_vsv:auto_generated|altsyncram_rcc1:altsyncram5|ram_block8a3~FITTER_CREATED_MLAB_CELL0MEMORYREGOUT
+[0m[0;32m    Info (332098): From: core_top:ic|gen:donor_gen|jt12:fm|jt12_top:u_jt12|jt12_op:u_op|jt12_sh:phasemod_sh|altshift_taps:bits_rtl_0|shift_taps_bgv:auto_generated|altsyncram_lr91:altsyncram4|ram_block5a11~FITTER_CREATED_MLAB_CELL0CLKMUX_0  to: core_top:ic|gen:donor_gen|jt12:fm|jt12_top:u_jt12|jt12_op:u_op|jt12_sh:phasemod_sh|altshift_taps:bits_rtl_0|shift_taps_bgv:auto_generated|altsyncram_lr91:altsyncram4|ram_block5a11~FITTER_CREATED_MLAB_CELL0MEMORYREGOUT
+[0m[0;32m    Info (332098): From: core_top:ic|gen:donor_gen|jt12:fm|jt12_top:u_jt12|jt12_op:u_op|jt12_sh:phasemod_sh|altshift_taps:bits_rtl_0|shift_taps_bgv:auto_generated|altsyncram_lr91:altsyncram4|ram_block5a13~FITTER_CREATED_MLAB_CELL0CLKMUX_0  to: core_top:ic|gen:donor_gen|jt12:fm|jt12_top:u_jt12|jt12_op:u_op|jt12_sh:phasemod_sh|altshift_taps:bits_rtl_0|shift_taps_bgv:auto_generated|altsyncram_lr91:altsyncram4|ram_block5a13~FITTER_CREATED_MLAB_CELL0MEMORYREGOUT
+[0m[0;32m    Info (332098): From: core_top:ic|gen:donor_gen|jt12:fm|jt12_top:u_jt12|jt12_op:u_op|jt12_sh:phasemod_sh|altshift_taps:bits_rtl_0|shift_taps_bgv:auto_generated|altsyncram_lr91:altsyncram4|ram_block5a14~FITTER_CREATED_MLAB_CELL0CLKMUX_0  to: core_top:ic|gen:donor_gen|jt12:fm|jt12_top:u_jt12|jt12_op:u_op|jt12_sh:phasemod_sh|altshift_taps:bits_rtl_0|shift_taps_bgv:auto_generated|altsyncram_lr91:altsyncram4|ram_block5a14~FITTER_CREATED_MLAB_CELL0MEMORYREGOUT
+[0m[0;32m    Info (332098): From: core_top:ic|gen:donor_gen|jt12:fm|jt12_top:u_jt12|jt12_op:u_op|jt12_sh:phasemod_sh|altshift_taps:bits_rtl_0|shift_taps_bgv:auto_generated|altsyncram_lr91:altsyncram4|ram_block5a18~FITTER_CREATED_MLAB_CELL0CLKMUX_0  to: core_top:ic|gen:donor_gen|jt12:fm|jt12_top:u_jt12|jt12_op:u_op|jt12_sh:phasemod_sh|altshift_taps:bits_rtl_0|shift_taps_bgv:auto_generated|altsyncram_lr91:altsyncram4|ram_block5a18~FITTER_CREATED_MLAB_CELL0MEMORYREGOUT
+[0m[0;32m    Info (332098): From: core_top:ic|gen:donor_gen|jt12:fm|jt12_top:u_jt12|jt12_op:u_op|jt12_sh:phasemod_sh|altshift_taps:bits_rtl_0|shift_taps_bgv:auto_generated|altsyncram_lr91:altsyncram4|ram_block5a25~FITTER_CREATED_MLAB_CELL0CLKMUX_0  to: core_top:ic|gen:donor_gen|jt12:fm|jt12_top:u_jt12|jt12_op:u_op|jt12_sh:phasemod_sh|altshift_taps:bits_rtl_0|shift_taps_bgv:auto_generated|altsyncram_lr91:altsyncram4|ram_block5a25~FITTER_CREATED_MLAB_CELL0MEMORYREGOUT
+[0m[0;32m    Info (332098): From: core_top:ic|gen:donor_gen|jt12:fm|jt12_top:u_jt12|jt12_op:u_op|jt12_sh:phasemod_sh|altshift_taps:bits_rtl_0|shift_taps_bgv:auto_generated|altsyncram_lr91:altsyncram4|ram_block5a27~FITTER_CREATED_MLAB_CELL0CLKMUX_0  to: core_top:ic|gen:donor_gen|jt12:fm|jt12_top:u_jt12|jt12_op:u_op|jt12_sh:phasemod_sh|altshift_taps:bits_rtl_0|shift_taps_bgv:auto_generated|altsyncram_lr91:altsyncram4|ram_block5a27~FITTER_CREATED_MLAB_CELL0MEMORYREGOUT
+[0m[0;32m    Info (332098): From: core_top:ic|gen:donor_gen|jt12:fm|jt12_top:u_jt12|jt12_op:u_op|jt12_sh:phasemod_sh|altshift_taps:bits_rtl_0|shift_taps_bgv:auto_generated|altsyncram_lr91:altsyncram4|ram_block5a28~FITTER_CREATED_MLAB_CELL0CLKMUX_0  to: core_top:ic|gen:donor_gen|jt12:fm|jt12_top:u_jt12|jt12_op:u_op|jt12_sh:phasemod_sh|altshift_taps:bits_rtl_0|shift_taps_bgv:auto_generated|altsyncram_lr91:altsyncram4|ram_block5a28~FITTER_CREATED_MLAB_CELL0MEMORYREGOUT
+[0m[0;32m    Info (332098): From: core_top:ic|gen:donor_gen|jt12:fm|jt12_top:u_jt12|jt12_op:u_op|jt12_sh:phasemod_sh|altshift_taps:bits_rtl_0|shift_taps_bgv:auto_generated|altsyncram_lr91:altsyncram4|ram_block5a32~FITTER_CREATED_MLAB_CELL0CLKMUX_0  to: core_top:ic|gen:donor_gen|jt12:fm|jt12_top:u_jt12|jt12_op:u_op|jt12_sh:phasemod_sh|altshift_taps:bits_rtl_0|shift_taps_bgv:auto_generated|altsyncram_lr91:altsyncram4|ram_block5a32~FITTER_CREATED_MLAB_CELL0MEMORYREGOUT
+[0m[0;32m    Info (332098): From: core_top:ic|gen:donor_gen|jt12:fm|jt12_top:u_jt12|jt12_op:u_op|jt12_sh:phasemod_sh|altshift_taps:bits_rtl_0|shift_taps_bgv:auto_generated|altsyncram_lr91:altsyncram4|ram_block5a39~FITTER_CREATED_MLAB_CELL0CLKMUX_0  to: core_top:ic|gen:donor_gen|jt12:fm|jt12_top:u_jt12|jt12_op:u_op|jt12_sh:phasemod_sh|altshift_taps:bits_rtl_0|shift_taps_bgv:auto_generated|altsyncram_lr91:altsyncram4|ram_block5a39~FITTER_CREATED_MLAB_CELL0MEMORYREGOUT
+[0m[0;32m    Info (332098): From: core_top:ic|gen:donor_gen|jt12:fm|jt12_top:u_jt12|jt12_op:u_op|jt12_sh:phasemod_sh|altshift_taps:bits_rtl_0|shift_taps_bgv:auto_generated|altsyncram_lr91:altsyncram4|ram_block5a41~FITTER_CREATED_MLAB_CELL0CLKMUX_0  to: core_top:ic|gen:donor_gen|jt12:fm|jt12_top:u_jt12|jt12_op:u_op|jt12_sh:phasemod_sh|altshift_taps:bits_rtl_0|shift_taps_bgv:auto_generated|altsyncram_lr91:altsyncram4|ram_block5a41~FITTER_CREATED_MLAB_CELL0MEMORYREGOUT
+[0m[0;32m    Info (332098): From: core_top:ic|gen:donor_gen|jt12:fm|jt12_top:u_jt12|jt12_op:u_op|jt12_sh:phasemod_sh|altshift_taps:bits_rtl_0|shift_taps_bgv:auto_generated|altsyncram_lr91:altsyncram4|ram_block5a42~FITTER_CREATED_MLAB_CELL0CLKMUX_0  to: core_top:ic|gen:donor_gen|jt12:fm|jt12_top:u_jt12|jt12_op:u_op|jt12_sh:phasemod_sh|altshift_taps:bits_rtl_0|shift_taps_bgv:auto_generated|altsyncram_lr91:altsyncram4|ram_block5a42~FITTER_CREATED_MLAB_CELL0MEMORYREGOUT
+[0m[0;32m    Info (332098): From: core_top:ic|gen:donor_gen|jt12:fm|jt12_top:u_jt12|jt12_op:u_op|jt12_sh:phasemod_sh|altshift_taps:bits_rtl_0|shift_taps_bgv:auto_generated|altsyncram_lr91:altsyncram4|ram_block5a46~FITTER_CREATED_MLAB_CELL0CLKMUX_0  to: core_top:ic|gen:donor_gen|jt12:fm|jt12_top:u_jt12|jt12_op:u_op|jt12_sh:phasemod_sh|altshift_taps:bits_rtl_0|shift_taps_bgv:auto_generated|altsyncram_lr91:altsyncram4|ram_block5a46~FITTER_CREATED_MLAB_CELL0MEMORYREGOUT
+[0m[0;32m    Info (332098): Cell: ic|mp1|mf_pllbase_inst|altera_pll_i|general[0].gpll~FRACTIONAL_PLL  from: refclkin  to: fbclk
+[0m[0;32m    Info (332098): Cell: ic|mp1|mf_pllbase_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER  from: vco0ph[0]  to: divclk
+[0m[0;32m    Info (332098): Cell: ic|mp1|mf_pllbase_inst|altera_pll_i|general[0].gpll~PLL_REFCLK_SELECT  from: clkin[0]  to: clkout
+[0m[0;32m    Info (332098): Cell: ic|mp1|mf_pllbase_inst|altera_pll_i|general[1].gpll~PLL_OUTPUT_COUNTER  from: vco0ph[0]  to: divclk
+[0m[0;32m    Info (332098): Cell: ic|mp1|mf_pllbase_inst|altera_pll_i|general[2].gpll~PLL_OUTPUT_COUNTER  from: vco0ph[0]  to: divclk
+[0m[0;32m    Info (332098): Cell: ic|mp1|mf_pllbase_inst|altera_pll_i|general[3].gpll~PLL_OUTPUT_COUNTER  from: vco0ph[0]  to: divclk
+[0m[0;32m    Info (332098): Cell: ic|mp1|mf_pllbase_inst|altera_pll_i|general[4].gpll~PLL_OUTPUT_COUNTER  from: vco0ph[0]  to: divclk
+[0m[0;32m    Info (332098): Cell: ic|mp1|mf_pllbase_inst|altera_pll_i|general[5].gpll~PLL_OUTPUT_COUNTER  from: vco0ph[0]  to: divclk
+[0m[0;32mInfo (332123): Deriving Clock Uncertainty. Please refer to report_sdc in the Timing Analyzer to see clock uncertainties.
+[0m[0;32mInfo (332146): Worst-case setup slack is 0.487
+[0m[0;32m    Info (332119):     Slack       End Point TNS Clock 
+[0m[0;32m    Info (332119): ========= =================== =====================
+[0m[0;32m    Info (332119):     0.487               0.000 ic|mp1|mf_pllbase_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk 
+[0m[0;32m    Info (332119):     1.753               0.000 ic|mp1|mf_pllbase_inst|altera_pll_i|general[1].gpll~PLL_OUTPUT_COUNTER|divclk 
+[0m[0;32m    Info (332119):     3.105               0.000 clk_74a 
+[0m[0;32m    Info (332119):     8.430               0.000 altera_reserved_tck 
+[0m[0;32m    Info (332119):    11.374               0.000 bridge_spiclk 
+[0m[0;32m    Info (332119):   145.762               0.000 ic|mp1|mf_pllbase_inst|altera_pll_i|general[2].gpll~PLL_OUTPUT_COUNTER|divclk 
+[0m[0;32m    Info (332119):   183.011               0.000 ic|mp1|mf_pllbase_inst|altera_pll_i|general[4].gpll~PLL_OUTPUT_COUNTER|divclk 
+[0m[0;32mInfo (332146): Worst-case hold slack is 0.170
+[0m[0;32m    Info (332119):     Slack       End Point TNS Clock 
+[0m[0;32m    Info (332119): ========= =================== =====================
+[0m[0;32m    Info (332119):     0.170               0.000 ic|mp1|mf_pllbase_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk 
+[0m[0;32m    Info (332119):     0.293               0.000 bridge_spiclk 
+[0m[0;32m    Info (332119):     0.332               0.000 ic|mp1|mf_pllbase_inst|altera_pll_i|general[2].gpll~PLL_OUTPUT_COUNTER|divclk 
+[0m[0;32m    Info (332119):     0.332               0.000 ic|mp1|mf_pllbase_inst|altera_pll_i|general[4].gpll~PLL_OUTPUT_COUNTER|divclk 
+[0m[0;32m    Info (332119):     0.345               0.000 clk_74a 
+[0m[0;32m    Info (332119):     0.571               0.000 ic|mp1|mf_pllbase_inst|altera_pll_i|general[1].gpll~PLL_OUTPUT_COUNTER|divclk 
+[0m[0;32m    Info (332119):     0.863               0.000 altera_reserved_tck 
+[0m[0;32mInfo (332146): Worst-case recovery slack is 7.184
+[0m[0;32m    Info (332119):     Slack       End Point TNS Clock 
+[0m[0;32m    Info (332119): ========= =================== =====================
+[0m[0;32m    Info (332119):     7.184               0.000 ic|mp1|mf_pllbase_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk 
+[0m[0;32m    Info (332119):    29.289               0.000 altera_reserved_tck 
+[0m[0;32mInfo (332146): Worst-case removal slack is 0.694
+[0m[0;32m    Info (332119):     Slack       End Point TNS Clock 
+[0m[0;32m    Info (332119): ========= =================== =====================
+[0m[0;32m    Info (332119):     0.694               0.000 ic|mp1|mf_pllbase_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk 
+[0m[0;32m    Info (332119):     1.125               0.000 altera_reserved_tck 
+[0m[0;32mInfo (332146): Worst-case minimum pulse width slack is 0.423
+[0m[0;32m    Info (332119):     Slack       End Point TNS Clock 
+[0m[0;32m    Info (332119): ========= =================== =====================
+[0m[0;32m    Info (332119):     0.423               0.000 ic|mp1|mf_pllbase_inst|altera_pll_i|general[0].gpll~FRACTIONAL_PLL|vcoph[0] 
+[0m[0;32m    Info (332119):     3.549               0.000 ic|mp1|mf_pllbase_inst|altera_pll_i|general[1].gpll~PLL_OUTPUT_COUNTER|divclk 
+[0m[0;32m    Info (332119):     5.305               0.000 clk_74a 
+[0m[0;32m    Info (332119):     5.765               0.000 bridge_spiclk 
+[0m[0;32m    Info (332119):     7.639               0.000 ic|mp1|mf_pllbase_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk 
+[0m[0;32m    Info (332119):    14.808               0.000 altera_reserved_tck 
+[0m[0;32m    Info (332119):    73.477               0.000 ic|mp1|mf_pllbase_inst|altera_pll_i|general[2].gpll~PLL_OUTPUT_COUNTER|divclk 
+[0m[0;32m    Info (332119):    73.620               0.000 ic|mp1|mf_pllbase_inst|altera_pll_i|general[3].gpll~PLL_OUTPUT_COUNTER|divclk 
+[0m[0;32m    Info (332119):    92.142               0.000 ic|mp1|mf_pllbase_inst|altera_pll_i|general[5].gpll~PLL_OUTPUT_COUNTER|divclk 
+[0m[0;32m    Info (332119):    92.186               0.000 ic|mp1|mf_pllbase_inst|altera_pll_i|general[4].gpll~PLL_OUTPUT_COUNTER|divclk 
+[0m[0;32mInfo (332114): Report Metastability: Found 60 synchronizer chains.
+[0m[0;32m    Info (332114): Worst-Case MTBF of Design is 1e+09 years or 3.15e+16 seconds.
+[0m[0;32m    Info (332114): Typical MTBF of Design is 1e+09 years or 3.15e+16 seconds.
+
+[0m[0;32m    Info (332114): Number of Synchronizer Chains Found: 60
+[0m[0;32m    Info (332114): Shortest Synchronizer Chain: 2 Registers
+[0m[0;32m    Info (332114): Fraction of Chains for which MTBFs Could Not be Calculated: 0.800
+[0m[0;32m    Info (332114): Worst Case Available Settling Time: 22.994 ns
+[0m[0;32m    Info (332114): Worst-Case MTBF values are calculated based on the worst-case silicon characteristics, with worst-case operating conditions.
+[0m[0;32m    Info (332114):   - Under worst-case conditions, an increase of 100ps in available settling time will increase MTBF values by a factor of 1.8
+[0m[0;32m    Info (332114): Typical MTBF values are calculated based on the nominal silicon characteristics, at nominal operating conditions.
+[0m[0;32m    Info (332114):   - Under typical conditions, an increase of 100ps in available settling time will increase MTBF values by a factor of 17.8
+[0m[0;32mInfo: Analyzing Fast 1100mV 85C Model
+[0m[0;32mInfo (334003): Started post-fitting delay annotation
+[0m[0;32mInfo (334004): Delay annotation completed successfully
+[0m[0;32mInfo (332097): The following timing edges are non-unate.  The Timing Analyzer will assume pos-unate behavior for these edges in the clock network.
+[0m[0;32m    Info (332098): From: core_top:ic|gen:donor_gen|jt12:fm|jt12_top:u_jt12|jt12_mmr:u_mmr|jt12_reg:u_reg|jt12_csr:u_csr1|jt12_sh_rst:u_regch|altshift_taps:bits_rtl_0|shift_taps_vvv:auto_generated|altsyncram_ric1:altsyncram5|ram_block8a47~FITTER_CREATED_MLAB_CELL0CLKMUX_0  to: core_top:ic|gen:donor_gen|jt12:fm|jt12_top:u_jt12|jt12_mmr:u_mmr|jt12_reg:u_reg|jt12_csr:u_csr1|jt12_sh_rst:u_regch|altshift_taps:bits_rtl_0|shift_taps_vvv:auto_generated|altsyncram_ric1:altsyncram5|ram_block8a47~FITTER_CREATED_MLAB_CELL0MEMORYREGOUT
+[0m[0;32m    Info (332098): From: core_top:ic|gen:donor_gen|jt12:fm|jt12_top:u_jt12|jt12_mmr:u_mmr|jt12_reg:u_reg|jt12_csr:u_csr1|jt12_sh_rst:u_regch|altshift_taps:bits_rtl_0|shift_taps_vvv:auto_generated|altsyncram_ric1:altsyncram5|ram_block8a56~FITTER_CREATED_MLAB_CELL0CLKMUX_0  to: core_top:ic|gen:donor_gen|jt12:fm|jt12_top:u_jt12|jt12_mmr:u_mmr|jt12_reg:u_reg|jt12_csr:u_csr1|jt12_sh_rst:u_regch|altshift_taps:bits_rtl_0|shift_taps_vvv:auto_generated|altsyncram_ric1:altsyncram5|ram_block8a56~FITTER_CREATED_MLAB_CELL0MEMORYREGOUT
+[0m[0;32m    Info (332098): From: core_top:ic|gen:donor_gen|jt12:fm|jt12_top:u_jt12|jt12_mmr:u_mmr|jt12_reg:u_reg|jt12_csr:u_csr1|jt12_sh_rst:u_regch|altshift_taps:bits_rtl_0|shift_taps_vvv:auto_generated|altsyncram_ric1:altsyncram5|ram_block8a61~FITTER_CREATED_MLAB_CELL0CLKMUX_0  to: core_top:ic|gen:donor_gen|jt12:fm|jt12_top:u_jt12|jt12_mmr:u_mmr|jt12_reg:u_reg|jt12_csr:u_csr1|jt12_sh_rst:u_regch|altshift_taps:bits_rtl_0|shift_taps_vvv:auto_generated|altsyncram_ric1:altsyncram5|ram_block8a61~FITTER_CREATED_MLAB_CELL0MEMORYREGOUT
+[0m[0;32m    Info (332098): From: core_top:ic|gen:donor_gen|jt12:fm|jt12_top:u_jt12|jt12_mmr:u_mmr|jt12_reg:u_reg|jt12_csr:u_csr1|jt12_sh_rst:u_regch|altshift_taps:bits_rtl_0|shift_taps_vvv:auto_generated|altsyncram_ric1:altsyncram5|ram_block8a67~FITTER_CREATED_MLAB_CELL0CLKMUX_0  to: core_top:ic|gen:donor_gen|jt12:fm|jt12_top:u_jt12|jt12_mmr:u_mmr|jt12_reg:u_reg|jt12_csr:u_csr1|jt12_sh_rst:u_regch|altshift_taps:bits_rtl_0|shift_taps_vvv:auto_generated|altsyncram_ric1:altsyncram5|ram_block8a67~FITTER_CREATED_MLAB_CELL0MEMORYREGOUT
+[0m[0;32m    Info (332098): From: core_top:ic|gen:donor_gen|jt12:fm|jt12_top:u_jt12|jt12_mmr:u_mmr|jt12_reg:u_reg|jt12_csr:u_csr1|jt12_sh_rst:u_regch|altshift_taps:bits_rtl_1|shift_taps_vsv:auto_generated|altsyncram_rcc1:altsyncram5|ram_block8a0~FITTER_CREATED_MLAB_CELL0CLKMUX_0  to: core_top:ic|gen:donor_gen|jt12:fm|jt12_top:u_jt12|jt12_mmr:u_mmr|jt12_reg:u_reg|jt12_csr:u_csr1|jt12_sh_rst:u_regch|altshift_taps:bits_rtl_1|shift_taps_vsv:auto_generated|altsyncram_rcc1:altsyncram5|ram_block8a0~FITTER_CREATED_MLAB_CELL0MEMORYREGOUT
+[0m[0;32m    Info (332098): From: core_top:ic|gen:donor_gen|jt12:fm|jt12_top:u_jt12|jt12_mmr:u_mmr|jt12_reg:u_reg|jt12_csr:u_csr1|jt12_sh_rst:u_regch|altshift_taps:bits_rtl_1|shift_taps_vsv:auto_generated|altsyncram_rcc1:altsyncram5|ram_block8a1~FITTER_CREATED_MLAB_CELL0CLKMUX_0  to: core_top:ic|gen:donor_gen|jt12:fm|jt12_top:u_jt12|jt12_mmr:u_mmr|jt12_reg:u_reg|jt12_csr:u_csr1|jt12_sh_rst:u_regch|altshift_taps:bits_rtl_1|shift_taps_vsv:auto_generated|altsyncram_rcc1:altsyncram5|ram_block8a1~FITTER_CREATED_MLAB_CELL0MEMORYREGOUT
+[0m[0;32m    Info (332098): From: core_top:ic|gen:donor_gen|jt12:fm|jt12_top:u_jt12|jt12_mmr:u_mmr|jt12_reg:u_reg|jt12_csr:u_csr1|jt12_sh_rst:u_regch|altshift_taps:bits_rtl_1|shift_taps_vsv:auto_generated|altsyncram_rcc1:altsyncram5|ram_block8a2~FITTER_CREATED_MLAB_CELL0CLKMUX_0  to: core_top:ic|gen:donor_gen|jt12:fm|jt12_top:u_jt12|jt12_mmr:u_mmr|jt12_reg:u_reg|jt12_csr:u_csr1|jt12_sh_rst:u_regch|altshift_taps:bits_rtl_1|shift_taps_vsv:auto_generated|altsyncram_rcc1:altsyncram5|ram_block8a2~FITTER_CREATED_MLAB_CELL0MEMORYREGOUT
+[0m[0;32m    Info (332098): From: core_top:ic|gen:donor_gen|jt12:fm|jt12_top:u_jt12|jt12_mmr:u_mmr|jt12_reg:u_reg|jt12_csr:u_csr1|jt12_sh_rst:u_regch|altshift_taps:bits_rtl_1|shift_taps_vsv:auto_generated|altsyncram_rcc1:altsyncram5|ram_block8a3~FITTER_CREATED_MLAB_CELL0CLKMUX_0  to: core_top:ic|gen:donor_gen|jt12:fm|jt12_top:u_jt12|jt12_mmr:u_mmr|jt12_reg:u_reg|jt12_csr:u_csr1|jt12_sh_rst:u_regch|altshift_taps:bits_rtl_1|shift_taps_vsv:auto_generated|altsyncram_rcc1:altsyncram5|ram_block8a3~FITTER_CREATED_MLAB_CELL0MEMORYREGOUT
+[0m[0;32m    Info (332098): From: core_top:ic|gen:donor_gen|jt12:fm|jt12_top:u_jt12|jt12_op:u_op|jt12_sh:phasemod_sh|altshift_taps:bits_rtl_0|shift_taps_bgv:auto_generated|altsyncram_lr91:altsyncram4|ram_block5a11~FITTER_CREATED_MLAB_CELL0CLKMUX_0  to: core_top:ic|gen:donor_gen|jt12:fm|jt12_top:u_jt12|jt12_op:u_op|jt12_sh:phasemod_sh|altshift_taps:bits_rtl_0|shift_taps_bgv:auto_generated|altsyncram_lr91:altsyncram4|ram_block5a11~FITTER_CREATED_MLAB_CELL0MEMORYREGOUT
+[0m[0;32m    Info (332098): From: core_top:ic|gen:donor_gen|jt12:fm|jt12_top:u_jt12|jt12_op:u_op|jt12_sh:phasemod_sh|altshift_taps:bits_rtl_0|shift_taps_bgv:auto_generated|altsyncram_lr91:altsyncram4|ram_block5a13~FITTER_CREATED_MLAB_CELL0CLKMUX_0  to: core_top:ic|gen:donor_gen|jt12:fm|jt12_top:u_jt12|jt12_op:u_op|jt12_sh:phasemod_sh|altshift_taps:bits_rtl_0|shift_taps_bgv:auto_generated|altsyncram_lr91:altsyncram4|ram_block5a13~FITTER_CREATED_MLAB_CELL0MEMORYREGOUT
+[0m[0;32m    Info (332098): From: core_top:ic|gen:donor_gen|jt12:fm|jt12_top:u_jt12|jt12_op:u_op|jt12_sh:phasemod_sh|altshift_taps:bits_rtl_0|shift_taps_bgv:auto_generated|altsyncram_lr91:altsyncram4|ram_block5a14~FITTER_CREATED_MLAB_CELL0CLKMUX_0  to: core_top:ic|gen:donor_gen|jt12:fm|jt12_top:u_jt12|jt12_op:u_op|jt12_sh:phasemod_sh|altshift_taps:bits_rtl_0|shift_taps_bgv:auto_generated|altsyncram_lr91:altsyncram4|ram_block5a14~FITTER_CREATED_MLAB_CELL0MEMORYREGOUT
+[0m[0;32m    Info (332098): From: core_top:ic|gen:donor_gen|jt12:fm|jt12_top:u_jt12|jt12_op:u_op|jt12_sh:phasemod_sh|altshift_taps:bits_rtl_0|shift_taps_bgv:auto_generated|altsyncram_lr91:altsyncram4|ram_block5a18~FITTER_CREATED_MLAB_CELL0CLKMUX_0  to: core_top:ic|gen:donor_gen|jt12:fm|jt12_top:u_jt12|jt12_op:u_op|jt12_sh:phasemod_sh|altshift_taps:bits_rtl_0|shift_taps_bgv:auto_generated|altsyncram_lr91:altsyncram4|ram_block5a18~FITTER_CREATED_MLAB_CELL0MEMORYREGOUT
+[0m[0;32m    Info (332098): From: core_top:ic|gen:donor_gen|jt12:fm|jt12_top:u_jt12|jt12_op:u_op|jt12_sh:phasemod_sh|altshift_taps:bits_rtl_0|shift_taps_bgv:auto_generated|altsyncram_lr91:altsyncram4|ram_block5a25~FITTER_CREATED_MLAB_CELL0CLKMUX_0  to: core_top:ic|gen:donor_gen|jt12:fm|jt12_top:u_jt12|jt12_op:u_op|jt12_sh:phasemod_sh|altshift_taps:bits_rtl_0|shift_taps_bgv:auto_generated|altsyncram_lr91:altsyncram4|ram_block5a25~FITTER_CREATED_MLAB_CELL0MEMORYREGOUT
+[0m[0;32m    Info (332098): From: core_top:ic|gen:donor_gen|jt12:fm|jt12_top:u_jt12|jt12_op:u_op|jt12_sh:phasemod_sh|altshift_taps:bits_rtl_0|shift_taps_bgv:auto_generated|altsyncram_lr91:altsyncram4|ram_block5a27~FITTER_CREATED_MLAB_CELL0CLKMUX_0  to: core_top:ic|gen:donor_gen|jt12:fm|jt12_top:u_jt12|jt12_op:u_op|jt12_sh:phasemod_sh|altshift_taps:bits_rtl_0|shift_taps_bgv:auto_generated|altsyncram_lr91:altsyncram4|ram_block5a27~FITTER_CREATED_MLAB_CELL0MEMORYREGOUT
+[0m[0;32m    Info (332098): From: core_top:ic|gen:donor_gen|jt12:fm|jt12_top:u_jt12|jt12_op:u_op|jt12_sh:phasemod_sh|altshift_taps:bits_rtl_0|shift_taps_bgv:auto_generated|altsyncram_lr91:altsyncram4|ram_block5a28~FITTER_CREATED_MLAB_CELL0CLKMUX_0  to: core_top:ic|gen:donor_gen|jt12:fm|jt12_top:u_jt12|jt12_op:u_op|jt12_sh:phasemod_sh|altshift_taps:bits_rtl_0|shift_taps_bgv:auto_generated|altsyncram_lr91:altsyncram4|ram_block5a28~FITTER_CREATED_MLAB_CELL0MEMORYREGOUT
+[0m[0;32m    Info (332098): From: core_top:ic|gen:donor_gen|jt12:fm|jt12_top:u_jt12|jt12_op:u_op|jt12_sh:phasemod_sh|altshift_taps:bits_rtl_0|shift_taps_bgv:auto_generated|altsyncram_lr91:altsyncram4|ram_block5a32~FITTER_CREATED_MLAB_CELL0CLKMUX_0  to: core_top:ic|gen:donor_gen|jt12:fm|jt12_top:u_jt12|jt12_op:u_op|jt12_sh:phasemod_sh|altshift_taps:bits_rtl_0|shift_taps_bgv:auto_generated|altsyncram_lr91:altsyncram4|ram_block5a32~FITTER_CREATED_MLAB_CELL0MEMORYREGOUT
+[0m[0;32m    Info (332098): From: core_top:ic|gen:donor_gen|jt12:fm|jt12_top:u_jt12|jt12_op:u_op|jt12_sh:phasemod_sh|altshift_taps:bits_rtl_0|shift_taps_bgv:auto_generated|altsyncram_lr91:altsyncram4|ram_block5a39~FITTER_CREATED_MLAB_CELL0CLKMUX_0  to: core_top:ic|gen:donor_gen|jt12:fm|jt12_top:u_jt12|jt12_op:u_op|jt12_sh:phasemod_sh|altshift_taps:bits_rtl_0|shift_taps_bgv:auto_generated|altsyncram_lr91:altsyncram4|ram_block5a39~FITTER_CREATED_MLAB_CELL0MEMORYREGOUT
+[0m[0;32m    Info (332098): From: core_top:ic|gen:donor_gen|jt12:fm|jt12_top:u_jt12|jt12_op:u_op|jt12_sh:phasemod_sh|altshift_taps:bits_rtl_0|shift_taps_bgv:auto_generated|altsyncram_lr91:altsyncram4|ram_block5a41~FITTER_CREATED_MLAB_CELL0CLKMUX_0  to: core_top:ic|gen:donor_gen|jt12:fm|jt12_top:u_jt12|jt12_op:u_op|jt12_sh:phasemod_sh|altshift_taps:bits_rtl_0|shift_taps_bgv:auto_generated|altsyncram_lr91:altsyncram4|ram_block5a41~FITTER_CREATED_MLAB_CELL0MEMORYREGOUT
+[0m[0;32m    Info (332098): From: core_top:ic|gen:donor_gen|jt12:fm|jt12_top:u_jt12|jt12_op:u_op|jt12_sh:phasemod_sh|altshift_taps:bits_rtl_0|shift_taps_bgv:auto_generated|altsyncram_lr91:altsyncram4|ram_block5a42~FITTER_CREATED_MLAB_CELL0CLKMUX_0  to: core_top:ic|gen:donor_gen|jt12:fm|jt12_top:u_jt12|jt12_op:u_op|jt12_sh:phasemod_sh|altshift_taps:bits_rtl_0|shift_taps_bgv:auto_generated|altsyncram_lr91:altsyncram4|ram_block5a42~FITTER_CREATED_MLAB_CELL0MEMORYREGOUT
+[0m[0;32m    Info (332098): From: core_top:ic|gen:donor_gen|jt12:fm|jt12_top:u_jt12|jt12_op:u_op|jt12_sh:phasemod_sh|altshift_taps:bits_rtl_0|shift_taps_bgv:auto_generated|altsyncram_lr91:altsyncram4|ram_block5a46~FITTER_CREATED_MLAB_CELL0CLKMUX_0  to: core_top:ic|gen:donor_gen|jt12:fm|jt12_top:u_jt12|jt12_op:u_op|jt12_sh:phasemod_sh|altshift_taps:bits_rtl_0|shift_taps_bgv:auto_generated|altsyncram_lr91:altsyncram4|ram_block5a46~FITTER_CREATED_MLAB_CELL0MEMORYREGOUT
+[0m[0;32m    Info (332098): Cell: ic|mp1|mf_pllbase_inst|altera_pll_i|general[0].gpll~FRACTIONAL_PLL  from: refclkin  to: fbclk
+[0m[0;32m    Info (332098): Cell: ic|mp1|mf_pllbase_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER  from: vco0ph[0]  to: divclk
+[0m[0;32m    Info (332098): Cell: ic|mp1|mf_pllbase_inst|altera_pll_i|general[0].gpll~PLL_REFCLK_SELECT  from: clkin[0]  to: clkout
+[0m[0;32m    Info (332098): Cell: ic|mp1|mf_pllbase_inst|altera_pll_i|general[1].gpll~PLL_OUTPUT_COUNTER  from: vco0ph[0]  to: divclk
+[0m[0;32m    Info (332098): Cell: ic|mp1|mf_pllbase_inst|altera_pll_i|general[2].gpll~PLL_OUTPUT_COUNTER  from: vco0ph[0]  to: divclk
+[0m[0;32m    Info (332098): Cell: ic|mp1|mf_pllbase_inst|altera_pll_i|general[3].gpll~PLL_OUTPUT_COUNTER  from: vco0ph[0]  to: divclk
+[0m[0;32m    Info (332098): Cell: ic|mp1|mf_pllbase_inst|altera_pll_i|general[4].gpll~PLL_OUTPUT_COUNTER  from: vco0ph[0]  to: divclk
+[0m[0;32m    Info (332098): Cell: ic|mp1|mf_pllbase_inst|altera_pll_i|general[5].gpll~PLL_OUTPUT_COUNTER  from: vco0ph[0]  to: divclk
+[0m[0;32mInfo (332123): Deriving Clock Uncertainty. Please refer to report_sdc in the Timing Analyzer to see clock uncertainties.
+[0m[0;32mInfo (332146): Worst-case setup slack is 5.371
+[0m[0;32m    Info (332119):     Slack       End Point TNS Clock 
+[0m[0;32m    Info (332119): ========= =================== =====================
+[0m[0;32m    Info (332119):     5.371               0.000 ic|mp1|mf_pllbase_inst|altera_pll_i|general[1].gpll~PLL_OUTPUT_COUNTER|divclk 
+[0m[0;32m    Info (332119):     5.419               0.000 ic|mp1|mf_pllbase_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk 
+[0m[0;32m    Info (332119):     5.667               0.000 clk_74a 
+[0m[0;32m    Info (332119):    12.617               0.000 bridge_spiclk 
+[0m[0;32m    Info (332119):    12.950               0.000 altera_reserved_tck 
+[0m[0;32m    Info (332119):   147.450               0.000 ic|mp1|mf_pllbase_inst|altera_pll_i|general[2].gpll~PLL_OUTPUT_COUNTER|divclk 
+[0m[0;32m    Info (332119):   184.699               0.000 ic|mp1|mf_pllbase_inst|altera_pll_i|general[4].gpll~PLL_OUTPUT_COUNTER|divclk 
+[0m[0;32mInfo (332146): Worst-case hold slack is 0.083
+[0m[0;32m    Info (332119):     Slack       End Point TNS Clock 
+[0m[0;32m    Info (332119): ========= =================== =====================
+[0m[0;32m    Info (332119):     0.083               0.000 ic|mp1|mf_pllbase_inst|altera_pll_i|general[2].gpll~PLL_OUTPUT_COUNTER|divclk 
+[0m[0;32m    Info (332119):     0.083               0.000 ic|mp1|mf_pllbase_inst|altera_pll_i|general[4].gpll~PLL_OUTPUT_COUNTER|divclk 
+[0m[0;32m    Info (332119):     0.127               0.000 ic|mp1|mf_pllbase_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk 
+[0m[0;32m    Info (332119):     0.144               0.000 bridge_spiclk 
+[0m[0;32m    Info (332119):     0.161               0.000 clk_74a 
+[0m[0;32m    Info (332119):     0.180               0.000 ic|mp1|mf_pllbase_inst|altera_pll_i|general[1].gpll~PLL_OUTPUT_COUNTER|divclk 
+[0m[0;32m    Info (332119):     0.247               0.000 altera_reserved_tck 
+[0m[0;32mInfo (332146): Worst-case recovery slack is 8.303
+[0m[0;32m    Info (332119):     Slack       End Point TNS Clock 
+[0m[0;32m    Info (332119): ========= =================== =====================
+[0m[0;32m    Info (332119):     8.303               0.000 ic|mp1|mf_pllbase_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk 
+[0m[0;32m    Info (332119):    31.041               0.000 altera_reserved_tck 
+[0m[0;32mInfo (332146): Worst-case removal slack is 0.295
+[0m[0;32m    Info (332119):     Slack       End Point TNS Clock 
+[0m[0;32m    Info (332119): ========= =================== =====================
+[0m[0;32m    Info (332119):     0.295               0.000 ic|mp1|mf_pllbase_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk 
+[0m[0;32m    Info (332119):     0.354               0.000 altera_reserved_tck 
+[0m[0;32mInfo (332146): Worst-case minimum pulse width slack is 0.423
+[0m[0;32m    Info (332119):     Slack       End Point TNS Clock 
+[0m[0;32m    Info (332119): ========= =================== =====================
+[0m[0;32m    Info (332119):     0.423               0.000 ic|mp1|mf_pllbase_inst|altera_pll_i|general[0].gpll~FRACTIONAL_PLL|vcoph[0] 
+[0m[0;32m    Info (332119):     4.199               0.000 ic|mp1|mf_pllbase_inst|altera_pll_i|general[1].gpll~PLL_OUTPUT_COUNTER|divclk 
+[0m[0;32m    Info (332119):     5.206               0.000 clk_74a 
+[0m[0;32m    Info (332119):     6.375               0.000 bridge_spiclk 
+[0m[0;32m    Info (332119):     8.200               0.000 ic|mp1|mf_pllbase_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk 
+[0m[0;32m    Info (332119):    14.926               0.000 altera_reserved_tck 
+[0m[0;32m    Info (332119):    74.028               0.000 ic|mp1|mf_pllbase_inst|altera_pll_i|general[2].gpll~PLL_OUTPUT_COUNTER|divclk 
+[0m[0;32m    Info (332119):    74.063               0.000 ic|mp1|mf_pllbase_inst|altera_pll_i|general[3].gpll~PLL_OUTPUT_COUNTER|divclk 
+[0m[0;32m    Info (332119):    92.601               0.000 ic|mp1|mf_pllbase_inst|altera_pll_i|general[4].gpll~PLL_OUTPUT_COUNTER|divclk 
+[0m[0;32m    Info (332119):    92.688               0.000 ic|mp1|mf_pllbase_inst|altera_pll_i|general[5].gpll~PLL_OUTPUT_COUNTER|divclk 
+[0m[0;32mInfo (332114): Report Metastability: Found 60 synchronizer chains.
+[0m[0;32m    Info (332114): Worst-Case MTBF of Design is 1e+09 years or 3.15e+16 seconds.
+[0m[0;32m    Info (332114): Typical MTBF of Design is 1e+09 years or 3.15e+16 seconds.
+
+[0m[0;32m    Info (332114): Number of Synchronizer Chains Found: 60
+[0m[0;32m    Info (332114): Shortest Synchronizer Chain: 2 Registers
+[0m[0;32m    Info (332114): Fraction of Chains for which MTBFs Could Not be Calculated: 0.800
+[0m[0;32m    Info (332114): Worst Case Available Settling Time: 25.194 ns
+[0m[0;32m    Info (332114): Worst-Case MTBF values are calculated based on the worst-case silicon characteristics, with worst-case operating conditions.
+[0m[0;32m    Info (332114):   - Under worst-case conditions, an increase of 100ps in available settling time will increase MTBF values by a factor of 3.8
+[0m[0;32m    Info (332114): Typical MTBF values are calculated based on the nominal silicon characteristics, at nominal operating conditions.
+[0m[0;32m    Info (332114):   - Under typical conditions, an increase of 100ps in available settling time will increase MTBF values by a factor of 17.8
+[0m[0;32mInfo: Analyzing Fast 1100mV 0C Model
+[0m[0;32mInfo (332097): The following timing edges are non-unate.  The Timing Analyzer will assume pos-unate behavior for these edges in the clock network.
+[0m[0;32m    Info (332098): From: core_top:ic|gen:donor_gen|jt12:fm|jt12_top:u_jt12|jt12_mmr:u_mmr|jt12_reg:u_reg|jt12_csr:u_csr1|jt12_sh_rst:u_regch|altshift_taps:bits_rtl_0|shift_taps_vvv:auto_generated|altsyncram_ric1:altsyncram5|ram_block8a47~FITTER_CREATED_MLAB_CELL0CLKMUX_0  to: core_top:ic|gen:donor_gen|jt12:fm|jt12_top:u_jt12|jt12_mmr:u_mmr|jt12_reg:u_reg|jt12_csr:u_csr1|jt12_sh_rst:u_regch|altshift_taps:bits_rtl_0|shift_taps_vvv:auto_generated|altsyncram_ric1:altsyncram5|ram_block8a47~FITTER_CREATED_MLAB_CELL0MEMORYREGOUT
+[0m[0;32m    Info (332098): From: core_top:ic|gen:donor_gen|jt12:fm|jt12_top:u_jt12|jt12_mmr:u_mmr|jt12_reg:u_reg|jt12_csr:u_csr1|jt12_sh_rst:u_regch|altshift_taps:bits_rtl_0|shift_taps_vvv:auto_generated|altsyncram_ric1:altsyncram5|ram_block8a56~FITTER_CREATED_MLAB_CELL0CLKMUX_0  to: core_top:ic|gen:donor_gen|jt12:fm|jt12_top:u_jt12|jt12_mmr:u_mmr|jt12_reg:u_reg|jt12_csr:u_csr1|jt12_sh_rst:u_regch|altshift_taps:bits_rtl_0|shift_taps_vvv:auto_generated|altsyncram_ric1:altsyncram5|ram_block8a56~FITTER_CREATED_MLAB_CELL0MEMORYREGOUT
+[0m[0;32m    Info (332098): From: core_top:ic|gen:donor_gen|jt12:fm|jt12_top:u_jt12|jt12_mmr:u_mmr|jt12_reg:u_reg|jt12_csr:u_csr1|jt12_sh_rst:u_regch|altshift_taps:bits_rtl_0|shift_taps_vvv:auto_generated|altsyncram_ric1:altsyncram5|ram_block8a61~FITTER_CREATED_MLAB_CELL0CLKMUX_0  to: core_top:ic|gen:donor_gen|jt12:fm|jt12_top:u_jt12|jt12_mmr:u_mmr|jt12_reg:u_reg|jt12_csr:u_csr1|jt12_sh_rst:u_regch|altshift_taps:bits_rtl_0|shift_taps_vvv:auto_generated|altsyncram_ric1:altsyncram5|ram_block8a61~FITTER_CREATED_MLAB_CELL0MEMORYREGOUT
+[0m[0;32m    Info (332098): From: core_top:ic|gen:donor_gen|jt12:fm|jt12_top:u_jt12|jt12_mmr:u_mmr|jt12_reg:u_reg|jt12_csr:u_csr1|jt12_sh_rst:u_regch|altshift_taps:bits_rtl_0|shift_taps_vvv:auto_generated|altsyncram_ric1:altsyncram5|ram_block8a67~FITTER_CREATED_MLAB_CELL0CLKMUX_0  to: core_top:ic|gen:donor_gen|jt12:fm|jt12_top:u_jt12|jt12_mmr:u_mmr|jt12_reg:u_reg|jt12_csr:u_csr1|jt12_sh_rst:u_regch|altshift_taps:bits_rtl_0|shift_taps_vvv:auto_generated|altsyncram_ric1:altsyncram5|ram_block8a67~FITTER_CREATED_MLAB_CELL0MEMORYREGOUT
+[0m[0;32m    Info (332098): From: core_top:ic|gen:donor_gen|jt12:fm|jt12_top:u_jt12|jt12_mmr:u_mmr|jt12_reg:u_reg|jt12_csr:u_csr1|jt12_sh_rst:u_regch|altshift_taps:bits_rtl_1|shift_taps_vsv:auto_generated|altsyncram_rcc1:altsyncram5|ram_block8a0~FITTER_CREATED_MLAB_CELL0CLKMUX_0  to: core_top:ic|gen:donor_gen|jt12:fm|jt12_top:u_jt12|jt12_mmr:u_mmr|jt12_reg:u_reg|jt12_csr:u_csr1|jt12_sh_rst:u_regch|altshift_taps:bits_rtl_1|shift_taps_vsv:auto_generated|altsyncram_rcc1:altsyncram5|ram_block8a0~FITTER_CREATED_MLAB_CELL0MEMORYREGOUT
+[0m[0;32m    Info (332098): From: core_top:ic|gen:donor_gen|jt12:fm|jt12_top:u_jt12|jt12_mmr:u_mmr|jt12_reg:u_reg|jt12_csr:u_csr1|jt12_sh_rst:u_regch|altshift_taps:bits_rtl_1|shift_taps_vsv:auto_generated|altsyncram_rcc1:altsyncram5|ram_block8a1~FITTER_CREATED_MLAB_CELL0CLKMUX_0  to: core_top:ic|gen:donor_gen|jt12:fm|jt12_top:u_jt12|jt12_mmr:u_mmr|jt12_reg:u_reg|jt12_csr:u_csr1|jt12_sh_rst:u_regch|altshift_taps:bits_rtl_1|shift_taps_vsv:auto_generated|altsyncram_rcc1:altsyncram5|ram_block8a1~FITTER_CREATED_MLAB_CELL0MEMORYREGOUT
+[0m[0;32m    Info (332098): From: core_top:ic|gen:donor_gen|jt12:fm|jt12_top:u_jt12|jt12_mmr:u_mmr|jt12_reg:u_reg|jt12_csr:u_csr1|jt12_sh_rst:u_regch|altshift_taps:bits_rtl_1|shift_taps_vsv:auto_generated|altsyncram_rcc1:altsyncram5|ram_block8a2~FITTER_CREATED_MLAB_CELL0CLKMUX_0  to: core_top:ic|gen:donor_gen|jt12:fm|jt12_top:u_jt12|jt12_mmr:u_mmr|jt12_reg:u_reg|jt12_csr:u_csr1|jt12_sh_rst:u_regch|altshift_taps:bits_rtl_1|shift_taps_vsv:auto_generated|altsyncram_rcc1:altsyncram5|ram_block8a2~FITTER_CREATED_MLAB_CELL0MEMORYREGOUT
+[0m[0;32m    Info (332098): From: core_top:ic|gen:donor_gen|jt12:fm|jt12_top:u_jt12|jt12_mmr:u_mmr|jt12_reg:u_reg|jt12_csr:u_csr1|jt12_sh_rst:u_regch|altshift_taps:bits_rtl_1|shift_taps_vsv:auto_generated|altsyncram_rcc1:altsyncram5|ram_block8a3~FITTER_CREATED_MLAB_CELL0CLKMUX_0  to: core_top:ic|gen:donor_gen|jt12:fm|jt12_top:u_jt12|jt12_mmr:u_mmr|jt12_reg:u_reg|jt12_csr:u_csr1|jt12_sh_rst:u_regch|altshift_taps:bits_rtl_1|shift_taps_vsv:auto_generated|altsyncram_rcc1:altsyncram5|ram_block8a3~FITTER_CREATED_MLAB_CELL0MEMORYREGOUT
+[0m[0;32m    Info (332098): From: core_top:ic|gen:donor_gen|jt12:fm|jt12_top:u_jt12|jt12_op:u_op|jt12_sh:phasemod_sh|altshift_taps:bits_rtl_0|shift_taps_bgv:auto_generated|altsyncram_lr91:altsyncram4|ram_block5a11~FITTER_CREATED_MLAB_CELL0CLKMUX_0  to: core_top:ic|gen:donor_gen|jt12:fm|jt12_top:u_jt12|jt12_op:u_op|jt12_sh:phasemod_sh|altshift_taps:bits_rtl_0|shift_taps_bgv:auto_generated|altsyncram_lr91:altsyncram4|ram_block5a11~FITTER_CREATED_MLAB_CELL0MEMORYREGOUT
+[0m[0;32m    Info (332098): From: core_top:ic|gen:donor_gen|jt12:fm|jt12_top:u_jt12|jt12_op:u_op|jt12_sh:phasemod_sh|altshift_taps:bits_rtl_0|shift_taps_bgv:auto_generated|altsyncram_lr91:altsyncram4|ram_block5a13~FITTER_CREATED_MLAB_CELL0CLKMUX_0  to: core_top:ic|gen:donor_gen|jt12:fm|jt12_top:u_jt12|jt12_op:u_op|jt12_sh:phasemod_sh|altshift_taps:bits_rtl_0|shift_taps_bgv:auto_generated|altsyncram_lr91:altsyncram4|ram_block5a13~FITTER_CREATED_MLAB_CELL0MEMORYREGOUT
+[0m[0;32m    Info (332098): From: core_top:ic|gen:donor_gen|jt12:fm|jt12_top:u_jt12|jt12_op:u_op|jt12_sh:phasemod_sh|altshift_taps:bits_rtl_0|shift_taps_bgv:auto_generated|altsyncram_lr91:altsyncram4|ram_block5a14~FITTER_CREATED_MLAB_CELL0CLKMUX_0  to: core_top:ic|gen:donor_gen|jt12:fm|jt12_top:u_jt12|jt12_op:u_op|jt12_sh:phasemod_sh|altshift_taps:bits_rtl_0|shift_taps_bgv:auto_generated|altsyncram_lr91:altsyncram4|ram_block5a14~FITTER_CREATED_MLAB_CELL0MEMORYREGOUT
+[0m[0;32m    Info (332098): From: core_top:ic|gen:donor_gen|jt12:fm|jt12_top:u_jt12|jt12_op:u_op|jt12_sh:phasemod_sh|altshift_taps:bits_rtl_0|shift_taps_bgv:auto_generated|altsyncram_lr91:altsyncram4|ram_block5a18~FITTER_CREATED_MLAB_CELL0CLKMUX_0  to: core_top:ic|gen:donor_gen|jt12:fm|jt12_top:u_jt12|jt12_op:u_op|jt12_sh:phasemod_sh|altshift_taps:bits_rtl_0|shift_taps_bgv:auto_generated|altsyncram_lr91:altsyncram4|ram_block5a18~FITTER_CREATED_MLAB_CELL0MEMORYREGOUT
+[0m[0;32m    Info (332098): From: core_top:ic|gen:donor_gen|jt12:fm|jt12_top:u_jt12|jt12_op:u_op|jt12_sh:phasemod_sh|altshift_taps:bits_rtl_0|shift_taps_bgv:auto_generated|altsyncram_lr91:altsyncram4|ram_block5a25~FITTER_CREATED_MLAB_CELL0CLKMUX_0  to: core_top:ic|gen:donor_gen|jt12:fm|jt12_top:u_jt12|jt12_op:u_op|jt12_sh:phasemod_sh|altshift_taps:bits_rtl_0|shift_taps_bgv:auto_generated|altsyncram_lr91:altsyncram4|ram_block5a25~FITTER_CREATED_MLAB_CELL0MEMORYREGOUT
+[0m[0;32m    Info (332098): From: core_top:ic|gen:donor_gen|jt12:fm|jt12_top:u_jt12|jt12_op:u_op|jt12_sh:phasemod_sh|altshift_taps:bits_rtl_0|shift_taps_bgv:auto_generated|altsyncram_lr91:altsyncram4|ram_block5a27~FITTER_CREATED_MLAB_CELL0CLKMUX_0  to: core_top:ic|gen:donor_gen|jt12:fm|jt12_top:u_jt12|jt12_op:u_op|jt12_sh:phasemod_sh|altshift_taps:bits_rtl_0|shift_taps_bgv:auto_generated|altsyncram_lr91:altsyncram4|ram_block5a27~FITTER_CREATED_MLAB_CELL0MEMORYREGOUT
+[0m[0;32m    Info (332098): From: core_top:ic|gen:donor_gen|jt12:fm|jt12_top:u_jt12|jt12_op:u_op|jt12_sh:phasemod_sh|altshift_taps:bits_rtl_0|shift_taps_bgv:auto_generated|altsyncram_lr91:altsyncram4|ram_block5a28~FITTER_CREATED_MLAB_CELL0CLKMUX_0  to: core_top:ic|gen:donor_gen|jt12:fm|jt12_top:u_jt12|jt12_op:u_op|jt12_sh:phasemod_sh|altshift_taps:bits_rtl_0|shift_taps_bgv:auto_generated|altsyncram_lr91:altsyncram4|ram_block5a28~FITTER_CREATED_MLAB_CELL0MEMORYREGOUT
+[0m[0;32m    Info (332098): From: core_top:ic|gen:donor_gen|jt12:fm|jt12_top:u_jt12|jt12_op:u_op|jt12_sh:phasemod_sh|altshift_taps:bits_rtl_0|shift_taps_bgv:auto_generated|altsyncram_lr91:altsyncram4|ram_block5a32~FITTER_CREATED_MLAB_CELL0CLKMUX_0  to: core_top:ic|gen:donor_gen|jt12:fm|jt12_top:u_jt12|jt12_op:u_op|jt12_sh:phasemod_sh|altshift_taps:bits_rtl_0|shift_taps_bgv:auto_generated|altsyncram_lr91:altsyncram4|ram_block5a32~FITTER_CREATED_MLAB_CELL0MEMORYREGOUT
+[0m[0;32m    Info (332098): From: core_top:ic|gen:donor_gen|jt12:fm|jt12_top:u_jt12|jt12_op:u_op|jt12_sh:phasemod_sh|altshift_taps:bits_rtl_0|shift_taps_bgv:auto_generated|altsyncram_lr91:altsyncram4|ram_block5a39~FITTER_CREATED_MLAB_CELL0CLKMUX_0  to: core_top:ic|gen:donor_gen|jt12:fm|jt12_top:u_jt12|jt12_op:u_op|jt12_sh:phasemod_sh|altshift_taps:bits_rtl_0|shift_taps_bgv:auto_generated|altsyncram_lr91:altsyncram4|ram_block5a39~FITTER_CREATED_MLAB_CELL0MEMORYREGOUT
+[0m[0;32m    Info (332098): From: core_top:ic|gen:donor_gen|jt12:fm|jt12_top:u_jt12|jt12_op:u_op|jt12_sh:phasemod_sh|altshift_taps:bits_rtl_0|shift_taps_bgv:auto_generated|altsyncram_lr91:altsyncram4|ram_block5a41~FITTER_CREATED_MLAB_CELL0CLKMUX_0  to: core_top:ic|gen:donor_gen|jt12:fm|jt12_top:u_jt12|jt12_op:u_op|jt12_sh:phasemod_sh|altshift_taps:bits_rtl_0|shift_taps_bgv:auto_generated|altsyncram_lr91:altsyncram4|ram_block5a41~FITTER_CREATED_MLAB_CELL0MEMORYREGOUT
+[0m[0;32m    Info (332098): From: core_top:ic|gen:donor_gen|jt12:fm|jt12_top:u_jt12|jt12_op:u_op|jt12_sh:phasemod_sh|altshift_taps:bits_rtl_0|shift_taps_bgv:auto_generated|altsyncram_lr91:altsyncram4|ram_block5a42~FITTER_CREATED_MLAB_CELL0CLKMUX_0  to: core_top:ic|gen:donor_gen|jt12:fm|jt12_top:u_jt12|jt12_op:u_op|jt12_sh:phasemod_sh|altshift_taps:bits_rtl_0|shift_taps_bgv:auto_generated|altsyncram_lr91:altsyncram4|ram_block5a42~FITTER_CREATED_MLAB_CELL0MEMORYREGOUT
+[0m[0;32m    Info (332098): From: core_top:ic|gen:donor_gen|jt12:fm|jt12_top:u_jt12|jt12_op:u_op|jt12_sh:phasemod_sh|altshift_taps:bits_rtl_0|shift_taps_bgv:auto_generated|altsyncram_lr91:altsyncram4|ram_block5a46~FITTER_CREATED_MLAB_CELL0CLKMUX_0  to: core_top:ic|gen:donor_gen|jt12:fm|jt12_top:u_jt12|jt12_op:u_op|jt12_sh:phasemod_sh|altshift_taps:bits_rtl_0|shift_taps_bgv:auto_generated|altsyncram_lr91:altsyncram4|ram_block5a46~FITTER_CREATED_MLAB_CELL0MEMORYREGOUT
+[0m[0;32m    Info (332098): Cell: ic|mp1|mf_pllbase_inst|altera_pll_i|general[0].gpll~FRACTIONAL_PLL  from: refclkin  to: fbclk
+[0m[0;32m    Info (332098): Cell: ic|mp1|mf_pllbase_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER  from: vco0ph[0]  to: divclk
+[0m[0;32m    Info (332098): Cell: ic|mp1|mf_pllbase_inst|altera_pll_i|general[0].gpll~PLL_REFCLK_SELECT  from: clkin[0]  to: clkout
+[0m[0;32m    Info (332098): Cell: ic|mp1|mf_pllbase_inst|altera_pll_i|general[1].gpll~PLL_OUTPUT_COUNTER  from: vco0ph[0]  to: divclk
+[0m[0;32m    Info (332098): Cell: ic|mp1|mf_pllbase_inst|altera_pll_i|general[2].gpll~PLL_OUTPUT_COUNTER  from: vco0ph[0]  to: divclk
+[0m[0;32m    Info (332098): Cell: ic|mp1|mf_pllbase_inst|altera_pll_i|general[3].gpll~PLL_OUTPUT_COUNTER  from: vco0ph[0]  to: divclk
+[0m[0;32m    Info (332098): Cell: ic|mp1|mf_pllbase_inst|altera_pll_i|general[4].gpll~PLL_OUTPUT_COUNTER  from: vco0ph[0]  to: divclk
+[0m[0;32m    Info (332098): Cell: ic|mp1|mf_pllbase_inst|altera_pll_i|general[5].gpll~PLL_OUTPUT_COUNTER  from: vco0ph[0]  to: divclk
+[0m[0;32mInfo (332123): Deriving Clock Uncertainty. Please refer to report_sdc in the Timing Analyzer to see clock uncertainties.
+[0m[0;32mInfo (332146): Worst-case setup slack is 5.778
+[0m[0;32m    Info (332119):     Slack       End Point TNS Clock 
+[0m[0;32m    Info (332119): ========= =================== =====================
+[0m[0;32m    Info (332119):     5.778               0.000 ic|mp1|mf_pllbase_inst|altera_pll_i|general[1].gpll~PLL_OUTPUT_COUNTER|divclk 
+[0m[0;32m    Info (332119):     5.879               0.000 ic|mp1|mf_pllbase_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk 
+[0m[0;32m    Info (332119):     5.891               0.000 clk_74a 
+[0m[0;32m    Info (332119):    12.699               0.000 bridge_spiclk 
+[0m[0;32m    Info (332119):    13.448               0.000 altera_reserved_tck 
+[0m[0;32m    Info (332119):   147.528               0.000 ic|mp1|mf_pllbase_inst|altera_pll_i|general[2].gpll~PLL_OUTPUT_COUNTER|divclk 
+[0m[0;32m    Info (332119):   184.777               0.000 ic|mp1|mf_pllbase_inst|altera_pll_i|general[4].gpll~PLL_OUTPUT_COUNTER|divclk 
+[0m[0;32mInfo (332146): Worst-case hold slack is 0.034
+[0m[0;32m    Info (332119):     Slack       End Point TNS Clock 
+[0m[0;32m    Info (332119): ========= =================== =====================
+[0m[0;32m    Info (332119):     0.034               0.000 ic|mp1|mf_pllbase_inst|altera_pll_i|general[2].gpll~PLL_OUTPUT_COUNTER|divclk 
+[0m[0;32m    Info (332119):     0.034               0.000 ic|mp1|mf_pllbase_inst|altera_pll_i|general[4].gpll~PLL_OUTPUT_COUNTER|divclk 
+[0m[0;32m    Info (332119):     0.100               0.000 ic|mp1|mf_pllbase_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk 
+[0m[0;32m    Info (332119):     0.130               0.000 bridge_spiclk 
+[0m[0;32m    Info (332119):     0.142               0.000 ic|mp1|mf_pllbase_inst|altera_pll_i|general[1].gpll~PLL_OUTPUT_COUNTER|divclk 
+[0m[0;32m    Info (332119):     0.146               0.000 clk_74a 
+[0m[0;32m    Info (332119):     0.226               0.000 altera_reserved_tck 
+[0m[0;32mInfo (332146): Worst-case recovery slack is 8.392
+[0m[0;32m    Info (332119):     Slack       End Point TNS Clock 
+[0m[0;32m    Info (332119): ========= =================== =====================
+[0m[0;32m    Info (332119):     8.392               0.000 ic|mp1|mf_pllbase_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk 
+[0m[0;32m    Info (332119):    31.275               0.000 altera_reserved_tck 
+[0m[0;32mInfo (332146): Worst-case removal slack is 0.231
+[0m[0;32m    Info (332119):     Slack       End Point TNS Clock 
+[0m[0;32m    Info (332119): ========= =================== =====================
+[0m[0;32m    Info (332119):     0.231               0.000 ic|mp1|mf_pllbase_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk 
+[0m[0;32m    Info (332119):     0.317               0.000 altera_reserved_tck 
+[0m[0;32mInfo (332146): Worst-case minimum pulse width slack is 0.423
+[0m[0;32m    Info (332119):     Slack       End Point TNS Clock 
+[0m[0;32m    Info (332119): ========= =================== =====================
+[0m[0;32m    Info (332119):     0.423               0.000 ic|mp1|mf_pllbase_inst|altera_pll_i|general[0].gpll~FRACTIONAL_PLL|vcoph[0] 
+[0m[0;32m    Info (332119):     4.190               0.000 ic|mp1|mf_pllbase_inst|altera_pll_i|general[1].gpll~PLL_OUTPUT_COUNTER|divclk 
+[0m[0;32m    Info (332119):     5.158               0.000 clk_74a 
+[0m[0;32m    Info (332119):     6.362               0.000 bridge_spiclk 
+[0m[0;32m    Info (332119):     8.202               0.000 ic|mp1|mf_pllbase_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk 
+[0m[0;32m    Info (332119):    14.957               0.000 altera_reserved_tck 
+[0m[0;32m    Info (332119):    74.051               0.000 ic|mp1|mf_pllbase_inst|altera_pll_i|general[2].gpll~PLL_OUTPUT_COUNTER|divclk 
+[0m[0;32m    Info (332119):    74.091               0.000 ic|mp1|mf_pllbase_inst|altera_pll_i|general[3].gpll~PLL_OUTPUT_COUNTER|divclk 
+[0m[0;32m    Info (332119):    92.642               0.000 ic|mp1|mf_pllbase_inst|altera_pll_i|general[4].gpll~PLL_OUTPUT_COUNTER|divclk 
+[0m[0;32m    Info (332119):    92.711               0.000 ic|mp1|mf_pllbase_inst|altera_pll_i|general[5].gpll~PLL_OUTPUT_COUNTER|divclk 
+[0m[0;32mInfo (332114): Report Metastability: Found 60 synchronizer chains.
+[0m[0;32m    Info (332114): Worst-Case MTBF of Design is 1e+09 years or 3.15e+16 seconds.
+[0m[0;32m    Info (332114): Typical MTBF of Design is 1e+09 years or 3.15e+16 seconds.
+
+[0m[0;32m    Info (332114): Number of Synchronizer Chains Found: 60
+[0m[0;32m    Info (332114): Shortest Synchronizer Chain: 2 Registers
+[0m[0;32m    Info (332114): Fraction of Chains for which MTBFs Could Not be Calculated: 0.800
+[0m[0;32m    Info (332114): Worst Case Available Settling Time: 25.319 ns
+[0m[0;32m    Info (332114): Worst-Case MTBF values are calculated based on the worst-case silicon characteristics, with worst-case operating conditions.
+[0m[0;32m    Info (332114):   - Under worst-case conditions, an increase of 100ps in available settling time will increase MTBF values by a factor of 1.8
+[0m[0;32m    Info (332114): Typical MTBF values are calculated based on the nominal silicon characteristics, at nominal operating conditions.
+[0m[0;32m    Info (332114):   - Under typical conditions, an increase of 100ps in available settling time will increase MTBF values by a factor of 17.8
+[0m[0;32mInfo (332102): Design is not fully constrained for setup requirements
+[0m[0;32mInfo (332102): Design is not fully constrained for hold requirements
+[0m[0;32mInfo: Quartus Prime Timing Analyzer was successful. 0 errors, 10 warnings
+[0m[0;32m    Info: Peak virtual memory: 2711 megabytes
+[0m[0;32m    Info: Processing ended: Sat Jul 11 07:28:32 2026
+[0m[0;32m    Info: Elapsed time: 00:01:34
+[0m[0;32m    Info: Total CPU time (on all processors): 00:03:13
+[0m

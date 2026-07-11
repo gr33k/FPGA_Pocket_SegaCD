@@ -50,6 +50,15 @@ entity MCD is
 		EXT_WORDRAM0_DI	: in std_logic_vector(15 downto 0);
 		EXT_WORDRAM0_DO	: out std_logic_vector(15 downto 0);
 		EXT_WORDRAM0_WR	: out std_logic;
+
+		-- CDC scratch RAM is moved into a Pocket-local helper to claw back
+		-- the donor's 16 M10Ks while preserving the byte-read/word-write
+		-- interface exported by CDC.vhd.
+		EXT_CDC_RAM_A_RD	: out std_logic_vector(13 downto 0);
+		EXT_CDC_RAM_A_WR	: out std_logic_vector(12 downto 0);
+		EXT_CDC_RAM_DI	: in std_logic_vector(7 downto 0);
+		EXT_CDC_RAM_DO	: out std_logic_vector(15 downto 0);
+		EXT_CDC_RAM_WE	: out std_logic;
 		
 		CDD_STAT			: in std_logic_vector(39 downto 0);
 		CDD_COMM			: out std_logic_vector(39 downto 0);
@@ -369,18 +378,11 @@ begin
 		RAM_WE   	=> CDC_RAM_WE
 	);
 	
-	CDC_RAM : entity work.dpram_dif
-	generic map(14,8,13,16)
-	port map(
-		clock			=> CLK,
-		address_a	=> CDC_RAM_A_RD(13 downto 0),
-		q_a			=> CDC_RAM_DI,
-
-		address_b	=> CDC_RAM_A_WR(13 downto 1),
-		data_b		=> CDC_RAM_DO,
-		wren_b		=> CDC_RAM_WE
-	);
-	
+	EXT_CDC_RAM_A_RD <= CDC_RAM_A_RD(13 downto 0);
+	EXT_CDC_RAM_A_WR <= CDC_RAM_A_WR(13 downto 1);
+	EXT_CDC_RAM_DO <= CDC_RAM_DO;
+	EXT_CDC_RAM_WE <= CDC_RAM_WE;
+	CDC_RAM_DI <= EXT_CDC_RAM_DI;
 	
 	PCM : entity work.PCM
 	port map(

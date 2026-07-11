@@ -760,6 +760,7 @@ set_global_assignment -name SYSTEMVERILOG_FILE core/sync_fifo.sv
 set_global_assignment -name VERILOG_FILE core/core_bridge_cmd.v
 set_global_assignment -name SYSTEMVERILOG_FILE core/rtl/pocket/cdd_nodisc_stub.sv
 set_global_assignment -name SYSTEMVERILOG_FILE core/rtl/pocket/pocket_wordram0_sram.sv
+set_global_assignment -name SYSTEMVERILOG_FILE core/rtl/pocket/megacd_cdc_ram_mlab.sv
 set_global_assignment -name SYSTEMVERILOG_FILE core/rtl/audio_fix.sv
 set_global_assignment -name SYSTEMVERILOG_FILE core/rtl/cofi.sv
 set_global_assignment -name SYSTEMVERILOG_FILE core/rtl/sdram.sv

@@ -1,11 +1,12 @@
 #!/usr/bin/env bash
 set -euo pipefail
-
 ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 cd "$ROOT_DIR"
 ART=build/megacd_pocket_artifacts
 STAGE=build/pocket_sd_megacd_bios_probe
 STATUS_DOC=docs/MEGACD_BIOS_PROBE_PACKAGE_STATUS.md
+SD_GUIDE=docs/MEGACD_BIOS_PROBE_SD_GUIDE.md
+HW_CHECK=docs/MEGACD_BIOS_PROBE_HARDWARE_CHECKLIST.md
 rm -rf "$STAGE"
 mkdir -p "$STAGE/Cores/Gr33k.SegaCDBiosProbe" "$STAGE/Platforms"
 BIT=$(find "$ART" -maxdepth 1 -name 'bitstream.rbf_r' | head -1 || true)
@@ -19,6 +20,21 @@ DOC
   exit 1
 fi
 cp "$BIT" "$STAGE/Cores/Gr33k.SegaCDBiosProbe/bitstream.rbf_r"
+UPSTREAM_PLATFORM=$(find third_party/openFPGA-Genesis/dist/Platforms -maxdepth 1 -name 'genesis*.json' | head -1 || true)
+if [[ -n "$UPSTREAM_PLATFORM" ]]; then
+  cp "$UPSTREAM_PLATFORM" "$STAGE/Platforms/genesis.json"
+else
+  cat > "$STAGE/Platforms/genesis.json" <<'JSON'
+{
+  "platform": {
+    "category": "Console",
+    "name": "Genesis",
+    "year": 1988,
+    "manufacturer": "Sega"
+  }
+}
+JSON
+fi
 cat > "$STAGE/Cores/Gr33k.SegaCDBiosProbe/core.json" <<'JSON'
 {
   "core": {
@@ -59,37 +75,59 @@ JSON
 cat > "$STAGE/Cores/Gr33k.SegaCDBiosProbe/audio.json" <<'JSON'
 {"audio":{"magic":"APF_VER_1"}}
 JSON
-cat > docs/MEGACD_BIOS_PROBE_SD_GUIDE.md <<'DOC'
+cat > "$SD_GUIDE" <<DOC
 # MegaCD BIOS probe SD guide
 
-Copy the contents of `build/pocket_sd_megacd_bios_probe/` to the Pocket SD root.
+Copy the contents of \`build/pocket_sd_megacd_bios_probe/\` to the Pocket SD root.
 
 Probe core folder:
-- `Cores/Gr33k.SegaCDBiosProbe`
+- \`Cores/Gr33k.SegaCDBiosProbe\`
+
+Platform file:
+- \`Platforms/genesis.json\`
 
 No BIOS is bundled.
 No ROM is bundled.
 No disc image is bundled.
 DOC
-cat > docs/MEGACD_BIOS_PROBE_HARDWARE_CHECKLIST.md <<'DOC'
+cat > "$HW_CHECK" <<DOC
 # MegaCD BIOS probe hardware checklist
 
+## A. Genesis regression
+
 - core appears under Genesis
-- Genesis cartridge ROM can still boot
+- Sonic the Hedgehog loads
 - video works
 - audio works
 - controls work
-- BIOS can be selected
+- no black screen
+- no reset loop
+
+## B. Memory diagnostics
+
+- external WORDRAM0 enabled flag set
+- WORDRAM0 read/write activity flags change
+- CDC MLAB implementation enabled flag set
+- CDC RAM read activity seen
+- CDC RAM write activity seen
+- no crash during MCD initialization
+
+## C. BIOS probe
+
+- user selects a Sega CD BIOS
 - BIOS load completes
 - MegaCD mode enables
-- no permanent reset black screen
-- BIOS output appears or a no-disc screen appears
-- sub-CPU activity register changes
-- CDD command activity register changes
+- MCD reset releases
+- sub-68000 activity changes
+- BIOS video appears
+- insert-disc or no-disc state appears
+- no disc gameplay claim
 DOC
 cat > "$STATUS_DOC" <<DOC
 # MegaCD BIOS probe package status
 
 - result: \`BIOS_PROBE_READY_FOR_POCKET\`
 - staging path: \`build/pocket_sd_megacd_bios_probe/\`
+- core path: \`build/pocket_sd_megacd_bios_probe/Cores/Gr33k.SegaCDBiosProbe\`
+- platform path: \`build/pocket_sd_megacd_bios_probe/Platforms/genesis.json\`
 DOC

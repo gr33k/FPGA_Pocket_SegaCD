@@ -19,17 +19,22 @@ Date: 2026-07-10
 
 - WORDRAM0 externalized to Pocket SRAM: `yes`
 - WORDRAM1 remains internal: `yes`
+- CDC RAM moved to MLAB: `yes`
 - map result: `pass`
-- fitter result: `POCKET_MEMORY_CAPACITY_EXCEEDED_AFTER_WORDRAM0`
-- timing ran: `no`
-- assembler ran: `no`
-- valid artifact generated: `no`
-- BIOS probe staged: `no`
+- fitter result: `pass`
+- timing ran: `yes`
+- assembler ran: `yes`
+- valid artifact generated: `yes`
+- BIOS probe staged: `yes`
 
-## Exact blocker
+## Exact fit/timing state
 
-- block memory bits: `2,475,110 / 3,153,920 (78%)`
-- block memory implementation bits: `3,328,000 / 3,153,920 (106%)`
-- M10K blocks: `325 / 308 (106%)`
-- M10K overage: `17`
-- MCD hierarchy memory after WORDRAM0 move: `1,743,520 bits`
+- logic utilization: `13,875 / 18,480 ( 75 % )`
+- total block memory bits: `2,343,914 / 3,153,920 ( 74 % )`
+- total block memory implementation bits: `3,153,920 / 3,153,920`
+- M10K blocks: `308 / 308`
+- M10K headroom: `0`
+- worst setup slack: `0.487`
+- worst hold slack: `0.170`
+- artifact path: `build/megacd_pocket_artifacts/bitstream.rbf_r`
+- staged Pocket folder: `build/pocket_sd_megacd_bios_probe/`

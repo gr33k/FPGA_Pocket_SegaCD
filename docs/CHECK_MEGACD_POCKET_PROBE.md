@@ -2,21 +2,23 @@
 
 - result: `PASS`
 - branch ok: `yes`
-- donor pinned correctly: `yes`
 - donor submodule clean: `yes`
 - Genesis submodule clean: `yes`
 - repo-owned MegaCD lane exists: `yes`
-- WORDRAM0 externalized: `yes`
+- WORDRAM0 remains external: `yes`
 - WORDRAM1 remains internal: `yes`
-- Pocket SRAM actively connected: `yes`
-- memory reduction documented: `yes`
-- timing result exists when fit passed: `not-required`
+- CDC RAM wired to Pocket-local helper: `yes`
+- internal CDC M10K instance removed: `yes`
+- PCM RAM remains internal: `yes`
+- packing audit documented: `yes`
+- map result documented: `yes`
+- timing result exists when fit passed: `yes`
 - map exit code: `0`
-- fitter exit code: `3`
-- timing exit code: `not-run`
-- assembler exit code: `not-run`
-- final classification: `POCKET_MEMORY_CAPACITY_EXCEEDED_AFTER_WORDRAM0`
-- fresh artifact when claimed: `no`
+- fitter exit code: `0`
+- timing exit code: `0`
+- assembler exit code: `0`
+- final classification: `BIOS_PROBE_ARTIFACT_READY`
+- fresh artifact when claimed: `yes`
 - generated artifacts tracked by git: `no`
 - BIOS/ROM/disc image bundled: `no`
 - Genesis baseline modified: `no`
