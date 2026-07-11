@@ -15,7 +15,7 @@
 [0m[0;32m    Info: Intel and sold by Intel or its authorized distributors.  Please
 [0m[0;32m    Info: refer to the applicable agreement for further details, at
 [0m[0;32m    Info: https://fpgasoftware.intel.com/eula.
-[0m[0;32m    Info: Processing started: Sat Jul 11 02:02:34 2026
+[0m[0;32m    Info: Processing started: Sat Jul 11 06:04:42 2026
 [0m[0;32mInfo: Command: quartus_map --read_settings_files=on --write_settings_files=off ap_core -c ap_core
 [0m[0;32mInfo (16303): High Performance Effort optimization mode selected -- timing performance will be prioritized at the potential cost of increased compilation time
 [0m[0;32m    Info (16304): Mode behavior is affected by advanced setting Physical Synthesis Effort Level (default for this mode is Normal)
@@ -30,6 +30,8 @@
 [0m[0;32m    Info (12023): Found entity 1: sync_fifo File: /work/build/megacd_pocket_fit_probe/core/sync_fifo.sv Line: 27
 [0m[0;32mInfo (12021): Found 1 design units, including 1 entities, in source file core/rtl/pocket/cdd_nodisc_stub.sv
 [0m[0;32m    Info (12023): Found entity 1: cdd_nodisc_stub File: /work/build/megacd_pocket_fit_probe/core/rtl/pocket/cdd_nodisc_stub.sv Line: 3
+[0m[0;32mInfo (12021): Found 1 design units, including 1 entities, in source file core/rtl/pocket/pocket_wordram0_sram.sv
+[0m[0;32m    Info (12023): Found entity 1: pocket_wordram0_sram File: /work/build/megacd_pocket_fit_probe/core/rtl/pocket/pocket_wordram0_sram.sv Line: 3
 [0m[0;32mInfo (12021): Found 1 design units, including 1 entities, in source file core/rtl/audio_fix.sv
 [0m[0;32m    Info (12023): Found entity 1: audio_fix File: /work/build/megacd_pocket_fit_probe/core/rtl/audio_fix.sv Line: 21
 [0m[0;32mInfo (12021): Found 1 design units, including 1 entities, in source file core/rtl/cofi.sv
@@ -206,7 +208,7 @@
 [0m[0;32mInfo (12021): Found 1 design units, including 1 entities, in source file core/rtl/GEN/EEPROM_STM95.sv
 [0m[0;32m    Info (12023): Found entity 1: STM95XXX File: /work/build/megacd_pocket_fit_probe/core/rtl/GEN/EEPROM_STM95.sv Line: 5
 [0m[0;32mInfo (12021): Found 2 design units, including 1 entities, in source file core/rtl/MCD/MCD.vhd
-[0m[0;32m    Info (12022): Found design unit 1: MCD-rtl File: /work/build/megacd_pocket_fit_probe/core/rtl/MCD/MCD.vhd Line: 75
+[0m[0;32m    Info (12022): Found design unit 1: MCD-rtl File: /work/build/megacd_pocket_fit_probe/core/rtl/MCD/MCD.vhd Line: 83
 [0m[0;32m    Info (12023): Found entity 1: MCD File: /work/build/megacd_pocket_fit_probe/core/rtl/MCD/MCD.vhd Line: 6
 [0m[0;32mInfo (12021): Found 2 design units, including 1 entities, in source file core/rtl/MCD/ASIC.vhd
 [0m[0;32m    Info (12022): Found design unit 1: ASIC-rtl File: /work/build/megacd_pocket_fit_probe/core/rtl/MCD/ASIC.vhd Line: 104
@@ -294,14 +296,14 @@
 [0m[0;32mInfo (12128): Elaborating entity "synch_3" for hierarchy "io_pad_controller:ipm|synch_3:s00" File: /work/build/megacd_pocket_fit_probe/apf/io_pad_controller.v Line: 65
 [0m[0;32mInfo (12128): Elaborating entity "io_bridge_peripheral" for hierarchy "io_bridge_peripheral:ibs" File: /work/build/megacd_pocket_fit_probe/apf/apf_top.v Line: 343
 [0m[0;32mInfo (12128): Elaborating entity "core_top" for hierarchy "core_top:ic" File: /work/build/megacd_pocket_fit_probe/apf/apf_top.v Line: 472
-[0m[0;36mWarning (10036): Verilog HDL or VHDL warning at core_top.sv(278): object "gen_mem_addr_data" assigned a value but never read File: /work/build/megacd_pocket_fit_probe/core/core_top.sv Line: 278
-[0m[0;36mWarning (10240): Verilog HDL Always Construct warning at core_top.sv(175): inferring latch(es) for variable "cart_bytes_seen", which holds its previous value in one or more paths through the always construct File: /work/build/megacd_pocket_fit_probe/core/core_top.sv Line: 175
-[0m[0;36mWarning (10240): Verilog HDL Always Construct warning at core_top.sv(175): inferring latch(es) for variable "bios_bytes_seen", which holds its previous value in one or more paths through the always construct File: /work/build/megacd_pocket_fit_probe/core/core_top.sv Line: 175
-[0m[0;36mWarning (10230): Verilog HDL assignment warning at core_top.sv(324): truncated value with size 25 to match size of target (24) File: /work/build/megacd_pocket_fit_probe/core/core_top.sv Line: 324
-[0m[0;36mWarning (10762): Verilog HDL Case Statement warning at core_top.sv(421): can't check case statement for completeness because the case expression has too many possible states File: /work/build/megacd_pocket_fit_probe/core/core_top.sv Line: 421
-[0m[0;32mInfo (10041): Inferred latch for "bios_bytes_seen[0]" at core_top.sv(175) File: /work/build/megacd_pocket_fit_probe/core/core_top.sv Line: 175
-[0m[0;32mInfo (10041): Inferred latch for "cart_bytes_seen[0]" at core_top.sv(175) File: /work/build/megacd_pocket_fit_probe/core/core_top.sv Line: 175
-[0m[0;32mInfo (12128): Elaborating entity "mf_pllbase" for hierarchy "core_top:ic|mf_pllbase:mp1" File: /work/build/megacd_pocket_fit_probe/core/core_top.sv Line: 137
+[0m[0;36mWarning (10036): Verilog HDL or VHDL warning at core_top.sv(285): object "gen_mem_addr_data" assigned a value but never read File: /work/build/megacd_pocket_fit_probe/core/core_top.sv Line: 285
+[0m[0;36mWarning (10240): Verilog HDL Always Construct warning at core_top.sv(177): inferring latch(es) for variable "cart_bytes_seen", which holds its previous value in one or more paths through the always construct File: /work/build/megacd_pocket_fit_probe/core/core_top.sv Line: 177
+[0m[0;36mWarning (10240): Verilog HDL Always Construct warning at core_top.sv(177): inferring latch(es) for variable "bios_bytes_seen", which holds its previous value in one or more paths through the always construct File: /work/build/megacd_pocket_fit_probe/core/core_top.sv Line: 177
+[0m[0;36mWarning (10230): Verilog HDL assignment warning at core_top.sv(350): truncated value with size 25 to match size of target (24) File: /work/build/megacd_pocket_fit_probe/core/core_top.sv Line: 350
+[0m[0;36mWarning (10762): Verilog HDL Case Statement warning at core_top.sv(447): can't check case statement for completeness because the case expression has too many possible states File: /work/build/megacd_pocket_fit_probe/core/core_top.sv Line: 447
+[0m[0;32mInfo (10041): Inferred latch for "bios_bytes_seen[0]" at core_top.sv(177) File: /work/build/megacd_pocket_fit_probe/core/core_top.sv Line: 177
+[0m[0;32mInfo (10041): Inferred latch for "cart_bytes_seen[0]" at core_top.sv(177) File: /work/build/megacd_pocket_fit_probe/core/core_top.sv Line: 177
+[0m[0;32mInfo (12128): Elaborating entity "mf_pllbase" for hierarchy "core_top:ic|mf_pllbase:mp1" File: /work/build/megacd_pocket_fit_probe/core/core_top.sv Line: 139
 [0m[0;32mInfo (12128): Elaborating entity "mf_pllbase_0002" for hierarchy "core_top:ic|mf_pllbase:mp1|mf_pllbase_0002:mf_pllbase_inst" File: /work/build/megacd_pocket_fit_probe/core/mf_pllbase.v Line: 30
 [0m[0;32mInfo (12128): Elaborating entity "altera_pll" for hierarchy "core_top:ic|mf_pllbase:mp1|mf_pllbase_0002:mf_pllbase_inst|altera_pll:altera_pll_i" File: /work/build/megacd_pocket_fit_probe/core/mf_pllbase/mf_pllbase_0002.v Line: 100
 [0m[0;32mInfo (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "wire_to_nowhere_64" into its bus
@@ -367,7 +369,7 @@
 [0m[0;32m    Info (12134): Parameter "duty_cycle17" = "50"
 [0m[0;32m    Info (12134): Parameter "pll_type" = "General"
 [0m[0;32m    Info (12134): Parameter "pll_subtype" = "General"
-[0m[0;32mInfo (12128): Elaborating entity "core_bridge_cmd" for hierarchy "core_top:ic|core_bridge_cmd:icb" File: /work/build/megacd_pocket_fit_probe/core/core_top.sv Line: 167
+[0m[0;32mInfo (12128): Elaborating entity "core_bridge_cmd" for hierarchy "core_top:ic|core_bridge_cmd:icb" File: /work/build/megacd_pocket_fit_probe/core/core_top.sv Line: 169
 [0m[0;36mWarning (10036): Verilog HDL or VHDL warning at core_bridge_cmd.v(109): object "host_24" assigned a value but never read File: /work/build/megacd_pocket_fit_probe/core/core_bridge_cmd.v Line: 109
 [0m[0;36mWarning (10036): Verilog HDL or VHDL warning at core_bridge_cmd.v(110): object "host_28" assigned a value but never read File: /work/build/megacd_pocket_fit_probe/core/core_bridge_cmd.v Line: 110
 [0m[0;36mWarning (10036): Verilog HDL or VHDL warning at core_bridge_cmd.v(111): object "host_2C" assigned a value but never read File: /work/build/megacd_pocket_fit_probe/core/core_bridge_cmd.v Line: 111
@@ -424,7 +426,7 @@
 [0m[0;36mWarning (113028): 253 out of 256 addresses are uninitialized. The Quartus Prime software will initialize them to "0". There are 2 warnings found, and 2 warnings are reported. File: /work/build/megacd_pocket_fit_probe/apf/build_id.mif Line: 1
 [0m[0;36m    Warning (113027): Addresses ranging from 0 to 223 are not initialized File: /work/build/megacd_pocket_fit_probe/apf/build_id.mif Line: 1
 [0m[0;36m    Warning (113027): Addresses ranging from 227 to 255 are not initialized File: /work/build/megacd_pocket_fit_probe/apf/build_id.mif Line: 1
-[0m[0;32mInfo (12128): Elaborating entity "data_loader" for hierarchy "core_top:ic|data_loader:cart_loader" File: /work/build/megacd_pocket_fit_probe/core/core_top.sv Line: 214
+[0m[0;32mInfo (12128): Elaborating entity "data_loader" for hierarchy "core_top:ic|data_loader:cart_loader" File: /work/build/megacd_pocket_fit_probe/core/core_top.sv Line: 216
 [0m[0;36mWarning (10230): Verilog HDL assignment warning at data_loader.sv(140): truncated value with size 32 to match size of target (28) File: /work/build/megacd_pocket_fit_probe/core/data_loader.sv Line: 140
 [0m[0;36mWarning (10230): Verilog HDL assignment warning at data_loader.sv(142): truncated value with size 32 to match size of target (3) File: /work/build/megacd_pocket_fit_probe/core/data_loader.sv Line: 142
 [0m[0;32mInfo (10264): Verilog HDL Case Statement information at data_loader.sv(129): all case item expressions in this case statement are onehot File: /work/build/megacd_pocket_fit_probe/core/data_loader.sv Line: 129
@@ -479,17 +481,17 @@
 [0m[0;32mInfo (12021): Found 1 design units, including 1 entities, in source file db/mux_5r7.tdf
 [0m[0;32m    Info (12023): Found entity 1: mux_5r7 File: /work/build/megacd_pocket_fit_probe/db/mux_5r7.tdf Line: 23
 [0m[0;32mInfo (12128): Elaborating entity "mux_5r7" for hierarchy "core_top:ic|data_loader:cart_loader|dcfifo:dcfifo_component|dcfifo_06o1:auto_generated|mux_5r7:rdemp_eq_comp_lsb_mux" File: /work/build/megacd_pocket_fit_probe/db/dcfifo_06o1.tdf Line: 81
-[0m[0;32mInfo (12128): Elaborating entity "data_loader" for hierarchy "core_top:ic|data_loader:bios_loader" File: /work/build/megacd_pocket_fit_probe/core/core_top.sv Line: 219
+[0m[0;32mInfo (12128): Elaborating entity "data_loader" for hierarchy "core_top:ic|data_loader:bios_loader" File: /work/build/megacd_pocket_fit_probe/core/core_top.sv Line: 221
 [0m[0;36mWarning (10230): Verilog HDL assignment warning at data_loader.sv(140): truncated value with size 32 to match size of target (28) File: /work/build/megacd_pocket_fit_probe/core/data_loader.sv Line: 140
 [0m[0;36mWarning (10230): Verilog HDL assignment warning at data_loader.sv(142): truncated value with size 32 to match size of target (3) File: /work/build/megacd_pocket_fit_probe/core/data_loader.sv Line: 142
 [0m[0;32mInfo (10264): Verilog HDL Case Statement information at data_loader.sv(129): all case item expressions in this case statement are onehot File: /work/build/megacd_pocket_fit_probe/core/data_loader.sv Line: 129
 [0m[0;36mWarning (10230): Verilog HDL assignment warning at data_loader.sv(169): truncated value with size 32 to match size of target (6) File: /work/build/megacd_pocket_fit_probe/core/data_loader.sv Line: 169
 [0m[0;36mWarning (10230): Verilog HDL assignment warning at data_loader.sv(172): truncated value with size 32 to match size of target (6) File: /work/build/megacd_pocket_fit_probe/core/data_loader.sv Line: 172
 [0m[0;36mWarning (10230): Verilog HDL assignment warning at data_loader.sv(186): truncated value with size 28 to match size of target (18) File: /work/build/megacd_pocket_fit_probe/core/data_loader.sv Line: 186
-[0m[0;32mInfo (12128): Elaborating entity "synch_3" for hierarchy "core_top:ic|synch_3:c1s" File: /work/build/megacd_pocket_fit_probe/core/core_top.sv Line: 233
+[0m[0;32mInfo (12128): Elaborating entity "synch_3" for hierarchy "core_top:ic|synch_3:c1s" File: /work/build/megacd_pocket_fit_probe/core/core_top.sv Line: 235
 [0m[0;36mWarning (10230): Verilog HDL assignment warning at common.v(74): truncated value with size 32 to match size of target (1) File: /work/build/megacd_pocket_fit_probe/apf/common.v Line: 74
 [0m[0;36mWarning (10230): Verilog HDL assignment warning at common.v(75): truncated value with size 32 to match size of target (1) File: /work/build/megacd_pocket_fit_probe/apf/common.v Line: 75
-[0m[0;32mInfo (12128): Elaborating entity "gen" for hierarchy "core_top:ic|gen:donor_gen" File: /work/build/megacd_pocket_fit_probe/core/core_top.sv Line: 301
+[0m[0;32mInfo (12128): Elaborating entity "gen" for hierarchy "core_top:ic|gen:donor_gen" File: /work/build/megacd_pocket_fit_probe/core/core_top.sv Line: 308
 [0m[0;32mInfo (12128): Elaborating entity "fx68k" for hierarchy "core_top:ic|gen:donor_gen|fx68k:M68K" File: /work/build/megacd_pocket_fit_probe/core/rtl/GEN/gen.sv Line: 270
 [0m[0;32mInfo (12128): Elaborating entity "microToNanoAddr" for hierarchy "core_top:ic|gen:donor_gen|fx68k:M68K|microToNanoAddr:microToNanoAddr" File: /work/build/megacd_pocket_fit_probe/core/rtl/FX68K/fx68k.sv Line: 243
 [0m[0;32mInfo (12128): Elaborating entity "nanoRom" for hierarchy "core_top:ic|gen:donor_gen|fx68k:M68K|nanoRom:nanoRom" File: /work/build/megacd_pocket_fit_probe/core/rtl/FX68K/fx68k.sv Line: 247
@@ -1146,8 +1148,8 @@
 [0m[0;32mInfo (12128): Elaborating entity "jt12_interpol" for hierarchy "core_top:ic|gen:donor_gen|jt12_genmix:genmix|jt12_fm_uprate:u_left|jt12_interpol:u_fm5" File: /work/build/megacd_pocket_fit_probe/core/rtl/GEN/jt12/mixer/jt12_fm_uprate.v Line: 93
 [0m[0;32mInfo (12128): Elaborating entity "genesis_lpf" for hierarchy "core_top:ic|gen:donor_gen|genesis_lpf:lpf_right" File: /work/build/megacd_pocket_fit_probe/core/rtl/GEN/gen.sv Line: 1230
 [0m[0;32mInfo (12128): Elaborating entity "iir_1st_order" for hierarchy "core_top:ic|gen:donor_gen|genesis_lpf:lpf_right|iir_1st_order:lpf6db" File: /work/build/megacd_pocket_fit_probe/core/rtl/GEN/genesis_lpf.v Line: 80
-[0m[0;32mInfo (12128): Elaborating entity "CART" for hierarchy "core_top:ic|CART:donor_cart" File: /work/build/megacd_pocket_fit_probe/core/core_top.sv Line: 305
-[0m[0;32mInfo (12128): Elaborating entity "cdd_nodisc_stub" for hierarchy "core_top:ic|cdd_nodisc_stub:nodisc" File: /work/build/megacd_pocket_fit_probe/core/core_top.sv Line: 309
+[0m[0;32mInfo (12128): Elaborating entity "CART" for hierarchy "core_top:ic|CART:donor_cart" File: /work/build/megacd_pocket_fit_probe/core/core_top.sv Line: 312
+[0m[0;32mInfo (12128): Elaborating entity "cdd_nodisc_stub" for hierarchy "core_top:ic|cdd_nodisc_stub:nodisc" File: /work/build/megacd_pocket_fit_probe/core/core_top.sv Line: 316
 [0m[0;36mWarning (10240): Verilog HDL Always Construct warning at cdd_nodisc_stub.sv(20): inferring latch(es) for variable "cdd_dm", which holds its previous value in one or more paths through the always construct File: /work/build/megacd_pocket_fit_probe/core/rtl/pocket/cdd_nodisc_stub.sv Line: 20
 [0m[0;36mWarning (10240): Verilog HDL Always Construct warning at cdd_nodisc_stub.sv(20): inferring latch(es) for variable "cdc_data", which holds its previous value in one or more paths through the always construct File: /work/build/megacd_pocket_fit_probe/core/rtl/pocket/cdd_nodisc_stub.sv Line: 20
 [0m[0;32mInfo (10041): Inferred latch for "cdc_data[0]" at cdd_nodisc_stub.sv(20) File: /work/build/megacd_pocket_fit_probe/core/rtl/pocket/cdd_nodisc_stub.sv Line: 20
@@ -1167,14 +1169,14 @@
 [0m[0;32mInfo (10041): Inferred latch for "cdc_data[14]" at cdd_nodisc_stub.sv(20) File: /work/build/megacd_pocket_fit_probe/core/rtl/pocket/cdd_nodisc_stub.sv Line: 20
 [0m[0;32mInfo (10041): Inferred latch for "cdc_data[15]" at cdd_nodisc_stub.sv(20) File: /work/build/megacd_pocket_fit_probe/core/rtl/pocket/cdd_nodisc_stub.sv Line: 20
 [0m[0;32mInfo (10041): Inferred latch for "cdd_dm" at cdd_nodisc_stub.sv(20) File: /work/build/megacd_pocket_fit_probe/core/rtl/pocket/cdd_nodisc_stub.sv Line: 20
-[0m[0;32mInfo (12128): Elaborating entity "MCD" for hierarchy "core_top:ic|MCD:donor_mcd" File: /work/build/megacd_pocket_fit_probe/core/core_top.sv Line: 316
-[0m[0;32mInfo (12128): Elaborating entity "M68K_WRAP" for hierarchy "core_top:ic|MCD:donor_mcd|M68K_WRAP:S68K" File: /work/build/megacd_pocket_fit_probe/core/rtl/MCD/MCD.vhd Line: 183
-[0m[0;32mInfo (12128): Elaborating entity "ASIC" for hierarchy "core_top:ic|MCD:donor_mcd|ASIC:ASIC" File: /work/build/megacd_pocket_fit_probe/core/rtl/MCD/MCD.vhd Line: 214
-[0m[0;32mInfo (12128): Elaborating entity "spram" for hierarchy "core_top:ic|MCD:donor_mcd|spram:WORDRAM0" File: /work/build/megacd_pocket_fit_probe/core/rtl/MCD/MCD.vhd Line: 315
-[0m[0;32mInfo (12128): Elaborating entity "spram_sz" for hierarchy "core_top:ic|MCD:donor_mcd|spram:WORDRAM0|spram_sz:spram_sz" File: /work/build/megacd_pocket_fit_probe/core/rtl/bram.vhd Line: 33
-[0m[0;32mInfo (12128): Elaborating entity "altsyncram" for hierarchy "core_top:ic|MCD:donor_mcd|spram:WORDRAM0|spram_sz:spram_sz|altsyncram:altsyncram_component" File: /work/build/megacd_pocket_fit_probe/core/rtl/bram.vhd Line: 74
-[0m[0;32mInfo (12130): Elaborated megafunction instantiation "core_top:ic|MCD:donor_mcd|spram:WORDRAM0|spram_sz:spram_sz|altsyncram:altsyncram_component" File: /work/build/megacd_pocket_fit_probe/core/rtl/bram.vhd Line: 74
-[0m[0;32mInfo (12133): Instantiated megafunction "core_top:ic|MCD:donor_mcd|spram:WORDRAM0|spram_sz:spram_sz|altsyncram:altsyncram_component" with the following parameter: File: /work/build/megacd_pocket_fit_probe/core/rtl/bram.vhd Line: 74
+[0m[0;32mInfo (12128): Elaborating entity "MCD" for hierarchy "core_top:ic|MCD:donor_mcd" File: /work/build/megacd_pocket_fit_probe/core/core_top.sv Line: 324
+[0m[0;32mInfo (12128): Elaborating entity "M68K_WRAP" for hierarchy "core_top:ic|MCD:donor_mcd|M68K_WRAP:S68K" File: /work/build/megacd_pocket_fit_probe/core/rtl/MCD/MCD.vhd Line: 191
+[0m[0;32mInfo (12128): Elaborating entity "ASIC" for hierarchy "core_top:ic|MCD:donor_mcd|ASIC:ASIC" File: /work/build/megacd_pocket_fit_probe/core/rtl/MCD/MCD.vhd Line: 222
+[0m[0;32mInfo (12128): Elaborating entity "spram" for hierarchy "core_top:ic|MCD:donor_mcd|spram:WORDRAM1" File: /work/build/megacd_pocket_fit_probe/core/rtl/MCD/MCD.vhd Line: 330
+[0m[0;32mInfo (12128): Elaborating entity "spram_sz" for hierarchy "core_top:ic|MCD:donor_mcd|spram:WORDRAM1|spram_sz:spram_sz" File: /work/build/megacd_pocket_fit_probe/core/rtl/bram.vhd Line: 33
+[0m[0;32mInfo (12128): Elaborating entity "altsyncram" for hierarchy "core_top:ic|MCD:donor_mcd|spram:WORDRAM1|spram_sz:spram_sz|altsyncram:altsyncram_component" File: /work/build/megacd_pocket_fit_probe/core/rtl/bram.vhd Line: 74
+[0m[0;32mInfo (12130): Elaborated megafunction instantiation "core_top:ic|MCD:donor_mcd|spram:WORDRAM1|spram_sz:spram_sz|altsyncram:altsyncram_component" File: /work/build/megacd_pocket_fit_probe/core/rtl/bram.vhd Line: 74
+[0m[0;32mInfo (12133): Instantiated megafunction "core_top:ic|MCD:donor_mcd|spram:WORDRAM1|spram_sz:spram_sz|altsyncram:altsyncram_component" with the following parameter: File: /work/build/megacd_pocket_fit_probe/core/rtl/bram.vhd Line: 74
 [0m[0;32m    Info (12134): Parameter "address_aclr_a" = "UNUSED"
 [0m[0;32m    Info (12134): Parameter "address_aclr_b" = "NONE"
 [0m[0;32m    Info (12134): Parameter "address_reg_b" = "CLOCK1"
@@ -1227,22 +1229,22 @@
 [0m[0;32m    Info (12134): Parameter "lpm_type" = "altsyncram"
 [0m[0;32mInfo (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_3924.tdf
 [0m[0;32m    Info (12023): Found entity 1: altsyncram_3924 File: /work/build/megacd_pocket_fit_probe/db/altsyncram_3924.tdf Line: 28
-[0m[0;32mInfo (12128): Elaborating entity "altsyncram_3924" for hierarchy "core_top:ic|MCD:donor_mcd|spram:WORDRAM0|spram_sz:spram_sz|altsyncram:altsyncram_component|altsyncram_3924:auto_generated" File: /opt/intelFPGA_lite/quartus/libraries/megafunctions/altsyncram.tdf Line: 792
+[0m[0;32mInfo (12128): Elaborating entity "altsyncram_3924" for hierarchy "core_top:ic|MCD:donor_mcd|spram:WORDRAM1|spram_sz:spram_sz|altsyncram:altsyncram_component|altsyncram_3924:auto_generated" File: /opt/intelFPGA_lite/quartus/libraries/megafunctions/altsyncram.tdf Line: 792
 [0m[0;32mInfo (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_vtv2.tdf
 [0m[0;32m    Info (12023): Found entity 1: altsyncram_vtv2 File: /work/build/megacd_pocket_fit_probe/db/altsyncram_vtv2.tdf Line: 34
-[0m[0;32mInfo (12128): Elaborating entity "altsyncram_vtv2" for hierarchy "core_top:ic|MCD:donor_mcd|spram:WORDRAM0|spram_sz:spram_sz|altsyncram:altsyncram_component|altsyncram_3924:auto_generated|altsyncram_vtv2:altsyncram1" File: /work/build/megacd_pocket_fit_probe/db/altsyncram_3924.tdf Line: 37
+[0m[0;32mInfo (12128): Elaborating entity "altsyncram_vtv2" for hierarchy "core_top:ic|MCD:donor_mcd|spram:WORDRAM1|spram_sz:spram_sz|altsyncram:altsyncram_component|altsyncram_3924:auto_generated|altsyncram_vtv2:altsyncram1" File: /work/build/megacd_pocket_fit_probe/db/altsyncram_3924.tdf Line: 37
 [0m[0;32mInfo (12021): Found 1 design units, including 1 entities, in source file db/decode_dla.tdf
 [0m[0;32m    Info (12023): Found entity 1: decode_dla File: /work/build/megacd_pocket_fit_probe/db/decode_dla.tdf Line: 23
-[0m[0;32mInfo (12128): Elaborating entity "decode_dla" for hierarchy "core_top:ic|MCD:donor_mcd|spram:WORDRAM0|spram_sz:spram_sz|altsyncram:altsyncram_component|altsyncram_3924:auto_generated|altsyncram_vtv2:altsyncram1|decode_dla:decode4" File: /work/build/megacd_pocket_fit_probe/db/altsyncram_vtv2.tdf Line: 50
+[0m[0;32mInfo (12128): Elaborating entity "decode_dla" for hierarchy "core_top:ic|MCD:donor_mcd|spram:WORDRAM1|spram_sz:spram_sz|altsyncram:altsyncram_component|altsyncram_3924:auto_generated|altsyncram_vtv2:altsyncram1|decode_dla:decode4" File: /work/build/megacd_pocket_fit_probe/db/altsyncram_vtv2.tdf Line: 50
 [0m[0;32mInfo (12021): Found 1 design units, including 1 entities, in source file db/decode_61a.tdf
 [0m[0;32m    Info (12023): Found entity 1: decode_61a File: /work/build/megacd_pocket_fit_probe/db/decode_61a.tdf Line: 23
-[0m[0;32mInfo (12128): Elaborating entity "decode_61a" for hierarchy "core_top:ic|MCD:donor_mcd|spram:WORDRAM0|spram_sz:spram_sz|altsyncram:altsyncram_component|altsyncram_3924:auto_generated|altsyncram_vtv2:altsyncram1|decode_61a:rden_decode_a" File: /work/build/megacd_pocket_fit_probe/db/altsyncram_vtv2.tdf Line: 52
+[0m[0;32mInfo (12128): Elaborating entity "decode_61a" for hierarchy "core_top:ic|MCD:donor_mcd|spram:WORDRAM1|spram_sz:spram_sz|altsyncram:altsyncram_component|altsyncram_3924:auto_generated|altsyncram_vtv2:altsyncram1|decode_61a:rden_decode_a" File: /work/build/megacd_pocket_fit_probe/db/altsyncram_vtv2.tdf Line: 52
 [0m[0;32mInfo (12021): Found 1 design units, including 1 entities, in source file db/mux_chb.tdf
 [0m[0;32m    Info (12023): Found entity 1: mux_chb File: /work/build/megacd_pocket_fit_probe/db/mux_chb.tdf Line: 23
-[0m[0;32mInfo (12128): Elaborating entity "mux_chb" for hierarchy "core_top:ic|MCD:donor_mcd|spram:WORDRAM0|spram_sz:spram_sz|altsyncram:altsyncram_component|altsyncram_3924:auto_generated|altsyncram_vtv2:altsyncram1|mux_chb:mux6" File: /work/build/megacd_pocket_fit_probe/db/altsyncram_vtv2.tdf Line: 54
-[0m[0;32mInfo (12128): Elaborating entity "sld_mod_ram_rom" for hierarchy "core_top:ic|MCD:donor_mcd|spram:WORDRAM0|spram_sz:spram_sz|altsyncram:altsyncram_component|altsyncram_3924:auto_generated|sld_mod_ram_rom:mgl_prim2" File: /work/build/megacd_pocket_fit_probe/db/altsyncram_3924.tdf Line: 38
-[0m[0;32mInfo (12130): Elaborated megafunction instantiation "core_top:ic|MCD:donor_mcd|spram:WORDRAM0|spram_sz:spram_sz|altsyncram:altsyncram_component|altsyncram_3924:auto_generated|sld_mod_ram_rom:mgl_prim2" File: /work/build/megacd_pocket_fit_probe/db/altsyncram_3924.tdf Line: 38
-[0m[0;32mInfo (12133): Instantiated megafunction "core_top:ic|MCD:donor_mcd|spram:WORDRAM0|spram_sz:spram_sz|altsyncram:altsyncram_component|altsyncram_3924:auto_generated|sld_mod_ram_rom:mgl_prim2" with the following parameter: File: /work/build/megacd_pocket_fit_probe/db/altsyncram_3924.tdf Line: 38
+[0m[0;32mInfo (12128): Elaborating entity "mux_chb" for hierarchy "core_top:ic|MCD:donor_mcd|spram:WORDRAM1|spram_sz:spram_sz|altsyncram:altsyncram_component|altsyncram_3924:auto_generated|altsyncram_vtv2:altsyncram1|mux_chb:mux6" File: /work/build/megacd_pocket_fit_probe/db/altsyncram_vtv2.tdf Line: 54
+[0m[0;32mInfo (12128): Elaborating entity "sld_mod_ram_rom" for hierarchy "core_top:ic|MCD:donor_mcd|spram:WORDRAM1|spram_sz:spram_sz|altsyncram:altsyncram_component|altsyncram_3924:auto_generated|sld_mod_ram_rom:mgl_prim2" File: /work/build/megacd_pocket_fit_probe/db/altsyncram_3924.tdf Line: 38
+[0m[0;32mInfo (12130): Elaborated megafunction instantiation "core_top:ic|MCD:donor_mcd|spram:WORDRAM1|spram_sz:spram_sz|altsyncram:altsyncram_component|altsyncram_3924:auto_generated|sld_mod_ram_rom:mgl_prim2" File: /work/build/megacd_pocket_fit_probe/db/altsyncram_3924.tdf Line: 38
+[0m[0;32mInfo (12133): Instantiated megafunction "core_top:ic|MCD:donor_mcd|spram:WORDRAM1|spram_sz:spram_sz|altsyncram:altsyncram_component|altsyncram_3924:auto_generated|sld_mod_ram_rom:mgl_prim2" with the following parameter: File: /work/build/megacd_pocket_fit_probe/db/altsyncram_3924.tdf Line: 38
 [0m[0;32m    Info (12134): Parameter "CVALUE" = "0000000000000000"
 [0m[0;32m    Info (12134): Parameter "IS_DATA_IN_RAM" = "1"
 [0m[0;32m    Info (12134): Parameter "IS_READABLE" = "1"
@@ -1251,11 +1253,11 @@
 [0m[0;32m    Info (12134): Parameter "SHIFT_COUNT_BITS" = "5"
 [0m[0;32m    Info (12134): Parameter "WIDTH_WORD" = "16"
 [0m[0;32m    Info (12134): Parameter "WIDTHAD" = "16"
-[0m[0;32mInfo (12128): Elaborating entity "sld_jtag_endpoint_adapter" for hierarchy "core_top:ic|MCD:donor_mcd|spram:WORDRAM0|spram_sz:spram_sz|altsyncram:altsyncram_component|altsyncram_3924:auto_generated|sld_mod_ram_rom:mgl_prim2|sld_jtag_endpoint_adapter:jtag_signal_adapter" File: /opt/intelFPGA_lite/quartus/libraries/megafunctions/sld_mod_ram_rom.vhd Line: 302
-[0m[0;32mInfo (12128): Elaborating entity "sld_jtag_endpoint_adapter_impl" for hierarchy "core_top:ic|MCD:donor_mcd|spram:WORDRAM0|spram_sz:spram_sz|altsyncram:altsyncram_component|altsyncram_3924:auto_generated|sld_mod_ram_rom:mgl_prim2|sld_jtag_endpoint_adapter:jtag_signal_adapter|sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst" File: /opt/intelFPGA_lite/quartus/libraries/megafunctions/sld_jtag_endpoint_adapter.vhd Line: 232
-[0m[0;32mInfo (12128): Elaborating entity "sld_rom_sr" for hierarchy "core_top:ic|MCD:donor_mcd|spram:WORDRAM0|spram_sz:spram_sz|altsyncram:altsyncram_component|altsyncram_3924:auto_generated|sld_mod_ram_rom:mgl_prim2|sld_rom_sr:\ram_rom_logic_gen:name_gen:info_rom_sr" File: /opt/intelFPGA_lite/quartus/libraries/megafunctions/sld_mod_ram_rom.vhd Line: 828
-[0m[0;32mInfo (12128): Elaborating entity "CDC" for hierarchy "core_top:ic|MCD:donor_mcd|CDC:CDC" File: /work/build/megacd_pocket_fit_probe/core/rtl/MCD/MCD.vhd Line: 336
-[0m[0;32mInfo (12128): Elaborating entity "dpram_dif" for hierarchy "core_top:ic|MCD:donor_mcd|dpram_dif:CDC_RAM" File: /work/build/megacd_pocket_fit_probe/core/rtl/MCD/MCD.vhd Line: 367
+[0m[0;32mInfo (12128): Elaborating entity "sld_jtag_endpoint_adapter" for hierarchy "core_top:ic|MCD:donor_mcd|spram:WORDRAM1|spram_sz:spram_sz|altsyncram:altsyncram_component|altsyncram_3924:auto_generated|sld_mod_ram_rom:mgl_prim2|sld_jtag_endpoint_adapter:jtag_signal_adapter" File: /opt/intelFPGA_lite/quartus/libraries/megafunctions/sld_mod_ram_rom.vhd Line: 302
+[0m[0;32mInfo (12128): Elaborating entity "sld_jtag_endpoint_adapter_impl" for hierarchy "core_top:ic|MCD:donor_mcd|spram:WORDRAM1|spram_sz:spram_sz|altsyncram:altsyncram_component|altsyncram_3924:auto_generated|sld_mod_ram_rom:mgl_prim2|sld_jtag_endpoint_adapter:jtag_signal_adapter|sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst" File: /opt/intelFPGA_lite/quartus/libraries/megafunctions/sld_jtag_endpoint_adapter.vhd Line: 232
+[0m[0;32mInfo (12128): Elaborating entity "sld_rom_sr" for hierarchy "core_top:ic|MCD:donor_mcd|spram:WORDRAM1|spram_sz:spram_sz|altsyncram:altsyncram_component|altsyncram_3924:auto_generated|sld_mod_ram_rom:mgl_prim2|sld_rom_sr:\ram_rom_logic_gen:name_gen:info_rom_sr" File: /opt/intelFPGA_lite/quartus/libraries/megafunctions/sld_mod_ram_rom.vhd Line: 828
+[0m[0;32mInfo (12128): Elaborating entity "CDC" for hierarchy "core_top:ic|MCD:donor_mcd|CDC:CDC" File: /work/build/megacd_pocket_fit_probe/core/rtl/MCD/MCD.vhd Line: 341
+[0m[0;32mInfo (12128): Elaborating entity "dpram_dif" for hierarchy "core_top:ic|MCD:donor_mcd|dpram_dif:CDC_RAM" File: /work/build/megacd_pocket_fit_probe/core/rtl/MCD/MCD.vhd Line: 372
 [0m[0;32mInfo (12128): Elaborating entity "altsyncram" for hierarchy "core_top:ic|MCD:donor_mcd|dpram_dif:CDC_RAM|altsyncram:altsyncram_component" File: /work/build/megacd_pocket_fit_probe/core/rtl/bram.vhd Line: 282
 [0m[0;32mInfo (12130): Elaborated megafunction instantiation "core_top:ic|MCD:donor_mcd|dpram_dif:CDC_RAM|altsyncram:altsyncram_component" File: /work/build/megacd_pocket_fit_probe/core/rtl/bram.vhd Line: 282
 [0m[0;32mInfo (12133): Instantiated megafunction "core_top:ic|MCD:donor_mcd|dpram_dif:CDC_RAM|altsyncram:altsyncram_component" with the following parameter: File: /work/build/megacd_pocket_fit_probe/core/rtl/bram.vhd Line: 282
@@ -1315,9 +1317,9 @@
 [0m[0;32mInfo (12021): Found 1 design units, including 1 entities, in source file db/mux_4hb.tdf
 [0m[0;32m    Info (12023): Found entity 1: mux_4hb File: /work/build/megacd_pocket_fit_probe/db/mux_4hb.tdf Line: 23
 [0m[0;32mInfo (12128): Elaborating entity "mux_4hb" for hierarchy "core_top:ic|MCD:donor_mcd|dpram_dif:CDC_RAM|altsyncram:altsyncram_component|altsyncram_6f34:auto_generated|mux_4hb:mux5" File: /work/build/megacd_pocket_fit_probe/db/altsyncram_6f34.tdf Line: 55
-[0m[0;32mInfo (12128): Elaborating entity "PCM" for hierarchy "core_top:ic|MCD:donor_mcd|PCM:PCM" File: /work/build/megacd_pocket_fit_probe/core/rtl/MCD/MCD.vhd Line: 380
+[0m[0;32mInfo (12128): Elaborating entity "PCM" for hierarchy "core_top:ic|MCD:donor_mcd|PCM:PCM" File: /work/build/megacd_pocket_fit_probe/core/rtl/MCD/MCD.vhd Line: 385
 [0m[0;32mInfo (12128): Elaborating entity "CEGen" for hierarchy "core_top:ic|MCD:donor_mcd|PCM:PCM|CEGen:CEGen" File: /work/build/megacd_pocket_fit_probe/core/rtl/MCD/PCM.vhd Line: 203
-[0m[0;32mInfo (12128): Elaborating entity "dpram" for hierarchy "core_top:ic|MCD:donor_mcd|dpram:PCM_RAM" File: /work/build/megacd_pocket_fit_probe/core/rtl/MCD/MCD.vhd Line: 406
+[0m[0;32mInfo (12128): Elaborating entity "dpram" for hierarchy "core_top:ic|MCD:donor_mcd|dpram:PCM_RAM" File: /work/build/megacd_pocket_fit_probe/core/rtl/MCD/MCD.vhd Line: 411
 [0m[0;32mInfo (12128): Elaborating entity "dpram_dif" for hierarchy "core_top:ic|MCD:donor_mcd|dpram:PCM_RAM|dpram_dif:ram" File: /work/build/megacd_pocket_fit_probe/core/rtl/bram.vhd Line: 231
 [0m[0;32mInfo (12128): Elaborating entity "altsyncram" for hierarchy "core_top:ic|MCD:donor_mcd|dpram:PCM_RAM|dpram_dif:ram|altsyncram:altsyncram_component" File: /work/build/megacd_pocket_fit_probe/core/rtl/bram.vhd Line: 282
 [0m[0;32mInfo (12130): Elaborated megafunction instantiation "core_top:ic|MCD:donor_mcd|dpram:PCM_RAM|dpram_dif:ram|altsyncram:altsyncram_component" File: /work/build/megacd_pocket_fit_probe/core/rtl/bram.vhd Line: 282
@@ -1378,9 +1380,10 @@
 [0m[0;32mInfo (12021): Found 1 design units, including 1 entities, in source file db/mux_tfb.tdf
 [0m[0;32m    Info (12023): Found entity 1: mux_tfb File: /work/build/megacd_pocket_fit_probe/db/mux_tfb.tdf Line: 23
 [0m[0;32mInfo (12128): Elaborating entity "mux_tfb" for hierarchy "core_top:ic|MCD:donor_mcd|dpram:PCM_RAM|dpram_dif:ram|altsyncram:altsyncram_component|altsyncram_kf34:auto_generated|mux_tfb:mux4" File: /work/build/megacd_pocket_fit_probe/db/altsyncram_kf34.tdf Line: 52
-[0m[0;32mInfo (12128): Elaborating entity "CD_DAC" for hierarchy "core_top:ic|MCD:donor_mcd|CD_DAC:CD_DAC" File: /work/build/megacd_pocket_fit_probe/core/rtl/MCD/MCD.vhd Line: 419
+[0m[0;32mInfo (12128): Elaborating entity "CD_DAC" for hierarchy "core_top:ic|MCD:donor_mcd|CD_DAC:CD_DAC" File: /work/build/megacd_pocket_fit_probe/core/rtl/MCD/MCD.vhd Line: 424
 [0m[0;32mInfo (12128): Elaborating entity "CDDA_FIFO" for hierarchy "core_top:ic|MCD:donor_mcd|CD_DAC:CD_DAC|CDDA_FIFO:FIFO" File: /work/build/megacd_pocket_fit_probe/core/rtl/MCD/CDDA.vhd Line: 89
-[0m[0;32mInfo (12128): Elaborating entity "sdram" for hierarchy "core_top:ic|sdram:main_sdram" File: /work/build/megacd_pocket_fit_probe/core/core_top.sv Line: 334
+[0m[0;32mInfo (12128): Elaborating entity "pocket_wordram0_sram" for hierarchy "core_top:ic|pocket_wordram0_sram:wordram0_sram" File: /work/build/megacd_pocket_fit_probe/core/core_top.sv Line: 342
+[0m[0;32mInfo (12128): Elaborating entity "sdram" for hierarchy "core_top:ic|sdram:main_sdram" File: /work/build/megacd_pocket_fit_probe/core/core_top.sv Line: 360
 [0m[0;32mInfo (12128): Elaborating entity "altddio_out" for hierarchy "core_top:ic|sdram:main_sdram|altddio_out:sdramclk_ddr" File: /work/build/megacd_pocket_fit_probe/core/rtl/sdram.sv Line: 259
 [0m[0;32mInfo (12130): Elaborated megafunction instantiation "core_top:ic|sdram:main_sdram|altddio_out:sdramclk_ddr" File: /work/build/megacd_pocket_fit_probe/core/rtl/sdram.sv Line: 259
 [0m[0;32mInfo (12133): Instantiated megafunction "core_top:ic|sdram:main_sdram|altddio_out:sdramclk_ddr" with the following parameter: File: /work/build/megacd_pocket_fit_probe/core/rtl/sdram.sv Line: 259
@@ -1395,7 +1398,7 @@
 [0m[0;32mInfo (12021): Found 1 design units, including 1 entities, in source file db/ddio_out_b2j.tdf
 [0m[0;32m    Info (12023): Found entity 1: ddio_out_b2j File: /work/build/megacd_pocket_fit_probe/db/ddio_out_b2j.tdf Line: 28
 [0m[0;32mInfo (12128): Elaborating entity "ddio_out_b2j" for hierarchy "core_top:ic|sdram:main_sdram|altddio_out:sdramclk_ddr|ddio_out_b2j:auto_generated" File: /opt/intelFPGA_lite/quartus/libraries/megafunctions/altddio_out.tdf Line: 101
-[0m[0;32mInfo (12128): Elaborating entity "dpram_dif" for hierarchy "core_top:ic|dpram_dif:mcd_bram" File: /work/build/megacd_pocket_fit_probe/core/core_top.sv Line: 339
+[0m[0;32mInfo (12128): Elaborating entity "dpram_dif" for hierarchy "core_top:ic|dpram_dif:mcd_bram" File: /work/build/megacd_pocket_fit_probe/core/core_top.sv Line: 365
 [0m[0;32mInfo (12128): Elaborating entity "altsyncram" for hierarchy "core_top:ic|dpram_dif:mcd_bram|altsyncram:altsyncram_component" File: /work/build/megacd_pocket_fit_probe/core/rtl/bram.vhd Line: 282
 [0m[0;32mInfo (12130): Elaborated megafunction instantiation "core_top:ic|dpram_dif:mcd_bram|altsyncram:altsyncram_component" File: /work/build/megacd_pocket_fit_probe/core/rtl/bram.vhd Line: 282
 [0m[0;32mInfo (12133): Instantiated megafunction "core_top:ic|dpram_dif:mcd_bram|altsyncram:altsyncram_component" with the following parameter: File: /work/build/megacd_pocket_fit_probe/core/rtl/bram.vhd Line: 282
@@ -1452,7 +1455,7 @@
 [0m[0;32mInfo (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_hd34.tdf
 [0m[0;32m    Info (12023): Found entity 1: altsyncram_hd34 File: /work/build/megacd_pocket_fit_probe/db/altsyncram_hd34.tdf Line: 28
 [0m[0;32mInfo (12128): Elaborating entity "altsyncram_hd34" for hierarchy "core_top:ic|dpram_dif:mcd_bram|altsyncram:altsyncram_component|altsyncram_hd34:auto_generated" File: /opt/intelFPGA_lite/quartus/libraries/megafunctions/altsyncram.tdf Line: 792
-[0m[0;32mInfo (12128): Elaborating entity "sound_i2s" for hierarchy "core_top:ic|sound_i2s:i2s" File: /work/build/megacd_pocket_fit_probe/core/core_top.sv Line: 358
+[0m[0;32mInfo (12128): Elaborating entity "sound_i2s" for hierarchy "core_top:ic|sound_i2s:i2s" File: /work/build/megacd_pocket_fit_probe/core/core_top.sv Line: 384
 [0m[0;36mWarning (10230): Verilog HDL assignment warning at sound_i2s.sv(49): truncated value with size 32 to match size of target (21) File: /work/build/megacd_pocket_fit_probe/core/sound_i2s.sv Line: 49
 [0m[0;32mInfo (12128): Elaborating entity "sync_fifo" for hierarchy "core_top:ic|sound_i2s:i2s|sync_fifo:sync_fifo" File: /work/build/megacd_pocket_fit_probe/core/sound_i2s.sv Line: 111
 [0m[0;32mInfo (10264): Verilog HDL Case Statement information at sync_fifo.sv(79): all case item expressions in this case statement are onehot File: /work/build/megacd_pocket_fit_probe/core/sync_fifo.sv Line: 79
@@ -1488,12 +1491,12 @@
 [0m[0;32mInfo (12021): Found 1 design units, including 1 entities, in source file db/dffpipe_uu8.tdf
 [0m[0;32m    Info (12023): Found entity 1: dffpipe_uu8 File: /work/build/megacd_pocket_fit_probe/db/dffpipe_uu8.tdf Line: 25
 [0m[0;32mInfo (12128): Elaborating entity "dffpipe_uu8" for hierarchy "core_top:ic|sound_i2s:i2s|sync_fifo:sync_fifo|dcfifo:dcfifo_component|dcfifo_vqk1:auto_generated|alt_synch_pipe_d9l:ws_dgrp|dffpipe_uu8:dffpipe9" File: /work/build/megacd_pocket_fit_probe/db/alt_synch_pipe_d9l.tdf Line: 34
-[0m[0;32mInfo (12128): Elaborating entity "cofi" for hierarchy "core_top:ic|cofi:coffee" File: /work/build/megacd_pocket_fit_probe/core/core_top.sv Line: 365
-[0m[0;32mInfo (12128): Elaborating entity "synch_3" for hierarchy "core_top:ic|synch_3:sync_res" File: /work/build/megacd_pocket_fit_probe/core/core_top.sv Line: 371
+[0m[0;32mInfo (12128): Elaborating entity "cofi" for hierarchy "core_top:ic|cofi:coffee" File: /work/build/megacd_pocket_fit_probe/core/core_top.sv Line: 391
+[0m[0;32mInfo (12128): Elaborating entity "synch_3" for hierarchy "core_top:ic|synch_3:sync_res" File: /work/build/megacd_pocket_fit_probe/core/core_top.sv Line: 397
 [0m[0;36mWarning (10230): Verilog HDL assignment warning at common.v(74): truncated value with size 2 to match size of target (1) File: /work/build/megacd_pocket_fit_probe/apf/common.v Line: 74
 [0m[0;36mWarning (10230): Verilog HDL assignment warning at common.v(75): truncated value with size 2 to match size of target (1) File: /work/build/megacd_pocket_fit_probe/apf/common.v Line: 75
 [0m[0;32mInfo (11170): Starting IP generation for the debug fabric: alt_sld_fab.
-[0m[0;32mInfo (11172): 2026.07.11.02:03:09 Progress: Loading sld09e0bd25/alt_sld_fab_wrapper_hw.tcl
+[0m[0;32mInfo (11172): 2026.07.11.06:05:13 Progress: Loading sld09e0bd25/alt_sld_fab_wrapper_hw.tcl
 [0m[0;32mInfo (11172): Alt_sld_fab.alt_sld_fab: SLD fabric agents which did not specify prefer_host were connected to JTAG
 [0m[0;32mInfo (11172): Alt_sld_fab: Generating alt_sld_fab "alt_sld_fab" for QUARTUS_SYNTH
 [0m[0;32mInfo (11172): Alt_sld_fab: "alt_sld_fab" instantiated alt_sld_fab "alt_sld_fab"
@@ -1512,7 +1515,7 @@
 [0m[0;32mInfo (12021): Found 1 design units, including 1 entities, in source file db/ip/sld09e0bd25/submodules/alt_sld_fab_alt_sld_fab_presplit.sv
 [0m[0;32m    Info (12023): Found entity 1: alt_sld_fab_alt_sld_fab_presplit File: /work/build/megacd_pocket_fit_probe/db/ip/sld09e0bd25/submodules/alt_sld_fab_alt_sld_fab_presplit.sv Line: 3
 [0m[0;32mInfo (12021): Found 2 design units, including 1 entities, in source file db/ip/sld09e0bd25/submodules/alt_sld_fab_alt_sld_fab_sldfabric.vhd
-[0m[0;32m    Info (12022): Found design unit 1: alt_sld_fab_alt_sld_fab_sldfabric-rtl File: /work/build/megacd_pocket_fit_probe/db/ip/sld09e0bd25/submodules/alt_sld_fab_alt_sld_fab_sldfabric.vhd Line: 142
+[0m[0;32m    Info (12022): Found design unit 1: alt_sld_fab_alt_sld_fab_sldfabric-rtl File: /work/build/megacd_pocket_fit_probe/db/ip/sld09e0bd25/submodules/alt_sld_fab_alt_sld_fab_sldfabric.vhd Line: 102
 [0m[0;32m    Info (12023): Found entity 1: alt_sld_fab_alt_sld_fab_sldfabric File: /work/build/megacd_pocket_fit_probe/db/ip/sld09e0bd25/submodules/alt_sld_fab_alt_sld_fab_sldfabric.vhd Line: 11
 [0m[0;32mInfo (12021): Found 1 design units, including 1 entities, in source file db/ip/sld09e0bd25/submodules/alt_sld_fab_alt_sld_fab_splitter.sv
 [0m[0;32m    Info (12023): Found entity 1: alt_sld_fab_alt_sld_fab_splitter File: /work/build/megacd_pocket_fit_probe/db/ip/sld09e0bd25/submodules/alt_sld_fab_alt_sld_fab_splitter.sv Line: 3
@@ -1532,7 +1535,7 @@
 [0m[0;36m        Warning (14320): Synthesized away node "core_top:ic|gen:donor_gen|vdp:vdp|DualPortRAM:bga_ci|dpram_dif:ram|altsyncram:altsyncram_component|altsyncram_m534:auto_generated|q_a[7]" File: /work/build/megacd_pocket_fit_probe/db/altsyncram_m534.tdf Line: 289
 [0m[0;36m        Warning (14320): Synthesized away node "core_top:ic|gen:donor_gen|vdp:vdp|DualPortRAM:bgb_ci|dpram_dif:ram|altsyncram:altsyncram_component|altsyncram_m534:auto_generated|q_a[7]" File: /work/build/megacd_pocket_fit_probe/db/altsyncram_m534.tdf Line: 289
 [0m[0;36mWarning (19016): Clock multiplexers are found and protected
-[0m[0;36m    Warning (19017): Found clock multiplexer core_top:ic|current_pix_clk File: /work/build/megacd_pocket_fit_probe/core/core_top.sv Line: 368
+[0m[0;36m    Warning (19017): Found clock multiplexer core_top:ic|current_pix_clk File: /work/build/megacd_pocket_fit_probe/core/core_top.sv Line: 394
 [0m[0;32mInfo (286031): Timing-Driven Synthesis is running on partition "Top"
 [0m[0;32mInfo (276014): Found 2 instances of uninferred RAM logic
 [0m[0;32m    Info (276004): RAM logic "core_top:ic|gen:donor_gen|jt12:fm|jt12_top:u_jt12|jt12_pg:u_pg|jt12_pg_comb:u_comb|jt12_pm:u_pm|lfo_sh1_lut" is uninferred due to inappropriate RAM size File: /work/build/megacd_pocket_fit_probe/core/rtl/GEN/jt12/jt12_pm.v Line: 38
@@ -1657,18 +1660,6 @@
 [0m[0;32m    Info (12134): Parameter "INIT_FILE" = "db/ap_core.ram0_jt12_logsin_ed1e88d6.hdl.mif"
 [0m[0;32mInfo (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_uae1.tdf
 [0m[0;32m    Info (12023): Found entity 1: altsyncram_uae1 File: /work/build/megacd_pocket_fit_probe/db/altsyncram_uae1.tdf Line: 28
-[0m[0;32mInfo (12130): Elaborated megafunction instantiation "core_top:ic|gen:donor_gen|jt12:fm|jt12_top:u_jt12|jt12_op:u_op|jt12_sh:phasemod_sh|altshift_taps:bits_rtl_0"
-[0m[0;32mInfo (12133): Instantiated megafunction "core_top:ic|gen:donor_gen|jt12:fm|jt12_top:u_jt12|jt12_op:u_op|jt12_sh:phasemod_sh|altshift_taps:bits_rtl_0" with the following parameter:
-[0m[0;32m    Info (12134): Parameter "NUMBER_OF_TAPS" = "1"
-[0m[0;32m    Info (12134): Parameter "TAP_DISTANCE" = "4"
-[0m[0;32m    Info (12134): Parameter "WIDTH" = "52"
-[0m[0;32m    Info (12134): Parameter "POWER_UP_STATE" = "DONT_CARE"
-[0m[0;32mInfo (12021): Found 1 design units, including 1 entities, in source file db/shift_taps_bgv.tdf
-[0m[0;32m    Info (12023): Found entity 1: shift_taps_bgv File: /work/build/megacd_pocket_fit_probe/db/shift_taps_bgv.tdf Line: 27
-[0m[0;32mInfo (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_lr91.tdf
-[0m[0;32m    Info (12023): Found entity 1: altsyncram_lr91 File: /work/build/megacd_pocket_fit_probe/db/altsyncram_lr91.tdf Line: 28
-[0m[0;32mInfo (12021): Found 1 design units, including 1 entities, in source file db/cntr_phf.tdf
-[0m[0;32m    Info (12023): Found entity 1: cntr_phf File: /work/build/megacd_pocket_fit_probe/db/cntr_phf.tdf Line: 26
 [0m[0;32mInfo (12130): Elaborated megafunction instantiation "core_top:ic|gen:donor_gen|jt12:fm|jt12_top:u_jt12|jt12_eg:u_eg|jt12_sh_rst:u_konsh|altshift_taps:bits_rtl_0"
 [0m[0;32mInfo (12133): Instantiated megafunction "core_top:ic|gen:donor_gen|jt12:fm|jt12_top:u_jt12|jt12_eg:u_eg|jt12_sh_rst:u_konsh|altshift_taps:bits_rtl_0" with the following parameter:
 [0m[0;32m    Info (12134): Parameter "NUMBER_OF_TAPS" = "1"
@@ -1685,6 +1676,48 @@
 [0m[0;32m    Info (12023): Found entity 1: cmpr_d9c File: /work/build/megacd_pocket_fit_probe/db/cmpr_d9c.tdf Line: 23
 [0m[0;32mInfo (12021): Found 1 design units, including 1 entities, in source file db/cntr_03h.tdf
 [0m[0;32m    Info (12023): Found entity 1: cntr_03h File: /work/build/megacd_pocket_fit_probe/db/cntr_03h.tdf Line: 28
+[0m[0;32mInfo (12130): Elaborated megafunction instantiation "core_top:ic|gen:donor_gen|jt12:fm|jt12_top:u_jt12|jt12_mmr:u_mmr|jt12_reg:u_reg|jt12_csr:u_csr1|jt12_sh_rst:u_regch|altshift_taps:bits_rtl_0"
+[0m[0;32mInfo (12133): Instantiated megafunction "core_top:ic|gen:donor_gen|jt12:fm|jt12_top:u_jt12|jt12_mmr:u_mmr|jt12_reg:u_reg|jt12_csr:u_csr1|jt12_sh_rst:u_regch|altshift_taps:bits_rtl_0" with the following parameter:
+[0m[0;32m    Info (12134): Parameter "NUMBER_OF_TAPS" = "1"
+[0m[0;32m    Info (12134): Parameter "TAP_DISTANCE" = "10"
+[0m[0;32m    Info (12134): Parameter "WIDTH" = "84"
+[0m[0;32m    Info (12134): Parameter "POWER_UP_STATE" = "DONT_CARE"
+[0m[0;32mInfo (12021): Found 1 design units, including 1 entities, in source file db/shift_taps_vvv.tdf
+[0m[0;32m    Info (12023): Found entity 1: shift_taps_vvv File: /work/build/megacd_pocket_fit_probe/db/shift_taps_vvv.tdf Line: 29
+[0m[0;32mInfo (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_ric1.tdf
+[0m[0;32m    Info (12023): Found entity 1: altsyncram_ric1 File: /work/build/megacd_pocket_fit_probe/db/altsyncram_ric1.tdf Line: 28
+[0m[0;32mInfo (12021): Found 1 design units, including 1 entities, in source file db/cntr_8jf.tdf
+[0m[0;32m    Info (12023): Found entity 1: cntr_8jf File: /work/build/megacd_pocket_fit_probe/db/cntr_8jf.tdf Line: 28
+[0m[0;32mInfo (12021): Found 1 design units, including 1 entities, in source file db/cmpr_c9c.tdf
+[0m[0;32m    Info (12023): Found entity 1: cmpr_c9c File: /work/build/megacd_pocket_fit_probe/db/cmpr_c9c.tdf Line: 23
+[0m[0;32mInfo (12021): Found 1 design units, including 1 entities, in source file db/cntr_l1h.tdf
+[0m[0;32m    Info (12023): Found entity 1: cntr_l1h File: /work/build/megacd_pocket_fit_probe/db/cntr_l1h.tdf Line: 28
+[0m[0;32mInfo (12130): Elaborated megafunction instantiation "core_top:ic|gen:donor_gen|jt12:fm|jt12_top:u_jt12|jt12_mmr:u_mmr|jt12_reg:u_reg|jt12_csr:u_csr1|jt12_sh_rst:u_regch|altshift_taps:bits_rtl_1"
+[0m[0;32mInfo (12133): Instantiated megafunction "core_top:ic|gen:donor_gen|jt12:fm|jt12_top:u_jt12|jt12_mmr:u_mmr|jt12_reg:u_reg|jt12_csr:u_csr1|jt12_sh_rst:u_regch|altshift_taps:bits_rtl_1" with the following parameter:
+[0m[0;32m    Info (12134): Parameter "NUMBER_OF_TAPS" = "1"
+[0m[0;32m    Info (12134): Parameter "TAP_DISTANCE" = "9"
+[0m[0;32m    Info (12134): Parameter "WIDTH" = "4"
+[0m[0;32m    Info (12134): Parameter "POWER_UP_STATE" = "DONT_CARE"
+[0m[0;32mInfo (12021): Found 1 design units, including 1 entities, in source file db/shift_taps_vsv.tdf
+[0m[0;32m    Info (12023): Found entity 1: shift_taps_vsv File: /work/build/megacd_pocket_fit_probe/db/shift_taps_vsv.tdf Line: 29
+[0m[0;32mInfo (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_rcc1.tdf
+[0m[0;32m    Info (12023): Found entity 1: altsyncram_rcc1 File: /work/build/megacd_pocket_fit_probe/db/altsyncram_rcc1.tdf Line: 28
+[0m[0;32mInfo (12021): Found 1 design units, including 1 entities, in source file db/cntr_0if.tdf
+[0m[0;32m    Info (12023): Found entity 1: cntr_0if File: /work/build/megacd_pocket_fit_probe/db/cntr_0if.tdf Line: 28
+[0m[0;32mInfo (12021): Found 1 design units, including 1 entities, in source file db/cntr_j1h.tdf
+[0m[0;32m    Info (12023): Found entity 1: cntr_j1h File: /work/build/megacd_pocket_fit_probe/db/cntr_j1h.tdf Line: 28
+[0m[0;32mInfo (12130): Elaborated megafunction instantiation "core_top:ic|gen:donor_gen|jt12:fm|jt12_top:u_jt12|jt12_op:u_op|jt12_sh:phasemod_sh|altshift_taps:bits_rtl_0"
+[0m[0;32mInfo (12133): Instantiated megafunction "core_top:ic|gen:donor_gen|jt12:fm|jt12_top:u_jt12|jt12_op:u_op|jt12_sh:phasemod_sh|altshift_taps:bits_rtl_0" with the following parameter:
+[0m[0;32m    Info (12134): Parameter "NUMBER_OF_TAPS" = "1"
+[0m[0;32m    Info (12134): Parameter "TAP_DISTANCE" = "4"
+[0m[0;32m    Info (12134): Parameter "WIDTH" = "52"
+[0m[0;32m    Info (12134): Parameter "POWER_UP_STATE" = "DONT_CARE"
+[0m[0;32mInfo (12021): Found 1 design units, including 1 entities, in source file db/shift_taps_bgv.tdf
+[0m[0;32m    Info (12023): Found entity 1: shift_taps_bgv File: /work/build/megacd_pocket_fit_probe/db/shift_taps_bgv.tdf Line: 27
+[0m[0;32mInfo (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_lr91.tdf
+[0m[0;32m    Info (12023): Found entity 1: altsyncram_lr91 File: /work/build/megacd_pocket_fit_probe/db/altsyncram_lr91.tdf Line: 28
+[0m[0;32mInfo (12021): Found 1 design units, including 1 entities, in source file db/cntr_phf.tdf
+[0m[0;32m    Info (12023): Found entity 1: cntr_phf File: /work/build/megacd_pocket_fit_probe/db/cntr_phf.tdf Line: 26
 [0m[0;32mInfo (12130): Elaborated megafunction instantiation "core_top:ic|gen:donor_gen|jt12:fm|jt12_top:u_jt12|jt12_pg:u_pg|jt12_sh_rst:u_pad|altshift_taps:bits_rtl_0"
 [0m[0;32mInfo (12133): Instantiated megafunction "core_top:ic|gen:donor_gen|jt12:fm|jt12_top:u_jt12|jt12_pg:u_pg|jt12_sh_rst:u_pad|altshift_taps:bits_rtl_0" with the following parameter:
 [0m[0;32m    Info (12134): Parameter "NUMBER_OF_TAPS" = "1"
@@ -1725,36 +1758,6 @@
 [0m[0;32m    Info (12134): Parameter "INIT_FILE" = "db/ap_core.ram0_nanoRom_eb8e7439.hdl.mif"
 [0m[0;32mInfo (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_q6d1.tdf
 [0m[0;32m    Info (12023): Found entity 1: altsyncram_q6d1 File: /work/build/megacd_pocket_fit_probe/db/altsyncram_q6d1.tdf Line: 28
-[0m[0;32mInfo (12130): Elaborated megafunction instantiation "core_top:ic|gen:donor_gen|jt12:fm|jt12_top:u_jt12|jt12_mmr:u_mmr|jt12_reg:u_reg|jt12_csr:u_csr1|jt12_sh_rst:u_regch|altshift_taps:bits_rtl_0"
-[0m[0;32mInfo (12133): Instantiated megafunction "core_top:ic|gen:donor_gen|jt12:fm|jt12_top:u_jt12|jt12_mmr:u_mmr|jt12_reg:u_reg|jt12_csr:u_csr1|jt12_sh_rst:u_regch|altshift_taps:bits_rtl_0" with the following parameter:
-[0m[0;32m    Info (12134): Parameter "NUMBER_OF_TAPS" = "1"
-[0m[0;32m    Info (12134): Parameter "TAP_DISTANCE" = "10"
-[0m[0;32m    Info (12134): Parameter "WIDTH" = "84"
-[0m[0;32m    Info (12134): Parameter "POWER_UP_STATE" = "DONT_CARE"
-[0m[0;32mInfo (12021): Found 1 design units, including 1 entities, in source file db/shift_taps_vvv.tdf
-[0m[0;32m    Info (12023): Found entity 1: shift_taps_vvv File: /work/build/megacd_pocket_fit_probe/db/shift_taps_vvv.tdf Line: 29
-[0m[0;32mInfo (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_ric1.tdf
-[0m[0;32m    Info (12023): Found entity 1: altsyncram_ric1 File: /work/build/megacd_pocket_fit_probe/db/altsyncram_ric1.tdf Line: 28
-[0m[0;32mInfo (12021): Found 1 design units, including 1 entities, in source file db/cntr_8jf.tdf
-[0m[0;32m    Info (12023): Found entity 1: cntr_8jf File: /work/build/megacd_pocket_fit_probe/db/cntr_8jf.tdf Line: 28
-[0m[0;32mInfo (12021): Found 1 design units, including 1 entities, in source file db/cmpr_c9c.tdf
-[0m[0;32m    Info (12023): Found entity 1: cmpr_c9c File: /work/build/megacd_pocket_fit_probe/db/cmpr_c9c.tdf Line: 23
-[0m[0;32mInfo (12021): Found 1 design units, including 1 entities, in source file db/cntr_l1h.tdf
-[0m[0;32m    Info (12023): Found entity 1: cntr_l1h File: /work/build/megacd_pocket_fit_probe/db/cntr_l1h.tdf Line: 28
-[0m[0;32mInfo (12130): Elaborated megafunction instantiation "core_top:ic|gen:donor_gen|jt12:fm|jt12_top:u_jt12|jt12_mmr:u_mmr|jt12_reg:u_reg|jt12_csr:u_csr1|jt12_sh_rst:u_regch|altshift_taps:bits_rtl_1"
-[0m[0;32mInfo (12133): Instantiated megafunction "core_top:ic|gen:donor_gen|jt12:fm|jt12_top:u_jt12|jt12_mmr:u_mmr|jt12_reg:u_reg|jt12_csr:u_csr1|jt12_sh_rst:u_regch|altshift_taps:bits_rtl_1" with the following parameter:
-[0m[0;32m    Info (12134): Parameter "NUMBER_OF_TAPS" = "1"
-[0m[0;32m    Info (12134): Parameter "TAP_DISTANCE" = "9"
-[0m[0;32m    Info (12134): Parameter "WIDTH" = "4"
-[0m[0;32m    Info (12134): Parameter "POWER_UP_STATE" = "DONT_CARE"
-[0m[0;32mInfo (12021): Found 1 design units, including 1 entities, in source file db/shift_taps_vsv.tdf
-[0m[0;32m    Info (12023): Found entity 1: shift_taps_vsv File: /work/build/megacd_pocket_fit_probe/db/shift_taps_vsv.tdf Line: 29
-[0m[0;32mInfo (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_rcc1.tdf
-[0m[0;32m    Info (12023): Found entity 1: altsyncram_rcc1 File: /work/build/megacd_pocket_fit_probe/db/altsyncram_rcc1.tdf Line: 28
-[0m[0;32mInfo (12021): Found 1 design units, including 1 entities, in source file db/cntr_0if.tdf
-[0m[0;32m    Info (12023): Found entity 1: cntr_0if File: /work/build/megacd_pocket_fit_probe/db/cntr_0if.tdf Line: 28
-[0m[0;32mInfo (12021): Found 1 design units, including 1 entities, in source file db/cntr_j1h.tdf
-[0m[0;32m    Info (12023): Found entity 1: cntr_j1h File: /work/build/megacd_pocket_fit_probe/db/cntr_j1h.tdf Line: 28
 [0m[0;36mWarning (12241): 41 hierarchies have connectivity warnings - see the Connectivity Checks report folder
 [0m[0;32mInfo (284007): State machine "|apf_top|core_top:ic|MCD:donor_mcd|M68K_WRAP:S68K|fx68k:P68K|tState" will be implemented as a safe state machine. File: /work/build/megacd_pocket_fit_probe/core/rtl/FX68K/fx68k.sv Line: 167
 [0m[0;32mInfo (284007): State machine "|apf_top|core_top:ic|MCD:donor_mcd|M68K_WRAP:S68K|fx68k:P68K|busArbiter:busArbiter|dmaPhase" will be implemented as a safe state machine. File: /work/build/megacd_pocket_fit_probe/core/rtl/FX68K/fx68k.sv Line: 2169
@@ -1768,37 +1771,37 @@
 [0m[0;32mInfo (284007): State machine "|apf_top|core_top:ic|MCD:donor_mcd|ASIC:ASIC|PRSS" will be implemented as a safe state machine. File: /work/build/megacd_pocket_fit_probe/core/rtl/MCD/ASIC.vhd Line: 145
 [0m[0;32mInfo (284007): State machine "|apf_top|core_top:ic|MCD:donor_mcd|ASIC:ASIC|WR0A" will be implemented as a safe state machine. File: /work/build/megacd_pocket_fit_probe/core/rtl/MCD/ASIC.vhd Line: 156
 [0m[0;32mInfo (284007): State machine "|apf_top|core_top:ic|MCD:donor_mcd|ASIC:ASIC|WR1A" will be implemented as a safe state machine. File: /work/build/megacd_pocket_fit_probe/core/rtl/MCD/ASIC.vhd Line: 157
-[0m[0;32mInfo (284007): State machine "|apf_top|core_top:ic|gen:donor_gen|vdp:vdp|VMC32" will be implemented as a safe state machine. File: /work/build/megacd_pocket_fit_probe/core/rtl/GEN/vdp.vhd Line: 416
-[0m[0;32mInfo (284007): State machine "|apf_top|core_top:ic|gen:donor_gen|vdp:vdp|BGAC" will be implemented as a safe state machine. File: /work/build/megacd_pocket_fit_probe/core/rtl/GEN/vdp.vhd Line: 501
-[0m[0;32mInfo (284007): State machine "|apf_top|core_top:ic|gen:donor_gen|vdp:vdp|PIX_MODE" will be implemented as a safe state machine. File: /work/build/megacd_pocket_fit_probe/core/rtl/GEN/vdp.vhd Line: 687
 [0m[0;32mInfo (284007): State machine "|apf_top|core_top:ic|gen:donor_gen|vdp:vdp|BGBC" will be implemented as a safe state machine. File: /work/build/megacd_pocket_fit_probe/core/rtl/GEN/vdp.vhd Line: 449
 [0m[0;32mInfo (284007): State machine "|apf_top|core_top:ic|gen:donor_gen|vdp:vdp|SP1C" will be implemented as a safe state machine. File: /work/build/megacd_pocket_fit_probe/core/rtl/GEN/vdp.vhd Line: 602
 [0m[0;32mInfo (284007): State machine "|apf_top|core_top:ic|gen:donor_gen|vdp:vdp|SP2C" will be implemented as a safe state machine. File: /work/build/megacd_pocket_fit_probe/core/rtl/GEN/vdp.vhd Line: 629
 [0m[0;32mInfo (284007): State machine "|apf_top|core_top:ic|gen:donor_gen|vdp:vdp|SP3C" will be implemented as a safe state machine. File: /work/build/megacd_pocket_fit_probe/core/rtl/GEN/vdp.vhd Line: 653
+[0m[0;32mInfo (284007): State machine "|apf_top|core_top:ic|gen:donor_gen|vdp:vdp|VMC32" will be implemented as a safe state machine. File: /work/build/megacd_pocket_fit_probe/core/rtl/GEN/vdp.vhd Line: 416
+[0m[0;32mInfo (284007): State machine "|apf_top|core_top:ic|gen:donor_gen|vdp:vdp|BGAC" will be implemented as a safe state machine. File: /work/build/megacd_pocket_fit_probe/core/rtl/GEN/vdp.vhd Line: 501
+[0m[0;32mInfo (284007): State machine "|apf_top|core_top:ic|gen:donor_gen|vdp:vdp|PIX_MODE" will be implemented as a safe state machine. File: /work/build/megacd_pocket_fit_probe/core/rtl/GEN/vdp.vhd Line: 687
+[0m[0;32mInfo (284007): State machine "|apf_top|core_top:ic|CART:donor_cart|ROMS" will be implemented as a safe state machine. File: /work/build/megacd_pocket_fit_probe/core/rtl/GEN/CART.vhd Line: 47
+[0m[0;32mInfo (284007): State machine "|apf_top|core_top:ic|CART:donor_cart|RAMS" will be implemented as a safe state machine. File: /work/build/megacd_pocket_fit_probe/core/rtl/GEN/CART.vhd Line: 48
 [0m[0;32mInfo (284007): State machine "|apf_top|core_top:ic|gen:donor_gen|zsrc" will be implemented as a safe state machine. File: /work/build/megacd_pocket_fit_probe/core/rtl/GEN/gen.sv Line: 1045
 [0m[0;32mInfo (284007): State machine "|apf_top|core_top:ic|gen:donor_gen|zstate" will be implemented as a safe state machine. File: /work/build/megacd_pocket_fit_probe/core/rtl/GEN/gen.sv Line: 1044
 [0m[0;32mInfo (284007): State machine "|apf_top|core_top:ic|gen:donor_gen|msrc" will be implemented as a safe state machine. File: /work/build/megacd_pocket_fit_probe/core/rtl/GEN/gen.sv Line: 607
 [0m[0;32mInfo (284007): State machine "|apf_top|core_top:ic|gen:donor_gen|mstate" will be implemented as a safe state machine. File: /work/build/megacd_pocket_fit_probe/core/rtl/GEN/gen.sv Line: 606
 [0m[0;32mInfo (284007): State machine "|apf_top|core_top:ic|gen:donor_gen|fx68k:M68K|busArbiter:busArbiter|dmaPhase" will be implemented as a safe state machine. File: /work/build/megacd_pocket_fit_probe/core/rtl/FX68K/fx68k.sv Line: 2169
-[0m[0;32mInfo (284007): State machine "|apf_top|core_top:ic|CART:donor_cart|ROMS" will be implemented as a safe state machine. File: /work/build/megacd_pocket_fit_probe/core/rtl/GEN/CART.vhd Line: 47
-[0m[0;32mInfo (284007): State machine "|apf_top|core_top:ic|CART:donor_cart|RAMS" will be implemented as a safe state machine. File: /work/build/megacd_pocket_fit_probe/core/rtl/GEN/CART.vhd Line: 48
+[0m[0;32mInfo (284007): State machine "|apf_top|core_top:ic|MCD:donor_mcd|ASIC:ASIC|GS" will be implemented as a safe state machine. File: /work/build/megacd_pocket_fit_probe/core/rtl/MCD/ASIC.vhd Line: 177
+[0m[0;32mInfo (284007): State machine "|apf_top|core_top:ic|MCD:donor_mcd|CDC:CDC|TS" will be implemented as a safe state machine. File: /work/build/megacd_pocket_fit_probe/core/rtl/MCD/CDC.vhd Line: 142
+[0m[0;32mInfo (284007): State machine "|apf_top|core_top:ic|MCD:donor_mcd|ASIC:ASIC|DS" will be implemented as a safe state machine. File: /work/build/megacd_pocket_fit_probe/core/rtl/MCD/ASIC.vhd Line: 193
+[0m[0;32mInfo (284007): State machine "|apf_top|core_top:ic|MCD:donor_mcd|ASIC:ASIC|PCMA" will be implemented as a safe state machine. File: /work/build/megacd_pocket_fit_probe/core/rtl/MCD/ASIC.vhd Line: 286
+[0m[0;32mInfo (284007): State machine "|apf_top|core_top:ic|MCD:donor_mcd|ASIC:ASIC|HS" will be implemented as a safe state machine. File: /work/build/megacd_pocket_fit_probe/core/rtl/MCD/ASIC.vhd Line: 293
 [0m[0;32mInfo (284007): State machine "|apf_top|core_top:ic|sound_i2s:i2s|sync_fifo:sync_fifo|read_state" will be implemented as a safe state machine. File: /work/build/megacd_pocket_fit_probe/core/sync_fifo.sv Line: 66
 [0m[0;32mInfo (284007): State machine "|apf_top|core_top:ic|MCD:donor_mcd|ASIC:ASIC|WR0S" will be implemented as a safe state machine. File: /work/build/megacd_pocket_fit_probe/core/rtl/MCD/ASIC.vhd Line: 164
-[0m[0;32mInfo (284007): State machine "|apf_top|core_top:ic|MCD:donor_mcd|ASIC:ASIC|WR1S" will be implemented as a safe state machine. File: /work/build/megacd_pocket_fit_probe/core/rtl/MCD/ASIC.vhd Line: 165
 [0m[0;32mInfo (284007): State machine "|apf_top|io_bridge_peripheral:ibs|spis" will be implemented as a safe state machine. File: /work/build/megacd_pocket_fit_probe/apf/io_bridge_peripheral.v Line: 106
 [0m[0;32mInfo (284007): State machine "|apf_top|io_bridge_peripheral:ibs|rx_latch_idx" will be implemented as a safe state machine. File: /work/build/megacd_pocket_fit_probe/apf/io_bridge_peripheral.v Line: 304
 [0m[0;32mInfo (284007): State machine "|apf_top|io_bridge_peripheral:ibs|state" will be implemented as a safe state machine. File: /work/build/megacd_pocket_fit_probe/apf/io_bridge_peripheral.v Line: 86
 [0m[0;32mInfo (284007): State machine "|apf_top|io_pad_controller:ipm|tr_state" will be implemented as a safe state machine. File: /work/build/megacd_pocket_fit_probe/apf/io_pad_controller.v Line: 223
 [0m[0;32mInfo (284007): State machine "|apf_top|io_pad_controller:ipm|state" will be implemented as a safe state machine. File: /work/build/megacd_pocket_fit_probe/apf/io_pad_controller.v Line: 91
-[0m[0;32mInfo (284007): State machine "|apf_top|core_top:ic|MCD:donor_mcd|CDC:CDC|TS" will be implemented as a safe state machine. File: /work/build/megacd_pocket_fit_probe/core/rtl/MCD/CDC.vhd Line: 142
-[0m[0;32mInfo (284007): State machine "|apf_top|core_top:ic|MCD:donor_mcd|ASIC:ASIC|DS" will be implemented as a safe state machine. File: /work/build/megacd_pocket_fit_probe/core/rtl/MCD/ASIC.vhd Line: 193
-[0m[0;32mInfo (284007): State machine "|apf_top|core_top:ic|MCD:donor_mcd|ASIC:ASIC|PCMA" will be implemented as a safe state machine. File: /work/build/megacd_pocket_fit_probe/core/rtl/MCD/ASIC.vhd Line: 286
-[0m[0;32mInfo (284007): State machine "|apf_top|core_top:ic|MCD:donor_mcd|ASIC:ASIC|HS" will be implemented as a safe state machine. File: /work/build/megacd_pocket_fit_probe/core/rtl/MCD/ASIC.vhd Line: 293
 [0m[0;32mInfo (284007): State machine "|apf_top|core_top:ic|data_loader:bios_loader|write_state" will be implemented as a safe state machine. File: /work/build/megacd_pocket_fit_probe/core/data_loader.sv Line: 107
 [0m[0;32mInfo (284007): State machine "|apf_top|core_top:ic|data_loader:cart_loader|write_state" will be implemented as a safe state machine. File: /work/build/megacd_pocket_fit_probe/core/data_loader.sv Line: 107
 [0m[0;32mInfo (284007): State machine "|apf_top|core_top:ic|core_bridge_cmd:icb|hstate" will be implemented as a safe state machine. File: /work/build/megacd_pocket_fit_probe/core/core_bridge_cmd.v Line: 129
 [0m[0;32mInfo (284007): State machine "|apf_top|core_top:ic|core_bridge_cmd:icb|tstate" will be implemented as a safe state machine. File: /work/build/megacd_pocket_fit_probe/core/core_bridge_cmd.v Line: 155
-[0m[0;32mInfo (284007): State machine "|apf_top|core_top:ic|MCD:donor_mcd|ASIC:ASIC|GS" will be implemented as a safe state machine. File: /work/build/megacd_pocket_fit_probe/core/rtl/MCD/ASIC.vhd Line: 177
+[0m[0;32mInfo (284007): State machine "|apf_top|core_top:ic|MCD:donor_mcd|ASIC:ASIC|WR1S" will be implemented as a safe state machine. File: /work/build/megacd_pocket_fit_probe/core/rtl/MCD/ASIC.vhd Line: 165
 [0m[0;36mWarning (14284): Synthesized away the following node(s):
 [0m[0;36m    Warning (14285): Synthesized away the following RAM node(s):
 [0m[0;36m        Warning (14320): Synthesized away node "core_top:ic|gen:donor_gen|fx68k:M68K|nanoRom:nanoRom|altsyncram:nRam_rtl_0|altsyncram_q6d1:auto_generated|ram_block1a2" File: /work/build/megacd_pocket_fit_probe/db/altsyncram_q6d1.tdf Line: 77
@@ -1878,27 +1881,9 @@
 [0m[0;36m    Warning (13410): Pin "cram1_ub_n" is stuck at VCC File: /work/build/megacd_pocket_fit_probe/apf/apf_top.v Line: 156
 [0m[0;36m    Warning (13410): Pin "cram1_lb_n" is stuck at VCC File: /work/build/megacd_pocket_fit_probe/apf/apf_top.v Line: 157
 [0m[0;36m    Warning (13410): Pin "dram_cke" is stuck at VCC File: /work/build/megacd_pocket_fit_probe/apf/apf_top.v Line: 167
-[0m[0;36m    Warning (13410): Pin "sram_a[0]" is stuck at GND File: /work/build/megacd_pocket_fit_probe/apf/apf_top.v Line: 175
-[0m[0;36m    Warning (13410): Pin "sram_a[1]" is stuck at GND File: /work/build/megacd_pocket_fit_probe/apf/apf_top.v Line: 175
-[0m[0;36m    Warning (13410): Pin "sram_a[2]" is stuck at GND File: /work/build/megacd_pocket_fit_probe/apf/apf_top.v Line: 175
-[0m[0;36m    Warning (13410): Pin "sram_a[3]" is stuck at GND File: /work/build/megacd_pocket_fit_probe/apf/apf_top.v Line: 175
-[0m[0;36m    Warning (13410): Pin "sram_a[4]" is stuck at GND File: /work/build/megacd_pocket_fit_probe/apf/apf_top.v Line: 175
-[0m[0;36m    Warning (13410): Pin "sram_a[5]" is stuck at GND File: /work/build/megacd_pocket_fit_probe/apf/apf_top.v Line: 175
-[0m[0;36m    Warning (13410): Pin "sram_a[6]" is stuck at GND File: /work/build/megacd_pocket_fit_probe/apf/apf_top.v Line: 175
-[0m[0;36m    Warning (13410): Pin "sram_a[7]" is stuck at GND File: /work/build/megacd_pocket_fit_probe/apf/apf_top.v Line: 175
-[0m[0;36m    Warning (13410): Pin "sram_a[8]" is stuck at GND File: /work/build/megacd_pocket_fit_probe/apf/apf_top.v Line: 175
-[0m[0;36m    Warning (13410): Pin "sram_a[9]" is stuck at GND File: /work/build/megacd_pocket_fit_probe/apf/apf_top.v Line: 175
-[0m[0;36m    Warning (13410): Pin "sram_a[10]" is stuck at GND File: /work/build/megacd_pocket_fit_probe/apf/apf_top.v Line: 175
-[0m[0;36m    Warning (13410): Pin "sram_a[11]" is stuck at GND File: /work/build/megacd_pocket_fit_probe/apf/apf_top.v Line: 175
-[0m[0;36m    Warning (13410): Pin "sram_a[12]" is stuck at GND File: /work/build/megacd_pocket_fit_probe/apf/apf_top.v Line: 175
-[0m[0;36m    Warning (13410): Pin "sram_a[13]" is stuck at GND File: /work/build/megacd_pocket_fit_probe/apf/apf_top.v Line: 175
-[0m[0;36m    Warning (13410): Pin "sram_a[14]" is stuck at GND File: /work/build/megacd_pocket_fit_probe/apf/apf_top.v Line: 175
-[0m[0;36m    Warning (13410): Pin "sram_a[15]" is stuck at GND File: /work/build/megacd_pocket_fit_probe/apf/apf_top.v Line: 175
 [0m[0;36m    Warning (13410): Pin "sram_a[16]" is stuck at GND File: /work/build/megacd_pocket_fit_probe/apf/apf_top.v Line: 175
-[0m[0;36m    Warning (13410): Pin "sram_oe_n" is stuck at VCC File: /work/build/megacd_pocket_fit_probe/apf/apf_top.v Line: 177
-[0m[0;36m    Warning (13410): Pin "sram_we_n" is stuck at VCC File: /work/build/megacd_pocket_fit_probe/apf/apf_top.v Line: 178
-[0m[0;36m    Warning (13410): Pin "sram_ub_n" is stuck at VCC File: /work/build/megacd_pocket_fit_probe/apf/apf_top.v Line: 179
-[0m[0;36m    Warning (13410): Pin "sram_lb_n" is stuck at VCC File: /work/build/megacd_pocket_fit_probe/apf/apf_top.v Line: 180
+[0m[0;36m    Warning (13410): Pin "sram_ub_n" is stuck at GND File: /work/build/megacd_pocket_fit_probe/apf/apf_top.v Line: 179
+[0m[0;36m    Warning (13410): Pin "sram_lb_n" is stuck at GND File: /work/build/megacd_pocket_fit_probe/apf/apf_top.v Line: 180
 [0m[0;36mCritical Warning (18061): Ignored Power-Up Level option on the following registers
 [0m[0;36m    Critical Warning (18010): Register core_top:ic|MCD:donor_mcd|PCM:PCM|CEGen:CEGen|CLK_SUM[0] will power up to Low File: /work/build/megacd_pocket_fit_probe/core/rtl/CEGen.vhd Line: 22
 [0m[0;36m    Critical Warning (18010): Register core_top:ic|MCD:donor_mcd|PCM:PCM|CEGen:CEGen|CLK_SUM[31] will power up to Low File: /work/build/megacd_pocket_fit_probe/core/rtl/CEGen.vhd Line: 22
@@ -1962,9 +1947,9 @@
 [0m[0;32mInfo (144001): Generated suppressed messages file /work/build/megacd_pocket_fit_probe/output_files/ap_core.map.smsg
 [0m[0;32mInfo (16010): Generating hard_block partition "hard_block:auto_generated_inst"
 [0m[0;32m    Info (16011): Adding 88 node(s), including 18 DDIO, 6 PLL, 0 transceiver and 0 LCELL
-[0m[0;36mWarning: RST port on the PLL is not properly connected on instance core_top:ic|mf_pllbase:mp1|mf_pllbase_0002:mf_pllbase_inst|altera_pll:altera_pll_i|general[1].gpll. The reset port on the PLL should be connected. If the PLL loses lock for any reason, you might need to manually reset the PLL in order to re-establish lock to the reference clock. File: /opt/intelFPGA_lite/quartus/libraries/megafunctions/altera_pll.v Line: 749
-[0m[0;32m    Info: Must be connected
 [0m[0;36mWarning: RST port on the PLL is not properly connected on instance core_top:ic|mf_pllbase:mp1|mf_pllbase_0002:mf_pllbase_inst|altera_pll:altera_pll_i|general[0].gpll. The reset port on the PLL should be connected. If the PLL loses lock for any reason, you might need to manually reset the PLL in order to re-establish lock to the reference clock. File: /opt/intelFPGA_lite/quartus/libraries/megafunctions/altera_pll.v Line: 749
+[0m[0;32m    Info: Must be connected
+[0m[0;36mWarning: RST port on the PLL is not properly connected on instance core_top:ic|mf_pllbase:mp1|mf_pllbase_0002:mf_pllbase_inst|altera_pll:altera_pll_i|general[1].gpll. The reset port on the PLL should be connected. If the PLL loses lock for any reason, you might need to manually reset the PLL in order to re-establish lock to the reference clock. File: /opt/intelFPGA_lite/quartus/libraries/megafunctions/altera_pll.v Line: 749
 [0m[0;32m    Info: Must be connected
 [0m[0;36mWarning: RST port on the PLL is not properly connected on instance core_top:ic|mf_pllbase:mp1|mf_pllbase_0002:mf_pllbase_inst|altera_pll:altera_pll_i|general[5].gpll. The reset port on the PLL should be connected. If the PLL loses lock for any reason, you might need to manually reset the PLL in order to re-establish lock to the reference clock. File: /opt/intelFPGA_lite/quartus/libraries/megafunctions/altera_pll.v Line: 749
 [0m[0;32m    Info: Must be connected
@@ -1983,17 +1968,17 @@
 [0m[0;36m    Warning (15610): No output dependent on input pin "vblank" File: /work/build/megacd_pocket_fit_probe/apf/apf_top.v Line: 185
 [0m[0;36m    Warning (15610): No output dependent on input pin "dbg_rx" File: /work/build/megacd_pocket_fit_probe/apf/apf_top.v Line: 191
 [0m[0;36m    Warning (15610): No output dependent on input pin "user2" File: /work/build/megacd_pocket_fit_probe/apf/apf_top.v Line: 197
-[0m[0;32mInfo (21057): Implemented 29278 device resources after synthesis - the final resource count might be different
+[0m[0;32mInfo (21057): Implemented 28825 device resources after synthesis - the final resource count might be different
 [0m[0;32m    Info (21058): Implemented 13 input pins
 [0m[0;32m    Info (21059): Implemented 94 output pins
 [0m[0;32m    Info (21060): Implemented 121 bidirectional pins
-[0m[0;32m    Info (21061): Implemented 28025 logic cells
-[0m[0;32m    Info (21064): Implemented 990 RAM segments
+[0m[0;32m    Info (21061): Implemented 27700 logic cells
+[0m[0;32m    Info (21064): Implemented 862 RAM segments
 [0m[0;32m    Info (21065): Implemented 6 PLLs
 [0m[0;32m    Info (21062): Implemented 10 DSP elements
-[0m[0;32mInfo: Quartus Prime Analysis & Synthesis was successful. 0 errors, 194 warnings
-[0m[0;32m    Info: Peak virtual memory: 1809 megabytes
-[0m[0;32m    Info: Processing ended: Sat Jul 11 02:07:01 2026
-[0m[0;32m    Info: Elapsed time: 00:04:27
-[0m[0;32m    Info: Total CPU time (on all processors): 00:07:12
+[0m[0;32mInfo: Quartus Prime Analysis & Synthesis was successful. 0 errors, 176 warnings
+[0m[0;32m    Info: Peak virtual memory: 1796 megabytes
+[0m[0;32m    Info: Processing ended: Sat Jul 11 06:08:29 2026
+[0m[0;32m    Info: Elapsed time: 00:03:47
+[0m[0;32m    Info: Total CPU time (on all processors): 00:05:55
 [0m

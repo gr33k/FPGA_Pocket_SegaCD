@@ -125,7 +125,9 @@ assign port_tran_sck = 1'bz; assign port_tran_sck_dir = 1'b0;
 assign port_tran_sd = 1'bz; assign port_tran_sd_dir = 1'b0;
 assign cram0_a = 'h0; assign cram0_dq = {16{1'bZ}}; assign cram0_clk = 1'b0; assign cram0_adv_n = 1'b1; assign cram0_cre = 1'b0; assign cram0_ce0_n = 1'b1; assign cram0_ce1_n = 1'b1; assign cram0_oe_n = 1'b1; assign cram0_we_n = 1'b1; assign cram0_ub_n = 1'b1; assign cram0_lb_n = 1'b1;
 assign cram1_a = 'h0; assign cram1_dq = {16{1'bZ}}; assign cram1_clk = 1'b0; assign cram1_adv_n = 1'b1; assign cram1_cre = 1'b0; assign cram1_ce0_n = 1'b1; assign cram1_ce1_n = 1'b1; assign cram1_oe_n = 1'b1; assign cram1_we_n = 1'b1; assign cram1_ub_n = 1'b1; assign cram1_lb_n = 1'b1;
-assign sram_a = 'h0; assign sram_dq = {16{1'bZ}}; assign sram_oe_n = 1'b1; assign sram_we_n = 1'b1; assign sram_ub_n = 1'b1; assign sram_lb_n = 1'b1;
+wire [16:0] wordram0_sram_a;
+wire wordram0_sram_oe_n, wordram0_sram_we_n, wordram0_sram_ub_n, wordram0_sram_lb_n;
+assign sram_a = wordram0_sram_a; assign sram_oe_n = wordram0_sram_oe_n; assign sram_we_n = wordram0_sram_we_n; assign sram_ub_n = wordram0_sram_ub_n; assign sram_lb_n = wordram0_sram_lb_n;
 assign dbg_tx = 1'bz; assign user1 = 1'bz; assign aux_scl = 1'bz; assign aux_sda = 1'bz; assign vpll_feed = 1'bz;
 assign video_skip = 1'b0;
 
@@ -262,6 +264,11 @@ wire MCD_BRAM_WE;
 wire [15:0] MCD_PCM_SL, MCD_PCM_SR, MCD_CDDA_SL, MCD_CDDA_SR;
 wire MCD_CDDA_WR_READY;
 wire MCD_RST_N;
+wire [15:0] EXT_WORDRAM0_A, EXT_WORDRAM0_DI, EXT_WORDRAM0_DO;
+wire EXT_WORDRAM0_WR;
+wire wordram0_read_seen, wordram0_write_seen;
+wire [15:0] wordram0_last_addr;
+localparam wordram0_external_enabled = 1'b1;
 wire [39:0] scd_cdd_stat, scd_cdd_comm;
 wire scd_cdd_send, scd_cdd_rec, scd_cdd_dm;
 wire [15:0] cdc_d;
@@ -312,7 +319,26 @@ MCD donor_mcd (
     .RST_N(~mcd_reset), .CLK(clk_sys), .ENABLE(megacd_mode_enabled), .MCD_RST_N(MCD_RST_N), .PALSW(1'b0), .EXT_VA(GEN_VA[17:1]), .EXT_VDI(GEN_VDO), .EXT_VDO(MCD_DO), .EXT_AS_N(GEN_AS_N), .EXT_RNW(GEN_RNW), .EXT_LDS_N(GEN_LDS_N), .EXT_UDS_N(GEN_UDS_N), .EXT_DTACK_N(MCD_DTACK_N), .EXT_ASEL_N(GEN_ASEL_N), .EXT_VCLK_CE(GEN_VCLK_CE), .EXT_RAS2_N(GEN_RAS2_N), .EXT_ROM_N(EXT_ROM_N), .EXT_FDC_N(EXT_FDC_N),
     .PRG_A(MCD_PRG_ADDR), .PRG_DI(MCD_PRG_DI), .PRG_DO(MCD_PRG_DO), .PRG_WRL_N(MCD_PRG_WRL_N), .PRG_WRH_N(MCD_PRG_WRH_N), .PRG_OE_N(MCD_PRG_OE_N), .PRG_RDY(~MCD_PRG_BUSY),
     .ROM_DI(GEN_MEM_DO), .ROM_CE_N(GEN_ROM_CE_N), .ROM_RDY(~GEN_MEM_BUSY), .BRAM_A(MCD_BRAM_ADDR), .BRAM_DI(MCD_BRAM_DI), .BRAM_DO(MCD_BRAM_DO), .BRAM_WE(MCD_BRAM_WE),
+    .EXT_WORDRAM0_A(EXT_WORDRAM0_A), .EXT_WORDRAM0_DI(EXT_WORDRAM0_DI), .EXT_WORDRAM0_DO(EXT_WORDRAM0_DO), .EXT_WORDRAM0_WR(EXT_WORDRAM0_WR),
     .CDD_STAT(scd_cdd_stat), .CDD_COMM(scd_cdd_comm), .CDD_SEND(scd_cdd_send), .CDD_REC(scd_cdd_rec), .CDD_DM(scd_cdd_dm), .CDC_DATA(cdc_d), .CDC_DAT_WR(cdc_wr), .CDC_SC_WR(cdc_sub_wr), .CDC_CDDA_WR(cdc_cdda_wr), .CDDA_WR_READY(), .PCM_SL(MCD_PCM_SL), .PCM_SR(MCD_PCM_SR), .CDDA_SL(MCD_CDDA_SL), .CDDA_SR(MCD_CDDA_SR), .LED_RED(), .LED_GREEN(), .GG_RESET(1'b0), .GG_EN(1'b0), .GG_CODE(129'd0), .GG_AVAILABLE(), .DBG_S68K_A()
+);
+
+pocket_wordram0_sram wordram0_sram (
+    .clock(clk_sys),
+    .reset(mcd_reset),
+    .wordram_addr(EXT_WORDRAM0_A),
+    .wordram_write_data(EXT_WORDRAM0_DO),
+    .wordram_write(EXT_WORDRAM0_WR),
+    .wordram_read_data(EXT_WORDRAM0_DI),
+    .wordram_read_seen(wordram0_read_seen),
+    .wordram_write_seen(wordram0_write_seen),
+    .last_wordram_addr(wordram0_last_addr),
+    .sram_a(wordram0_sram_a),
+    .sram_dq(sram_dq),
+    .sram_oe_n(wordram0_sram_oe_n),
+    .sram_we_n(wordram0_sram_we_n),
+    .sram_ub_n(wordram0_sram_ub_n),
+    .sram_lb_n(wordram0_sram_lb_n)
 );
 
 wire [24:1] sdram_addr0 = {6'b100000, MCD_PRG_ADDR};
@@ -423,6 +449,8 @@ always @(*) begin
         32'h00E00004: bridge_rd_data = debug_status;
         32'h00E00008: bridge_rd_data = cart_bytes_seen;
         32'h00E0000C: bridge_rd_data = bios_bytes_seen;
+        32'h00E00010: bridge_rd_data = {26'd0, sub68k_activity_seen, MCD_RST_N, wordram0_external_enabled, wordram0_write_seen, wordram0_read_seen, 1'b0};
+        32'h00E00014: bridge_rd_data = {16'd0, wordram0_last_addr};
         32'hF8xxxxxx: bridge_rd_data = cmd_bridge_rd_data;
         default: bridge_rd_data = 32'd0;
     endcase

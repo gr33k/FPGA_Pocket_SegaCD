@@ -1,34 +1,11 @@
 # MegaCD Pocket capacity blocker
 
-- final classification: `POCKET_MEMORY_CAPACITY_EXCEEDED`
-- failed resource: `Total block memory bits`
-- required: `3,523,686 bits`
-- available: `3,153,920 bits`
-- over capacity: `369,766 bits`
-- failure type: `hard memory capacity limit during fit`
-- supporting fitter error: `Error (11802): Can't fit design in device`
-
-## Largest relevant hierarchy evidence
-
-- `MCD:donor_mcd`: `2,792,096` memory bits in `ap_core.fit.rpt`
-- `M68K_WRAP:S68K`: `39,584` memory bits in `ap_core.fit.rpt`
-- inherited SignalTap / `sld_hub`: about `112` memory bits only, so it is not the primary blocker
-
-## Source-level cause
-
-The copied donor MegaCD lane keeps several large internal memories inside `src/megacd_pocket/fpga/core/rtl/MCD/MCD.vhd`:
-
-- `WORDRAM0` internal `spram`
-- `WORDRAM1` internal `spram`
-- `CDC_RAM` internal `dpram_dif`
-- `PCM_RAM` internal `dpram`
-- `BRAM_*` internal sub-CPU / backup-style memory path
-
-Program RAM is already pushed onto Pocket SDRAM, but the remaining internal MegaCD memories still push the design over the Pocket block-memory budget.
-
-## Concrete next reduction
-
-- externalize MegaCD internal RAMs in the repo-owned lane, starting with `WORDRAM0` and `WORDRAM1`
-- next externalization targets after Word RAM: `CDC_RAM`, `PCM_RAM`, and the `BRAM_*` path
-- keep Genesis baseline untouched on `main`
-- rerun map and fit only after that memory refactor lands
+- final classification: `POCKET_MEMORY_CAPACITY_EXCEEDED_AFTER_WORDRAM0`
+- block memory bits after WORDRAM0 move: `2,475,110 / 3,153,920`
+- exact bit reduction from baseline: `1,048,576`
+- M10K blocks after WORDRAM0 move: `325 / 308`
+- M10K overage: `17 blocks`
+- total block memory implementation bits: `3,328,000 / 3,153,920`
+- conclusion: `WORDRAM0 externalization solved the raw block-memory-bit limit, but fitter still fails because the design packs to too many M10K blocks`
+- next safe externalization target: `CDC_RAM or PCM_RAM`
+- explicitly not done in this task: `moving WORDRAM1 onto the same physical SRAM bus`

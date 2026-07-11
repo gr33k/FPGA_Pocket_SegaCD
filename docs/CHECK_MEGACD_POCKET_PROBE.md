@@ -6,11 +6,17 @@
 - donor submodule clean: `yes`
 - Genesis submodule clean: `yes`
 - repo-owned MegaCD lane exists: `yes`
+- WORDRAM0 externalized: `yes`
+- WORDRAM1 remains internal: `yes`
+- Pocket SRAM actively connected: `yes`
+- memory reduction documented: `yes`
+- timing result exists when fit passed: `not-required`
 - map exit code: `0`
 - fitter exit code: `3`
 - timing exit code: `not-run`
 - assembler exit code: `not-run`
-- final classification: `POCKET_MEMORY_CAPACITY_EXCEEDED`
+- final classification: `POCKET_MEMORY_CAPACITY_EXCEEDED_AFTER_WORDRAM0`
+- fresh artifact when claimed: `no`
 - generated artifacts tracked by git: `no`
-- BIOS or disc image bundled: `no`
+- BIOS/ROM/disc image bundled: `no`
 - Genesis baseline modified: `no`

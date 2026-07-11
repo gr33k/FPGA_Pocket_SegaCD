@@ -42,6 +42,14 @@ entity MCD is
 		BRAM_DI			: in std_logic_vector(7 downto 0);
 		BRAM_DO			: out std_logic_vector(7 downto 0);
 		BRAM_WE			: out std_logic;
+
+		-- Word RAM bank zero is externalized onto Pocket SRAM for the
+		-- first capacity-recovery probe. Word RAM bank one remains internal
+		-- block RAM to preserve the donor's independent dual-bank behavior.
+		EXT_WORDRAM0_A	: out std_logic_vector(15 downto 0);
+		EXT_WORDRAM0_DI	: in std_logic_vector(15 downto 0);
+		EXT_WORDRAM0_DO	: out std_logic_vector(15 downto 0);
+		EXT_WORDRAM0_WR	: out std_logic;
 		
 		CDD_STAT			: in std_logic_vector(39 downto 0);
 		CDD_COMM			: out std_logic_vector(39 downto 0);
@@ -312,16 +320,13 @@ begin
 	BRAM_WE <= not (CLWE_N or BRAM_N);
 	
 	
-	WORDRAM0 : entity work.spram
-	generic map(16,16)
-	port map(
-		clock		=> CLK,
-		address	=> WORDRAM0_A,
-		data		=> WORDRAM0_DO,
-		wren		=> WORDRAM0_WR,
-		q			=> WORDRAM0_DI
-	);
+	EXT_WORDRAM0_A <= WORDRAM0_A;
+	EXT_WORDRAM0_DO <= WORDRAM0_DO;
+	EXT_WORDRAM0_WR <= WORDRAM0_WR;
+	WORDRAM0_DI <= EXT_WORDRAM0_DI;
 
+	-- Bank zero uses the external Pocket SRAM implementation on this branch.
+	-- Bank one stays on internal block RAM for this asymmetrical capacity probe.
 	WORDRAM1 : entity work.spram
 	generic map(16,16)
 	port map(
