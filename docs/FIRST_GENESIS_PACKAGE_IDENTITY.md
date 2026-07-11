@@ -1,22 +1,16 @@
 # First Genesis package identity
 
 - Old upstream-derived core path: `Cores/ericlewis.Genesis`
-- New project core path: `Cores/gr33k.Genesis`
-- New project platform file: `Platforms/gr33k.Genesis.json`
+- Interim local path: `Cores/gr33k.Genesis`
+- Final working renamed test path: `Cores/Gr33k.SegaCD`
+- Active working platform during validation: `genesis`
+- Display author: `Gr33k`
+- Display name during Genesis validation: `SegaCD`
 
-## Why it changed
+## Outcome
 
-The first staged package reused the upstream `openFPGA-Genesis` dist metadata directly, which placed the staged core under the upstream identity. This project now stages the Genesis-only Pocket smoke-test candidate under `gr33k.Genesis` to avoid name conflicts while preserving upstream attribution.
+The renamed package was validated on real Analogue Pocket hardware after stale and duplicate SD content was removed. The working Genesis baseline uses the same upstream Genesis platform and a renamed core identity.
 
 ## Attribution
 
-This package remains derivative of the upstream `openFPGA-Genesis` distribution and its wider openFPGA/MiSTer/fpgagen lineage. Upstream metadata remains the source for the staged package skeleton; only the staged package identity was renamed for this project.
-
-## Scope
-
-- Genesis only
-- No Sega CD
-- No 32X
-- No ROM bundled
-- No Pocket boot claim yet
-- No runtime correctness claim yet
+This package remains derivative of the upstream `openFPGA-Genesis` distribution and its wider openFPGA/MiSTer/fpgagen lineage. Upstream metadata remains the source for the staged package skeleton; only the staged identity and displayed metadata were rewritten for project testing.
