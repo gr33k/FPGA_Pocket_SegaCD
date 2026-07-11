@@ -8,11 +8,10 @@ ARTIFACTS="$ROOT_DIR/docs/FIRST_GENESIS_BUILD_ARTIFACTS.md"
 PACKAGE="$ROOT_DIR/docs/FIRST_GENESIS_OPENFPGA_PACKAGE_STATUS.md"
 GUIDE="$ROOT_DIR/docs/FIRST_GENESIS_SD_STAGING_GUIDE.md"
 ROM_PLAN="$ROOT_DIR/docs/FIRST_GENESIS_ROM_TEST_PLAN.md"
-IDENTITY_DOC="$ROOT_DIR/docs/FIRST_GENESIS_PACKAGE_IDENTITY.md"
 TIMESTAMP="$(date -u '+%Y-%m-%d %H:%M:%S UTC')"
-CORE_DIR="$ROOT_DIR/build/pocket_sd_genesis_first_boot/Cores/gr33k.Genesis"
-PLATFORM_JSON="$ROOT_DIR/build/pocket_sd_genesis_first_boot/Platforms/gr33k.Genesis.json"
-OLD_CORE_DIR="$ROOT_DIR/build/pocket_sd_genesis_first_boot/Cores/ericlewis.Genesis"
+CORE_DIR="$ROOT_DIR/build/pocket_sd_genesis_first_boot/Cores/Gr33k.SegaCD"
+PLATFORM_JSON="$ROOT_DIR/build/pocket_sd_genesis_first_boot/Platforms/segacd.json"
+ASSET_DIR="$ROOT_DIR/build/pocket_sd_genesis_first_boot/Assets/segacd/common"
 
 ok() { echo "PASS: $1" >> "$REPORT"; }
 warn() { echo "WARN: $1" >> "$REPORT"; }
@@ -28,10 +27,10 @@ warn() { echo "WARN: $1" >> "$REPORT"; }
 [[ -f "$PACKAGE" ]] && ok "package status doc exists" || warn "package status doc missing"
 [[ -f "$GUIDE" ]] && ok "SD staging guide exists" || warn "SD staging guide missing"
 [[ -f "$ROM_PLAN" ]] && ok "ROM test plan exists" || warn "ROM test plan missing"
-[[ -f "$IDENTITY_DOC" ]] && ok "package identity doc exists" || warn "package identity doc missing"
-[[ -d "$CORE_DIR" ]] && ok "renamed core path staged" || warn "renamed core path missing"
-[[ -f "$PLATFORM_JSON" ]] && ok "renamed platform json staged" || warn "renamed platform json missing"
-[[ ! -e "$OLD_CORE_DIR" ]] && ok "old upstream core path not staged" || warn "old upstream core path still staged"
+[[ -d "$CORE_DIR" ]] && ok "core folder staged" || warn "core folder missing"
+[[ -f "$PLATFORM_JSON" ]] && ok "platform json staged" || warn "platform json missing"
+[[ -d "$ASSET_DIR" ]] && ok "asset folder staged" || warn "asset folder missing"
+[[ -f "$CORE_DIR/bitstream.rbf_r" ]] && ok "bitstream staged" || warn "bitstream missing"
 
 if git -C "$ROOT_DIR" status --short -- build/genesis_first_boot_artifacts build/pocket_sd_genesis_first_boot | grep -q .; then
   warn "generated build artifacts appear in git status"
@@ -45,17 +44,12 @@ else
   ok "third_party clean"
 fi
 
-rom_like_hits=""
-if [[ -d "$ROOT_DIR/build/pocket_sd_genesis_first_boot" ]]; then
-  rom_like_hits="$(find "$ROOT_DIR/build/pocket_sd_genesis_first_boot" -type f \( -iname '*.bin' -o -iname '*.gen' -o -iname '*.smd' -o -iname '*.iso' -o -iname '*.cue' -o -iname '*.chd' \) \
-    ! -path '*/Cores/*/icon.bin' \
-    ! -path '*/Platforms/_images/*.bin' | sed -n '1,20p')"
-fi
+rom_like_hits="$(find "$ASSET_DIR" -type f \( -iname '*.bin' -o -iname '*.gen' -o -iname '*.smd' -o -iname '*.iso' -o -iname '*.cue' -o -iname '*.chd' \) | sed -n '1,20p')"
 if [[ -n "$rom_like_hits" ]]; then
-  warn "ROM-like files found in staged package"
+  warn "ROM-like payloads found under staged asset folder"
   echo "$rom_like_hits" >> "$REPORT"
 else
-  ok "no ROM-like payloads staged beyond expected metadata assets"
+  ok "no ROM-like payloads staged under asset folder"
 fi
 
 status_result="$(awk -F': ' '/^Result:/{print $2; exit}' "$STATUS" 2>/dev/null || true)"

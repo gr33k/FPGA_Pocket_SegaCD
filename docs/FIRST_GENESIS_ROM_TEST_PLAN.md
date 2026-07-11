@@ -1,19 +1,16 @@
 # First Genesis ROM test plan
-Generated: 2026-07-10 21:41:02 UTC
+Generated: 2026-07-11 00:35:26 UTC
 
-- Test Genesis only.
-- Do not test Sega CD.
-- Do not test 32X.
-- Use one small known-good Genesis .bin or .gen ROM.
-- Do not copy the ROM into git or the staged package.
+- Current package registers as a separate Sega CD platform.
+- Current core implementation is still Genesis only.
+- Place one known-good Genesis ROM manually in Assets/segacd/common for the first test.
+- Do not copy the ROM into git.
+- Do not test Sega CD or 32X content yet.
 
-## First hardware checks
-- Core appears in Pocket menu
-- ROM browser opens
-- ROM loads
-- Video syncs
+## First checks
+- Sega CD appears in the Console list
+- The core opens
+- A known-good Genesis ROM can be selected from the staged asset path
+- Video either appears or black screens
 - Controls respond
 - Audio is present
-
-## Failure recording
-Record the exact first failure: missing core, load failure, black screen, no controls, no audio, crash, or reset loop.

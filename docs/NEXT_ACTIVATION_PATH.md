@@ -1,46 +1,32 @@
-# Next activation path after Task 8C-fix
+# Next activation path after Task 8D
 
-## Current milestone status
+## Current package registration
 
-- Package identity has been rebranded for this project:
-  - `Cores/gr33k.SegaCD`
-  - platform id: `gr33k_segacd`
-  - `Platforms/gr33k_segacd.json`
-  - displayed author: `Gr33k`
-  - displayed name: `Sega CD`
-- Current implementation is still Genesis only.
-- Hardware state reported so far:
-  - core loads on Pocket
-  - core menu/settings work
-  - Genesis ROM launch currently black screens
-- No runtime correctness claim is made.
+- Core folder: `Cores/Gr33k.SegaCD`
+- Core author: `Gr33k`
+- Core shortname: `SegaCD`
+- Platform ID: `segacd`
+- Platform file: `Platforms/segacd.json`
+- Platform display name: `Sega CD`
+- Asset folder: `Assets/segacd/common`
 
-## Immediate next human action
+## SD refresh steps
 
-- Retest the renamed package on Pocket so the console list reflects `Gr33k / Sega CD`.
-- Use one known-good Genesis ROM only.
-- Record the first exact result in this order:
-  - core visible under new name
-  - ROM browser opens
-  - ROM selected
-  - ROM load begins
-  - video output / black screen
-  - controls
-  - audio
+Delete these from the SD card first:
+- `Cores/ericlewis.Genesis`
+- `Cores/gr33k.SegaCD`
+- `Cores/Gr33k.SegaCD`
+- `Platforms/gr33k.SegaCD.json`
+- `Platforms/gr33k_segacd.json`
+- `Platforms/segacd.json`
+- `Assets/gr33k_segacd`
+- `Assets/segacd`
 
-## If black screen persists
+Then copy the refreshed contents of `build/pocket_sd_genesis_first_boot/` to the SD root.
 
-Use these docs first:
-- `docs/GENESIS_RUNTIME_SMOKE_DEBUG_PLAN.md`
-- `docs/GENESIS_BLACK_SCREEN_DEBUG_CHECKLIST.md`
-- `docs/FIRST_GENESIS_BOOT_CANDIDATE_STATUS.md`
-- `docs/FIRST_GENESIS_OPENFPGA_PACKAGE_STATUS.md`
-
-Debug in this order:
-- ROM load / preload completion
-- reset release
-- PLL lock
-- CPU execution
-- video / VDP activity
-- audio activity
-- input path
+After copying:
+- fully shut down the Pocket
+- remove and reinsert the SD card if needed
+- power it back on
+- open openFPGA
+- look under Console for Sega CD
