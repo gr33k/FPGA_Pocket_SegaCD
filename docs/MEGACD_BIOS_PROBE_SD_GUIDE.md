@@ -1,12 +1,16 @@
 # MegaCD BIOS probe SD guide
 
-Copy the contents of `build/pocket_sd_megacd_bios_probe/` to the Pocket SD root.
+Copy only:
 
-Probe core folder:
-- `Cores/Gr33k.SegaCDBiosProbe`
+- build/pocket_sd_megacd_bios_probe/Cores/Gr33k.SegaCDBiosProbe
 
-Platform file:
-- `Platforms/genesis.json`
+to:
+
+- SD:/Cores/Gr33k.SegaCDBiosProbe
+
+Do not overwrite the user's existing genesis.json if it is already valid.
+
+The probe remains an alternative core beneath Genesis.
 
 No BIOS is bundled.
 No ROM is bundled.

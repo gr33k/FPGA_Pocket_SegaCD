@@ -13,7 +13,7 @@ DONOR_STATUS_LINE="$(git status --short third_party/MegaCD_MiSTer || true)"
 GENESIS_STATUS_LINE="$(git status --short third_party/Genesis_MiSTer || true)"
 BRANCH_OK=no; DONOR_CLEAN=yes; GENESIS_CLEAN=yes; LANE_OK=no
 WORDRAM0_EXTERNAL=no; WORDRAM1_INTERNAL=no; CDC_MLAB_CONNECTED=no; CDC_INTERNAL_M10K_REMOVED=no; PCM_INTERNAL=no
-TIMING_DOC=no; MAP_DOC=no; PACK_AUDIT=no; ARTIFACT_FRESH=no; BUNDLED_PAYLOAD=no; ARTIFACT_TRACKED=no; FINAL_RESULT=PASS
+TIMING_DOC=no; MAP_DOC=no; PACK_AUDIT=no; ARTIFACT_FRESH=no; BUNDLED_PAYLOAD=no; ARTIFACT_TRACKED=no; PACKAGE_CHECK=FAIL; FINAL_RESULT=PASS; PACKAGE_CLASS=unknown
 [[ "$(git branch --show-current)" == "feature/megacd-bringup" ]] && BRANCH_OK=yes || FINAL_RESULT=FAIL
 [[ -n "$DONOR_STATUS_LINE" ]] && DONOR_CLEAN=no && FINAL_RESULT=FAIL
 [[ -n "$GENESIS_STATUS_LINE" ]] && GENESIS_CLEAN=no && FINAL_RESULT=FAIL
@@ -31,36 +31,52 @@ else
   TIMING_DOC=not-required
 fi
 case "$FIT_RESULT" in
-  CDC_MLAB_MAP_FAILED|CDC_MLAB_NOT_INFERRED|CDC_MLAB_UNSUPPORTED_CONFIGURATION|CDC_RAM_CONVERTED_TO_REGISTERS|M10K_DEFICIT_REMAINS_AFTER_CDC|FIT_FAIL_LOGIC_CAPACITY|FIT_FAIL_MLAB_ROUTING|FIT_FAIL_M10K|FIT_FAIL_NON_MEMORY|FIT_PASS_TIMING_FAIL|ASSEMBLER_FAILED|BIOS_PROBE_ARTIFACT_READY|BIOS_PROBE_ARTIFACT_READY_WITH_TIMING_RISK|BIOS_PROBE_READY_FOR_POCKET) ;;
+  CDC_MLAB_MAP_FAILED|CDC_MLAB_NOT_INFERRED|CDC_MLAB_UNSUPPORTED_CONFIGURATION|CDC_RAM_CONVERTED_TO_REGISTERS|M10K_DEFICIT_REMAINS_AFTER_CDC|FIT_FAIL_LOGIC_CAPACITY|FIT_FAIL_MLAB_ROUTING|FIT_FAIL_M10K|FIT_FAIL_NON_MEMORY|FIT_PASS_TIMING_FAIL|ASSEMBLER_FAILED|BIOS_PROBE_ARTIFACT_READY|BIOS_PROBE_ARTIFACT_READY_WITH_TIMING_RISK|BIOS_PROBE_READY_FOR_POCKET|BIOS_PROBE_ARTIFACT_READY_PACKAGE_INVALID) ;;
   *) FINAL_RESULT=FAIL ;;
 esac
 [[ -f build/megacd_pocket_artifacts/bitstream.rbf_r ]] && ARTIFACT_FRESH=yes || ARTIFACT_FRESH=no
 if git status --short -- build/megacd_pocket_artifacts build/pocket_sd_megacd_bios_probe | rg -q '^[AMDRCU?]'; then ARTIFACT_TRACKED=yes; FINAL_RESULT=FAIL; fi
-if find build/pocket_sd_megacd_bios_probe -type f \( -iname '*.rom' -o -iname '*.iso' -o -iname '*.cue' -o -iname '*.chd' -o -iname '*.bin' -o -iname '*.gen' -o -iname '*.smd' \) 2>/dev/null | grep -q .; then BUNDLED_PAYLOAD=yes; FINAL_RESULT=FAIL; fi
+if find build/pocket_sd_megacd_bios_probe -type f \( -iname '*.rom' -o -iname '*.iso' -o -iname '*.cue' -o -iname '*.chd' -o -iname '*.bin' -o -iname '*.gen' -o -iname '*.smd' \) ! -name 'icon.bin' 2>/dev/null | grep -q .; then BUNDLED_PAYLOAD=yes; FINAL_RESULT=FAIL; fi
+if ./tools/check_megacd_bios_probe_package.sh >/dev/null 2>&1; then
+  PACKAGE_CHECK=PASS
+  PACKAGE_CLASS=BIOS_PROBE_READY_FOR_POCKET
+else
+  PACKAGE_CHECK=FAIL
+  PACKAGE_CLASS=BIOS_PROBE_ARTIFACT_READY_PACKAGE_INVALID
+fi
+if [[ "$FIT_RESULT" == 'BIOS_PROBE_READY_FOR_POCKET' || "$FIT_RESULT" == 'BIOS_PROBE_ARTIFACT_READY' || "$FIT_RESULT" == 'BIOS_PROBE_ARTIFACT_READY_WITH_TIMING_RISK' ]]; then
+  if [[ "$PACKAGE_CHECK" == 'FAIL' ]]; then
+    FIT_RESULT='BIOS_PROBE_ARTIFACT_READY_PACKAGE_INVALID'
+  else
+    FIT_RESULT='BIOS_PROBE_READY_FOR_POCKET'
+  fi
+fi
 cat > "$REPORT" <<DOC
 # MegaCD Pocket probe check
 
-- result: \`$FINAL_RESULT\`
-- branch ok: \`$BRANCH_OK\`
-- donor submodule clean: \`$DONOR_CLEAN\`
-- Genesis submodule clean: \`$GENESIS_CLEAN\`
-- repo-owned MegaCD lane exists: \`$LANE_OK\`
-- WORDRAM0 remains external: \`$WORDRAM0_EXTERNAL\`
-- WORDRAM1 remains internal: \`$WORDRAM1_INTERNAL\`
-- CDC RAM wired to Pocket-local helper: \`$CDC_MLAB_CONNECTED\`
-- internal CDC M10K instance removed: \`$CDC_INTERNAL_M10K_REMOVED\`
-- PCM RAM remains internal: \`$PCM_INTERNAL\`
-- packing audit documented: \`$PACK_AUDIT\`
-- map result documented: \`$MAP_DOC\`
-- timing result exists when fit passed: \`$TIMING_DOC\`
-- map exit code: \`$MAP_EXIT\`
-- fitter exit code: \`$FIT_EXIT\`
-- timing exit code: \`$TIMING_EXIT\`
-- assembler exit code: \`$ASM_EXIT\`
-- final classification: \`$FIT_RESULT\`
-- fresh artifact when claimed: \`$ARTIFACT_FRESH\`
-- generated artifacts tracked by git: \`$ARTIFACT_TRACKED\`
-- BIOS/ROM/disc image bundled: \`$BUNDLED_PAYLOAD\`
-- Genesis baseline modified: \`no\`
+- result: $FINAL_RESULT
+- branch ok: $BRANCH_OK
+- donor submodule clean: $DONOR_CLEAN
+- Genesis submodule clean: $GENESIS_CLEAN
+- repo-owned MegaCD lane exists: $LANE_OK
+- WORDRAM0 remains external: $WORDRAM0_EXTERNAL
+- WORDRAM1 remains internal: $WORDRAM1_INTERNAL
+- CDC RAM wired to Pocket-local helper: $CDC_MLAB_CONNECTED
+- internal CDC M10K instance removed: $CDC_INTERNAL_M10K_REMOVED
+- PCM RAM remains internal: $PCM_INTERNAL
+- packing audit documented: $PACK_AUDIT
+- map result documented: $MAP_DOC
+- timing result exists when fit passed: $TIMING_DOC
+- map exit code: $MAP_EXIT
+- fitter exit code: $FIT_EXIT
+- timing exit code: $TIMING_EXIT
+- assembler exit code: $ASM_EXIT
+- fresh artifact when claimed: $ARTIFACT_FRESH
+- generated artifacts tracked by git: $ARTIFACT_TRACKED
+- BIOS/ROM/disc image bundled: $BUNDLED_PAYLOAD
+- package checker result: $PACKAGE_CHECK
+- package classification: $PACKAGE_CLASS
+- final classification: $FIT_RESULT
+- Genesis baseline modified: no
 DOC
 [[ "$FINAL_RESULT" == 'PASS' ]]

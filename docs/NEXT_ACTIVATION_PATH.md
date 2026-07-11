@@ -1,12 +1,12 @@
-# Next activation path after Task 9C
+# Next activation path after Task 9C-PKG
 
-- stay on branch: `feature/megacd-bringup`
-- do not relaunch the old pre-WordRAM0 fit
-- WORDRAM0 remains external on Pocket SRAM
-- WORDRAM1 remains internal
-- PCM RAM remains internal
-- CDC RAM is now Pocket-local MLAB-backed
-- current result: `BIOS_PROBE_ARTIFACT_READY`
-- staged Pocket folder: `build/pocket_sd_megacd_bios_probe/`
-- next human action: copy the staged folder to the Pocket SD root, provide one Sega CD BIOS externally, and run the BIOS/no-disc hardware probe
+- stay on branch: feature/megacd-bringup
+- do not rerun Quartus for package repair follow-up
+- do not modify the proven MegaCD bitstream artifact
+- current package classification: BIOS_PROBE_READY_FOR_POCKET
+- current staged core: build/pocket_sd_megacd_bios_probe/Cores/Gr33k.SegaCDBiosProbe
+- next human action: copy build/pocket_sd_megacd_bios_probe/Cores/Gr33k.SegaCDBiosProbe to SD:/Cores/Gr33k.SegaCDBiosProbe, keep existing valid genesis.json, provide one 131072-byte Sega CD BIOS externally, and record the result in docs/MEGACD_BIOS_PROBE_HARDWARE_RESULT.md
+- no BIOS bundled
+- no ROM bundled
+- no disc image bundled
 - do not claim disc service, CUE/CHD support, CDDA, or 32X

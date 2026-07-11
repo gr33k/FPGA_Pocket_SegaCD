@@ -1,31 +1,32 @@
 # MegaCD BIOS probe hardware checklist
 
-## A. Genesis regression
+## A. Core visibility
 
-- core appears under Genesis
-- Sonic the Hedgehog loads
-- video works
-- audio works
-- controls work
+- probe core appears beneath Genesis
+- Core Settings opens
+- BIOS browser appears on startup
+
+## B. BIOS load
+
+- user selects one Sega CD BIOS
+- BIOS file size is exactly 131072 bytes
+- BIOS load completes
+- BIOS Bytes value increases from zero
+
+## C. Runtime diagnostics
+
+- Core Status value changes after BIOS load
+- Memory Flags value changes after BIOS load
+- WordRAM Address changes from zero
+- CDC Read Address changes from zero
+- CDC Write Address changes from zero
+
+## D. User-visible result
+
+- video output present
+- audio output present or explicitly silent
+- insert-disc or no-disc screen appears
 - no black screen
 - no reset loop
-
-## B. Memory diagnostics
-
-- external WORDRAM0 enabled flag set
-- WORDRAM0 read/write activity flags change
-- CDC MLAB implementation enabled flag set
-- CDC RAM read activity seen
-- CDC RAM write activity seen
-- no crash during MCD initialization
-
-## C. BIOS probe
-
-- user selects a Sega CD BIOS
-- BIOS load completes
-- MegaCD mode enables
-- MCD reset releases
-- sub-68000 activity changes
-- BIOS video appears
-- insert-disc or no-disc state appears
-- no disc gameplay claim
+- no freeze
+- Pocket menu remains accessible

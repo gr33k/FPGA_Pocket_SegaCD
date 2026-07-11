@@ -1,24 +1,26 @@
 # MegaCD Pocket probe check
 
-- result: `PASS`
-- branch ok: `yes`
-- donor submodule clean: `yes`
-- Genesis submodule clean: `yes`
-- repo-owned MegaCD lane exists: `yes`
-- WORDRAM0 remains external: `yes`
-- WORDRAM1 remains internal: `yes`
-- CDC RAM wired to Pocket-local helper: `yes`
-- internal CDC M10K instance removed: `yes`
-- PCM RAM remains internal: `yes`
-- packing audit documented: `yes`
-- map result documented: `yes`
-- timing result exists when fit passed: `yes`
-- map exit code: `0`
-- fitter exit code: `0`
-- timing exit code: `0`
-- assembler exit code: `0`
-- final classification: `BIOS_PROBE_ARTIFACT_READY`
-- fresh artifact when claimed: `yes`
-- generated artifacts tracked by git: `no`
-- BIOS/ROM/disc image bundled: `no`
-- Genesis baseline modified: `no`
+- result: PASS
+- branch ok: yes
+- donor submodule clean: yes
+- Genesis submodule clean: yes
+- repo-owned MegaCD lane exists: yes
+- WORDRAM0 remains external: yes
+- WORDRAM1 remains internal: yes
+- CDC RAM wired to Pocket-local helper: yes
+- internal CDC M10K instance removed: yes
+- PCM RAM remains internal: yes
+- packing audit documented: yes
+- map result documented: yes
+- timing result exists when fit passed: yes
+- map exit code: 0
+- fitter exit code: 0
+- timing exit code: 0
+- assembler exit code: 0
+- fresh artifact when claimed: yes
+- generated artifacts tracked by git: no
+- BIOS/ROM/disc image bundled: no
+- package checker result: PASS
+- package classification: BIOS_PROBE_READY_FOR_POCKET
+- final classification: BIOS_PROBE_READY_FOR_POCKET
+- Genesis baseline modified: no

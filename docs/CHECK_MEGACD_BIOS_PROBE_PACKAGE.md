@@ -1,0 +1,29 @@
+# MegaCD BIOS probe package check
+
+- result: PASS
+- core folder exists: yes
+- author is Gr33k: yes
+- shortname is SegaCDBiosProbe: yes
+- folder matches author.shortname: yes
+- platform_ids equals ["genesis"]: yes
+- description length <= 63: yes
+- version exists: yes
+- date_release exists: yes
+- framework target product valid: yes
+- framework version required present: yes
+- dock supported true: yes
+- framework hardware exists: yes
+- cores array exists: yes
+- cores[0].filename is bitstream.rbf_r: yes
+- bitstream exists: yes
+- bitstream size valid: yes
+- bitstream sha valid: yes
+- exactly two data slots: yes
+- slot names <= 15 chars: yes
+- parameters field type valid: yes
+- slot 0 valid: yes
+- slot 1 valid: yes
+- slot 1 extensions include rom and bin: yes
+- required metadata JSON files valid: yes
+- debug interact menu present: yes
+- staged payload hygiene clean: yes

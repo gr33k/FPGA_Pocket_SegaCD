@@ -1,6 +1,8 @@
 # MegaCD BIOS probe package status
 
-- result: `BIOS_PROBE_READY_FOR_POCKET`
-- staging path: `build/pocket_sd_megacd_bios_probe/`
-- core path: `build/pocket_sd_megacd_bios_probe/Cores/Gr33k.SegaCDBiosProbe`
-- platform path: `build/pocket_sd_megacd_bios_probe/Platforms/genesis.json`
+- result: BIOS_PROBE_READY_FOR_POCKET
+- staging path: build/pocket_sd_megacd_bios_probe/
+- core path: build/pocket_sd_megacd_bios_probe/Cores/Gr33k.SegaCDBiosProbe
+- platform path: build/pocket_sd_megacd_bios_probe/Platforms/genesis.json
+- artifact path: build/pocket_sd_megacd_bios_probe/Cores/Gr33k.SegaCDBiosProbe/bitstream.rbf_r
+- artifact sha256: a29780da808bbcf39dc63def45135b9ead6b1ecc748719269f49f774b75eb293
