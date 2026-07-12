@@ -1,12 +1,10 @@
-# Next activation path after Task 9C-PKG
+# Next activation path
 
-- stay on branch: feature/megacd-bringup
-- do not rerun Quartus for package repair follow-up
-- do not modify the proven MegaCD bitstream artifact
-- current package classification: BIOS_PROBE_READY_FOR_POCKET
-- current staged core: build/pocket_sd_megacd_bios_probe/Cores/Gr33k.SegaCDBiosProbe
-- next human action: copy build/pocket_sd_megacd_bios_probe/Cores/Gr33k.SegaCDBiosProbe to SD:/Cores/Gr33k.SegaCDBiosProbe, keep existing valid genesis.json, provide one 131072-byte Sega CD BIOS externally, and record the result in docs/MEGACD_BIOS_PROBE_HARDWARE_RESULT.md
-- no BIOS bundled
-- no ROM bundled
-- no disc image bundled
-- do not claim disc service, CUE/CHD support, CDDA, or 32X
+1. Use the staged Pocket package at `build/pocket_sd_megacd_bios_probe/Cores/Gr33k.SegaCDBiosProbe`.
+2. If the Pocket SD is mounted on the Mac, replace only `/Volumes/ANALOGUE/Cores/Gr33k.SegaCDBiosProbe`.
+3. Preserve `bios_CD_E.bin`, `bios_CD_J.bin`, and `bios_CD_U.bin` in `/Volumes/ANALOGUE/Assets/genesis/common`.
+4. Insert the SD into the Pocket.
+5. Launch `openFPGA -> Console -> Genesis -> SegaCDBiosProbe by Gr33k`.
+6. Select `bios_CD_U.bin` first.
+7. Record Core Status, BIOS Bytes, Memory Flags, Mode Flags, BIOS Last Addr, BIOS First Word, BIOS Last Word, video result, and whether the Pocket menu stays accessible.
+8. If BIOS execution begins but later fails during CDD initialization, keep the no-disc stub unchanged and treat that as the next task.

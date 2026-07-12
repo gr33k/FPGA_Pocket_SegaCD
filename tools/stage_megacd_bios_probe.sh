@@ -34,6 +34,8 @@ fi
 cp -a "$TEMPLATE_DIR" "$CORE_DIR"
 cp "$BIT" "$CORE_DIR/bitstream.rbf_r"
 cp "$PLATFORM_TEMPLATE" "$STAGE/Platforms/genesis.json"
+BIT_SHA="$(shasum -a 256 "$BIT" | awk '{print $1}')"
+BIT_SIZE="$(stat -c '%s' "$BIT")"
 
 jq '.core.metadata.platform_ids = ["genesis"]
   | .core.metadata.shortname = "SegaCDBiosProbe"
@@ -126,6 +128,34 @@ cat > "$CORE_DIR/interact.json" <<'JSON'
         "type": "number_u32",
         "enabled": false,
         "address": "0x00E0001C"
+      },
+      {
+        "name": "Mode Flags",
+        "id": 906,
+        "type": "number_u32",
+        "enabled": false,
+        "address": "0x00E00020"
+      },
+      {
+        "name": "BIOS Last Addr",
+        "id": 907,
+        "type": "number_u32",
+        "enabled": false,
+        "address": "0x00E00024"
+      },
+      {
+        "name": "BIOS First Word",
+        "id": 908,
+        "type": "number_u32",
+        "enabled": false,
+        "address": "0x00E00028"
+      },
+      {
+        "name": "BIOS Last Word",
+        "id": 909,
+        "type": "number_u32",
+        "enabled": false,
+        "address": "0x00E0002C"
       }
     ],
     "messages": []
@@ -133,7 +163,7 @@ cat > "$CORE_DIR/interact.json" <<'JSON'
 }
 JSON
 
-cat > "$STATUS_DOC" <<'DOC'
+cat > "$STATUS_DOC" <<DOC
 # MegaCD BIOS probe package status
 
 - result: BIOS_PROBE_READY_FOR_POCKET
@@ -141,7 +171,8 @@ cat > "$STATUS_DOC" <<'DOC'
 - core path: build/pocket_sd_megacd_bios_probe/Cores/Gr33k.SegaCDBiosProbe
 - platform path: build/pocket_sd_megacd_bios_probe/Platforms/genesis.json
 - artifact path: build/pocket_sd_megacd_bios_probe/Cores/Gr33k.SegaCDBiosProbe/bitstream.rbf_r
-- artifact sha256: a29780da808bbcf39dc63def45135b9ead6b1ecc748719269f49f774b75eb293
+- artifact size: $BIT_SIZE
+- artifact sha256: $BIT_SHA
 DOC
 
 cat > "$SD_GUIDE" <<'DOC'
@@ -156,6 +187,7 @@ to:
 - SD:/Cores/Gr33k.SegaCDBiosProbe
 
 Do not overwrite the user's existing genesis.json if it is already valid.
+Do not delete or replace bios_CD_E.bin, bios_CD_J.bin, or bios_CD_U.bin.
 
 The probe remains an alternative core beneath Genesis.
 
@@ -175,15 +207,20 @@ cat > "$HW_CHECK" <<'DOC'
 
 ## B. BIOS load
 
-- user selects one Sega CD BIOS
+- user selects bios_CD_U.bin first
 - BIOS file size is exactly 131072 bytes
 - BIOS load completes
-- BIOS Bytes value increases from zero
+- BIOS Bytes value reaches 131072
+- Mode Flags bit 6 becomes 1
 
 ## C. Runtime diagnostics
 
 - Core Status value changes after BIOS load
 - Memory Flags value changes after BIOS load
+- Mode Flags reflects BIOS mode with CART ROM_MODE off and MCD enable on
+- BIOS Last Addr reaches 0x0001FFFE
+- BIOS First Word is non-zero
+- BIOS Last Word is non-zero
 - WordRAM Address changes from zero
 - CDC Read Address changes from zero
 - CDC Write Address changes from zero

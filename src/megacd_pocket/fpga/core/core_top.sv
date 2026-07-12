@@ -168,37 +168,32 @@ core_bridge_cmd icb (
     .osnotify_inmenu(osnotify_inmenu), .datatable_addr(datatable_addr), .datatable_wren(datatable_wren), .datatable_data(datatable_data), .datatable_q(datatable_q)
 );
 
-reg cart_slot_active = 1'b0;
-reg bios_slot_active = 1'b0;
-reg bios_present = 1'b0;
-reg bios_load_complete = 1'b0;
-reg [31:0] cart_bytes_seen = 32'd0;
-reg [31:0] bios_bytes_seen = 32'd0;
+localparam [31:0] MEGACD_BIOS_EXACT_SIZE = 32'd131072;
+
+reg cart_slot_active_74a = 1'b0;
+reg bios_slot_active_74a = 1'b0;
+reg selected_cart_mode_74a = 1'b1;
 always @(posedge clk_74a or negedge pll_core_locked) begin
     if (!pll_core_locked) begin
-        cart_slot_active <= 1'b0;
-        bios_slot_active <= 1'b0;
-        bios_present <= 1'b0;
-        bios_load_complete <= 1'b0;
-        cart_bytes_seen <= 32'd0;
-        bios_bytes_seen <= 32'd0;
+        cart_slot_active_74a <= 1'b0;
+        bios_slot_active_74a <= 1'b0;
+        selected_cart_mode_74a <= 1'b1;
     end else begin
         if (dataslot_requestwrite) begin
-            if (dataslot_requestwrite_id == 16'd0) cart_slot_active <= 1'b1;
+            if (dataslot_requestwrite_id == 16'd0) begin
+                cart_slot_active_74a <= 1'b1;
+                bios_slot_active_74a <= 1'b0;
+                selected_cart_mode_74a <= 1'b1;
+            end
             if (dataslot_requestwrite_id == 16'd1) begin
-                bios_slot_active <= 1'b1;
-                bios_load_complete <= 1'b0;
+                cart_slot_active_74a <= 1'b0;
+                bios_slot_active_74a <= 1'b1;
+                selected_cart_mode_74a <= 1'b0;
             end
         end
-        if (cart_ioctl_wr) cart_bytes_seen <= cart_bytes_seen + 32'd2;
-        if (bios_ioctl_wr) begin
-            bios_bytes_seen <= bios_bytes_seen + 32'd2;
-            bios_present <= 1'b1;
-        end
         if (dataslot_allcomplete) begin
-            if (bios_slot_active) bios_load_complete <= bios_present;
-            cart_slot_active <= 1'b0;
-            bios_slot_active <= 1'b0;
+            cart_slot_active_74a <= 1'b0;
+            bios_slot_active_74a <= 1'b0;
         end
     end
 end
@@ -220,15 +215,97 @@ data_loader #(.ADDRESS_MASK_UPPER_4(4'h2), .ADDRESS_SIZE(18), .WRITE_MEM_CLOCK_D
     .write_en(bios_ioctl_wr), .write_addr(bios_ioctl_addr), .write_data(bios_ioctl_data)
 );
 
+wire cart_loading_sys, bios_loading_sys, cart_mode_sys;
+wire bios_mode_sys = ~cart_mode_sys;
+synch_3 cart_dl_s(cart_slot_active_74a, cart_loading_sys, clk_sys);
+synch_3 bios_dl_s(bios_slot_active_74a, bios_loading_sys, clk_sys);
+synch_3 cart_mode_s(selected_cart_mode_74a, cart_mode_sys, clk_sys);
 
-wire cart_download_sys, bios_loading_sys;
-synch_3 cart_dl_s(cart_slot_active, cart_download_sys, clk_sys);
-synch_3 bios_dl_s(bios_slot_active, bios_loading_sys, clk_sys);
-wire megacd_mode_enabled = bios_present;
-wire genesis_reset = ~reset_n | cart_download_sys | (megacd_mode_enabled & ~bios_load_complete);
-wire mcd_reset = ~reset_n | cart_download_sys | bios_loading_sys | (megacd_mode_enabled & ~bios_load_complete);
+reg cart_loading_prev_sys = 1'b0;
+reg bios_loading_prev_sys = 1'b0;
+reg bios_present_sys = 1'b0;
+reg bios_load_complete_sys = 1'b0;
+reg bios_finalize_pending_sys = 1'b0;
+reg bios_first_word_valid_sys = 1'b0;
+reg [5:0] bios_finalize_quiet_sys = 6'd0;
+reg [31:0] cart_bytes_seen = 32'd0;
+reg [31:0] bios_bytes_seen = 32'd0;
+reg [31:0] bios_last_byte_addr_sys = 32'd0;
+reg [15:0] bios_first_word_sys = 16'd0;
+reg [15:0] bios_last_word_sys = 16'd0;
+always @(posedge clk_sys or negedge pll_core_locked) begin
+    if (!pll_core_locked) begin
+        cart_loading_prev_sys <= 1'b0;
+        bios_loading_prev_sys <= 1'b0;
+        bios_present_sys <= 1'b0;
+        bios_load_complete_sys <= 1'b0;
+        bios_finalize_pending_sys <= 1'b0;
+        bios_first_word_valid_sys <= 1'b0;
+        bios_finalize_quiet_sys <= 6'd0;
+        cart_bytes_seen <= 32'd0;
+        bios_bytes_seen <= 32'd0;
+        bios_last_byte_addr_sys <= 32'd0;
+        bios_first_word_sys <= 16'd0;
+        bios_last_word_sys <= 16'd0;
+    end else begin
+        cart_loading_prev_sys <= cart_loading_sys;
+        bios_loading_prev_sys <= bios_loading_sys;
+
+        if (cart_loading_sys && !cart_loading_prev_sys) begin
+            cart_bytes_seen <= 32'd0;
+        end
+
+        if (bios_loading_sys && !bios_loading_prev_sys) begin
+            bios_present_sys <= 1'b0;
+            bios_load_complete_sys <= 1'b0;
+            bios_finalize_pending_sys <= 1'b0;
+            bios_first_word_valid_sys <= 1'b0;
+            bios_finalize_quiet_sys <= 6'd0;
+            bios_bytes_seen <= 32'd0;
+            bios_last_byte_addr_sys <= 32'd0;
+            bios_first_word_sys <= 16'd0;
+            bios_last_word_sys <= 16'd0;
+        end
+
+        if (cart_ioctl_wr) begin
+            cart_bytes_seen <= cart_bytes_seen + 32'd2;
+        end
+
+        if (bios_ioctl_wr) begin
+            bios_bytes_seen <= bios_bytes_seen + 32'd2;
+            bios_last_byte_addr_sys <= {14'd0, bios_ioctl_addr};
+            bios_last_word_sys <= bios_ioctl_data;
+            if (!bios_first_word_valid_sys) begin
+                bios_first_word_valid_sys <= 1'b1;
+                bios_first_word_sys <= bios_ioctl_data;
+            end
+            bios_finalize_pending_sys <= 1'b1;
+            bios_finalize_quiet_sys <= 6'd32;
+        end else if (bios_finalize_pending_sys) begin
+            if (bios_loading_sys) begin
+                bios_finalize_quiet_sys <= 6'd32;
+            end else if (bios_finalize_quiet_sys != 6'd0) begin
+                bios_finalize_quiet_sys <= bios_finalize_quiet_sys - 6'd1;
+            end else begin
+                bios_finalize_pending_sys <= 1'b0;
+                if (bios_bytes_seen == MEGACD_BIOS_EXACT_SIZE) begin
+                    bios_present_sys <= 1'b1;
+                    bios_load_complete_sys <= 1'b1;
+                end else begin
+                    bios_present_sys <= 1'b0;
+                    bios_load_complete_sys <= 1'b0;
+                end
+            end
+        end
+    end
+end
+
+wire bios_byte_count_exact_sys = (bios_bytes_seen == MEGACD_BIOS_EXACT_SIZE);
+wire megacd_mode_enabled = bios_load_complete_sys && bios_mode_sys;
+wire genesis_reset = ~reset_n | cart_loading_sys | bios_loading_sys | (bios_mode_sys && ~bios_load_complete_sys);
+wire mcd_reset = ~reset_n | cart_mode_sys | cart_loading_sys | bios_loading_sys | ~bios_load_complete_sys;
 assign status_boot_done = pll_core_locked;
-assign status_setup_done = pll_core_locked & (~megacd_mode_enabled | bios_load_complete);
+assign status_setup_done = pll_core_locked;
 
 wire [31:0] cont1_key_s, cont2_key_s, cont3_key_s, cont4_key_s;
 wire [31:0] cont1_joy_s;
@@ -299,8 +376,9 @@ always @(posedge clk_sys) begin
     if (sub68k_activity_seen_w) sub68k_activity_seen <= 1'b1;
 end
 
-assign GEN_VDI = !GEN_RAM_CE_N ? GEN_MEM_DO_R : !CART_DTACK_N ? CART_DO : MCD_DO;
-wire GEN_DTACK_N = MCD_DTACK_N & CART_DTACK_N;
+assign GEN_VDI = !GEN_RAM_CE_N ? GEN_MEM_DO_R : (cart_mode_sys ? (!CART_DTACK_N ? CART_DO : MCD_DO) : MCD_DO);
+wire GEN_DTACK_N = MCD_DTACK_N & (cart_mode_sys ? CART_DTACK_N : 1'b1);
+wire [7:0] cart_ram_id_sys = cart_mode_sys ? 8'd6 : 8'd255;
 always @(posedge clk_sys) begin
     reg old_busy;
     old_busy <= GEN_MEM_BUSY;
@@ -310,14 +388,14 @@ end
 gen donor_gen (
     .RESET_N(~genesis_reset), .MCLK(clk_sys), .VA(GEN_VA), .VDI(GEN_VDI), .VDO(GEN_VDO), .RNW(GEN_RNW), .LDS_N(GEN_LDS_N), .UDS_N(GEN_UDS_N), .AS_N(GEN_AS_N), .DTACK_N(GEN_DTACK_N), .ASEL_N(GEN_ASEL_N), .VCLK_CE(GEN_VCLK_CE), .CE0_N(GEN_CE0_N), .WRL_N(GEN_WRL_N), .WRH_N(GEN_WRH_N), .OE_N(GEN_OE_N), .RAS2_N(GEN_RAS2_N), .ROM_N(EXT_ROM_N), .FDC_N(EXT_FDC_N), .CART_N(CART_CART_N), .DISK_N(1'b0),
     .LPF_MODE(2'b00), .ENABLE_FM(1'b1), .ENABLE_PSG(1'b1), .EXT_SL(mcd_l), .EXT_SR(mcd_r), .EXT_EN(megacd_mode_enabled), .DAC_LDATA(GEN_AUDL), .DAC_RDATA(GEN_AUDR), .DAC_CE(GEN_CE),
-    .LOADING(cart_download_sys), .PAL(1'b0), .EXPORT(1'b1), .TIME_N(), .TIME_DI(16'h0000), .EN_HIFI_PCM(1'b1), .LADDER(1'b1), .OBJ_LIMIT_HIGH(1'b1),
+    .LOADING(cart_loading_sys), .PAL(1'b0), .EXPORT(1'b1), .TIME_N(), .TIME_DI(16'h0000), .EN_HIFI_PCM(1'b1), .LADDER(1'b1), .OBJ_LIMIT_HIGH(1'b1),
     .RED(r), .GREEN(g), .BLUE(b), .VS(vs), .HS(hs), .HBL(hblank), .VBL(vblank_sys), .CE_PIX(ce_pix), .TRANSP_DETECT(TRANSP_DETECT), .CRAM_DOTS(1'b0), .BORDER(1'b0), .INTERLACE(interlaced), .FIELD(field), .RESOLUTION(resolution), .EN_BGA(1'b1), .EN_BGB(1'b1), .EN_SPR(1'b1),
     .J3BUT(1'b0), .JOY_1(joystick_0), .JOY_2(joystick_1), .JOY_3(joystick_2), .JOY_4(joystick_3), .JOY_5(12'h000), .MULTITAP(3'b000), .MOUSE(25'h0), .MOUSE_OPT(3'b000), .GUN_OPT(1'b0), .GUN_TYPE(1'b0), .GUN_SENSOR(1'b0), .GUN_A(1'b0), .GUN_B(1'b0), .GUN_C(1'b0), .GUN_START(1'b0), .SERJOYSTICK_IN(8'h00), .SERJOYSTICK_OUT(), .SER_OPT(2'b00),
     .RAM_CE_N(GEN_RAM_CE_N), .RAM_RDY(~GEN_MEM_BUSY), .RFS(), .RFS_RDY(1'b1), .GG_RESET(1'b0), .GG_EN(1'b0), .GG_CODE(129'd0), .GG_AVAILABLE(), .DBG_M68K_A(), .DBG_MBUS_A()
 );
 
 CART donor_cart (
-    .RST_N(~genesis_reset), .CLK(clk_sys), .ENABLE(1'b1), .ROM_MODE(1'b1), .RAM_ID(8'd6), .VA(GEN_VA), .VDI(GEN_VDO), .VDO(CART_DO), .AS_N(GEN_AS_N), .RNW(GEN_RNW), .LDS_N(GEN_LDS_N), .UDS_N(GEN_UDS_N), .DTACK_N(CART_DTACK_N), .ASEL_N(GEN_ASEL_N), .VCLK_CE(GEN_VCLK_CE), .CE0_N(GEN_CE0_N), .CART_N(CART_CART_N), .ROM_CE_N(CART_ROM_CE_N), .ROM_DI(GEN_MEM_DO), .ROM_RDY(~GEN_MEM_BUSY), .RAM_CE_N(CART_RAM_CE_N), .RAM_DI(GEN_MEM_DO), .RAM_RDY(~GEN_MEM_BUSY)
+    .RST_N(~genesis_reset), .CLK(clk_sys), .ENABLE(1'b1), .ROM_MODE(cart_mode_sys), .RAM_ID(cart_ram_id_sys), .VA(GEN_VA), .VDI(GEN_VDO), .VDO(CART_DO), .AS_N(GEN_AS_N), .RNW(GEN_RNW), .LDS_N(GEN_LDS_N), .UDS_N(GEN_UDS_N), .DTACK_N(CART_DTACK_N), .ASEL_N(GEN_ASEL_N), .VCLK_CE(GEN_VCLK_CE), .CE0_N(GEN_CE0_N), .CART_N(CART_CART_N), .ROM_CE_N(CART_ROM_CE_N), .ROM_DI(GEN_MEM_DO), .ROM_RDY(~GEN_MEM_BUSY), .RAM_CE_N(CART_RAM_CE_N), .RAM_DI(GEN_MEM_DO), .RAM_RDY(~GEN_MEM_BUSY)
 );
 
 cdd_nodisc_stub nodisc (
@@ -371,7 +449,9 @@ wire [24:1] sdram_addr1 = !GEN_RAM_CE_N  ? {9'b010000000, GEN_VA[15:1]} :
                           !CART_ROM_CE_N ? {2'b00, GEN_VA[22:1]} :
                           !GEN_ROM_CE_N  ? {8'b01111000, GEN_VA[16:1]} :
                                            {9'b010000000, 15'd0};
-wire [24:1] sdram_addr2 = bios_ioctl_wr ? {8'b01111000, bios_ioctl_addr[17:1]} : {2'b00, cart_ioctl_addr[22:1]};
+wire [24:1] bios_sdram_addr = {8'b01111000, bios_ioctl_addr[16:1]};
+wire [24:1] cart_sdram_addr = {2'b00, cart_ioctl_addr[22:1]};
+wire [24:1] sdram_addr2 = bios_ioctl_wr ? bios_sdram_addr : cart_sdram_addr;
 wire [15:0] sdram_din2 = bios_ioctl_wr ? {bios_ioctl_data[7:0], bios_ioctl_data[15:8]} : {cart_ioctl_data[7:0], cart_ioctl_data[15:8]};
 wire load_wr_any = bios_ioctl_wr | cart_ioctl_wr;
 
@@ -453,7 +533,12 @@ always @(posedge current_pix_clk) begin
 end
 
 wire [31:0] debug_status = {
-    21'd0,
+    16'd0,
+    bios_byte_count_exact_sys,
+    bios_finalize_pending_sys,
+    bios_loading_sys,
+    cart_loading_sys,
+    cart_mode_sys,
     cdc_ram_mlab_enabled,
     cdd_command_seen,
     sub68k_activity_seen,
@@ -461,10 +546,23 @@ wire [31:0] debug_status = {
     MCD_RST_N,
     ~genesis_reset,
     megacd_mode_enabled,
-    bios_slot_active,
-    bios_present,
+    bios_load_complete_sys,
+    bios_present_sys,
     reset_n,
     pll_core_locked
+};
+
+wire [31:0] debug_mode_flags = {
+    22'd0,
+    megacd_mode_enabled,
+    cart_mode_sys,
+    bios_load_complete_sys,
+    bios_byte_count_exact_sys,
+    bios_finalize_pending_sys,
+    bios_loading_sys,
+    cart_loading_sys,
+    bios_mode_sys,
+    cart_mode_sys
 };
 
 always @(*) begin
@@ -478,6 +576,10 @@ always @(*) begin
         32'h00E00014: bridge_rd_data = {16'd0, wordram0_last_addr};
         32'h00E00018: bridge_rd_data = {18'd0, cdc_ram_last_read_addr};
         32'h00E0001C: bridge_rd_data = {19'd0, cdc_ram_last_write_addr};
+        32'h00E00020: bridge_rd_data = debug_mode_flags;
+        32'h00E00024: bridge_rd_data = bios_last_byte_addr_sys;
+        32'h00E00028: bridge_rd_data = {16'd0, bios_first_word_sys};
+        32'h00E0002C: bridge_rd_data = {16'd0, bios_last_word_sys};
         32'hF8xxxxxx: bridge_rd_data = cmd_bridge_rd_data;
         default: bridge_rd_data = 32'd0;
     endcase

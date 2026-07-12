@@ -1,30 +1,31 @@
 # MegaCD debug registers
 
-- 0x00E00000: MegaCD probe signature
-- 0x00E00004: core status flags
-  - bit 10: CDC MLAB helper enabled
-  - bit 9: CDD command activity seen
-  - bit 8: sub-68000 activity seen
-  - bit 7: Genesis CPU activity seen
-  - bit 6: MCD reset released
-  - bit 5: Genesis reset released
-  - bit 4: MegaCD mode enabled
-  - bit 3: BIOS slot currently active
-  - bit 2: BIOS present
-  - bit 1: host reset released
-  - bit 0: PLL locked
-- 0x00E00008: Genesis cart bytes received
-- 0x00E0000C: BIOS bytes received
-- 0x00E00010: memory flags
-  - bit 8: CDC RAM write activity seen
-  - bit 7: CDC RAM read activity seen
-  - bit 6: CDC MLAB helper enabled
-  - bit 5: sub-68000 activity seen
-  - bit 4: MCD reset released
-  - bit 3: external WORDRAM0 enabled
-  - bit 2: WORDRAM0 write activity seen
-  - bit 1: WORDRAM0 read activity seen
-  - bit 0: reserved zero
-- 0x00E00014: last WORDRAM0 address
-- 0x00E00018: last CDC RAM read address
-- 0x00E0001C: last CDC RAM write address
+## Existing registers
+
+- `0x00E00004`: Core Status
+- `0x00E00008`: Cartridge Bytes
+- `0x00E0000C`: BIOS Bytes
+- `0x00E00010`: Memory Flags
+- `0x00E00014`: WordRAM Address
+- `0x00E00018`: CDC Read Address
+- `0x00E0001C`: CDC Write Address
+
+## Added registers
+
+- `0x00E00020`: Mode Flags
+- `0x00E00024`: BIOS Last Addr
+- `0x00E00028`: BIOS First Word
+- `0x00E0002C`: BIOS Last Word
+
+## Mode Flags bit layout
+
+- bit 0: selected cartridge mode
+- bit 1: selected BIOS mode
+- bit 2: cartridge loading active
+- bit 3: BIOS loading active
+- bit 4: BIOS finalization pending
+- bit 5: BIOS byte count exact
+- bit 6: BIOS load complete
+- bit 7: MegaCD mode enabled
+- bit 8: CART ROM_MODE
+- bit 9: MCD ENABLE

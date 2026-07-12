@@ -8,6 +8,7 @@ CORE_JSON="$CORE_DIR/core.json"
 DATA_JSON="$CORE_DIR/data.json"
 INTERACT_JSON="$CORE_DIR/interact.json"
 BIT="$CORE_DIR/bitstream.rbf_r"
+FRESH_BIT=build/megacd_pocket_artifacts/bitstream.rbf_r
 RESULT=PASS
 fail() { RESULT=FAIL; }
 json_ok=yes
@@ -44,8 +45,11 @@ core_filename="$(jq -r '.core.cores[0].filename // empty' "$CORE_JSON" 2>/dev/nu
 bit_exists=no; [[ -s "$BIT" ]] && bit_exists=yes || fail
 bit_size="$(stat -c '%s' "$BIT" 2>/dev/null || echo missing)"
 bit_sha="$(sha256sum "$BIT" 2>/dev/null | awk '{print $1}')"
-[[ "$bit_size" == '2070404' ]] || fail
-[[ "$bit_sha" == 'a29780da808bbcf39dc63def45135b9ead6b1ecc748719269f49f774b75eb293' ]] || fail
+fresh_bit_exists=no; [[ -s "$FRESH_BIT" ]] && fresh_bit_exists=yes || fail
+fresh_bit_size="$(stat -c '%s' "$FRESH_BIT" 2>/dev/null || echo missing)"
+fresh_bit_sha="$(sha256sum "$FRESH_BIT" 2>/dev/null | awk '{print $1}')"
+[[ "$bit_size" == "$fresh_bit_size" ]] || fail
+[[ "$bit_sha" == "$fresh_bit_sha" ]] || fail
 slot_count="$(jq '.data.data_slots | length' "$DATA_JSON" 2>/dev/null || echo 0)"
 [[ "$slot_count" == '2' ]] || fail
 slot_names_ok=yes
@@ -69,7 +73,13 @@ done < <(jq -r '.data.data_slots[].parameters | type' "$DATA_JSON" 2>/dev/null |
 [[ "$slot0_id" == '0' && "$slot0_name" == 'Cartridge' && "$slot0_addr" == '0x10000000' ]] || fail
 [[ "$slot1_id" == '1' && "$slot1_name" == 'Sega CD BIOS' && "$slot1_req" == 'true' && "$slot1_addr" == '0x20000000' && "$slot1_size" == '131072' ]] || fail
 slot1_ext_ok=no; jq -e '.data.data_slots[1].extensions | index("rom") and index("bin")' "$DATA_JSON" >/dev/null 2>&1 && slot1_ext_ok=yes || fail
-interact_ok=no; jq -e '.interact.variables | length == 6' "$INTERACT_JSON" >/dev/null 2>&1 && interact_ok=yes || fail
+interact_ok=no
+if jq -e '.interact.variables | length == 10' "$INTERACT_JSON" >/dev/null 2>&1 \
+  && jq -e '.interact.variables | map(.name) | index("Mode Flags") and index("BIOS Last Addr") and index("BIOS First Word") and index("BIOS Last Word")' "$INTERACT_JSON" >/dev/null 2>&1; then
+  interact_ok=yes
+else
+  fail
+fi
 payload_clean=yes
 if find "$CORE_DIR" -type f \( -iname '*.rom' -o -iname '*.iso' -o -iname '*.cue' -o -iname '*.chd' -o -iname '*.wav' -o -iname '*.bin' -o -iname '*.gen' -o -iname '*.smd' \) ! -name 'icon.bin' | grep -q .; then
   payload_clean=no
@@ -94,8 +104,8 @@ cat > "$REPORT" <<DOC
 - cores array exists: $cores_exists
 - cores[0].filename is bitstream.rbf_r: $([[ "$core_filename" == 'bitstream.rbf_r' ]] && echo yes || echo no)
 - bitstream exists: $bit_exists
-- bitstream size valid: $([[ "$bit_size" == '2070404' ]] && echo yes || echo no)
-- bitstream sha valid: $([[ "$bit_sha" == 'a29780da808bbcf39dc63def45135b9ead6b1ecc748719269f49f774b75eb293' ]] && echo yes || echo no)
+- staged bitstream matches fresh artifact size: $([[ "$bit_size" == "$fresh_bit_size" ]] && echo yes || echo no)
+- staged bitstream matches fresh artifact sha: $([[ "$bit_sha" == "$fresh_bit_sha" ]] && echo yes || echo no)
 - exactly two data slots: $([[ "$slot_count" == '2' ]] && echo yes || echo no)
 - slot names <= 15 chars: $slot_names_ok
 - parameters field type valid: $param_type_ok

@@ -16,8 +16,8 @@
 - cores array exists: yes
 - cores[0].filename is bitstream.rbf_r: yes
 - bitstream exists: yes
-- bitstream size valid: yes
-- bitstream sha valid: yes
+- staged bitstream matches fresh artifact size: yes
+- staged bitstream matches fresh artifact sha: yes
 - exactly two data slots: yes
 - slot names <= 15 chars: yes
 - parameters field type valid: yes

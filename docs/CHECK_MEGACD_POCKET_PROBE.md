@@ -10,9 +10,9 @@
 - CDC RAM wired to Pocket-local helper: yes
 - internal CDC M10K instance removed: yes
 - PCM RAM remains internal: yes
-- packing audit documented: yes
 - map result documented: yes
 - timing result exists when fit passed: yes
+- resource report documented: yes
 - map exit code: 0
 - fitter exit code: 0
 - timing exit code: 0
@@ -21,6 +21,6 @@
 - generated artifacts tracked by git: no
 - BIOS/ROM/disc image bundled: no
 - package checker result: PASS
-- package classification: BIOS_PROBE_READY_FOR_POCKET
-- final classification: BIOS_PROBE_READY_FOR_POCKET
+- package classification: BIOS_PROBE_V2_READY_FOR_POCKET
+- final classification: BIOS_PROBE_V2_READY_FOR_POCKET
 - Genesis baseline modified: no
